@@ -155,3 +155,59 @@ export const money = (n: number, cents = false) =>
     minimumFractionDigits: cents ? 2 : 0,
     maximumFractionDigits: cents ? 2 : 0,
   });
+
+export type LadderRow = {
+  option: import("@/lib/types").LiftOption;
+  locationName: string;
+  locationSlug: string;
+  label: string;
+  totalUsd: number;
+  perDay: number;
+  rating: "green" | "blue" | "black";
+};
+
+/**
+ * Every priced lift product, flattened and ranked by cost per day.
+ * Price is the axis this site sorts on — trips are date-shiftable, so
+ * blackouts are a caption, not a filter.
+ */
+export function liftLadder(locations: SkiLocation[]): LadderRow[] {
+  const rows: LadderRow[] = [];
+  for (const loc of locations) {
+    for (const option of loc.lift) {
+      const variants: { label: string; totalUsd: number }[] = [];
+      if (option.totalUsd !== null)
+        variants.push({ label: option.name, totalUsd: option.totalUsd });
+      for (const t of option.tiers ?? [])
+        variants.push({ label: `${option.name} — ${t.label}`, totalUsd: t.totalUsd });
+
+      for (const v of variants) {
+        const perDay = v.totalUsd / option.days;
+        rows.push({
+          option,
+          locationName: loc.name,
+          locationSlug: loc.slug,
+          label: v.label,
+          totalUsd: v.totalUsd,
+          perDay,
+          rating:
+            perDay < BENCHMARK_PER_DAY - 5
+              ? "green"
+              : perDay <= BENCHMARK_PER_DAY + 5
+                ? "blue"
+                : "black",
+        });
+      }
+    }
+  }
+  // Dedupe products that appear at more than one location (Epic covers several).
+  const seen = new Set<string>();
+  return rows
+    .filter((r) => {
+      const key = `${r.label}|${r.totalUsd}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) => a.perDay - b.perDay);
+}

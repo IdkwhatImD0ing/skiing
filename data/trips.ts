@@ -2,14 +2,14 @@ import type { Trip } from "@/lib/types";
 
 export const TRIPS: Trip[] = [
   {
-    slug: "new-years-soda-springs",
-    title: "New Year's at Soda Springs",
+    slug: "soda-springs-house",
+    title: "Soda Springs house, 5 nights",
     pitch:
-      "Five nights, whole house, walk to Soda Springs and five minutes to Boreal. The lodging is locked — the lift is the open question, because nothing cheap works this week.",
+      "Five nights, whole house, walk to Soda Springs and five minutes to Boreal. Quoted over New Year's — shifting off the holiday should bring the house down too.",
     locationSlug: "donner-summit",
 
-    liftOptionId: "boreal-window-holiday",
-    dates: { label: "Dec 29 – Jan 3", nights: 5, skiDays: 4 },
+    liftOptionId: "boreal-4pack",
+    dates: { label: "5 nights — dates flexible", nights: 5, skiDays: 4 },
     holiday: true,
     gasPerCarUsd: 90,
     seatsPerCar: 4,
