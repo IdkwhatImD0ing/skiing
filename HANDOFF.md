@@ -6,41 +6,45 @@ the bottom of the page says what each person pays.
 **The one job:** a friend opens the link, sees what it costs *them*, and commits.
 
 ```bash
-npm install && npm run dev        # http://localhost:3000
+npm install && npm run dev        # port 3000, or the next free one
 npx tsc --noEmit && npm run build # both clean as of this handoff
 ```
+
+`.claude/launch.json` has `autoPort` on, because port 3000 is often taken by another
+project on Bill's machine. The dev server will tell you which port it took.
 
 Next 16 (App Router, Turbopack), React 19, Tailwind 4. No database, no API — all data
 is committed TypeScript in `data/`.
 
 ---
 
-## Start here: the site is unstyled
+## How this is styled
 
-Everything builds and the numbers are right, but **the configurator markup uses classes
-that don't exist in `app/globals.css`**, so the page renders nearly bare. This is the
-next job and it is the whole job.
+**Tailwind utilities, in the markup.** The configurator's markup was once written
+against ~40 custom class names that were never added to `globals.css`, so the page
+rendered nearly bare; the fix was to write utilities rather than the missing classes.
 
-Missing, all of them:
+What stays in `app/globals.css` is only what a utility can't carry: the `@theme`
+tokens, the page ground, and the primitives shared with `components/ui.tsx`
+(`.marker-*`, `.prov*`, `.tag*`, `.panel`, `.num`, `.sr-only`). It went from 1,606
+lines to ~400 when the board, ladder, trip grid and cost sheet CSS — all styling
+components a rebuild had already deleted — came out.
 
-```
-.conf  .step  .step-h  .step-n  .step-sub  .step-advice
-.chips  .chips-tight
-.chip  .chip-n  .chip-lift  .chip-stay  .chip-opt
-.chip-top  .chip-resort  .chip-name  .chip-meta  .chip-note
-.chip-rate  .chip-rate-off  .chip-unit  .chip-est  .chip-rec
-.total  .total-empty  .total-table  .total-detail
-.total-out  .total-cell  .total-cell-quiet
-.total-num  .total-label  .total-notes
-```
+Three things worth knowing before you touch it:
 
-Chips are `<button>` with `aria-pressed`, so style selection off `[aria-pressed="true"]`,
-not a class. Unavailable stays carry `data-off`.
-
-`globals.css` is ~1,600 lines and most of it styles components that no longer exist —
-it predates a rebuild. **Don't delete it wholesale**: the tokens, `.panel`, `.tag`,
-`.marker-*`, `.prov*`, `.sr-only`, focus and reduced-motion rules are all still live and
-still good. Mine it, then drop what's genuinely orphaned.
+- **Selection is `aria-pressed`, styled with Tailwind's `aria-pressed:` variant.**
+  There is no state class to keep in sync with the attribute screen readers read.
+  Unavailable stays carry `data-off` and style through `data-[off]:`.
+- **Keep base CSS inside `@layer base`.** Unlayered CSS outranks *every* Tailwind
+  layer, so an unlayered rule cannot be overridden by a utility. This already caused
+  one real bug: the focus ring lived unlayered, and the selected headcount button —
+  which is filled sodium — was getting a sodium ring on sodium, invisible to keyboard
+  users. It asks for `aria-pressed:focus-visible:outline-snow` and that only lands
+  because the base rule is in a layer now.
+- **Long Tailwind strings live in `const`s at the top of `configurator.tsx`**
+  (`CHIP`, `CHIPS`, `STEP_H`, `CHIP_RATE`…), not inline. Tailwind's scanner reads
+  them fine as long as the class names stay literal strings — never build one by
+  interpolation.
 
 ---
 
@@ -49,7 +53,7 @@ still good. Mine it, then drop what's genuinely orphaned.
 ```
 app/page.tsx           hero + <Configurator/>
 app/layout.tsx         fonts, metadata, header/footer, HeadcountProvider
-app/globals.css        tokens + inherited styles (see above)
+app/globals.css        @theme tokens, page ground, ui.tsx primitives (see above)
 
 components/
   configurator.tsx     the whole UI: 5 steps + the total. Client component.
@@ -190,14 +194,19 @@ Inherited from the previous design pass, worth keeping:
 - **Invert the unpriced state:** shrink the dash, promote the sentence. A big em-dash where
   a total belongs reads as a value; a small muted one beside real text reads as absence.
 
-Traps that already cost a round of screenshots:
+Traps that already cost a round of screenshots. All of them still bite through
+Tailwind — a `flex` utility is `display:flex`:
 
-- **Never put `display:flex` on an element containing bare text.** Each text run becomes
-  its own flex item and prose wraps a word at a time. Use an `inline-flex` child.
+- **Never put `flex` on an element containing bare text.** Each text run becomes its
+  own flex item and prose wraps a word at a time. This is why the step headings and
+  `.chip-name`-equivalents are *not* flex: they hold bare text beside a `<span>`. Use
+  an `inline-flex` child, or `align-[…]` on the child, instead.
 - Percentage padding on a table cell resolves against the *table*, not the cell.
-- `minmax(400px, 1fr)` forces a 400px track at 390px and scrolls the body sideways. Use
-  `minmax(min(400px, 100%), 1fr)`.
+- `minmax(400px,1fr)` forces a 400px track at 390px and scrolls the body sideways. Use
+  `minmax(min(400px,100%),1fr)` — as `CHIPS` does.
 - `auto-fill`, not `auto-fit`, or two cards stretch across a full row.
+- `transition-colors` includes `outline-color`, so a focus ring fades in. If you measure
+  computed styles to check a ring, wait out the duration or you'll read the start value.
 
 Floor: responsive to 390px, visible keyboard focus, `prefers-reduced-motion` respected,
 real semantic tables, no horizontal body scroll. Motion restrained.
@@ -206,15 +215,32 @@ real semantic tables, no horizontal body scroll. Motion restrained.
 
 ## Research
 
-The workflow stalled at **2 of 9 dimensions** and has not moved. Raw output:
+From the first pass:
 
 - `research/donner-summit-cluster.json` — 21 findings, Boreal/Soda Springs/Sugar Bowl
 - `research/north-west-shore-independents.json` — 37 findings, incl. Homewood operating
   again for 2026-27
 
-Never ran: South Bay rentals, Ikon/Epic break-even, South Shore packs, on-site rentals,
-multi-pack hunt, logistics/lodging, big-resort discounts. Re-running those is optional —
-Bill has been sourcing prices himself and they have been better than the research.
+A second sweep covers the dimensions that never ran, each researched and then re-checked
+by a separate agent briefed to *refute* its prices rather than agree with them:
+
+- `research/south-bay-rentals.json` — the $20/day San Jose gear estimate, never verified
+- `research/onsite-rentals.json` — the $59/day resort rental, and Truckee shops
+- `research/epic-ikon-breakeven.json` — Epic vs Ikon vs single-resort packs, plus
+  student/military/group rates and every buy-by deadline
+- `research/south-shore-packs.json` — Sierra-at-Tahoe, Diamond Peak, Mt Rose, Homewood
+- `research/multipack-hunt.json` — Costco, ski clubs, Snowbomb, retail promos
+- `research/logistics-lodging.json` — non-Airbnb lodging, real gas cost, chain control,
+  **resort parking fees** and the car-rental assumption
+
+`research/SUMMARY.md` is the one to read: it separates prices confirmed against a live
+2026-27 page (with the exact field each belongs in) from everything still soft, and
+lists the costs the quote ignores entirely.
+
+**Nothing from research lands in `data/` automatically.** A number goes in only if it
+came back confirmed with a source URL, and it carries `status`/`source`/`asOf` when it
+does. Bill has been sourcing prices himself and they have often been better than the
+research — where they disagree, ask him rather than overwriting.
 
 ---
 
@@ -223,9 +249,15 @@ Bill has been sourcing prices himself and they have been better than the researc
 1. **The 4-person listing has no URL.** It's in `data/locations.ts` as `soda-springs-4p`,
    third-cheapest per night, unlinkable in a proposal until Bill sends the link.
 2. **A second quote on any one house** — see the retraction above.
-3. **Buy-by Oct 1** for the Boreal 4-pack and Soda Springs pass. The site does not surface
-   this anywhere and probably should; it's the only thing here with a deadline.
-4. **The Night Pass may be the actual answer** and is currently buried as one chip among
-   many. $219, no blackouts, $43.80/night — for a group leaving San Jose at midday it beats
-   everything. Worth asking Bill whether the group would ski afternoons before designing
-   around it.
+3. **Does the group ski afternoons?** The Night Pass is $219, no blackouts, $43.80/night,
+   and for a group leaving San Jose at midday it beats everything on the board. Its
+   no-blackout caption is now visible on the chip, but it is still one chip among
+   fifteen. Worth asking Bill before designing around it — this is the only open
+   question that could reshape the page.
+
+**Closed since the last handoff.** The configurator is styled (Tailwind, see above).
+The **Oct 1 buy-by** deadline now shows in amber on all four affected passes — every
+lift option already carried a `blackouts` string that nothing rendered, which is also
+where the Night Pass's "no blackout dates at all" was hiding. The **carload sawtooth**
+is stated in step 1, deriving the full carloads from `SEATS_PER_CAR` so the sentence
+can't drift from the arithmetic.
