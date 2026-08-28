@@ -27,12 +27,18 @@ export type Stay = Provenance & {
   perks: string[];
 };
 
+/** Age-banded pricing. Most pass products have tiers and this group spans 23. */
+export type PriceTier = { label: string; totalUsd: number };
+
 export type LiftOption = Provenance & {
   id: string;
   name: string;
   resort: string;
   days: number;
+  /** Adult / default price for the whole product. null while researching. */
   totalUsd: number | null;
+  /** Cheaper age bands, if the product has them. */
+  tiers?: PriceTier[];
   blackouts: string;
   transferable: boolean | null;
 };

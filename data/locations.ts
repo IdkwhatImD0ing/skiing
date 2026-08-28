@@ -134,13 +134,16 @@ export const LOCATIONS: SkiLocation[] = [
     lift: [
       {
         id: "ikon-session",
-        name: "Ikon Session pass",
+        name: "Ikon Session Pass (4 day)",
         resort: "Palisades / Northstar",
         days: 4,
-        totalUsd: null,
-        blackouts: "Holiday blackouts on Session tiers — confirming",
+        totalUsd: 529,
+        tiers: [{ label: "Under 23", totalUsd: 419 }],
+        blackouts: "Holiday blackouts apply to Session passes — confirming which dates",
         transferable: false,
-        status: "researching",
+        status: "verified",
+        asOf: "2026-08-28",
+        note: "Found by Bill. $132.25/day at 23+, $104.75/day under 23 — both well over the $60 benchmark, but it is the only way onto Palisades terrain.",
       },
     ],
     rentals: [
