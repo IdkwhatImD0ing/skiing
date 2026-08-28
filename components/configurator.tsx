@@ -12,7 +12,7 @@ export function Configurator() {
   const { headcount, setHeadcount } = useHeadcount();
   const choices = useMemo(() => liftChoices(), []);
   const [liftId, setLiftId] = useState(choices[0]?.id ?? "");
-  const [gear, setGear] = useState<GearKey>("sj");
+  const [gear, setGear] = useState<GearKey>("onsite");
   const [car, setCar] = useState<CarKey>("rent");
 
   const lift = choices.find((c) => c.id === liftId) ?? choices[0];
@@ -129,7 +129,10 @@ export function Configurator() {
               aria-pressed={k === gear}
               onClick={() => setGear(k)}
             >
-              <span className="chip-name">{GEAR[k].label}</span>
+              <span className="chip-name">
+                {GEAR[k].label}
+                {GEAR[k].recommended && <span className="chip-rec">pick this</span>}
+              </span>
               <span className="chip-rate num">
                 {GEAR[k].perDay === 0 ? "free" : `${money(GEAR[k].perDay)}`}
                 {GEAR[k].perDay > 0 && <span className="chip-unit">/day</span>}
@@ -138,6 +141,11 @@ export function Configurator() {
             </button>
           ))}
         </div>
+        <p className="step-advice">
+          <strong>Rent at the resort.</strong> {GEAR.onsite.why} San Jose is $
+          {(GEAR.onsite.perDay - GEAR.sj.perDay) * 4} cheaper over four days, and
+          it isn&rsquo;t worth the boot bags in your lap for four hours.
+        </p>
       </section>
 
       <section className="step" aria-labelledby="s-car">

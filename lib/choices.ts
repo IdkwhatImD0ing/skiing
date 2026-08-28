@@ -62,16 +62,26 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
 }
 
 export const GEAR = {
-  own: { label: "I have my own", perDay: 0, note: "Nothing to pick up." },
-  sj: {
-    label: "Rent in San Jose",
-    perDay: 20,
-    note: "Cheaper, but you carry it and can't swap.",
-  },
   onsite: {
     label: "Rent at the resort",
     perDay: 40,
-    note: "Twice the price. Walk up, swap freely.",
+    note: "Costs more, but nothing rides in the car and you can swap if the snow changes.",
+    recommended: true,
+    why: "Skis and boards eat the luggage space we don't have with a full carload.",
+  },
+  sj: {
+    label: "Rent in San Jose",
+    perDay: 20,
+    note: "Half the price, but it fills the trunk and you're stuck with whatever you picked.",
+    recommended: false,
+    why: "",
+  },
+  own: {
+    label: "I have my own",
+    perDay: 0,
+    note: "Nothing to rent — still takes the same space in the car.",
+    recommended: false,
+    why: "",
   },
 } as const;
 
