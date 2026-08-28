@@ -206,14 +206,17 @@ export const LOCATIONS: SkiLocation[] = [
     stays: [
       {
         id: "slt-house",
-        name: "South Lake group house",
+        name: "Heavenly house",
         kind: "house",
         sleeps: 8,
-        nights: 3,
-        quotes: [],
+        nights: 5,
+        quotes: [{ guests: 8, totalUsd: 3067 }],
+        url: "https://www.airbnb.com/rooms/1154279842180289984",
         toLift: "~10 min to Heavenly",
-        perks: ["Walk to town", "Hot tub"],
-        status: "researching",
+        perks: ["Sleeps 8", "Walk to town", "South Lake"],
+        status: "verified",
+        asOf: "2026-08-28",
+        note: "Quoted for Dec 29 – Jan 3 at 8 guests. $76.68 per person per night — the cheapest per-head night quoted so far.",
       },
       {
         id: "slt-hostel",

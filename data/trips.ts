@@ -50,8 +50,8 @@ export const TRIPS: Trip[] = [
       "Longest drive, but Sierra-at-Tahoe usually has the most aggressive multi-pack in Tahoe, and South Lake has an actual town attached.",
     locationSlug: "south-lake",
 
-    liftOptionId: "sierra-pack",
-    dates: { label: "3 nights", nights: 3, skiDays: 3 },
+    liftOptionId: "epic-day",
+    dates: { label: "5 nights — dates flexible", nights: 5, skiDays: 4 },
     holiday: false,
     gasPerCarUsd: 100,
     seatsPerCar: 4,
