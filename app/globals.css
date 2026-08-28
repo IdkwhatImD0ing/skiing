@@ -74,10 +74,11 @@ body {
   overflow-x: hidden;
 }
 
-/* Wide enough for the choices and the sticky receipt rail to sit side by
-   side without squeezing the chip grid down to two columns. */
+/* Wide enough that the choices get four columns with the receipt rail beside
+   them, rather than the rail eating into the content. Prose inside stays
+   readable on its own max-widths, so only the container edges move. */
 .wrap {
-  max-width: 1180px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
 }

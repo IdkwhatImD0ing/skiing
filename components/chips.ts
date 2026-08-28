@@ -76,7 +76,7 @@ export const PILL =
    `items-start` is load-bearing — a stretched grid item fills the row and has
    no room left to move, so the rail would never actually stick. */
 export const LAYOUT =
-  "grid items-start gap-x-12 gap-y-10 pb-[clamp(3rem,6vw,5rem)] lg:grid-cols-[minmax(0,1fr)_340px]";
+  "grid items-start gap-x-14 gap-y-10 pb-[clamp(3rem,6vw,5rem)] lg:grid-cols-[minmax(0,1fr)_330px]";
 
 export const STEPS = "flex flex-col gap-[clamp(2.25rem,4.5vw,3.25rem)]";
 

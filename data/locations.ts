@@ -22,13 +22,16 @@ export const LOCATIONS: SkiLocation[] = [
         sleeps: 7,
         sleepsMax: 11,
         nights: 5,
-        quotes: [{ guests: 7, totalUsd: 3254 }],
+        quotes: [
+          { guests: 7, totalUsd: 3254, asOf: "2026-08-28" },
+          { guests: 8, totalUsd: 2959, asOf: "2026-08-27" },
+        ],
         url: "https://www.airbnb.com/rooms/1211000497392569018",
         toLift: "~5 min to Boreal",
         perks: ["Whole house", "Walk to Soda Springs", "Parking"],
         status: "verified",
         asOf: "2026-08-28",
-        note: "Quoted for Dec 29 – Jan 3 at 7 guests. Sleeps 7 comfortably; 2 air mattresses stretch it to ~11. Only one quote, so no per-guest curve — a second quote at a different group size would give one.",
+        note: "Listed as “Big Twig Lodge — Mountain Oasis”. Dec 29 – Jan 3. Two quotes now: $3,254 at 7 guests (Aug 28) and $2,959 at 8 guests, read off the listing on Aug 27. Do NOT read a per-guest curve off those two — they were taken on different days and Airbnb reprices constantly, so the $295 gap is the calendar, not the eighth guest. Both are exact quotes at their own guest counts, which is all the site uses them for.",
       },
       {
         id: "soda-springs-4p",

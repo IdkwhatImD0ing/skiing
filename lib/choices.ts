@@ -26,6 +26,14 @@ export type LiftChoice = {
   perDay: number | null;
   /** The age band, or null for the product's default (adult) price. */
   tier: string | null;
+  /**
+   * True when this price is last season's, because the resort hasn't posted
+   * this one yet. A real number with a stale date — usable, but it must never
+   * render as though it were current.
+   */
+  stale: boolean;
+  /** The season the price is for, when we know it. */
+  season?: string;
   /** Inclusive age bounds on that band. Absent when the tier isn't about age. */
   minAge?: number;
   maxAge?: number;
@@ -87,6 +95,8 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
           days: option.days,
           totalUsd: v.totalUsd,
           tier: v.tier,
+          stale: option.status === "last-season",
+          season: option.season,
           minAge: v.minAge,
           maxAge: v.maxAge,
           tripTotal,
