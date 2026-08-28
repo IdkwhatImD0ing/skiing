@@ -106,24 +106,48 @@ trade.
 
 **Dates are not a constraint.** Bill: *"each proposal is time shiftable, we just care about
 price."* Blackout text is a caption. Never gate, grey out, or de-rank an option for having
-restrictions. Price per day is the only ranking axis.
+restrictions.
+
+**But the trip's shape is.** Bill: *"we want 4 full day ski sessions."* `SKI_DAYS = 4` in
+`lib/types.ts` is a property of the trip, and the pass has to meet it. This is *not* the
+same thing as a date restriction, and the difference is the one distinction the pricing
+turns on:
+
+- A **blackout** says *when* you can ski. Shift the trip; it costs nothing. Caption it.
+- **Coverage** says *how many full days you actually get*. A night pass sells 3–8pm, and
+  no quantity of evenings is a full day. That option cannot do what Bill asked, however
+  cheap it looks, and a rate per day computed from days it does not supply is a lie.
+
+So `LiftOption` carries `coverage` (`"pack" | "unlimited" | "day"`, how the price relates
+to days) and `fullDaysPerTrip` (what it delivers inside *one* trip). Options that fall
+short stay visible and pickable — nothing is hidden here — but they lead with what they
+can't do instead of a per-day figure, they sort last, and selecting one states the hole
+in the trip beside the total.
+
+Per-day, computed against the four days, is still the only ranking axis *among options
+that cover the trip*.
 
 ---
 
 ## What's true right now
 
-Verified against resort pages, 2026-27:
+Verified against resort pages, 2026-27. Per-day is **against Bill's four full days**,
+which is why some of these differ from what an earlier handoff claimed:
 
-| Product | | Note |
-|---|---|---|
-| Boreal iRide 4-Pack | **$239** · $59.75/day | **Price rises after Oct 1** |
-| Boreal Night Pass | $219 · $43.80/night over 5 | Unlimited 3–8pm, **no blackouts** |
-| Play Forever Friday | $35/day | ~9 Fridays a season |
-| Soda Springs Unlimited | $279 ($264 at 18–23) | $55.80/day at 5 visits |
-| Epic Day Pass 4-day | $359, +$63 for peak | |
-| Palisades 4-pack | $440 unrestricted | Beats Ikon Session on the same mountain |
-| Ikon Session 4-day | $529 / $419 under 23 | No peak dates at any price |
-| Boreal rental | $59/day | Not the $40 originally assumed |
+| Product | Cost for the trip | Per full day | Note |
+|---|---|---|---|
+| **Boreal iRide 4-Pack** | **$239** | **$59.75** | The benchmark, and the cheapest adult pass that covers the trip. **Price rises after Oct 1** |
+| Soda Springs Unlimited | $279 ($264 at 18–23) | $69.75 | *Not* $55.80 — that assumed five visits. Above the benchmark at four |
+| Epic Day Pass 4-day | $359 (+$63 peak) | $89.75 | |
+| Ikon Session · under 23 | $419 | $104.75 | |
+| Palisades 4-pack | $440 | $110.00 | Unrestricted. Beats Ikon Session on the same mountain |
+| Ikon Session 4-day | $529 | $132.25 | No peak dates at any price |
+| Play Forever Friday | $35 | — | $35 all day, but one trip holds one Friday: **covers 1 of 4** |
+| Boreal Night Pass | $219 | — | Unlimited, no blackouts, but 3–8pm: **covers 0 of 4** |
+| Boreal rental | $59/day | | Not the $40 originally assumed |
+
+The last two used to head the board at $35 and $43.80/day. They were the cheapest things
+here and they cannot deliver a full-day trip — see the coverage rule above.
 
 Lodging, all quoted for Dec 29 – Jan 3, one guest count each:
 
@@ -248,16 +272,16 @@ research — where they disagree, ask him rather than overwriting.
 
 1. **The 4-person listing has no URL.** It's in `data/locations.ts` as `soda-springs-4p`,
    third-cheapest per night, unlinkable in a proposal until Bill sends the link.
-2. **A second quote on any one house** — see the retraction above.
-3. **Does the group ski afternoons?** The Night Pass is $219, no blackouts, $43.80/night,
-   and for a group leaving San Jose at midday it beats everything on the board. Its
-   no-blackout caption is now visible on the chip, but it is still one chip among
-   fifteen. Worth asking Bill before designing around it — this is the only open
-   question that could reshape the page.
+2. **A second quote on any one house** — see the retraction above. Still the
+   highest-value number left to gather.
 
 **Closed since the last handoff.** The configurator is styled (Tailwind, see above).
 The **Oct 1 buy-by** deadline now shows in amber on all four affected passes — every
-lift option already carried a `blackouts` string that nothing rendered, which is also
-where the Night Pass's "no blackout dates at all" was hiding. The **carload sawtooth**
-is stated in step 1, deriving the full carloads from `SEATS_PER_CAR` so the sentence
-can't drift from the arithmetic.
+lift option already carried a `blackouts` string that nothing rendered. The **carload
+sawtooth** is stated in step 1, deriving the full carloads from `SEATS_PER_CAR` so the
+sentence can't drift from the arithmetic.
+
+And the Night Pass question is **answered: Bill wants four full-day sessions**, so it is
+out, along with Play Forever Friday. Both are still on the page, marked for what they
+cover. Don't reopen this by looking at their sticker prices — that is exactly the trap
+the coverage rule exists to stop.
