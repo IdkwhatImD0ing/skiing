@@ -36,8 +36,8 @@ export const TRIPS: Trip[] = [
       "The upgrade trip. Real terrain for whoever's past the beginner runs, and a town worth being in after the lifts stop.",
     locationSlug: "north-shore",
 
-    liftOptionId: "ikon-session",
-    dates: { label: "3 nights, midweek", nights: 3, skiDays: 3 },
+    liftOptionId: "palisades-4pack",
+    dates: { label: "5 nights — dates flexible", nights: 5, skiDays: 4 },
     holiday: false,
     gasPerCarUsd: 95,
     seatsPerCar: 4,

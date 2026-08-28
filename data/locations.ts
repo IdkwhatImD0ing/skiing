@@ -123,14 +123,17 @@ export const LOCATIONS: SkiLocation[] = [
     stays: [
       {
         id: "truckee-house",
-        name: "Truckee group house",
+        name: "Olympic Valley house",
         kind: "house",
         sleeps: 8,
-        nights: 3,
-        quotes: [],
-        toLift: "~15 min to Palisades",
-        perks: ["Hot tub", "Downtown Truckee walkable"],
-        status: "researching",
+        nights: 5,
+        quotes: [{ guests: 8, totalUsd: 2900 }],
+        url: "https://www.airbnb.com/rooms/26011658",
+        toLift: "Olympic Valley — at the foot of Palisades",
+        perks: ["Sleeps 8", "Walk to the mountain"],
+        status: "verified",
+        asOf: "2026-08-28",
+        note: "Quoted for Dec 29 – Jan 3 at 8 guests. $72.50 per person per night — the cheapest lodging quoted, and it is the closest to its mountain.",
       },
       {
         id: "tahoe-city-condo",
