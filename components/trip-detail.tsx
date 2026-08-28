@@ -16,7 +16,8 @@ export function TripDetail({ trip }: { trip: Trip }) {
         <h2 className="eyebrow" id="cost-h">
           Your share, {headcount} of us
         </h2>
-        <table className="sheet-table">
+        <div className="scroller">
+          <table className="sheet-table">
           <caption className="sr-only">Per-person cost breakdown</caption>
           <tbody>
             {c.lines.map((l) => (
@@ -40,7 +41,8 @@ export function TripDetail({ trip }: { trip: Trip }) {
               </td>
             </tr>
           </tfoot>
-        </table>
+          </table>
+        </div>
         {c.totalPerPerson === null && (
           <p className="sheet-note">
             One line isn&rsquo;t priced yet, so there&rsquo;s no total. It stays blank

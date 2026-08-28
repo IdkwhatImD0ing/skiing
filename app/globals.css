@@ -4,6 +4,10 @@
    Night skiing at Donner Summit. Boreal runs lights until 9pm and
    this group drives up after work, so the palette is the drive in:
    deep alpine dark, sodium floodlight amber, glacier cyan on the data.
+
+   Two accents, two jobs, no overlap:
+     sodium  = the human voice + the $60 benchmark. Nothing else.
+     glacier = numbers we measured.
    --------------------------------------------------------------- */
 @theme {
   --color-night: #080c17;
@@ -23,6 +27,23 @@
   --font-data: var(--font-mono), ui-monospace, monospace;
 }
 
+:root {
+  /* Marker hues lifted for graphics on a dark ground. */
+  --rate-green: #5cc96f;
+  --rate-blue: #6ba4ff;
+  --rate-black: #e8f0fa;
+  --rate-unknown: #8fa0bd;
+
+  --hair: color-mix(in srgb, var(--color-ridge) 85%, transparent);
+  --pane: color-mix(in srgb, var(--color-dusk) 70%, var(--color-night));
+  --well: color-mix(in srgb, var(--color-night) 78%, #000);
+
+  /* The ladder lane runs $40–$140/day, so $60 lands at 20%. */
+  --bar-anchor: 20%;
+
+  --gap-section: clamp(3.25rem, 7vw, 6rem);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -36,6 +57,8 @@ body {
   background: var(--color-night);
   color: var(--color-snow);
   font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   /* Floodlight spill from the top of the page. */
   background-image: radial-gradient(
@@ -44,6 +67,7 @@ body {
     rgba(255, 154, 60, 0) 60%
   );
   background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 
 .wrap {
@@ -56,9 +80,11 @@ body {
 .display {
   font-family: var(--font-display);
   font-weight: 800;
+  font-stretch: 112%; /* Archivo's width axis — trail-sign voice. */
   letter-spacing: -0.03em;
   line-height: 0.95;
   margin: 0;
+  text-wrap: balance;
 }
 .eyebrow {
   font-family: var(--font-data);
@@ -72,6 +98,18 @@ body {
   font-family: var(--font-data);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* --- Trail markers --------------------------------------------- */
@@ -107,8 +145,10 @@ body {
 }
 
 .tag {
+  display: inline-block;
   font-family: var(--font-data);
   font-size: 10px;
+  line-height: 1.5;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 3px 7px;
@@ -116,6 +156,7 @@ body {
   border: 1px solid var(--color-ridge);
   color: var(--color-muted);
   white-space: nowrap;
+  vertical-align: middle;
 }
 .tag-warn {
   color: var(--color-sodium);
@@ -125,6 +166,11 @@ body {
 .tag-soft {
   color: var(--color-muted);
   border-style: dashed;
+}
+.tag-good {
+  color: var(--rate-green);
+  border-color: color-mix(in srgb, var(--rate-green) 50%, transparent);
+  background: color-mix(in srgb, var(--rate-green) 12%, transparent);
 }
 
 a {
@@ -137,6 +183,1248 @@ a {
   border-radius: 2px;
 }
 
+/* Any table that could outgrow a phone gets its own scroll box, so the
+   page body never moves sideways. */
+.scroller {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ridge) transparent;
+}
+
+/* --- A price we do not have ------------------------------------ */
+/* Never a zero, never a dash that reads as free. */
+.researching {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+/* --- Provenance -------------------------------------------------- */
+.prov {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px dashed var(--hair);
+  font-size: 12px;
+  color: var(--color-muted);
+}
+.prov-compact {
+  margin-top: auto;
+}
+.prov-dot {
+  align-self: center;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--color-muted);
+  flex: none;
+}
+.prov-dot-on {
+  border: 0;
+  background: var(--color-glacier);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-glacier) 18%, transparent);
+}
+.prov-status {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-snow) 70%, transparent);
+}
+.prov-meta {
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--color-muted) 80%, transparent);
+}
+/* The margin note. This is where "here's the thing you'd miss" lives —
+   the Palisades 4-pack undercutting Ikon Session on the same mountain
+   is a note, so notes get to be readable prose, not fine print. */
+.prov-note {
+  flex: 1 0 100%;
+  margin-top: 4px;
+  padding-left: 11px;
+  border-left: 2px solid color-mix(in srgb, var(--color-sodium) 60%, transparent);
+  font-size: 13px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-snow) 82%, transparent);
+}
+
+/* --- Header ------------------------------------------------------ */
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--color-night) 84%, transparent);
+  backdrop-filter: blur(12px) saturate(140%);
+  border-bottom: 1px solid var(--hair);
+}
+.site-head-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 12px;
+}
+.site-mark {
+  display: grid;
+  gap: 1px;
+  text-decoration: none;
+}
+.site-mark-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.site-mark-route {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+/* The yardstick, drawn as an actual bar. Amber rules mean $60 and
+   nothing else on this site. */
+.site-bar {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--color-sodium);
+}
+.site-bar-label {
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.site-bar-num {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-sodium);
+}
+.site-bar-unit {
+  font-size: 10.5px;
+  color: var(--color-muted);
+}
+
+/* --- Footer ------------------------------------------------------ */
+.site-foot {
+  margin-top: var(--gap-section);
+  border-top: 1px solid var(--hair);
+}
+.site-foot-inner {
+  display: grid;
+  gap: 8px;
+  padding-block: 28px 44px;
+}
+.site-foot-rule {
+  margin: 0;
+  max-width: 58ch;
+  font-size: 13.5px;
+  color: color-mix(in srgb, var(--color-snow) 76%, transparent);
+}
+.site-foot-meta {
+  margin: 0;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* --- Page rhythm -------------------------------------------------- */
+/* Gap-driven, so nothing here fights a per-section margin later on. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-section);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.sec-h {
+  font-size: clamp(1.55rem, 3.4vw, 2.2rem);
+  margin: 0 0 10px;
+}
+.sec-sub {
+  margin: 0 0 24px;
+  max-width: 60ch;
+  color: color-mix(in srgb, var(--color-snow) 74%, transparent);
+}
+
+/* --- Hero --------------------------------------------------------- */
+.hero {
+  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(2.25rem, 4vw, 3.5rem);
+}
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 22px;
+}
+.hero .eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--color-sodium);
+}
+.hero-h {
+  font-size: clamp(2.6rem, 8.4vw, 5.1rem);
+  max-width: 15ch;
+}
+/* Archivo is loaded upright only, so <em> gets meaning, not a slant. */
+.hero-h em {
+  font-style: normal;
+  color: var(--color-sodium);
+}
+.hero-sub {
+  margin: 26px 0 0;
+  max-width: 52ch;
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  color: color-mix(in srgb, var(--color-snow) 78%, transparent);
+}
+
+/* =================================================================
+   THE HEADCOUNT BOARD — the signature.
+   These listings price per guest, so an extra head can cost everyone
+   more. The board is an instrument: pick a number, a floodlight picks
+   it out on the curve.
+   ================================================================= */
+.board {
+  position: relative;
+  display: grid;
+  gap: 14px 34px;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--color-ridge);
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--color-dusk), var(--pane));
+}
+/* The lit top edge: the lamp this whole page is standing under. */
+.board::before {
+  content: "";
+  position: absolute;
+  inset: -1px 14% auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-sodium),
+    transparent
+  );
+  opacity: 0.75;
+}
+.board-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin-bottom: 4px;
+}
+.board-hint {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--color-muted);
+}
+
+.board-readout {
+  align-self: start;
+}
+.readout-num {
+  margin: 0;
+  font-size: clamp(3rem, 8.5vw, 4.4rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  color: var(--color-glacier);
+}
+.readout-num-off {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--color-muted);
+  letter-spacing: 0.01em;
+}
+.readout-label {
+  margin: 10px 0 0;
+  max-width: 24ch;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-snow) 78%, transparent);
+}
+.readout-line {
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--hair);
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+/* The counterintuitive bit. Sodium, because it is the point being made —
+   not a warning. */
+.delta {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-snow) 86%, transparent);
+}
+.delta-arrow {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  margin-top: 1px;
+  border-radius: 2px;
+  font-family: var(--font-data);
+  font-size: 12px;
+  line-height: 1;
+}
+.delta-up .delta-arrow {
+  color: var(--color-night);
+  background: var(--color-sodium);
+}
+.delta-down .delta-arrow {
+  color: var(--color-night);
+  background: var(--rate-green);
+}
+.delta-stop .delta-arrow {
+  color: var(--color-muted);
+  border: 1px dashed var(--color-muted);
+}
+.delta .num {
+  color: var(--color-sodium);
+  font-weight: 700;
+}
+.delta-down .num {
+  color: var(--rate-green);
+}
+
+/* --- The plot ------------------------------------------------------ */
+.plot {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: clamp(148px, 20vw, 200px);
+  border: 1px solid var(--hair);
+  border-radius: 3px;
+  background:
+    linear-gradient(180deg, var(--well), var(--color-night));
+}
+.plot-line {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: color-mix(in srgb, var(--color-glacier) 45%, transparent);
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.plot-cols {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.plot-col {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Base form is the inline swatch used in the key. */
+.plot-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-glacier);
+  vertical-align: middle;
+}
+.plot-dot[data-est] {
+  background: transparent;
+  border: 1.5px dashed var(--color-glacier);
+}
+.plot-gap {
+  display: inline-block;
+  width: 2px;
+  height: 13px;
+  border-left: 1.5px dashed var(--color-muted);
+  vertical-align: middle;
+}
+
+/* Positioned form, inside the plot. */
+.plot-col .plot-dot {
+  position: absolute;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  transform: translate(-50%, -50%);
+  background: color-mix(in srgb, var(--color-glacier) 72%, transparent);
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    width 180ms ease,
+    height 180ms ease;
+}
+.plot-col .plot-dot[data-est] {
+  background: transparent;
+  border: 1.5px dashed color-mix(in srgb, var(--color-glacier) 80%, transparent);
+}
+.plot-col .plot-dot[data-on] {
+  width: 13px;
+  height: 13px;
+  background: var(--color-sodium);
+  border-color: var(--color-sodium);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--color-sodium) 22%, transparent),
+    0 0 22px 2px color-mix(in srgb, var(--color-sodium) 40%, transparent);
+}
+/* The floodlight. Boreal keeps the lights on till nine; the selected
+   headcount is the one standing under them. */
+.plot-col .plot-dot[data-on]::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  z-index: -1;
+  width: 84px;
+  height: 260px;
+  transform: translateX(-50%);
+  clip-path: polygon(41% 0, 59% 0, 100% 100%, 0 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 154, 60, 0) 0%,
+    rgba(255, 154, 60, 0.05) 58%,
+    rgba(255, 154, 60, 0.22) 100%
+  );
+  pointer-events: none;
+}
+.plot-col .plot-gap {
+  position: absolute;
+  left: 50%;
+  top: 26%;
+  bottom: 26%;
+  height: auto;
+  transform: translateX(-50%);
+  border-left-color: color-mix(in srgb, var(--color-muted) 55%, transparent);
+}
+
+/* --- The strip: the plot's x-axis, and the control ------------------- */
+.strip {
+  display: flex;
+  margin: 0;
+  padding: 3px;
+  border: 1px solid var(--hair);
+  border-radius: 3px;
+  background: var(--well);
+}
+.cell {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  cursor: pointer;
+}
+.cell-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+.cell-num {
+  display: block;
+  padding: 9px 0;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--color-snow) 72%, transparent);
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+.cell:hover .cell-num {
+  background: color-mix(in srgb, var(--color-snow) 7%, transparent);
+  color: var(--color-snow);
+}
+.cell[data-on] .cell-num {
+  background: var(--color-sodium);
+  color: var(--color-night);
+  font-weight: 700;
+}
+.cell[data-noroom] .cell-num {
+  color: color-mix(in srgb, var(--color-muted) 65%, transparent);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.cell[data-on][data-noroom] .cell-num {
+  color: var(--color-night);
+  background: color-mix(in srgb, var(--color-sodium) 55%, transparent);
+}
+.cell-input:focus-visible + .cell-num {
+  outline: 2px solid var(--color-sodium);
+  outline-offset: 2px;
+}
+
+.plot-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 0;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.key-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.key-axis {
+  margin-left: auto;
+  color: color-mix(in srgb, var(--color-muted) 75%, transparent);
+}
+
+@media (min-width: 900px) {
+  .board {
+    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    grid-template-areas:
+      "top top"
+      "readout plot"
+      "readout strip"
+      "readout key";
+    align-content: start;
+  }
+  .board-top {
+    grid-area: top;
+  }
+  .board-readout {
+    grid-area: readout;
+  }
+  .plot {
+    grid-area: plot;
+  }
+  .strip {
+    grid-area: strip;
+  }
+  .plot-key {
+    grid-area: key;
+  }
+}
+
+/* --- Board, rail variant ------------------------------------------- */
+.rail {
+  position: sticky;
+  top: 57px;
+  z-index: 40;
+  border-block: 1px solid var(--hair);
+  background: color-mix(in srgb, var(--color-night) 88%, transparent);
+  backdrop-filter: blur(12px);
+}
+.rail-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  padding-block: 10px;
+}
+.rail-label {
+  margin: 0;
+}
+.rail .strip {
+  flex: 1 1 240px;
+}
+.rail-share {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 0;
+}
+.rail-share-num {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-glacier);
+}
+.rail-share-label {
+  font-size: 11.5px;
+  color: var(--color-muted);
+}
+
+/* =================================================================
+   THE LIFT LADDER — the spine.
+   Every pack ranked by $/day. One amber rule runs the height of the
+   table at $60; each bar reaches from that rule out to what the pack
+   actually costs. Distance from the bar is the whole story.
+   ================================================================= */
+.ladder-top {
+  margin-bottom: 26px;
+}
+.ladder-h {
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  margin-bottom: 12px;
+}
+.ladder-sub {
+  margin: 0;
+  max-width: 54ch;
+  color: color-mix(in srgb, var(--color-snow) 76%, transparent);
+}
+.ladder-sub .num {
+  color: var(--color-sodium);
+  font-weight: 700;
+}
+
+.ladder-table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.ladder-table thead th {
+  padding: 0 14px 9px;
+  border-bottom: 1px solid var(--color-ridge);
+  font-family: var(--font-data);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+.ladder-table tbody th,
+.ladder-table tbody td {
+  padding: 15px 14px;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: middle;
+  font-weight: 400;
+}
+.ladder-table tbody tr:hover th,
+.ladder-table tbody tr:hover td {
+  background: color-mix(in srgb, var(--color-snow) 3.5%, transparent);
+}
+.ladder-table .col-num {
+  text-align: right;
+  white-space: nowrap;
+}
+.ladder-name {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14.5px;
+  line-height: 1.3;
+}
+.ladder-where {
+  display: block;
+  margin-left: 22px;
+  font-family: var(--font-data);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.ladder-perday {
+  font-size: 17px;
+  font-weight: 700;
+}
+.ladder-total {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+/* Blackouts are a caption. Trips are date-shiftable, so this is never a
+   warning and never red. */
+.ladder-table .col-note {
+  max-width: 21ch;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--color-muted) 92%, transparent);
+  white-space: normal;
+}
+
+/* The lane. */
+.col-bar {
+  position: relative;
+  width: 30%;
+  min-width: 190px;
+}
+.col-bar::before {
+  content: "";
+  position: absolute;
+  left: var(--bar-anchor);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: color-mix(in srgb, var(--color-sodium) 55%, transparent);
+}
+.ladder-table thead .col-bar {
+  text-align: left;
+  padding-left: calc(var(--bar-anchor) + 8px);
+  color: var(--color-sodium);
+}
+.col-bar-unit {
+  color: color-mix(in srgb, var(--color-sodium) 62%, transparent);
+}
+.bar {
+  position: absolute;
+  inset: 0;
+  --x: calc((var(--pd) - 40) * 1%);
+}
+.bar::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: min(var(--bar-anchor), var(--x));
+  right: calc(100% - max(var(--bar-anchor), var(--x)));
+  height: 7px;
+  transform: translateY(-50%);
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--rate-black) 34%, transparent);
+}
+.bar::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: var(--x);
+  width: 3px;
+  height: 19px;
+  transform: translate(-50%, -50%);
+  background: var(--rate-black);
+}
+[data-rating="green"] .bar::before {
+  background: color-mix(in srgb, var(--rate-green) 55%, transparent);
+}
+[data-rating="green"] .bar::after {
+  background: var(--rate-green);
+}
+[data-rating="blue"] .bar::before {
+  background: color-mix(in srgb, var(--rate-blue) 55%, transparent);
+}
+[data-rating="blue"] .bar::after {
+  background: var(--rate-blue);
+}
+/* The pack that actually meets the yardstick. */
+.ladder-table tbody tr[data-rating="blue"] th,
+.ladder-table tbody tr[data-rating="blue"] td {
+  background: color-mix(in srgb, var(--color-sodium) 7%, transparent);
+}
+
+.ladder-pending {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 20px 0 0;
+  padding: 13px 15px;
+  border: 1px dashed var(--color-ridge);
+  border-radius: 3px;
+  font-size: 12.5px;
+  color: color-mix(in srgb, var(--color-snow) 74%, transparent);
+}
+.ladder-pending-where {
+  color: var(--color-muted);
+}
+
+/* =================================================================
+   TRIPS
+   ================================================================= */
+.trips-h {
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  margin-bottom: 10px;
+}
+.trips-sub {
+  margin: 0 0 26px;
+  max-width: 54ch;
+  color: color-mix(in srgb, var(--color-snow) 76%, transparent);
+}
+.trips-sub .num {
+  color: var(--color-sodium);
+  font-weight: 700;
+}
+.trip-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.trip {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+.trip:hover {
+  border-color: color-mix(in srgb, var(--color-sodium) 55%, var(--color-ridge));
+  background: var(--pane);
+  transform: translateY(-2px);
+}
+.trip-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.trip-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 108%;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.trip-where {
+  margin: 8px 0 0;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.trip-pitch {
+  margin: 14px 0 20px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--color-snow) 74%, transparent);
+}
+.trip-foot {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--hair);
+}
+.trip-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+}
+.trip-price-num {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-glacier);
+}
+.trip-price-label {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+/* No price yet. The dash shrinks and the sentence takes over, so this
+   can never be misread as free. */
+.trip-price-off .trip-price-num {
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--color-muted) 70%, transparent);
+}
+.trip-price-off .trip-price-label {
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-snow) 82%, transparent);
+}
+.trip-days {
+  margin: 9px 0 0;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* --- Places -------------------------------------------------------- */
+.place-list {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.place {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.place-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 108%;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+.place-meta {
+  margin: 7px 0 0;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.place-blurb {
+  margin: 13px 0 16px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--color-snow) 74%, transparent);
+}
+.place-resorts {
+  margin: auto 0 0;
+  padding-top: 13px;
+  border-top: 1px solid var(--hair);
+  font-size: 11px;
+  color: var(--color-glacier);
+}
+
+/* --- Closing ------------------------------------------------------- */
+.close {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding-top: 30px;
+  border-top: 1px solid var(--color-ridge);
+}
+.close-line {
+  flex: 1 1 30ch;
+  margin: 0;
+  max-width: 46ch;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--color-snow) 78%, transparent);
+}
+.close-cta {
+  flex: none;
+  padding: 13px 22px;
+  border: 1px solid var(--color-sodium);
+  border-radius: 3px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 108%;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: var(--color-sodium);
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+.close-cta:hover {
+  background: var(--color-sodium);
+  color: var(--color-night);
+}
+
+/* =================================================================
+   TRIP DETAIL
+   ================================================================= */
+.crumb {
+  margin: 26px 0 0;
+  font-family: var(--font-data);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.crumb a {
+  text-decoration: none;
+}
+.crumb a:hover {
+  color: var(--color-sodium);
+}
+.trip-hero {
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(1.75rem, 3.5vw, 2.75rem);
+}
+.trip-hero .eyebrow {
+  margin-bottom: 18px;
+}
+.trip-hero-h {
+  font-size: clamp(2.1rem, 6.4vw, 3.9rem);
+  max-width: 16ch;
+}
+.trip-hero-sub {
+  margin: 20px 0 0;
+  max-width: 56ch;
+  font-size: clamp(0.98rem, 1.5vw, 1.06rem);
+  color: color-mix(in srgb, var(--color-snow) 78%, transparent);
+}
+
+/* --- The cost sheet: the commit moment ------------------------------ */
+.sheet {
+  padding: clamp(20px, 3vw, 28px);
+}
+.sheet .eyebrow {
+  margin-bottom: 18px;
+}
+.sheet-table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.sheet-table th,
+.sheet-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hair);
+  font-weight: 400;
+  vertical-align: baseline;
+}
+.sheet-table tbody th {
+  font-size: 14.5px;
+  white-space: nowrap;
+}
+.sheet-detail {
+  padding-left: 18px !important;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--color-muted);
+}
+.sheet-table .col-num {
+  text-align: right;
+  white-space: nowrap;
+}
+.sheet-amt {
+  font-size: 15px;
+  color: var(--color-glacier);
+}
+.sheet-table tfoot th,
+.sheet-table tfoot td {
+  padding-top: 16px;
+  border-bottom: 0;
+  border-top: 2px solid var(--color-sodium);
+}
+.sheet-table tfoot th {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+.sheet-total {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--color-glacier);
+}
+.sheet-note {
+  display: flex;
+  gap: 9px;
+  margin: 18px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid var(--color-muted);
+  font-size: 12.5px;
+  color: color-mix(in srgb, var(--color-snow) 76%, transparent);
+}
+
+/* --- Stays ---------------------------------------------------------- */
+.stay-list,
+.opt-list {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.stay,
+.opt {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.stay[data-best] {
+  border-color: color-mix(in srgb, var(--color-sodium) 60%, var(--color-ridge));
+  background: linear-gradient(180deg, var(--color-dusk), var(--pane));
+}
+/* Doesn't sleep the group. Dimmed, not alarmed — the dates move, and so
+   can the booking. */
+.stay[data-off] {
+  border-style: dashed;
+  background: transparent;
+  opacity: 0.62;
+}
+.stay-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+.stay-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 108%;
+  font-size: 1.08rem;
+  letter-spacing: -0.02em;
+}
+.stay-name a {
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-snow) 30%, transparent);
+}
+.stay-name a:hover {
+  color: var(--color-sodium);
+  border-bottom-color: var(--color-sodium);
+}
+.stay-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0;
+}
+.stay-meta {
+  margin: 9px 0 0;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.stay-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 9px;
+  margin: 16px 0 0;
+}
+.stay-price-num {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-glacier);
+}
+.stay-price-label {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+.stay-price-sub {
+  flex: 1 0 100%;
+  font-size: 10.5px;
+  color: var(--color-muted);
+}
+.stay-price-off .stay-price-num {
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--color-muted) 70%, transparent);
+}
+.stay-price-off .stay-price-label {
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-snow) 82%, transparent);
+}
+.stay-perks {
+  margin: 14px 0 0;
+  font-size: 12px;
+  color: color-mix(in srgb, var(--color-snow) 68%, transparent);
+}
+
+/* --- Lift + gear options -------------------------------------------- */
+.opt-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.opt-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 108%;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.opt-resort {
+  flex: 1 0 100%;
+  margin-left: 22px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.opt-top {
+  flex-wrap: wrap;
+}
+.opt-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin: 16px 0 0;
+}
+.opt-perday {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-glacier);
+}
+.opt-unit {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+.opt-total {
+  flex: 1 0 100%;
+  font-size: 10.5px;
+  color: var(--color-muted);
+}
+.opt-off {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-snow) 80%, transparent);
+}
+.opt-off::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--color-muted);
+}
+.opt-tier {
+  margin: 9px 0 0;
+  font-size: 11px;
+  color: var(--color-muted);
+}
+.opt-note {
+  margin: 13px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-snow) 72%, transparent);
+}
+.opt-note-warn {
+  color: var(--color-sodium);
+}
+
+@media (max-width: 560px) {
+  .site-mark-name {
+    font-size: 15px;
+  }
+  .site-mark-route,
+  .site-bar-label {
+    font-size: 9px;
+  }
+  .site-bar-num {
+    font-size: 15px;
+  }
+  .plot-key {
+    font-size: 9.5px;
+    gap: 6px 12px;
+  }
+  .key-axis {
+    margin-left: 0;
+    flex: 1 0 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -144,5 +1432,8 @@ a {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .trip:hover {
+    transform: none;
   }
 }

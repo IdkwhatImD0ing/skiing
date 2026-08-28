@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { LOCATIONS } from "@/data/locations";
 import { liftLadder, money } from "@/lib/cost";
 import { BENCHMARK_PER_DAY } from "@/lib/types";
@@ -25,13 +26,17 @@ export function LiftLadder() {
         </p>
       </div>
 
-      <table className="ladder-table">
+      <div className="scroller">
+        <table className="ladder-table">
         <caption className="sr-only">
           Lift products ranked by cost per day against a $60 per day benchmark
         </caption>
         <thead>
           <tr>
             <th scope="col">Pack</th>
+            <th scope="col" className="col-bar">
+              vs $60<span className="col-bar-unit">/day</span>
+            </th>
             <th scope="col" className="col-num">Per day</th>
             <th scope="col" className="col-num">Total</th>
             <th scope="col" className="col-note">Dates</th>
@@ -47,6 +52,15 @@ export function LiftLadder() {
                 </span>
                 <span className="ladder-where">{r.option.resort}</span>
               </th>
+              {/* Distance from the $60 bar, drawn. r.perDay comes from
+                  lib/cost.ts — CSS does the scaling, not this file. */}
+              <td className="col-bar">
+                <span
+                  className="bar"
+                  style={{ "--pd": r.perDay } as CSSProperties}
+                  aria-hidden
+                />
+              </td>
               <td className="col-num">
                 <span className="num ladder-perday">{money(r.perDay, true)}</span>
               </td>
@@ -55,7 +69,8 @@ export function LiftLadder() {
             </tr>
           ))}
         </tbody>
-      </table>
+        </table>
+      </div>
 
       {researching.length > 0 && (
         <p className="ladder-pending">
