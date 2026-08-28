@@ -1,5 +1,10 @@
 import { LOCATIONS } from "@/data/locations";
-import { BENCHMARK_PER_DAY, type SkiLocation, type LiftOption } from "@/lib/types";
+import {
+  BENCHMARK_PER_DAY,
+  SKI_DAYS,
+  type SkiLocation,
+  type LiftOption,
+} from "@/lib/types";
 
 export type LiftChoice = {
   id: string;
@@ -9,12 +14,38 @@ export type LiftChoice = {
   locationSlug: string;
   locationName: string;
   days: number;
+  /** Sticker price of the product itself. */
   totalUsd: number;
-  perDay: number;
+  /** What it costs to cover this trip's ski days — buy two packs if needed. */
+  tripTotal: number;
+  /** Full days on snow it actually delivers here, capped at SKI_DAYS. */
+  covers: number;
+  /** True when it delivers every day of the trip: the only real candidates. */
+  coversTrip: boolean;
+  /** Per full day delivered. null when it delivers none. */
+  perDay: number | null;
+  /** The age band, or null for the product's default (adult) price. */
+  tier: string | null;
   blackouts: string;
   option: LiftOption;
-  rating: "green" | "blue" | "black";
+  rating: "green" | "blue" | "black" | "unknown";
 };
+
+/**
+ * What one product costs to put us on snow for the whole trip. A pack that is
+ * shorter than the trip has to be bought twice; a season pass costs the same
+ * whatever we do; a day ticket multiplies.
+ */
+function tripCost(option: LiftOption, sticker: number, days: number): number {
+  switch (option.coverage) {
+    case "unlimited":
+      return sticker;
+    case "day":
+      return sticker * days;
+    case "pack":
+      return sticker * Math.ceil(days / option.days);
+  }
+}
 
 /**
  * Every priced lift product, one entry per age/peak tier. Not deduped —
@@ -29,14 +60,19 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
         option.totalUsd === null
           ? []
           : [
-              { suffix: "", totalUsd: option.totalUsd },
+              { suffix: "", tier: null, totalUsd: option.totalUsd },
               ...(option.tiers ?? []).map((t) => ({
                 suffix: ` · ${t.label}`,
+                tier: t.label,
                 totalUsd: t.totalUsd,
               })),
             ];
       for (const [i, v] of variants.entries()) {
-        const perDay = v.totalUsd / option.days;
+        // A night pass sells evenings; a Friday ticket needs a Friday. Neither
+        // can put us on snow for four full days, however cheap the sticker is.
+        const covers = Math.min(SKI_DAYS, option.fullDaysPerTrip ?? SKI_DAYS);
+        const tripTotal = tripCost(option, v.totalUsd, covers);
+        const perDay = covers > 0 ? tripTotal / covers : null;
         out.push({
           id: `${loc.slug}:${option.id}:${i}`,
           label: option.name + v.suffix,
@@ -45,20 +81,33 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
           locationName: loc.name,
           days: option.days,
           totalUsd: v.totalUsd,
+          tier: v.tier,
+          tripTotal,
+          covers,
+          coversTrip: covers >= SKI_DAYS,
           perDay,
           blackouts: option.blackouts,
           option,
           rating:
-            perDay < BENCHMARK_PER_DAY - 5
-              ? "green"
-              : perDay <= BENCHMARK_PER_DAY + 5
-                ? "blue"
-                : "black",
+            perDay === null
+              ? "unknown"
+              : perDay < BENCHMARK_PER_DAY - 5
+                ? "green"
+                : perDay <= BENCHMARK_PER_DAY + 5
+                  ? "blue"
+                  : "black",
         });
       }
     }
   }
-  return out.sort((a, b) => a.perDay - b.perDay);
+  // Anything that cannot cover the trip sorts last however cheap it looks —
+  // a rate per day is not comparable when the days aren't there.
+  return out.sort((a, b) => {
+    if (a.coversTrip !== b.coversTrip) return a.coversTrip ? -1 : 1;
+    if (a.perDay === null) return 1;
+    if (b.perDay === null) return -1;
+    return a.perDay - b.perDay;
+  });
 }
 
 export const GEAR = {

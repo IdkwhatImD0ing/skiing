@@ -40,7 +40,24 @@ export type LiftOption = Provenance & {
   id: string;
   name: string;
   resort: string;
+  /** Visits included. Only meaningful when `coverage` is "pack". */
   days: number;
+  /**
+   * How `totalUsd` relates to days on snow. Without this, `days` was doing
+   * two jobs — a real product attribute on a 4-pack, and a guessed visit
+   * count on a season pass — and the per-day figures were not comparable.
+   *
+   *   "pack"      buys `days` visits; buy another pack to cover a longer trip
+   *   "unlimited" buys the season, so one price covers the whole trip
+   *   "day"       buys one day; multiply by the trip
+   */
+  coverage: "pack" | "unlimited" | "day";
+  /**
+   * Full days on snow this can actually deliver inside ONE trip. Omit when it
+   * can cover the whole trip. 0 means it is not a full-day product at all —
+   * a night pass sells evenings, and no number of them is a full day.
+   */
+  fullDaysPerTrip?: number;
   /** Adult / default price for the whole product. null while researching. */
   totalUsd: number | null;
   /** Cheaper age bands, if the product has them. */
@@ -85,6 +102,17 @@ export type Trip = {
 
 /** The yardstick: $60/day on lift, from the Boreal 4-pack at ~$240. */
 export const BENCHMARK_PER_DAY = 60;
+
+/**
+ * The trip: four full days on snow. Bill asked for it directly, so it is a
+ * property of the trip and not of whichever pass happens to be selected.
+ *
+ * It used to be `lift.days`, which meant the pass silently redefined the trip
+ * — picking a $35 Friday ticket produced a one-day trip, and the two season
+ * passes were quoted per-day against an assumed five visits they would never
+ * get. Every lift product is now priced for covering these four days.
+ */
+export const SKI_DAYS = 4;
 
 /**
  * Flat per car, per trip. Turo quoted $450; Hertz is close enough that $500

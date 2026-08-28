@@ -1,7 +1,7 @@
 import { getLocation } from "@/data/locations";
 import { stayTotalFor } from "@/lib/cost";
 import { CAR, GEAR, type CarKey, type GearKey, type LiftChoice } from "@/lib/choices";
-import type { Stay } from "@/lib/types";
+import { SKI_DAYS, type Stay } from "@/lib/types";
 
 export type QuoteLine = {
   label: string;
@@ -15,7 +15,8 @@ export type Quote = {
   lines: QuoteLine[];
   total: number;
   perPerson: number;
-  perPersonPerDay: number;
+  /** Divided by nights, not ski days: the trip's nightly burn rate. */
+  perPersonPerNight: number;
   nights: number;
   skiDays: number;
   cars: number;
@@ -23,6 +24,9 @@ export type Quote = {
   stay: Stay;
   estimated: boolean;
   squeeze: boolean;
+  /** Full days the chosen pass actually delivers. Short of skiDays is a hole. */
+  liftCovers: number;
+  liftShortfall: number;
 };
 
 /**
@@ -49,7 +53,9 @@ export function quote(
   if (!lodging) return null;
 
   const nights = stay.nights;
-  const skiDays = lift.days;
+  // The trip is four full days on snow. The pass has to meet that, not define
+  // it — gear is rented for the days we ski, whatever the ticket happens to be.
+  const skiDays = SKI_DAYS;
   const cars = Math.ceil(headcount / SEATS_PER_CAR);
 
   const lines: QuoteLine[] = [
@@ -61,9 +67,11 @@ export function quote(
     },
     {
       label: "Lift",
-      total: lift.totalUsd * headcount,
-      perPerson: lift.totalUsd,
-      detail: `${lift.label} · ${skiDays} day${skiDays > 1 ? "s" : ""}`,
+      total: lift.tripTotal * headcount,
+      perPerson: lift.tripTotal,
+      detail: lift.coversTrip
+        ? `${lift.label} · covers all ${skiDays} days`
+        : `${lift.label} · covers ${lift.covers} of ${skiDays} days`,
     },
     {
       label: "Gear",
@@ -94,7 +102,7 @@ export function quote(
     lines,
     total,
     perPerson: total / headcount,
-    perPersonPerDay: total / headcount / nights,
+    perPersonPerNight: total / headcount / nights,
     nights,
     skiDays,
     cars,
@@ -102,5 +110,7 @@ export function quote(
     stay,
     estimated: lodging.estimated,
     squeeze: headcount > stay.sleeps,
+    liftCovers: lift.covers,
+    liftShortfall: Math.max(0, skiDays - lift.covers),
   };
 }

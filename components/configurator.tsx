@@ -5,6 +5,7 @@ import { getLocation } from "@/data/locations";
 import { liftChoices, GEAR, CAR, type GearKey, type CarKey } from "@/lib/choices";
 import { money, stayTotalFor } from "@/lib/cost";
 import { quote, SEATS_PER_CAR } from "@/lib/quote";
+import { SKI_DAYS } from "@/lib/types";
 import { useHeadcount, HEAD_RANGE } from "@/components/headcount";
 import { Marker } from "@/components/ui";
 
@@ -79,7 +80,12 @@ const isDeadline = (s: string) => /buy before|buy by/i.test(s);
 export function Configurator() {
   const { headcount, setHeadcount } = useHeadcount();
   const choices = useMemo(() => liftChoices(), []);
-  const [liftId, setLiftId] = useState(choices[0]?.id ?? "");
+  // Open on the cheapest pass that covers the whole trip at the adult price.
+  // choices[0] is a child tier, and a page that greets a group of adults with
+  // a child fare is lying to them before they touch anything.
+  const [liftId, setLiftId] = useState(
+    (choices.find((c) => c.coversTrip && c.tier === null) ?? choices[0])?.id ?? ""
+  );
   const [gear, setGear] = useState<GearKey>("onsite");
   const [car, setCar] = useState<CarKey>("rent");
 
@@ -143,6 +149,10 @@ export function Configurator() {
       <section aria-labelledby="s-lift">
         <h2 className={STEP_H} id="s-lift">
           <span className={STEP_N}>2</span> Where we ski
+          {/* The trip is a fixed shape, so the pass has to meet it. */}
+          <span className="ml-[0.65em] font-data text-[0.6em] font-normal uppercase tracking-[0.12em] text-muted">
+            {SKI_DAYS} full days
+          </span>
         </h2>
         <div className={CHIPS} role="group" aria-labelledby="s-lift">
           {choices.map((c) => (
@@ -151,6 +161,7 @@ export function Configurator() {
               type="button"
               className={CHIP}
               aria-pressed={c.id === lift.id}
+              data-off={!c.coversTrip || undefined}
               onClick={() => setLiftId(c.id)}
             >
               <span className="flex items-start gap-2">
@@ -160,10 +171,20 @@ export function Configurator() {
                 </span>
               </span>
               <span className={CHIP_NAME}>{c.label}</span>
-              <span className={CHIP_RATE}>
-                {money(c.perDay, true)}
-                <span className={CHIP_UNIT}>/day</span>
-              </span>
+              {/* A rate per day is only comparable when the days are there.
+                  Anything short of the whole trip leads with what it can't do. */}
+              {c.coversTrip && c.perDay !== null ? (
+                <span className={CHIP_RATE}>
+                  {money(c.perDay, true)}
+                  <span className={CHIP_UNIT}>/day</span>
+                </span>
+              ) : (
+                <span className={CHIP_RATE_OFF}>
+                  {c.covers === 0
+                    ? `no full days — ${money(c.totalUsd)} buys evenings`
+                    : `covers ${c.covers} of ${SKI_DAYS} days`}
+                </span>
+              )}
               <span
                 className={
                   isDeadline(c.blackouts)
@@ -333,9 +354,12 @@ export function Configurator() {
             </p>
             <p className="m-0 grid gap-1.5">
               <span className="font-data tabular-nums text-[1.7rem] font-bold leading-none tracking-[-0.04em] text-glacier">
-                {money(q.perPersonPerDay)}
+                {money(q.perPersonPerNight)}
               </span>
-              <span className="text-[11.5px] text-muted">per person, per day</span>
+              {/* Divided by nights, not ski days — and now that the page says
+                  "4 full days" a few lines up, "per day" would read as the
+                  wrong denominator. */}
+              <span className="text-[11.5px] text-muted">per person, per night</span>
             </p>
             <p className="m-0 grid gap-1.5">
               <span className="font-data tabular-nums text-[1.35rem] font-bold leading-none tracking-[-0.04em] text-snow/74">
@@ -346,6 +370,20 @@ export function Configurator() {
               </span>
             </p>
           </div>
+
+          {/* A pass that doesn't reach four days leaves a hole in the trip, and
+              the total above is not the price of the trip Bill asked for. Say so
+              where the number is, not in a caption underneath it. */}
+          {q.liftShortfall > 0 && (
+            <p className="mt-4 border-l-2 border-sodium/60 pl-[13px] text-[13.5px] leading-relaxed text-snow/82">
+              <strong className="font-semibold text-sodium">
+                This pass only covers {q.liftCovers} of {q.skiDays} days.
+              </strong>{" "}
+              The total above buys {q.liftCovers === 0 ? "no" : q.liftCovers} full
+              day{q.liftCovers === 1 ? "" : "s"} on snow — you would still need a
+              ticket for the other {q.liftShortfall}.
+            </p>
+          )}
 
           <p className="mt-5 font-data text-[11px] uppercase leading-relaxed tracking-[0.06em] text-muted">
             {q.nights} nights · {q.skiDays} day{q.skiDays > 1 ? "s" : ""} on snow ·{" "}
