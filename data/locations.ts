@@ -330,7 +330,7 @@ export const LOCATIONS: SkiLocation[] = [
         source: "skirose.com/season-passes",
         asOf: "2026-08-27",
         season: "2026-27",
-        note: "Same caveat as Tahoe Donner: Mt Rose publishes no 26/27 day ticket at all — its own page still quotes a 2024/25 window rate — so a season pass is the only sourceable product that covers four days, and $168.75/day is very unlikely to be the real floor. No young-adult band exists; adult starts at 16. The cheaper $375 Select Pass is useless here, granting one self-chosen weekday per week.",
+        note: "Mt Rose does sell day tickets — it just will not tell anyone the price. Checked directly: the 26/27 store redirects to the homepage, and even the Jan 2026 archived capture of their own ticket page still quoted a 2024/25 window rate of $189 adult, with the note that online buyers get an unpublished discount. So there is no recent day price to use, at any staleness. Four window tickets at that 2024/25 rate would be $756, which is worse than this $675 pass, so the pass is what shows — but the real online four-day cost is very probably well under both. Worth a look once tickets load. No young-adult band exists; adult starts at 16, and the cheaper $375 Select Pass grants one self-chosen weekday a week, so it covers one day of this trip.",
       },
     ],
     rentals: [

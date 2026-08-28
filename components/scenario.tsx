@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { getLocation } from "@/data/locations";
 import { RESORTS } from "@/data/resorts";
 import {
@@ -115,6 +116,31 @@ export function Scenario() {
                 data-off={!lift || undefined}
                 onClick={() => setResortSlug(resort.slug)}
               >
+                {/* Bleeds to the chip's edges. object-cover because the source
+                    photos run 16:9 to 3.2:1 and the slot is fixed. Unpriced
+                    mountains keep the photo but lose the saturation, so the
+                    board still reads at a glance. */}
+                {/* Every chip gets the band whether or not we have a photo,
+                    so one missing image doesn't knock a whole row out of
+                    alignment. An empty band is quiet on purpose: a missing
+                    photo, unlike a missing price, changes no decision. */}
+                <span className="relative -mx-[14px] -mt-[13px] mb-1 block h-[104px] overflow-hidden rounded-t-[3px] bg-well">
+                  {resort.image && (
+                    <>
+                      <Image
+                        src={resort.image.src}
+                        alt={resort.image.alt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 300px"
+                        className={`object-cover ${lift ? "" : "grayscale"}`}
+                      />
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 bg-linear-to-t from-night/85 via-night/10 to-transparent"
+                      />
+                    </>
+                  )}
+                </span>
                 <span className="flex items-start gap-2">
                   <Marker rating={lift?.rating ?? "unknown"} />
                   <span className="text-[10px] uppercase leading-relaxed tracking-[0.1em] text-muted">
@@ -152,6 +178,27 @@ export function Scenario() {
               </button>
             ))}
           </div>
+          {/* The credit is the licence term, not decoration, so it is on the
+              page rather than buried in a tooltip. Heavenly is US federal
+              public domain and needs none, but naming the source costs
+              nothing. */}
+          <p className="mt-4 text-[10.5px] leading-relaxed text-muted/80">
+            Mountain photos from Wikimedia Commons:{" "}
+            {RESORTS.filter((r) => r.image).map((r, i, arr) => (
+              <span key={r.slug}>
+                <a
+                  href={r.image!.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-sodium"
+                >
+                  {r.name}
+                </a>{" "}
+                &copy; {r.image!.author}, {r.image!.license}
+                {i < arr.length - 1 ? " · " : "."}
+              </span>
+            ))}
+          </p>
         </section>
 
         <section aria-labelledby="s-stay">
