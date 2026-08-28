@@ -20,6 +20,7 @@ export const LOCATIONS: SkiLocation[] = [
         name: "Soda Springs house",
         kind: "house",
         sleeps: 7,
+        sleepsMax: 11,
         nights: 5,
         quotes: [
           { guests: 4, totalUsd: 1680 },
@@ -30,7 +31,7 @@ export const LOCATIONS: SkiLocation[] = [
         perks: ["Whole house", "Walk to Soda Springs", "Parking"],
         status: "verified",
         asOf: "2026-08-28",
-        note: "Quoted for Dec 29 – Jan 3. Prices per guest: each head past 4 adds ~$525 to the booking.",
+        note: "Quoted for Dec 29 – Jan 3. Sleeps 7 comfortably; 2 air mattresses stretch it to ~11. Prices per guest — each head past 4 adds ~$525, so squeezing more in raises everyone’s share rather than lowering it. Only quoted at 4 and 7; above 7 is extrapolated and needs a real quote.",
       },
       {
         id: "soda-springs-alt",

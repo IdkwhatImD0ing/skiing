@@ -10,7 +10,7 @@ import {
 } from "react";
 
 export const MIN_HEADS = 2;
-export const MAX_HEADS = 9;
+export const MAX_HEADS = 11;
 export const DEFAULT_HEADS = 6;
 
 const STORE_KEY = "donner-headcount";

@@ -16,6 +16,8 @@ export type Stay = Provenance & {
   kind: "house" | "motel" | "hotel" | "hostel";
   /** How many people sleep here comfortably — not the listing's optimistic max. */
   sleeps: number;
+  /** Absolute ceiling, air mattresses and couches included. Omit if same as sleeps. */
+  sleepsMax?: number;
   nights: number;
   /**
    * Quoted totals by guest count. Many listings price per guest, so a single

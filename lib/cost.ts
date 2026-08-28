@@ -47,7 +47,10 @@ export type StayOption = {
   perPerson: number | null;
   perPersonPerNight: number | null;
   estimated: boolean;
+  /** Bookable at all — within the absolute ceiling. */
   fits: boolean;
+  /** Over comfortable capacity: someone is on an air mattress. */
+  squeeze: boolean;
 };
 
 /** Every stay at a location, priced for this headcount, cheapest first. */
@@ -65,7 +68,8 @@ export function stayOptions(
         perPerson,
         perPersonPerNight: perPerson === null ? null : perPerson / stay.nights,
         estimated: q?.estimated ?? false,
-        fits: headcount <= stay.sleeps,
+        fits: headcount <= (stay.sleepsMax ?? stay.sleeps),
+        squeeze: headcount > stay.sleeps,
       };
     })
     .sort((a, b) => {
