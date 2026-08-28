@@ -58,7 +58,7 @@ export function quote(
       label: "Lift",
       total: lift.totalUsd * headcount,
       perPerson: lift.totalUsd,
-      detail: `${lift.label} · ${skiDays} days`,
+      detail: `${lift.label} · ${skiDays} day${skiDays > 1 ? "s" : ""}`,
     },
     {
       label: "Gear",
