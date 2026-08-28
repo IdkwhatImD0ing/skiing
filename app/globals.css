@@ -258,6 +258,21 @@ body {
   letter-spacing: 0.02em;
   color: color-mix(in srgb, var(--color-muted) 80%, transparent);
 }
+/* The citation itself. Underlined on hover rather than always, because a
+   provenance line can carry several and a row of permanently underlined
+   fine print reads as clutter. Amber on hover: the same lamp everything
+   interactive on this page lights up with. */
+.prov-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted color-mix(in srgb, var(--color-muted) 55%, transparent);
+  transition: color 0.15s, border-color 0.15s;
+}
+.prov-link:hover {
+  color: var(--color-sodium);
+  border-bottom-color: var(--color-sodium);
+}
+
 /* The margin note. This is where "here's the thing you'd miss" lives —
    the Palisades 4-pack undercutting Ikon Session on the same mountain
    is a note, so notes get to be readable prose, not fine print. */

@@ -1,6 +1,7 @@
 import { LOCATIONS } from "@/data/locations";
 import {
-  BENCHMARK_PER_DAY,
+  RATING_GREEN_UNDER,
+  RATING_BLUE_UNDER,
   SKI_DAYS,
   type SkiLocation,
   type LiftOption,
@@ -109,9 +110,9 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
           rating:
             perDay === null
               ? "unknown"
-              : perDay < BENCHMARK_PER_DAY - 5
+              : perDay < RATING_GREEN_UNDER
                 ? "green"
-                : perDay <= BENCHMARK_PER_DAY + 5
+                : perDay < RATING_BLUE_UNDER
                   ? "blue"
                   : "black",
         });

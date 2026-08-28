@@ -1,4 +1,5 @@
 import type { Provenance } from "@/lib/types";
+import { RATING_GREEN_UNDER, RATING_BLUE_UNDER } from "@/lib/types";
 
 /* ---------------------------------------------------------------
    Trail markers, repurposed. Difficulty encodes lift cost against
@@ -8,9 +9,9 @@ import type { Provenance } from "@/lib/types";
 export type Rating = "green" | "blue" | "black" | "unknown";
 
 export const RATING_TEXT: Record<Rating, string> = {
-  green: "Under $60/day on lift",
-  blue: "At the $60/day benchmark",
-  black: "Over $60/day on lift",
+  green: `Under $${RATING_GREEN_UNDER}/day on lift`,
+  blue: `$${RATING_GREEN_UNDER} to $${RATING_BLUE_UNDER}/day on lift`,
+  black: `$${RATING_BLUE_UNDER}/day or more on lift`,
   unknown: "Lift price not confirmed yet",
 };
 
@@ -66,22 +67,37 @@ export function Tag({
 }
 
 /** Where a number came from, or that it hasn't landed yet. */
+const PROV_STATUS: Record<Provenance["status"], string> = {
+  verified: "verified",
+  estimate: "estimate",
+  // A real price from a real page, just last season's. It used to fall through
+  // to "researching", which said we had no number when we had one.
+  "last-season": "last season",
+  researching: "researching",
+};
+
 export function Provenance({ of, compact = false }: { of: Provenance; compact?: boolean }) {
-  const bits = [of.source, of.asOf ? `as of ${of.asOf}` : null].filter(Boolean);
   return (
     <p className={compact ? "prov prov-compact" : "prov"}>
       <span
         className={`prov-dot${of.status === "verified" ? " prov-dot-on" : ""}${of.status === "estimate" ? " prov-dot-est" : ""}`}
         aria-hidden
       />
-      <span className="num prov-status">
-        {of.status === "verified"
-          ? "verified"
-          : of.status === "estimate"
-            ? "estimate"
-            : "researching"}
-      </span>
-      {bits.length > 0 && <span className="prov-meta num">{bits.join(" · ")}</span>}
+      <span className="num prov-status">{PROV_STATUS[of.status]}</span>
+      {of.source && (
+        <span className="prov-meta num">
+          {/* The source is the proof, so where we have the page it is a link
+              you can go and check, not a name you have to take our word for. */}
+          {of.sourceUrl ? (
+            <a href={of.sourceUrl} target="_blank" rel="noopener noreferrer" className="prov-link">
+              {of.source}&nbsp;↗
+            </a>
+          ) : (
+            of.source
+          )}
+        </span>
+      )}
+      {of.asOf && <span className="prov-meta num">as of {of.asOf}</span>}
       {of.note && <span className="prov-note">{of.note}</span>}
     </p>
   );
