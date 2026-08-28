@@ -64,16 +64,19 @@ components/
 
 lib/
   types.ts             Stay, LiftOption, Rental, SkiLocation, Provenance, PriceTier
-  choices.ts           liftChoices() — every pass, one row per tier. GEAR, CAR.
+                       + SKI_DAYS (4) and BENCHMARK_PER_DAY (60) — the trip's shape
+  choices.ts           liftChoices() — every pass, one row per tier, priced and
+                       ranked for SKI_DAYS. GEAR, CAR.
   quote.ts             quote() — prices one selection. The money lives here.
   cost.ts              stayTotalFor() per-guest lookup, stayOptions(), money()
 
 data/locations.ts      the only data file. 3 locations, each with stays/lift/rentals.
-research/*.json        raw research output, 2 of 9 dimensions
+research/*.json        raw research output, one file per dimension (see below)
 ```
 
 Flow: pick a pass → the pass decides the location → that location's houses appear →
-gear and car are independent → `quote()` returns lines plus per-person and per-day.
+gear and car are independent → `quote()` returns lines plus per-person, per-night,
+and how many of the four days the chosen pass actually covers.
 
 ---
 
