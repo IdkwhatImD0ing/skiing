@@ -1,7 +1,11 @@
 /** Provenance. Every price on this site carries where it came from. */
 export type Provenance = {
-  /** verified: confirmed against a real source. researching: agents are still on it. */
-  status: "verified" | "researching";
+  /**
+   * verified: confirmed against a real source.
+   * estimate: a working number someone gave us, good enough to plan with.
+   * researching: agents are still on it, price is null.
+   */
+  status: "verified" | "estimate" | "researching";
   source?: string;
   asOf?: string;
   note?: string;

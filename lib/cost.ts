@@ -90,6 +90,10 @@ export type TripCost = {
   lines: CostLine[];
   totalPerPerson: number | null;
   liftPerDay: number | null;
+  /** Cheapest gear per day, and where from. Null if nothing priced. */
+  rental: { perDay: number; where: string } | null;
+  /** What renting on the mountain instead would add, per person. */
+  rentalPenalty: number | null;
   rating: "green" | "blue" | "black" | "unknown";
   /** No stay at this location sleeps the whole group. */
   noRoom: boolean;
@@ -109,6 +113,21 @@ export function costFor(trip: Trip, headcount: number): TripCost | null {
   const cars = Math.ceil(headcount / trip.seatsPerCar);
   const liftPerDay = lift.totalUsd === null ? null : lift.totalUsd / lift.days;
   const liftTotal = liftPerDay === null ? null : liftPerDay * trip.dates.skiDays;
+
+  const rentals = location.rentals.filter((r) => r.perDayUsd !== null);
+  const cheapest = rentals.length
+    ? rentals.reduce((a, b) => (a.perDayUsd! <= b.perDayUsd! ? a : b))
+    : null;
+  const dearest = rentals.length
+    ? rentals.reduce((a, b) => (a.perDayUsd! >= b.perDayUsd! ? a : b))
+    : null;
+  const rental = cheapest
+    ? { perDay: cheapest.perDayUsd!, where: cheapest.shop }
+    : null;
+  const rentalPenalty =
+    cheapest && dearest && dearest !== cheapest
+      ? (dearest.perDayUsd! - cheapest.perDayUsd!) * trip.dates.skiDays
+      : null;
 
   const lines: CostLine[] = [
     {
@@ -132,6 +151,13 @@ export function costFor(trip: Trip, headcount: number): TripCost | null {
       detail: `${cars} car${cars > 1 ? "s" : ""} × $${trip.gasPerCarUsd} ÷ ${headcount}`,
     },
     {
+      label: "Gear",
+      perPerson: rental ? rental.perDay * trip.dates.skiDays : null,
+      detail: rental
+        ? `${trip.dates.skiDays} days × $${rental.perDay} · ${rental.where}`
+        : "researching",
+    },
+    {
       label: "Food",
       perPerson: trip.foodPerDayUsd * trip.dates.nights,
       detail: `${trip.dates.nights} nights × $${trip.foodPerDayUsd}`,
@@ -149,7 +175,19 @@ export function costFor(trip: Trip, headcount: number): TripCost | null {
     else rating = "black";
   }
 
-  return { trip, location, options, best, lines, totalPerPerson, liftPerDay, rating, noRoom };
+  return {
+    trip,
+    location,
+    options,
+    best,
+    lines,
+    totalPerPerson,
+    liftPerDay,
+    rating,
+    noRoom,
+    rental,
+    rentalPenalty,
+  };
 }
 
 export const money = (n: number, cents = false) =>

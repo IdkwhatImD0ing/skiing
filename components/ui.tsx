@@ -70,9 +70,16 @@ export function Provenance({ of, compact = false }: { of: Provenance; compact?: 
   const bits = [of.source, of.asOf ? `as of ${of.asOf}` : null].filter(Boolean);
   return (
     <p className={compact ? "prov prov-compact" : "prov"}>
-      <span className={of.status === "verified" ? "prov-dot prov-dot-on" : "prov-dot"} aria-hidden />
+      <span
+        className={`prov-dot${of.status === "verified" ? " prov-dot-on" : ""}${of.status === "estimate" ? " prov-dot-est" : ""}`}
+        aria-hidden
+      />
       <span className="num prov-status">
-        {of.status === "verified" ? "verified" : "researching"}
+        {of.status === "verified"
+          ? "verified"
+          : of.status === "estimate"
+            ? "estimate"
+            : "researching"}
       </span>
       {bits.length > 0 && <span className="prov-meta num">{bits.join(" · ")}</span>}
       {of.note && <span className="prov-note">{of.note}</span>}

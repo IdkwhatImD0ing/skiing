@@ -210,9 +210,10 @@ export function HeadcountBoard({
             </p>
             {here.squeeze && here.sleeps !== null && (
               <p className="readout-squeeze">
-                Sleeps <span className="num">{here.sleeps}</span> in beds, so{" "}
-                <span className="num">{headcount - here.sleeps}</span> of us are on
-                air mattresses.
+                Sleeps <span className="num">{here.sleeps}</span> in beds
+                {headcount - here.sleeps === 1
+                  ? " — one of us takes an air mattress."
+                  : ` — ${headcount - here.sleeps} of us take air mattresses.`}
               </p>
             )}
           </>
@@ -268,7 +269,7 @@ export function HeadcountBoard({
                   style={{ top: `${y(p.perPerson)}%` }}
                 />
               ) : (
-                <span className="plot-gap" />
+                <span className="plot-gap" data-noroom={p.noRoom || undefined} />
               )}
             </li>
           ))}
@@ -285,7 +286,10 @@ export function HeadcountBoard({
           <span className="plot-dot plot-dot-static" data-est /> interpolated
         </span>
         <span className="key-item">
-          <span className="plot-gap plot-gap-static" /> won&rsquo;t fit
+          <span className="plot-gap plot-gap-static" /> no quote yet
+        </span>
+        <span className="key-item">
+          <span className="plot-gap plot-gap-static" data-noroom /> won&rsquo;t fit
         </span>
         <span className="key-axis">cost per person, rising →</span>
       </p>

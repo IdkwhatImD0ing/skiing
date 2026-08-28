@@ -83,7 +83,9 @@ export function TripDetail({ trip }: { trip: Trip }) {
                   {!o.fits && <Tag tone="warn">sleeps {o.stay.sleeps}</Tag>}
                   {o.fits && o.squeeze && (
                     <Tag tone="soft" title="Over comfortable capacity — beds plus air mattresses.">
-                      {headcount - o.stay.sleeps} on air mattresses
+                      {headcount - o.stay.sleeps === 1
+                        ? "1 on an air mattress"
+                        : `${headcount - o.stay.sleeps} on air mattresses`}
                     </Tag>
                   )}
                   {o.estimated && (
