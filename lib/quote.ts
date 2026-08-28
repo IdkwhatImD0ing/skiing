@@ -35,7 +35,15 @@ export type Quote = {
  */
 export const SEATS_PER_CAR = 4;
 const FOOD_PER_DAY = 30;
-const GAS_PER_CAR = 90;
+/**
+ * San Jose to Donner Summit and back is ~536 miles. At the AAA San Jose price
+ * on 2026-08-27 ($5.58/gal, against $5.45 on the EIA weekly California series)
+ * a full-size AWD SUV — what a group of eight actually rents — burns about
+ * $167 of it. The old $90 assumed a small efficient car nobody on this trip is
+ * driving. This is an August price standing in for a December one, so treat it
+ * as a band rather than a point.
+ */
+const GAS_PER_CAR = 167;
 
 /**
  * Takes the stay itself rather than an id to look up. It used to resolve the

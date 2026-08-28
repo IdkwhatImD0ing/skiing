@@ -168,17 +168,32 @@ export function cheapestAccess(
 }
 
 export const GEAR = {
+  /**
+   * The $59 this used to carry was attributed to Boreal and is unsupportable:
+   * Boreal's rentals page renders the single word "RENTALS", its CMS payload
+   * has an empty children array, and its store returns CATEGORY NOT FOUND.
+   * The only rental price in Tahoe provably re-priced for 2026-27 is Tahoe
+   * Dave's in Truckee — $201 for a 4-day package plus $48 for a helmet, which
+   * a 2026-04-23 archive capture shows rising from $181 and $40. $62.25 a day
+   * all-in. This replaces a guess; it does not confirm one.
+   */
   onsite: {
-    label: "Rent at the resort",
-    perDay: 59,
-    note: "Costs more, but nothing rides in the car and you can swap if the snow changes.",
+    label: "Rent up there",
+    perDay: 62.25,
+    note: "Costs more, but nothing rides in the car and you can swap if the snow changes. Helmet included.",
     recommended: true,
     why: "Skis and boards eat the luggage space we don't have with a full carload.",
   },
+  /**
+   * Not really a daily rate — Sports Basement charges $85 flat for anything in
+   * the 2-4 day bracket and doesn't count pickup or return day, so four ski
+   * days land at $21.25 each. The old $20 was Bill's estimate and was probably
+   * The Ski Renter of Mountain View, which is genuinely $80 for the bracket.
+   */
   sj: {
     label: "Rent in San Jose",
-    perDay: 20,
-    note: "Half the price, but it fills the trunk and you're stuck with whatever you picked.",
+    perDay: 21.25,
+    note: "$85 flat for the whole trip at Sports Basement — but it fills the trunk and you're stuck with whatever you picked.",
     recommended: false,
     why: "",
   },
