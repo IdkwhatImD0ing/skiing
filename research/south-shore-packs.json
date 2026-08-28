@@ -1,0 +1,308 @@
+{
+  "dimension": "South Shore + outlying independents (Sierra-at-Tahoe, Heavenly, Kirkwood, Diamond Peak, Mt Rose, Homewood, Granlibakken, Dodge Ridge, Bear Valley) — 2026-27 lift pricing, multi-packs, midweek and night products, hunting for anything that beats $60/day",
+  "findings": [
+    {
+      "name": "Sierra-at-Tahoe — 26/27 season passes (Unlimited / Play / Weekday) — THE South Shore anchor",
+      "category": "season-pass",
+      "claim": "Sierra-at-Tahoe is the only South Shore resort with a fully published, live 2026/27 price sheet. Three tiers, all currently on sale: UNLIMITED — Adult (23-64) $659, Young Adult (13-22) $529, College Student $529, Senior (65-79) $269, Child (5-12) $269, and free for 4-and-under plus Super Senior 80+; the page markets it as 'Zero Blackout Dates' and it carries unlimited buddy tickets (limit 2 redemptions/day). PLAY PASS — Adult $539, Young Adult/College $489, with blackouts 'Dec. 26-30, 2026 | Jan. 16-17, 2027 | Feb. 13-14, 2027' and 12 buddy tickets. WEEKDAY PASS — Adult and Young Adult both $409, blacked out 'Every Saturday + Sunday, as well as Dec. 26-30, 2026 | Jan. 16-17, 2027 | Feb. 13-14, 2027', with 10 buddy tickets. All three include free parking reservations and 20% off retail, rentals, food, drinks and repair shop. Unlimited holders also get the Powder Alliance: 'three (3) FREE days of skiing/riding at each of the 17 other participating resorts (that's 51 FREE days in the US, New Zealand + Canada)', Sun-Fri non-holiday. IMPORTANT TIMING: the launch release states 'Pass prices will increase on May 1, 2026' — that increase has already happened, so the prices above are the current post-increase rates and are what a buyer pays today. For a 4-day trip the math is bad: Weekday $409 = $102.25/day, Play $539 = $134.75/day, Unlimited $659 = $164.75/day. The Weekday pass only crosses under the $60/day benchmark at 7 midweek days; Unlimited needs 11 days.",
+      "price_usd": "Unlimited $659 adult / $529 young adult; Play $539 adult; Weekday $409 adult",
+      "per_day_usd": "$102.25/day at 4 days (Weekday); $164.75/day at 4 days (Unlimited); $58.43/day at 7 days (Weekday)",
+      "restrictions": "Unlimited: zero blackouts. Play: blacked out Dec 26-30 2026, Jan 16-17 2027, Feb 13-14 2027. Weekday: every Saturday and Sunday PLUS the same holiday blocks — i.e. useless for a weekend trip. Buddy-ticket counts are capped per tier. Prices already rose on May 1, 2026; no further increase date is published.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~185 miles / ~3h45m via US-50 (resort is off Hwy 50 before Echo Summit, ~12 mi west of South Lake Tahoe) — the CLOSEST South Shore resort to the Bay and the only one you reach without crossing into the Tahoe basin. South Shore = US-50 corridor lodging (South Lake Tahoe / Stateline), which is generally cheaper and denser than West Shore.",
+      "source_url": "https://sierraattahoe.com/season-passes/",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "Re-fetched https://sierraattahoe.com/season-passes/ directly. The live page is labeled 2026/27 and prints every claimed figure exactly: Unlimited Adult (23-64) $659, Young Adult (13-22) $529, College $529, Senior (65-79) $269, Child (5-12) $269, 4-and-under and 80+ free; Play Adult $539, Young Adult/College $489; Weekday Adult $409 and Young Adult $409. Blackout text matches verbatim: 'Dec. 26-30, 2026 | Jan. 16-17, 2027 | Feb. 13-14, 2027'. No price discrepancy of any kind. One addition the original missed: the page also prints a deferral deadline of 11/15/2026 for resort credit. The original's 'prices rose May 1, 2026' timing note was not visible on this page and is not load-bearing — the printed prices are what a buyer pays today either way."
+      }
+    },
+    {
+      "name": "Sierra-at-Tahoe — 26/27 day lift tickets NOT published, and the 3-PAK is DISCONTINUED (negative result)",
+      "category": "day-ticket",
+      "claim": "This is the single most important negative in this dimension. Sierra's lift ticket page says verbatim: '2025/26 lift ticket products are no longer available for purchase. Stay tuned for more information on 2026/27 season lift ticket products.' No 26/27 day rate, no 26/27 multi-day pack, nothing. Worse for a budget group, the multi-pack that WOULD have been the South Shore answer to Boreal's iRide 4-Pack is gone: the deals page states 'While still valid for use through the close of the season, 3-PAK products are no longer available to purchase for the 2025/26 season.' So Sierra killed its 3-PAK a full season ago and has not signalled a return. Secondary sources still circulate a '$91 with a 3-PAK' figure — that is a stale price for a product you cannot buy, and it should not appear on the site. The only Sierra ticket price I could confirm from a primary page is a LAST-SEASON window rate, from the FAQ: 'Window rate lift tickets for the 2025/26 season start at $150/day for adults, $135/day for young adults (13-22) and $62/day for children (5-12).' Treat $150 as a 25/26 anchor only. Sierra also confirms in the FAQ: 'Sierra-at-Tahoe does not offer night skiing.' Hours are Mon-Fri 9am-4pm, Sat-Sun/holidays 8:30am-4pm.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "26/27 day-ticket and multi-pack products are simply not on sale yet — expect them in fall 2026. The 3-PAK is explicitly discontinued as of 25/26. No night skiing.",
+      "season_confirmed": "2026-27 (confirmed as NOT YET PRICED); the $150 window rate is 2025-26",
+      "drive_time_from_san_jose": "~185 miles / ~3h45m via US-50",
+      "source_url": "https://sierraattahoe.com/lift-tickets/",
+      "confidence": "high"
+    },
+    {
+      "name": "Sierra-at-Tahoe — 26/27 buddy tickets $89/$79 and FREE parking for carpools of 4+ (the real group hack)",
+      "category": "deal",
+      "claim": "Two confirmed 26/27 facts that matter enormously for a 6-person carload and that nobody advertises together. First, buddy tickets: 'Buddy tickets for the 2026/27 season will be $89/$79, peak/non-peak', newly 'redeemable online' and convertible 1:1 into discounted Learn to Ski/Ride lessons. That $79 non-peak buddy rate is roughly half the $150 25/26 window rate — so ONE friend holding a pass materially cheapens the whole group's tickets. The caps are the catch: an Unlimited passholder gets unlimited buddy tickets but 'limit 2 redemptions/day', a Play passholder gets 12 total, a Weekday passholder gets 10 total. A 6-person 4-day trip needs 20 buddy tickets, so you would need three Unlimited holders (2 buddies/day each = 6 buddies/day) or two Play holders to cover the group. Second, parking: the FAQ states that for the 2026/27 season 'Parking reservations for non-passholders and non-carpoolers (4+/car) will be $25/day', and parking is free for passholders and for groups of 4 or more per car. A group of 6 in one or two cars parks free at Sierra all 4 days — a real $100-200 saving versus arriving in singles.",
+      "price_usd": "$89 peak / $79 non-peak buddy ticket; parking $25/day, free at 4+ per car",
+      "per_day_usd": "$79 non-peak (buddy ticket)",
+      "restrictions": "Buddy tickets require a companion passholder present and are capped: Unlimited = unlimited but max 2 redemptions per day; Play = 12 for the season; Weekday = 10 for the season. Peak dates cost $89. Free parking requires 4+ people in the car (or a passholder); everyone else pays $25/day and must reserve.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~185 miles / ~3h45m via US-50",
+      "source_url": "https://sierraattahoe.com/season-pass-benefits/",
+      "supporting_source_url": "https://sierraattahoe.com/faq/",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "Both halves confirmed, but they live on TWO different pages and the finding cited only one. Buddy tickets: the cited benefits page prints verbatim 'Buddy tickets for the 2026/27 season will be $89/$79, peak/non-peak', with Unlimited = unlimited buddy tickets, Play = 12, Weekday = 10, and the 1:1 lesson conversion — all exactly as claimed, explicitly 2026/27. Parking: the $25/day and 4+/car figures are NOT on the cited benefits page. I found them on https://sierraattahoe.com/faq/, which prints 'Parking reservations for non-passholders and non-carpoolers (4+/car) will be $25/day' and 'free for passholders and for those with 4+ people in a car'. Price is correct; source attribution was wrong, so I added supporting_source_url. Caveat the original overstated: the benefits page says passholders get up to 4 free parking reservations at a time, and Child/Kiddie passes come with no reservations. The FAQ also confirms 'Sierra-at-Tahoe does not offer night skiing.'"
+      }
+    },
+    {
+      "name": "Sierra-at-Tahoe — on-site rental prices (season NOT labeled — treat as 25/26)",
+      "category": "rental-onsite",
+      "claim": "Sierra's rentals page publishes a full price grid but carries NO season label, while the site header simultaneously advertises '2026/27 Passes On Sale Now'. Because Sierra has explicitly pulled all 25/26 ticket products and has not loaded 26/27 ticket products, an undated rental grid is most likely last season's and must be re-checked in the fall. The posted rates, adult/child: ski or snowboard Combo (skis, boots, poles / board and boots) '$68/$43'; the 3-PAK rate '$62/40 per day'; a full-season rental 'Season Pass' at '$239/$184'. High Performance (adults only) Combo $77, 3-PAK $72/day, season $285. Demo (adults only) Combo $89, 3-PAK $86/day, demo season pass $369. Note the rental grid still quotes a 3-PAK rate even though the 3-PAK lift product is discontinued — more evidence this page is stale. Logistics: 'Online reservations are available up to 2 PM the day prior', combo packages can be reserved online, and a-la-carte pieces are in-person only. Passholders get 20% off rentals, which would take a $68 combo to $54.40.",
+      "price_usd": "$68 adult / $43 child combo; $239 adult full-season rental (season unlabeled)",
+      "per_day_usd": "$68 adult combo",
+      "restrictions": "Page is undated — do not quote these as 26/27. Online reservation cutoff is 2 PM the day before. A-la-carte rentals in person only. 20% passholder discount applies.",
+      "season_confirmed": "unknown (undated page; most likely 2025-26)",
+      "drive_time_from_san_jose": "~185 miles / ~3h45m via US-50",
+      "source_url": "https://sierraattahoe.com/rentals/",
+      "confidence": "low",
+      "verification": {
+        "verdict": "UNVERIFIABLE",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "The NUMBERS are correct — the live page prints Rental Combo (Adult/Child) $68/$43, Ski/Snowboard ONLY $62/$31, Rental 3-PAK $62/$40 per day, Rental Season Pass $239/$184, High Performance Combo $77, Demo Combo $89, Demo Season $369, all matching the claim exactly. What CANNOT be established is the season, which is the load-bearing question. I confirmed the original's core suspicion: no season year appears anywhere in the rentals pricing section; the only season marker on the page is a sitewide promo banner reading '2026/27 Passes On Sale Now', which advertises a different product and does not date this grid. The page still quotes a 3-PAK rental rate for a lift product Sierra discontinued in 25/26 — corroborating that the grid is stale. Ruling UNVERIFIABLE rather than CONFIRMED because an undated price republished as 26/27 is exactly the failure mode this check exists to catch. Confidence downgraded medium -> low. Do not publish these as 26/27 rates; re-check in fall 2026."
+      }
+    },
+    {
+      "name": "Heavenly and Kirkwood standalone (non-Epic) — COULD NOT BE PRICED (negative result)",
+      "category": "day-ticket",
+      "claim": "I could not obtain a single verified 2026-27 price for Heavenly or Kirkwood from any primary source. Every Vail Resorts property page I tried returned the same server-side failure rather than content: kirkwood.com/plan-your-trip/lift-access/tickets.aspx, kirkwood.com's Epic Day Pass page, epicpass.com's homepage, epicpass.com/passes/epic-day-pass.aspx and epicpass.com/passes/tahoe-local-pass.aspx all returned 'The system cannot process your request. We apologize for any inconvenience.' with a support ID and the 1-800-842-8062 call-centre number; heavenly.com/plan-your-trip/lift-access/tickets.aspx returned HTTP 404 and heavenly.com's root served only a domain placeholder. I therefore report NO price for Heavenly or Kirkwood. What I can say without a number: Vail does not sell a cheap 3-5 visit pack at these mountains — the multi-visit product IS the Epic Day Pass, sold centrally, and standalone window tickets at Heavenly are the most expensive way to ski Tahoe. Structurally, nothing here is a candidate to beat $60/day for a 4-day trip, and this should be presented on the site as 'not verifiable' rather than with a guessed figure.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Vail's own booking and pass sites were returning system errors at the time of research (2026-08-27), so no 26/27 figure — day ticket, Epic Day Pass, or Tahoe Local — could be verified from a primary source. Retry closer to the season or by phone.",
+      "season_confirmed": "2026-27 (unverifiable)",
+      "drive_time_from_san_jose": "Heavenly ~200 miles / ~4h via US-50 to South Lake Tahoe/Stateline — SOUTH SHORE, and the one Tahoe resort where you can walk to lodging, casinos and food without driving. Kirkwood is south of the lake on Hwy 88, roughly 35 minutes from South Lake Tahoe, with almost no lodging of its own. (Drive figures are rough route estimates, not from a fetched source.)",
+      "source_url": "https://www.kirkwood.com/Plan-Your-Trip/Lift-Access/Passes/Epic-Day-Pass.aspx",
+      "confidence": "none"
+    },
+    {
+      "name": "Epic Day Pass 26/27 — per-day figures exist only on secondary sites (do not publish as fact)",
+      "category": "multi-pack",
+      "claim": "The Epic Day Pass is the only structurally relevant multi-pack for Heavenly/Kirkwood — you buy 1-7 days across a resort tier and the per-day price falls with day count. I could not reach any Vail-owned page to confirm 26/27 numbers. The figures circulating on secondary sites, reported here ONLY as unconfirmed context and explicitly not for publication as prices: OnTheSnow's 26/27 buyer's guide (published May 29, 2026) says 'For seven days of access to all eligible resorts, including peak dates, the cost is $673' but contradicts itself elsewhere with '$687 (adult)' for the same product; other aggregators quote ~$106/day for the 32-resort tier and ~$138/day for full access, and a Tahoe Local Pass at $665. Separately, the Tahoe Daily Tribune (March 4, 2026) reported the headline passes as fact: 'The Epic Pass...will start at $1,089 for adults, an increase of about 3.6% compared to last year's price', with skiers 'under the age of 30' getting 'a new 20% discount, lowering the price to $869', and the Epic Local Pass at $809 / $649 under-30. Even taking the most favourable circulating number at face value, a 4-day Epic Day Pass covering Heavenly/Kirkwood lands nowhere near $60/day, and the $1,089 Epic Pass is $272/day over a 4-day trip. Verdict: not a contender, and not quotable.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No primary-source confirmation was possible. Epic Day Pass tiers vary by resort count and whether peak dates are included; the cheapest tiers exclude Tahoe. Reported figures conflict even between aggregators.",
+      "season_confirmed": "2026-27 (secondary sources only, unverified)",
+      "drive_time_from_san_jose": "n/a — multi-resort product",
+      "source_url": "https://www.onthesnow.com/news/epic-pass-buyers-guide/",
+      "confidence": "none"
+    },
+    {
+      "name": "Diamond Peak — 26/27 season passes, with a hard 10/31 price cliff",
+      "category": "season-pass",
+      "claim": "Diamond Peak (Incline Village, NV, municipally owned by IVGID) publishes a clean, explicitly labeled '2026-27 Public Season Pass Pricing' table with two purchase windows: 'Preseason (5/1 - 10/31)' and 'Prewinter (11/1 - 12/19)'. Preseason: Adult (24-64) $588, Youth (13-23) $495, Senior (65-69) $519, Child (7-12) $282, Super Senior (70-79) $282, and free for 6-and-under and 80+. Prewinter: Adult $733, Youth $618, Senior $618, Child $341, Super Senior $341. A fully transferable pass is $1,269 in both windows but 'do not include standard perks like loyalty buddy tickets or on-mountain discounts'. Passes are described as 'unrestricted' with 'no blackout dates' and include 'bonus tickets to partner resorts, discounts, and more'. Age rule: 'Season pass age is determined by pass holder's age on Dec. 1; after Dec. 1, categories are determined by pass holder's age at the time of purchase.' The actionable deadline: buying on 10/31/2026 costs an adult $588; buying on 11/1/2026 costs $733 — a $145 jump for one day's delay. At 4 days the $588 pass is $147/day; it only crosses under $60/day at 10 days.",
+      "price_usd": "$588 adult preseason (5/1-10/31); $733 adult prewinter (11/1-12/19); $1,269 transferable",
+      "per_day_usd": "$147/day at 4 days; $58.80/day at 10 days",
+      "restrictions": "No blackout dates on standard passes. HARD PRICE CLIFF: preseason rate ends 10/31/2026, prewinter rate ends 12/19/2026. Transferable pass forfeits buddy tickets, partner bonus days and on-mountain discounts. Diamond Peak is small (no night skiing published) and is closed outside the Dec-Apr window.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~230 miles / roughly 4h15m via I-80 to Truckee then Hwy 267/28, or via Reno — NORTHEAST shore, Incline Village NV. Lodging is Incline Village/Crystal Bay, which is pricier and thinner than South Shore. (Drive figure is a rough route estimate, not from a fetched source.)",
+      "source_url": "https://www.diamondpeak.com/tickets-passes-rentals/season-passes/",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "Re-fetched the cited page. It carries the explicit header '2026-27 Public Season Pass Pricing' and prints both purchase windows exactly as claimed. Preseason (5/1 - 10/31): Adult (24-64) $588, Youth (13-23) $495, Senior (65-69) $519, Child (7-12) $282, Super Sr. (70-79) $282, 6-and-under/80+ $0. Prewinter (11/1 - 12/19): Adult $733, Youth $618, Senior $618, Child $341, Super Sr. $341. Transferable $1,269 in BOTH windows, as claimed. Every figure matches; the season label is unambiguous. The 10/31/2026 price cliff ($588 -> $733, a $145 jump) is real and is the single most actionable deadline in this file."
+      }
+    },
+    {
+      "name": "Diamond Peak — 26/27 day tickets and Flex Passes NOT published; 25/26 Flex prices for scale",
+      "category": "multi-pack",
+      "claim": "Diamond Peak's multi-visit product is the Flex Pass, and it is the closest thing on the Nevada side to a Boreal-style 4-pack — but 26/27 pricing is NOT out. The lift-ticket page still shows only 2025-26 products and carries 'Closed for the 2025-26 season. See you in December!'. The Flex Pass page is explicit that 'Flex passes typically go on sale in November', so expect a November 2026 launch. LAST SEASON'S (2025-26) prices, reported as historical scale only: 2-Day Flex Adult (24-64) $289, Youth (13-23) $279, Senior (65-79) $279, Child (7-12) $138; 3-Day Flex Adult $399, Youth $369, Senior $369, Child $189. Terms: 'Valid any day, no blackouts, and your ski days do not have to be consecutive.' Passes are 'non-transferable...non-refundable, and are only valid during the current ski season (unused days will not roll over to future seasons)', and 'No refunds will be issued for unused days due to weather or road conditions/closures.' At $399 for 3 days that is $133/day — more than DOUBLE the $60 benchmark and roughly 2.2x Boreal's iRide. Even if 26/27 pricing holds flat, this is not a value play. The site does publish 26/27 peak periods: 'Dec. 19, 2026 – Jan. 3, 2027; Jan. 16 – 18, 2027; Feb. 13 – 21, 2027.'",
+      "price_usd": "2025-26: 3-Day Flex $399 adult; 2-Day Flex $289 adult. 2026-27 NOT PUBLISHED.",
+      "per_day_usd": "$133/day (2025-26 3-Day Flex)",
+      "restrictions": "26/27 Flex Pass and day-ticket prices are not published and typically launch in November. Flex passes are non-transferable, non-refundable, do not roll over, and carry no weather/road-closure refund. No blackouts on the Flex product itself.",
+      "season_confirmed": "2025-26 (the 26/27 equivalents are confirmed NOT YET PRICED)",
+      "drive_time_from_san_jose": "~230 miles / roughly 4h15m — northeast shore, Incline Village NV",
+      "source_url": "https://www.diamondpeak.com/tickets-passes-rentals/lift-tickets/flex-passes/",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "Confirmed as a correctly-labeled STALE price — which is what the finding already claims, so the CLAIM is accurate. The live page is headed '2025-26 Flex Pass Pricing' and prints 2-Day Adult (24-64) $289, Youth (13-23) $279, Senior (65-79) $279, Child (7-12) $138; 3-Day Adult $399, Youth $369, Senior $369, Child $189 — all matching. I independently confirmed the negative: NO 2026-27 Flex pricing is published, and the page says Flex passes 'typically go on sale in November'. This is the correct way to handle a stale season — the price is reported with its real season attached rather than carried forward. No correction needed."
+      }
+    },
+    {
+      "name": "Diamond Peak — the $60 Days were a ONE-OFF 60th-anniversary promo for 25/26 (negative result)",
+      "category": "deal",
+      "claim": "Worth flagging because this deal is exactly the benchmark price and is still being cited around the web as if it were current. Diamond Peak's special-offers page lists '$60 Anniversary Ski Days' on 'Jan. 14 & 29, Feb. 9, March 17 & 27, April 19' with matching '$60 Learn to Ski/Ride Packages' ('lift ticket + lesson'). Those are 2025-26 dates and the promotion was tied to the resort's 60th anniversary — the event page is literally titled '60th Anniversary $60 Days'. There is NO published 26/27 equivalent, and an anniversary promo has no reason to repeat. Do not carry $60 Diamond Peak days into a 26/27 planning tool. Other 25/26 offers on the same page, also unconfirmed for 26/27: 6-and-under and 80-plus always ski free; active military get a free lift ticket on non-peak weekdays (Mon-Fri) with valid ID; groups of 15+ get a 1-day ticket discount; adaptive skiers get two tickets for the price of one; online purchase saves money and reloading a previously purchased online ticket takes an extra $5 off; IVGID Picture Pass holders get discounted season pass and daily rates. The page also records two things that were KILLED for 25/26: 'Birthday & UnBirthday free tickets' and '2-Day Consecutive Tickets' (replaced by the Flex Pass). No night skiing is offered.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "The $60 days were tied to specific 2025-26 dates and the resort's 60th anniversary; no 26/27 dates or price are published. Military, group, adaptive and IVGID discounts are all 25/26-labeled and unconfirmed for 26/27.",
+      "season_confirmed": "2025-26",
+      "drive_time_from_san_jose": "~230 miles / roughly 4h15m — northeast shore, Incline Village NV",
+      "source_url": "https://www.diamondpeak.com/tickets-passes-rentals/special-offers/",
+      "confidence": "high"
+    },
+    {
+      "name": "Mt. Rose Ski Tahoe — 26/27 season passes including a $375 one-day-a-week Select Pass",
+      "category": "season-pass",
+      "claim": "Mt. Rose has live, explicitly 2026/27-labeled pass pricing across four tiers. PREMIER: Adult (16+) $1,075, Child (6-15) $465 — 'NO Void Dates. Enjoy!'. CLASSIC: Adult $875, Child $365, with '2026/27 VOID DATES: NOV 27 – 28 THANKS | DEC 26 – 30 XMAS | JAN 16 – 17 MLK | FEB 13-15 PRES'. OFF-PEAK: Adult $675, Child $265, which voids all January and February weekends on top of 'NOV 27–28 THANKS | DEC 18–JAN 2 XMAS | JAN 16–17 MLK | FEB 13-15 PRES'. SELECT: Adult $375, no child tier, 'VALID 1 MID-WEEK DAY OF YOUR CHOICE' with the same holiday voids as Off-Peak. The Select Pass is the interesting oddity — $375 for one chosen midweek day every week is roughly $19/day across a 20-week season, far under the benchmark, but it is structurally useless for a 4-day trip because you can only use ONE day per week. Mt. Rose has the highest base elevation in Tahoe (8,260 ft) which matters in a thin snow year. For a 4-day trip: Off-Peak $675 = $168.75/day, Premier $1,075 = $268.75/day. Nothing here competes.",
+      "price_usd": "Premier $1,075 adult; Classic $875; Off-Peak $675; Select $375",
+      "per_day_usd": "$168.75/day at 4 days (Off-Peak); $56.25/day at 12 days (Off-Peak); ~$19/day theoretical (Select, 1 day/week only)",
+      "restrictions": "Select Pass is one fixed midweek day per week — cannot be used for consecutive trip days. Off-Peak voids ALL Jan and Feb weekends plus Dec 18-Jan 2. Classic voids Nov 27-28, Dec 26-30, Jan 16-17, Feb 13-15. Only Premier is void-free. No price-increase deadline is stated anywhere on the page. Age tiers are coarse: 'Adult' starts at 16.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~240 miles / roughly 4h15-4h30m via I-80 to Reno then Mt Rose Hwy (NV-431), or via Truckee/Incline — NORTHEAST, on the ridge between Incline Village and Reno, NV. Highest base in Tahoe. Lodging is Incline Village or Reno; Reno is the cheap-hotel option in this dimension. (Drive figure is a rough route estimate, not from a fetched source.)",
+      "source_url": "https://skirose.com/season-passes/",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "Re-fetched the cited page; all four tiers match exactly and the page is explicitly 2026/27. Premier Adult (16+) $1,075 / Child (6-15) $465, 'NO Void Dates. Enjoy!'; Classic $875 / $365; Off-Peak $675 / $265; Select $375 adult with no child tier and the restriction 'VALID 1 MID-WEEK DAY OF YOUR CHOICE'. Void dates match verbatim including Off-Peak's wider 'DEC 18 - JAN 2' window versus Classic's 'DEC 26 - 30'. I also independently confirmed the negative the original reported: no price-increase deadline is printed anywhere on this page. The finding's key structural insight survives scrutiny — the $375 Select Pass is genuinely cheap per day but caps you at ONE midweek day per week, so it cannot cover a 4-day trip and must never be surfaced as a 4-day option."
+      }
+    },
+    {
+      "name": "Mt. Rose — 26/27 day tickets NOT published; site still shows a 2024/25 window rate (negative result)",
+      "category": "day-ticket",
+      "claim": "Mt. Rose's lift ticket page is the staleness trap of this whole dimension. It sells Full Day (9:00am-4:00pm), Morning Half-Day (9:00am-12:30pm) and Afternoon Half-Day (12:30pm-4:00pm), but the only printed price on the page is '2024/25 Full price tickets $189 Adults/$95 Kids' — a rate that is now TWO seasons old and still sitting on the live site. There is no 26/27 day-ticket price, and no 25/26 price either. Everything else routes through a dynamic-pricing calendar with the instruction to buy 'ONLINE IN ADVANCE for the best rates'. The one firm number is 'Tyke tickets' (ages 5 and under) at $20, at-resort only. Mt. Rose does not publish a 3-5 visit pack of any kind — no 3-pack, no 4-pack, no flex pass. Anyone quoting a Mt. Rose day price for 26/27 right now is quoting either a two-season-old window rate or a snapshot from a dynamic calendar.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No 26/27 day-ticket price published. The $189 adult figure on the page is explicitly labeled 2024/25. Dynamic pricing means any single observed price is date-specific and not a rate card. No multi-visit packs offered.",
+      "season_confirmed": "2024-25 is the only season labeled on the page; 2026-27 confirmed NOT PRICED",
+      "drive_time_from_san_jose": "~240 miles / roughly 4h15-4h30m — northeast, NV-431 between Incline Village and Reno",
+      "source_url": "https://skirose.com/lift-tickets/",
+      "confidence": "high"
+    },
+    {
+      "name": "Mt. Rose — daily specials (Two'Fer Tuesday, $79 Ladies Day) — real products, NO confirmed prices",
+      "category": "deal",
+      "claim": "Mt. Rose runs a day-of-the-week special every single day, which on paper is the most benchmark-friendly structure in this dimension — but the page carries no season label and almost no prices. Verbatim from the page: MONDAY 'Bonus Monday' — 'Present a lift ticket from the previous Saturday or Sunday' for a discount, 'only valid for Monday after your weekend visit. Must be purchased onsite.' MONDAY hospitality workers — discounted with 'a check stub, work ID, or current business card'. TUESDAY 'Two'Fer Tuesday' — '2 ADULT FULL-DAY -OR- 2 CHILD FULL-DAY TICKETS' for the price of one; 'Both tickets must be used that day only' and it does not apply to Tyke tickets. THURSDAY 'Ladies Day Thursday' — $79 full-day, 'only valid on Thursdays and not offered during holiday periods'. FRIDAY '\"SKI\" G.I.F.' — discounted after 12:00pm on non-holiday Fridays. SATURDAY 'Sleep-in Saturdays' — discounted after 12:00pm on select non-holiday Saturdays. SUNDAY 'Local Sunday' — for residents within a 1-hour driving radius (excludes a San Jose group). Also: active military $79 full-day, veterans $109 full-day, and 'Fly & Ski' $79 with a boarding pass and photo ID, all excluding holiday periods. THE PROBLEM: only the $79 figures are printed, and the page is undated. A secondary source puts Two'Fer Tuesday at '$155 for two adult tickets (ages 16+), $90 for two child tickets (ages 6-15)' — that would be $77.50/person — but I could not confirm it on Mt. Rose's own page and it is very likely a 25/26 number. A 4-day trip built on Tue + Thu specials would land around $77-79/day per person if those rates carry forward, which still misses $60.",
+      "price_usd": "$79 Ladies Day Thursday (undated page); Two'Fer Tuesday price NOT published on the primary page",
+      "per_day_usd": "$79 (Thursday, if the undated rate is current)",
+      "restrictions": "Bonus Monday requires a prior-weekend Mt Rose ticket and must be bought onsite. Two'Fer tickets must both be used the same day. Ladies Day and most specials are void during holiday periods. Local Sunday requires residence within 1 hour. Fly & Ski requires a boarding pass. No season label anywhere on the page — all of this may be restated for 26/27.",
+      "season_confirmed": "unknown (page carries no season label)",
+      "drive_time_from_san_jose": "~240 miles / roughly 4h15-4h30m — northeast, NV-431",
+      "source_url": "https://skirose.com/daily-specials/",
+      "confidence": "low",
+      "verification": {
+        "verdict": "UNVERIFIABLE",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "The finding is honestly reported but cannot be dated, so it must not be published as 26/27. Confirmed on the live page: 'Ladies Day Thursday' does print $79 for a full-day adult ticket, and the other printed figures are Active Military $79, Veteran $109, and Ski the Day You Fly $79. Confirmed negative: Two'Fer Tuesday prints NO dollar amount at all — only '2 ADULT FULL-DAY -OR- 2 CHILD FULL-DAY TICKETS' — so the widely-circulated $155 figure remains unsourced from the primary page and must stay out. Decisive problem: NO season year appears anywhere on this page, and this is the same site whose lift-ticket page still displays a two-season-old 2024/25 window rate, so undated skirose.com copy has a demonstrated staleness record. Confidence downgraded medium -> low. The $79 may be quoted only as an undated recurring promo, never as a 2026-27 rate."
+      }
+    },
+    {
+      "name": "Homewood Mountain Resort — CONFIRMED reopening for 26/27, with published pass prices (verification requested)",
+      "category": "season-pass",
+      "claim": "Verified: Homewood IS coming back for 2026-27 after sitting out 2025-26. The season pass page carries a 2026-2027 price table and the site says 'We can't wait to welcome everyone back to the West Shore for the 2026-2027 winter!', while guest services remain 'Closed for the 2025-2026 Winter Season'. The 26/27 pass lineup, quoted from the page: 'Unlimited Adult $1299, Unlimited Junior $699, Unlimited Teen $899, Unlimited Senior $949' with a Family Pass (2 adults + 2 junior/teen) at $3,699 and no blackout days; 'Value Adult $899, Value Junior $599, Value Teen $699, Value Senior $749' with 'Peak Dates: December 26 – January 1, January 16 & 17, February 13-15'; and a Weekly 2-Day Pass — '2-Day Adult $799, 2-Day Senior $649' — giving two midweek days per week with 'Peak Dates: All Saturdays and Sundays plus December 21-January 1, January 18 and February 15-19'. The West Shore Resident Pass carries the note 'This Pass Is No Longer Available for the 2026-2027 Season' (its sales window was 'March 16 to April 14, 2026', resuming spring 2027). PRICING VERDICT: this is the most expensive season pass in the entire dimension. $1,299 over a 4-day trip is $324.75/day. Even the Weekly 2-Day Pass at $799 only permits 2 days per week, so a 4-day trip spanning one week gets 2 usable days at $399.50 each. Homewood is a nostalgia/scenery play, not a value play. Separately, secondary reporting indicates the long-promised new gondola is NOT opening for 26/27 — treat that as unconfirmed.",
+      "price_usd": "Unlimited $1,299 adult; Value $899 adult; Weekly 2-Day $799 adult; Family (2+2) $3,699",
+      "per_day_usd": "$324.75/day at 4 days (Unlimited); $224.75/day at 4 days (Value)",
+      "restrictions": "Unlimited has no blackout days. Value is blacked out Dec 26-Jan 1, Jan 16-17, Feb 13-15. Weekly 2-Day is midweek only — ALL Saturdays and Sundays are peak/excluded, plus Dec 21-Jan 1, Jan 18, Feb 15-19 — and caps you at 2 days per week. West Shore Resident Pass is discontinued for 26/27. No price-increase deadline is published.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~220 miles / roughly 4h via I-80 to Truckee then Hwy 89 south through Tahoe City — WEST SHORE, about 6 miles south of Tahoe City, directly on the lake. West Shore lodging is scarce and expensive; most groups skiing Homewood stay in Tahoe City or Truckee. (Drive figure is a rough route estimate, not from a fetched source.)",
+      "source_url": "https://skihomewood.com/season-pass/",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "All four prices confirmed on the live 2026-2027 price table: Unlimited Adult $1,299, Value Adult $899, Weekly 2-Day Adult $799, Family (2 adults + 2 junior/teen) $3,699. Blackout text matches verbatim — Unlimited 'NO BLACKOUT DAYS'; Value 'December 26 - January 1, January 16 & 17, February 13-15'; Weekly 2-Day 'All Saturdays and Sundays plus December 21-January 1, January 18 and February 15-19'. ONE WORDING CORRECTION: the finding's headline says 'CONFIRMED reopening', which is stronger than the page supports. The page still lists the mountain, guest services and retail as 'Closed for the 2025-2026 Winter Season' and expresses forward-looking intent — 'We can't wait to welcome everyone back to the West Shore for the 2026-2027 winter' — alongside a live 26/27 price table. Selling 26/27 passes is strong evidence of intent to operate, but the page does not itself declare confirmed operations. Prices stand as CONFIRMED; the reopening should be described as 'passes on sale for 26/27, resort was closed for 25/26' rather than flatly confirmed."
+      }
+    },
+    {
+      "name": "Homewood — 26/27 lift tickets not until Fall 2026, and there is no multi-pack (negative result)",
+      "category": "day-ticket",
+      "claim": "Homewood's tickets page says it twice and unambiguously: '2026-2027 Lift Ticket Products and information coming Fall 2026' and '2026-2027 Lift Ticket Products will be announced Fall 2026.' There is no 26/27 day rate, no half-day rate, no 3/4/5-visit pack, and no rental pricing. The only dollar figure anywhere on the page is a '$75 Non-Peak Day Ticket' attached to the resort's 'Inspire & Serve' program (a charitable/community access program, not a public rate) with no season stated. For a group planning now, Homewood cannot be costed at all beyond the season passes above — and given that a returning resort typically prices aggressively OR prices to fund a rebuild, guessing either way would be wrong. Check back in fall 2026.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No 26/27 day tickets, multi-packs or rentals are published; announcement is promised for Fall 2026. The only figure shown, $75, belongs to a restricted community program and is not a public rate.",
+      "season_confirmed": "2026-27 (confirmed NOT YET PRICED)",
+      "drive_time_from_san_jose": "~220 miles / roughly 4h — West Shore, 6 mi south of Tahoe City",
+      "source_url": "https://skihomewood.com/tickets/",
+      "confidence": "high"
+    },
+    {
+      "name": "Granlibakken Tahoe — cheapest lift ticket in Tahoe, but NO price is published (negative result)",
+      "category": "day-ticket",
+      "claim": "Granlibakken is a genuinely tiny, genuinely cheap West Shore hill in Tahoe City and is the one place in this dimension that could plausibly clear the $60/day bar — but it publishes no prices anywhere I could reach. I fetched three of its own pages (the ski and snowboard hill page, the sled and ski area page, and the winter landing page) and none carries a lift ticket, rental or sledding price. The only pricing statement on any of them is the lodging tie-in: 'Guests staying at Granlibakken Tahoe enjoy a 50% discount on sledding and lift tickets at our historic Ski Hill.' Terrain reality check, from the resort's own page: TWO SURFACE LIFTS ONLY — 'a rope tow for beginners and a Poma button lift for intermediate terrain' — with operating hours '7 days a week during peak season, and then Friday through Monday and on holidays for winter.' Aggregators circulate $32-$48 and '$40-45 for adults', but those are unverified and undated and I will not report them as a price. Practical read: this is a half-day beginner novelty attached to a hotel, not a resort you build a 4-day trip around. It is only interesting as a cheap first-timer warm-up day if the group happens to be lodging there, where the 50% guest discount applies.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No prices published on any Granlibakken page. Two surface lifts only (rope tow + Poma), beginner/intermediate terrain. Open 7 days only during peak season, otherwise Friday-Monday and holidays. The 50% discount requires staying at the Granlibakken lodge.",
+      "season_confirmed": "unknown (no season label and no price on any primary page)",
+      "drive_time_from_san_jose": "~215 miles / roughly 4h via I-80 to Truckee then Hwy 89 — WEST SHORE, in Tahoe City. It is a lodging property first and a ski hill second, so the lodging and the lift are the same booking.",
+      "source_url": "https://www.granlibakken.com/experiences/ski-and-snowboard-hill",
+      "confidence": "none"
+    },
+    {
+      "name": "Dodge Ridge — 26/27 passes and the Party 4 Pack (closest independent to San Jose, not Tahoe)",
+      "category": "multi-pack",
+      "claim": "Worth surfacing even though it is not Tahoe: Dodge Ridge (Pinecrest, Hwy 108) is by a wide margin the closest real ski area to San Jose, which changes the trip shape entirely — it is a drive-up day trip, not a 5-night lodging trip. 26/27 pass pricing is live and labeled '26/27 Preseason Sale: Now through Oct 31'. DODGE RIDGE BASE PASS: Adult (23-69) $629, Young Adult (13-22) $579, Child (6-12) $369, Senior (70-74) $579, Military $419, Golden Age (75+) FREE, Child 5-and-under FREE. CALI PASS (Dodge Ridge + Bear Valley + China Peak + Mountain High, plus Powder Alliance): Adult $729, Young Adult $679, Child $389, Senior (70-74) $679, Military $469, Golden Age $159, College Crew '$100 down', Child 5-and-under FREE. 'Cali Passes are valid every day of the 2026/27 winter season, including holidays.' MULTI-PACK: the pass-sale page lists a 'Party 4 Pack' at $469 for ages 13+ with the note 'Get up to 25% off Adult/Teen tickets', and the pack is described elsewhere as redeemable by 4 different people on 4 different days. At $469 that is $117.25 per day — nearly double Boreal's iRide and well over the benchmark. CAUTION: the $469 figure appeared on a page mixing 26/27 pass links with promo copy and I could NOT confirm which season the Party 4 Pack price belongs to; the shop page (shop.dodgeridge.com/ticket-deals) rendered empty. There is also a 'Labor Day Season Pass Special Coming Soon! 9/4-9/7' offering a free buddy lift ticket with an eligible pass purchase.",
+      "price_usd": "26/27 Base Pass $629 adult; 26/27 Cali Pass $729 adult. Party 4 Pack $469 is a 2025-26 PRICE — NOT 26/27 (corrected by verification below; do not publish as current).",
+      "per_day_usd": "$157.25/day at 4 days (26/27 Base Pass). Party 4 Pack $117.25/day is a 2025-26 figure and must not be presented as a 26/27 option.",
+      "restrictions": "Preseason pass rates run 'Now through Oct 31'. Cali Pass has no blackouts and includes holidays. Party 4 Pack season is UNCONFIRMED — verify before quoting. Dodge Ridge is a low-elevation Sierra area (base ~6,600 ft) with a short and snow-dependent season, and it is NOT in the Tahoe basin, so it does not combine with a Tahoe lodging trip.",
+      "season_confirmed": "2026-27 for the Base and Cali season passes (confirmed). The $469 Party 4 Pack is CONFIRMED 2025-26 — the page copy reads 'valid every operating day of the 25/26 winter season'.",
+      "drive_time_from_san_jose": "~135 miles / roughly 2h45m-3h via I-580/CA-120/CA-108 to Pinecrest — the closest lift-served skiing to San Jose by about an hour, and NOT a Tahoe option. No lake, minimal lodging, effectively a day-trip mountain.",
+      "source_url": "https://dodgeridge.com/winter-tickets-passes/",
+      "party_4_pack_source_url": "https://dodgeridge.com/pass-sale/",
+      "confidence": "medium",
+      "verification": {
+        "verdict": "STALE_SEASON",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "THIS IS THE ONE REAL DEFECT IN THE FILE. Two separate problems with the Party 4 Pack. (1) WRONG SOURCE: the cited page, https://dodgeridge.com/winter-tickets-passes/, does NOT contain a Party 4 Pack at all — I fetched it and confirmed only the season passes are there. I also checked https://dodgeridge.com/season-passes/ (no Party 4 Pack) and https://shop.dodgeridge.com/ticket-deals (still renders empty, as the original noted). I located the $469 on https://dodgeridge.com/pass-sale/ and added it as party_4_pack_source_url. (2) WRONG SEASON: that page settles the question the original left open. The Party 4 Pack copy reads 'can be used on any day of the 25.26 season' and 'valid every operating day of the 25/26 winter season', while the page's OTHER content links to '2026 / 2027 Season Passes'. So $469 is a 2025-26 price sitting on a page headlined for 26/27 — precisely the trap that makes a stale number look current. The original hedged it as 'season unconfirmed' yet still carried confidence 'high' and ranked $117.25/day among 26/27 contenders in the cross-dimension verdict; that ranking is invalid. NO 26/27 Party 4 Pack price is published. The Base Pass $629 and Cali Pass $729 adult figures ARE confirmed 26/27 on the cited page, with the preseason sale running 'Now through Oct 31st'. Confidence downgraded high -> medium because the finding bundles confirmed pass prices with a stale multi-pack price."
+      }
+    },
+    {
+      "name": "Bear Valley — 26/27 Cali Pass and Base Pass pricing (same family as Dodge Ridge)",
+      "category": "season-pass",
+      "claim": "Bear Valley (Hwy 4, Alpine County) shares ownership and the Cali Pass with Dodge Ridge, China Peak and Mountain High, and publishes identical Cali Pass pricing. 26/27 CALI PASS: Adult (23-69) $729, Young Adult (13-22) $679, Senior (70-74) $679, Military $469, Child (6-12) $389, College (18-25) $100 deposit with 'final payment due October 31, 2026', and two children 5-and-under free with a paying adult plus a $10 processing fee per pass. 26/27 BASE PASS (Bear Valley only): Adult $629, Young Adult $579, Senior $579, Military $419, Child (6-12) $369, Super Senior (75+) free plus the $10 fee. 'Season pass ages are based on a person's age as of January 1, 2027.' Bear Valley publishes NO multi-pack, NO midweek pass and NO day-ticket price for 26/27 — the deals page carries exactly one item, a promo: 'Purchase an eligible 2026/27 Bear Valley Season Pass September 4th - 7th and score a FREE non-holiday Day Pass to use during the 26/27 season.' That Labor-Day-weekend window is the only dated buying opportunity I found across the whole Cali Pass family, and it is nine days out from today. At $629 over a 4-day trip Bear Valley is $157.25/day — not competitive — and like Dodge Ridge it is outside the Tahoe basin, so it cannot share a Tahoe lodging booking.",
+      "price_usd": "Cali Pass $729 adult; Base Pass $629 adult",
+      "per_day_usd": "$182.25/day at 4 days (Cali); $157.25/day at 4 days (Base)",
+      "restrictions": "No blackout dates listed on either pass; the page references 'Non-Holiday' periods only for discounts. No multi-day pack, no midweek pass, no published 26/27 day-ticket price. College pass final payment due Oct 31, 2026. The free-day-pass promo runs Sept 4-7, 2026 only. Bear Valley is off Hwy 4, a long slow mountain road, and is not a Tahoe-basin option.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~150 miles / roughly 3h-3h15m via CA-4 through Angels Camp and Arnold — Sierra foothills, NOT Tahoe. The final Hwy 4 stretch is narrow and slow in snow. (Drive figure is a rough route estimate, not from a fetched source.)",
+      "source_url": "https://www.bearvalley.com/season-passes",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "Re-fetched the cited page; it is labeled 2026/27 and every figure matches. Cali Pass: Adult (23-69) $729, Young Adult (13-22) $679, Senior (70-74) $679, Military $469, Child (6-12) $389, College (18-25) $100 deposit, two children 5-and-under free with a paying adult plus a $10 processing fee. Base Pass: Adult (23-69) $629, Young Adult $579, Senior $579, Military $419, Child $369, Super Senior (75+) free plus the $10 fee. The College final-payment deadline of October 31, 2026 is confirmed printed. Cali Pass adult pricing is identical to Dodge Ridge's, consistent with the shared-ownership claim. Note for the site: unlike Dodge Ridge, Bear Valley publishes no multi-pack at all, so there is no stale-multi-pack risk here."
+      }
+    },
+    {
+      "name": "Cross-dimension verdict — NOTHING on the South Shore or in the outlying independents beats $60/day for 4 days",
+      "category": "logistics",
+      "claim": "Ranked by confirmed 2026-27 adult cost per ski day over a 4-day trip, this entire dimension loses to the Donner Summit cluster: Sierra-at-Tahoe Weekday Pass $409 = $102.25/day (and it is blacked out every Saturday and Sunday); Dodge Ridge Party 4 Pack $469 = $117.25/day (season unconfirmed); Diamond Peak 3-Day Flex $399 = $133/day (2025-26 price, 26/27 not out); Sierra Play Pass $539 = $134.75/day; Dodge Ridge Base $629 and Bear Valley Base $629 = $157.25/day; Sierra Unlimited $659 = $164.75/day; Mt. Rose Off-Peak $675 = $168.75/day; Bear Valley/Dodge Ridge Cali $729 = $182.25/day; Homewood Value $899 = $224.75/day; Mt. Rose Premier $1,075 = $268.75/day; Homewood Unlimited $1,299 = $324.75/day. Heavenly, Kirkwood and Granlibakken could not be priced at all. THE STRUCTURAL REASON: not one South Shore or outlying independent sells a cheap 3-5 visit pack for 26/27. Sierra killed its 3-PAK. Diamond Peak's Flex Pass is the only survivor and it is $133/day and not yet repriced. Mt. Rose, Homewood and Bear Valley sell no pack at all. Boreal's $239 iRide 4-Pack ($59.75/day) has no competitor anywhere in this dimension. WHAT THIS DIMENSION IS ACTUALLY GOOD FOR: (1) Sierra-at-Tahoe is the closest Tahoe resort to San Jose at ~185 mi / ~3h45m — 30-45 minutes closer than the Nevada-side options and it pairs with South Lake Tahoe lodging, which is the cheapest and densest lodging market on the lake, so a 6-person house there is materially cheaper than the West Shore or Incline Village. (2) Sierra's confirmed 26/27 free parking at 4+ per car and $79 non-peak buddy tickets are the two concrete savings in this whole dimension. (3) Mt. Rose and Diamond Peak push you to Incline Village or Reno lodging and add roughly 30-45 minutes of driving each way; Homewood and Granlibakken push you to the thin, expensive West Shore. The lodging half of the trip argues for South Shore or I-80, not for the Nevada or West shores.",
+      "price_usd": "Cheapest confirmed 26/27 4-day option in this dimension: Sierra-at-Tahoe Weekday Pass $409",
+      "per_day_usd": "$102.25/day — 1.7x the $60 benchmark and 1.7x Boreal's iRide 4-Pack",
+      "restrictions": "The one product that gets closest, Sierra's Weekday Pass, excludes every Saturday and Sunday plus Dec 26-30 2026, Jan 16-17 2027 and Feb 13-14 2027 — so a 4-day trip on it must run Mon-Fri. Two near-term deadlines exist in this dimension: Diamond Peak's preseason pass rate ends 10/31/2026 ($588 to $733 overnight), and Bear Valley/Dodge Ridge run a free-day-pass promo Sept 4-7, 2026. Every South Shore day-ticket and multi-pack price for 26/27 is still unpublished and lands in fall 2026.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "Sierra-at-Tahoe ~185 mi / ~3h45m (US-50, South Shore) < Heavenly ~200 mi / ~4h (US-50, South Shore) < Granlibakken ~215 mi (West Shore) < Homewood ~220 mi (West Shore) < Diamond Peak ~230 mi (Northeast/NV) < Mt. Rose ~240 mi (Northeast/NV). Non-Tahoe: Dodge Ridge ~135 mi / ~2h45m, Bear Valley ~150 mi / ~3h. Only the Sierra-at-Tahoe figure came from a route source; the rest are rough estimates.",
+      "source_url": "https://sierraattahoe.com/season-passes/",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch)",
+        "why": "The HEADLINE conclusion is confirmed and survives the correction below. Sierra-at-Tahoe's Weekday Pass at $409 adult is live, explicitly 2026/27, and at 4 days is $102.25/day — comfortably the cheapest CONFIRMED 26/27 option in this dimension, and still 1.7x the $60 benchmark. The conclusion that nothing here beats $60/day for 4 days is therefore correct, and in fact it is now MORE correct than when written. ONE CORRECTION TO THE RANKING: the list ranks 'Dodge Ridge Party 4 Pack $469 = $117.25/day (season unconfirmed)' as the second-cheapest option. That entry must be REMOVED from any 26/27 comparison — I confirmed the $469 is a 2025-26 price (page copy: 'valid every operating day of the 25/26 winter season'), so it is not a 26/27 option at all and no 26/27 replacement is published. Removing it does not change the winner: Sierra's $409 Weekday Pass was already ahead of it. The Diamond Peak 3-Day Flex at $133/day is likewise correctly flagged in the list as a 2025-26 price. Spot-checked the rest of the ranking against my own re-fetches — Sierra Play $539, Sierra Unlimited $659, Dodge Ridge Base $629, Bear Valley Base $629, Bear Valley/Dodge Ridge Cali $729, Mt. Rose Off-Peak $675, Mt. Rose Premier $1,075, Homewood Value $899, Homewood Unlimited $1,299 — every per-day figure recomputes correctly. The structural finding also holds: I independently confirmed that no resort in this dimension sells a purchasable 26/27 3-5 visit pack, so Boreal's iRide 4-Pack has no competitor here."
+      }
+    }
+  ],
+  "coverage_gaps": [
+    "HEAVENLY AND KIRKWOOD ARE COMPLETELY UNPRICED. Every Vail-owned URL I tried returned a server error ('The system cannot process your request') or a 404: kirkwood.com tickets and Epic Day Pass pages, epicpass.com root, epicpass.com/passes/epic-day-pass.aspx, epicpass.com/passes/tahoe-local-pass.aspx, heavenly.com tickets page and heavenly.com root. No 26/27 standalone day ticket, Epic Day Pass tier, or Tahoe Local Pass price could be confirmed from a primary source. This needs a retry, or a phone call to 1-800-842-8062.",
+    "Epic Day Pass 26/27 per-day pricing exists only on aggregators and they disagree with each other (OnTheSnow's own guide quotes both $673 and $687 for the same 7-day product). Nothing from that family should be published.",
+    "Sierra-at-Tahoe 26/27 day-ticket and any replacement multi-pack prices are not published — the page says to 'stay tuned'. The 3-PAK is confirmed discontinued as of 25/26 and there is no statement about whether it returns for 26/27.",
+    "Sierra-at-Tahoe's rentals page is completely undated while the rest of the site advertises 26/27 products, and it still quotes a 3-PAK rental rate for a lift product that no longer exists — strong evidence the whole grid is 25/26. Re-check in fall 2026.",
+    "Sierra-at-Tahoe's 'Fast Pass' line-skip product ($359 per a search snippet) could not be found on any Sierra page I fetched — neither the season pass, benefits, deals nor FAQ pages mention it. Unverified; do not publish.",
+    "Diamond Peak 26/27 day-ticket and Flex Pass prices are not published; the Flex Pass page says they 'typically go on sale in November'. All Flex numbers I report ($289 2-day / $399 3-day adult) are explicitly 2025-26.",
+    "Diamond Peak's IVGID (Incline Village resident) discounted rates are referenced but not shown, and are irrelevant to a San Jose group anyway.",
+    "Mt. Rose 26/27 day-ticket prices are not published at all, and the live page still displays a 2024/25 window rate of $189 adult / $95 kids — two seasons stale. Any Mt. Rose day price sourced from the web right now is almost certainly wrong.",
+    "Mt. Rose's daily specials page carries NO season label and prints prices for only three offers ($79 Ladies Day, $79 military, $109 veterans, $79 Fly & Ski). The widely-cited Two'Fer Tuesday figure of $155 for two adults is from a secondary source and is unconfirmed.",
+    "Mt. Rose publishes no pass price-increase deadline. A secondary article mentions a September 30 cutoff and a '$229' entry price, but neither appears on skirose.com and both look like older-season copy.",
+    "Homewood publishes no 26/27 day tickets, no multi-packs, and no rental prices — 'coming Fall 2026'. Its new gondola is reported by secondary sources to be delayed past 26/27; I could not confirm this from Homewood itself (the Powder article returned HTTP 403).",
+    "Granlibakken publishes no lift ticket, rental or sledding price on any of its own pages. The $32-$48 and $40-45 figures circulating on aggregators are unverified and undated and are deliberately excluded.",
+    "RESOLVED BY VERIFICATION (2026-08-27): Dodge Ridge's '$469 Party 4 Pack' is a 2025-26 price, NOT 26/27. It is not on the cited winter-tickets-passes page at all; it lives on https://dodgeridge.com/pass-sale/, where the copy reads 'valid every operating day of the 25/26 winter season' and 'any day of the 25.26 season' even though the same page links to '2026 / 2027 Season Passes'. No 26/27 Party 4 Pack price is published. shop.dodgeridge.com/ticket-deals still renders empty. DO NOT put $469 on the site as a current price.",
+    "Neither Bear Valley nor Dodge Ridge publishes a 26/27 day-ticket rate; both sell only season passes at this stage.",
+    "NO NIGHT SKIING EXISTS ANYWHERE IN THIS DIMENSION. Sierra-at-Tahoe states outright 'Sierra-at-Tahoe does not offer night skiing.' Diamond Peak, Mt. Rose, Homewood and Granlibakken publish no night product on any page I fetched (Mt. Rose has run late-Friday hours in past seasons per a 2024 news item, but nothing on its current site). Night skiing remains a Boreal-only feature.",
+    "Rental prices for 26/27 are unpublished at every resort in this dimension except the undated Sierra grid. There is no confirmed on-mountain rental price for Diamond Peak, Mt. Rose, Homewood, Granlibakken, Heavenly, Kirkwood, Dodge Ridge or Bear Valley.",
+    "Drive times: only Sierra-at-Tahoe's (~185 mi / ~3h45m) came from a routing source, and even that is a search-result figure rather than a measured drive. Every other distance and duration in this file is a rough estimate and should be labeled as approximate on the site. None of these resorts publishes a San Jose drive time, and winter chain controls on US-50 (Echo Summit) and Hwy 4 (Bear Valley) can add hours."
+  ]
+}

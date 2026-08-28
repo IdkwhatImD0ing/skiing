@@ -1,0 +1,421 @@
+{
+  "dimension": "The multi-pack and discount-channel hunt - non-obvious cheap routes onto a Tahoe chairlift for 2026-27 (warehouse clubs, ski clubs, retail memberships, reciprocal alliances, advance-purchase marketplaces, employer/bank perks, license-plate and transport bundles), including which classic channels are now dead",
+  "findings": [
+    {
+      "name": "Epic Day Pass 2026/27 - the cheapest confirmed per-day price at a major Tahoe resort",
+      "category": "multi-pack",
+      "claim": "Vail Resorts' own newsroom is the only place I could confirm 26/27 Epic Day Pass pricing, because epicpass.com, skiheavenly.com, northstarcalifornia.com and kirkwood.com all returned 'The system cannot process your request' to every fetch I tried. The May 5, 2026 release states: 'Epic Day Passes are available from $46-$97 per day, offering up to 65% savings compared to lift tickets.' The August 18, 2026 release restates it slightly higher: 'prices starting as low as $47-$99 per day. The more days you ski, the more you save.' The same August release gives the buying deadline - 'The last chance for the lowest Pass price of the fall is September 7' - and confirms Heavenly and Northstar open Nov 20, 2026 with Kirkwood Dec 4. Epic Day Pass is bought as 1-7 days and you choose where to use them later; the three access tiers (all resorts / 32 resorts / 22 resorts) and the with-or-without-holidays toggle drive where in the $47-$99 band you land, and I could NOT verify which tier a Tahoe-eligible 4-day lands in, so do not assume $47. This is the most decision-relevant item in this dimension: a 4-day Epic Day Pass at the low end of the published band would beat the $60/day benchmark outright at Heavenly, Northstar or Kirkwood.",
+      "price_usd": "$46-$97 per day (May 5, 2026 release); $47-$99 per day (Aug 18, 2026 release)",
+      "per_day_usd": "$47-$99",
+      "restrictions": "Band spans three access tiers and holiday/non-holiday variants; the low end is the most restricted tier and was NOT confirmed as Tahoe-eligible. Prices rise at each milestone - 'The last chance for the lowest Pass price of the fall is September 7.' Days are date-flexible but the pass must be bought before use. Tier-by-tier 4-day pricing is unverifiable while Vail's consumer web tier is erroring.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://news.vailresorts.com/2026-08-18-Is-Winter-About-to-Show-Off-Vail-Resorts-Announces-2026-27-Opening-Dates-as-Super-El-Nino-Builds-Anticipation-for-Great-Powder",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://news.vailresorts.com/2026-08-18-Is-Winter-About-to-Show-Off-Vail-Resorts-Announces-2026-27-Opening-Dates-as-Super-El-Nino-Builds-Anticipation-for-Great-Powder",
+        "why": "Refetched the cited Aug 18, 2026 release: it states Epic Day Pass prices start 'as low as $47-$99 per day' and 'The last chance for the lowest Pass price of the fall is September 7', and gives Heavenly/Northstar Nov 20 and Kirkwood Dec 4 openings. Separately fetched the May 5, 2026 release (news.vailresorts.com/2026-05-05-Summer-Now,-Winter-Later-Four-Reasons-to-Get-an-Epic-Pass-by-May-25), which states 'Epic Day Passes are available from $46-$97 per day' for 2026/27. Both bands verified on Vail-controlled pages for the 2026-27 season. The caveat stands and I could not break it: neither release breaks price out by access tier or day count, so the $46/$47 floor is NOT shown to be Tahoe-eligible. epicpass.com still returns 'The system cannot process your request', so no tier-level verification is possible."
+      }
+    },
+    {
+      "name": "Costco - the Sierra-at-Tahoe 2-PAK, the classic Tahoe warehouse-club product",
+      "category": "warehouse-club",
+      "claim": "Costco's Tahoe lift-ticket channel is real but has NO 2026/27 product on sale as of 2026-08-27. Sierra-at-Tahoe's own Costco landing page says 'all Costco 2-PAKs are extended into next season and are now valid through December 18, 2026-just in time to kick off our 80th Anniversary season' and 'Tickets are good any day during the 2025/26 Season. Use them both for yourself on 2 separate days or share with a friend / family member or gift them.' It warns 'Voucher must be redeemed online before you arrive!' - you select dates during registration and print at pickup boxes at the resort - and that vouchers are 'non-transferable and non-refundable.' The page publishes no price. Costco historically drops the new season's ski vouchers in the fall, so a 26/27 Tahoe 2-PAK is plausible for Sept-Oct 2026, but it does not exist yet and I will not quote a price for it. costco.com/ski-lift-vouchers.html and costco.com/california-tickets.html both timed out on every fetch attempt, so I could not read Costco's live catalogue directly.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No 26/27 product on sale. Existing 2-PAKs are 25/26 stock with validity extended only through Dec 18, 2026 - useless for a Jan-Mar 2027 trip. Non-transferable, non-refundable, must be redeemed online before arrival. Costco membership required.",
+      "season_confirmed": "2025-26 (extended to Dec 18, 2026); no 2026-27 product published",
+      "source_url": "https://sierraattahoe.com/costco/",
+      "confidence": "high"
+    },
+    {
+      "name": "Sierra-at-Tahoe 3-PAK - DISCONTINUED",
+      "category": "dead-channel",
+      "claim": "Sierra-at-Tahoe's multi-pack, the closest South-Shore analogue to Boreal's iRide 4-Pack, has been killed. The resort's own deals page states flatly: 'While still valid for use through the close of the season, 3-PAK products are no longer available to purchase for the 2025/26 season.' There is no successor announced for 26/27. Separately, the lift-ticket page says '2025/26 lift ticket products are no longer available for purchase. Stay tuned for more information on 2026/27 season lift ticket products.' So as of today Sierra sells NO advance day-ticket product of any kind for the coming season - only season passes and a Military/First Responder 20% pass discount. Anyone quoting a Sierra 3-PAK price for 26/27 is quoting a dead product.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Product withdrawn from sale. 26/27 day-ticket and multi-pack products not yet loaded.",
+      "season_confirmed": "2025-26 (discontinued); nothing published for 2026-27",
+      "source_url": "https://sierraattahoe.com/deals/",
+      "confidence": "high"
+    },
+    {
+      "name": "Sports Basement 'Basementeer' membership - the best live Bay Area retail channel",
+      "category": "retail-membership",
+      "claim": "The strongest genuinely non-obvious Bay Area channel, and it is resort-confirmed rather than just retailer marketing. Sierra-at-Tahoe hosts a dedicated /basementeer/ page saying 'Basementeers have access to an exclusive Lift Ticket + Lessons discount offering', 'Get up to 40% off lift tickets', 'Available ANY DAY during the 2025/26 Season', redeemed by entering 'the unique gift code on the back of your Basementeer Discount Card' at online checkout, with 'Limit 4 tickets per unique gift code.' Sports Basement's own product listing prices membership as a one-time $25 fee that also gives 10% off every purchase for life - which also discounts the gear and rental spend for this trip. The card is picked up in-store. CRITICAL CAVEAT: every Sierra and Sports Basement page I could read still says 2025/26; the 26/27 Basementeer discount level and its dollar prices are not published, and Sierra currently has no 26/27 day tickets to apply it to. The four-tickets-per-code cap also matters for a party of six - you would need two Basementeers.",
+      "price_usd": "$25 one-time membership fee",
+      "per_day_usd": null,
+      "restrictions": "Limit 4 lift tickets per unique gift code, so a group of 6 needs two members. Online purchase only - not redeemable at the resort ticket window. Card must be collected in a physical store. 26/27 discount level and prices NOT published; the '40% off / any day' language is 2025/26.",
+      "season_confirmed": "2025-26",
+      "source_url": "https://sierraattahoe.com/basementeer/",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://www.sportsbasement.com/products/basementeer-membership-1",
+        "why": "SOURCING DEFECT FOUND, PRICE UPHELD. The cited source_url (sierraattahoe.com/basementeer/) does NOT contain the $25 figure anywhere - I refetched it and it carries only 'up to 40% off', 'ANY DAY during the 2025/26 Season' and 'Limit 4 tickets per unique gift code', with no mention of a membership fee. The $25 was uncited in the original finding. I verified it independently against Sports Basement's own product record at sportsbasement.com/products/basementeer-membership-1.json (the retailer's primary product data), which returns title 'Basementeer Membership' at $25.00, one-time, with 10% off purchases. The membership fee is real and current. The 2026-27 LIFT TICKET discount remains unconfirmed - every Sierra page still says 2025/26."
+      }
+    },
+    {
+      "name": "Liftopia - EFFECTIVELY DEAD for Tahoe",
+      "category": "dead-channel",
+      "claim": "The classic advance-purchase discount marketplace is a shell. liftopia.com still loads and still footers '2006 - 2026 Liftopia, Inc.', and its California: Lake Tahoe & Northern region page still lists eight resorts - Homewood, Sierra-at-Tahoe, Northstar, Palisades Tahoe (both the Alpine Meadows and Squaw Valley entries), Sugar Bowl, Heavenly and Kirkwood - but SEVEN OF THE EIGHT show 'Out of Stock' with 'No Deals Available'. Only Homewood shows '1 Ticket Deal Available', and its resort page 404s. There is no functioning Liftopia route onto a Tahoe chairlift for 2026-27. Do not build any pricing on Liftopia; the company was acquired, its marketplace collapsed once Epic and Ikon compressed day-ticket discounting, and what remains is a directory, not a store.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No purchasable Tahoe inventory. Treat as a dead channel.",
+      "season_confirmed": "n/a - no inventory for any season",
+      "source_url": "https://www.liftopia.com/region/california-lake-tahoe",
+      "confidence": "high"
+    },
+    {
+      "name": "SnowBomb / SF-San Jose Ski & Snowboard Festival - DORMANT, cannot be confirmed live",
+      "category": "dead-channel",
+      "claim": "SnowBomb was historically the Bay Area's cheapest voucher channel - a membership or festival pass bundling one-day lift tickets at Sierra-at-Tahoe, Homewood, China Peak and Bear Valley plus buy-one-get-one midweek tickets. I could not confirm any live 2026-27 product. snowbomb.com now renders as a content/blog site: its membership, deals and ski-board-festivals URLs return only resort stat pages and gear-sponsor links with no purchasable product, and its Sierra-at-Tahoe resort page still advertises a '2014/2015 SnowBomb Platinum Pass' with snowfall data last updated March 2015. The festival domain sfskifest.com returns HTTP 403 to fetch. Every SnowBomb price I could find ($60/$79/$150 Platinum memberships, $95 or $74 'Any Day' lift tickets, $25 Powder Pass, $50 VIP Pass) traces to Groupon listings, snowpals.org or event write-ups from 2012-2018. TREAT AS DEAD unless the group independently confirms a 2026 festival date; do not budget against it.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No verifiable live product. All findable prices are 2014-2018 secondary listings.",
+      "season_confirmed": "none - last verifiable content is 2014-15",
+      "source_url": "https://snowbomb.com/resorts/sierra-at-tahoe/",
+      "confidence": "none"
+    },
+    {
+      "name": "Powder Alliance - 3 free days at Sierra-at-Tahoe, confirmed for 2026-27",
+      "category": "reciprocal",
+      "claim": "The Powder Alliance is alive and its 26/27 Tahoe terms are published. Buy a qualifying season pass at ANY member resort and you get 3 free days at each of the others. Sierra-at-Tahoe's own benefits page states the network gives '51 FREE days in the US, New Zealand + Canada' across 17 partner resorts, that Sierra Unlimited passholders get 3 free days at each participating resort, that days are 'Valid Sunday-Friday, excluding holidays', and lists the 26/27 blackouts explicitly: Dec. 26-30, 2026; Jan. 16-17, 2027; Feb. 13-14, 2027. It excludes Subaru, Weekday, Play and Complimentary passes - only the top-tier Unlimited pass earns the reciprocal. The alliance's own site says it 'now consists of 18 premier winter destinations' with 'up to 54 free Tickets' and names Bear Valley, China Peak, Dodge Ridge, Mountain High, Sierra-at-Tahoe and Mt Shasta Ski Park as the California members. The non-obvious play is buying a cheap out-of-area member pass to unlock free Sierra days. The math does not work for one 4-day trip - the cheapest confirmed entry is Sierra's own $659 Unlimited or Dodge Ridge's $729 Cali Pass - but it is decisive for anyone skiing 8+ days across multiple mountains.",
+      "price_usd": "Entry cost = a member resort's qualifying season pass. CHEAPEST CONFIRMED for 26/27 is the College Cali Pass (ages 18-25, verification required) 'as low as $249' via thecalipass.com/buynow ($100 deposit). For a general adult: Sierra-at-Tahoe Unlimited $659 (verified on sierraattahoe.com/season-passes/, NOT on the benefits page cited here) or Cali Pass adult $729.",
+      "per_day_usd": "$0 per reciprocal day (3 days per partner resort) once a qualifying pass is owned",
+      "restrictions": "Sunday-Friday only, excluding holidays. 26/27 blackouts at Sierra: Dec 26-30 2026, Jan 16-17 2027, Feb 13-14 2027. Only top-tier Unlimited-class passes qualify - Sierra's Play, Weekday, Subaru and comp passes are excluded. Sierra-at-Tahoe is the only Lake Tahoe member.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://sierraattahoe.com/season-pass-benefits/",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "REFUTED",
+        "verified_source_url": "https://www.thecalipass.com/buynow",
+        "why": "Mechanics CONFIRMED, cheapest-entry PRICE REFUTED. Confirmed verbatim on the cited Sierra page for 2026/27: three free days at each of 17 other resorts ('51 FREE days'), blackouts Dec 26-30 2026 / Jan 16-17 2027 / Feb 13-14 2027, and 'Subaru, Weekday, Play, Promotional and Complimentary passes do not receive this benefit'. powderalliance.com confirms 18 destinations / 'up to 54 free Tickets' and the six California members. TWO DEFECTS. (1) The cited page does NOT publish the $659 Sierra Unlimited price - it lists no prices at all. That number lives on sierraattahoe.com/season-passes/, where I did verify it at $659 adult 23-64 for 2026/27, so the price is right but was cited to a page that does not contain it. (2) The 'cheapest confirmed entry is $659 or $729' superlative is WRONG. thecalipass.com/buynow shows a 26/27 College Cali Pass (ages 18-25, verification required) 'AS LOW AS $249' with a '$100 DEPOSIT', and mthigh.com's Cali Pass page independently lists College (18-25) at '$399 - $249'. The Cali Pass carries the Powder Alliance benefit, so $249 - not $659 - is the cheapest confirmed back door into three free days at Sierra-at-Tahoe for anyone in the group aged 18-25."
+      }
+    },
+    {
+      "name": "Dodge Ridge 'Cali Pass' - the cheapest published back-door into Sierra-at-Tahoe reciprocals",
+      "category": "reciprocal",
+      "claim": "Dodge Ridge publishes full 26/27 pricing now, which most Tahoe resorts do not. Cali Pass: Adult (23-69) $729, Young Adult (13-22) $679, Child (6-12) $389, Senior (70-74) $679, Military $469, Golden Age 75+ $159, Child 5 & under free, and College Crew (18-25, verification required) at '$100 down'. The Cali Pass includes '3 DAYS each at 14 Powder Alliance Resorts worldwide including Sierra At Tahoe and Mt. Shasta Ski Park' - up to 42 free days. The cheaper Dodge Ridge Base Pass (Adult $629, Young Adult $579, Child $369, Military $419) does NOT carry the Powder Alliance benefit. Important timing caveat quoted from the page: 'Buddy Tickets, Friend Days and Powder Alliance NOT redeemable until start of 26/27 winter season.' The College Crew '$100 down' line is the cheapest published entry point I found to any Powder Alliance benefit, though the total behind that deposit is not stated.",
+      "price_usd": "$729 adult Cali Pass; $679 young adult 13-22; $469 military; College Crew (18-25) $100 deposit on a pass 'as low as $249' per thecalipass.com/buynow",
+      "per_day_usd": "$182.25/day if used only for a 4-day Sierra trip; falls toward $0 across the 42 reciprocal days",
+      "restrictions": "Powder Alliance days not redeemable until the 26/27 season starts. Child passes do not carry the alliance benefit. Reciprocal days at Sierra are Sunday-Friday non-holiday with Sierra's blackouts. Dodge Ridge itself is in the Stanislaus, not Tahoe.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://dodgeridge.com/winter-tickets-passes/",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://dodgeridge.com/winter-tickets-passes/",
+        "why": "Every price checked matched the live page for the 26/27 season: Cali Pass Adult (23-69) $729, Young Adult (13-22) $679, Child (6-12) $389, Senior (70-74) $679, Military $469, Golden Age 75+ $159, 5-and-under free, College Crew (18-25) '$100 down'. Base Pass Adult $629 / Young Adult $579 / Child $369 / Military $419. I specifically stress-tested the claim that the cheaper Base Pass does NOT carry Powder Alliance and the page confirms it: the alliance line ('3 DAYS each at 14 Powder Alliance Resorts worldwide including Sierra At Tahoe') sits under the Cali Pass only. ONE GAP NOW CLOSED: the finding said the total behind the College Crew '$100 down' was not stated - thecalipass.com/buynow (the Cali Pass is the shared Bear Valley / Dodge Ridge / China Peak / Mountain High product) shows College Pass 'AS LOW AS $249' with '$100 DEPOSIT'. Note also that mthigh.com's Cali Pass page shows a spring early-bird table (adult $679 new / $629 renew, 3/7-4/30); $729 is the current adult price."
+      }
+    },
+    {
+      "name": "Ikon Session Pass 2026/27 - 2, 3 or 4 days, and it now includes Sierra-at-Tahoe",
+      "category": "multi-pack",
+      "claim": "The Ikon Session Pass is the flagship 'bundled lift tickets' product and its 26/27 Tahoe access is notable: the product page lists TWO Tahoe destinations - 'Palisades Tahoe, CA and Sierra-at-Tahoe, CA' - so one Session Pass can cover both the big mountain and the South Shore. The prices I could confirm are inconsistent across Ikon's own properties and I report all three rather than picking one: Alterra's March 12, 2026 launch release says 'Ikon Session Pass: $299 ($399 CAD)'; ikonpass.com/en/shop-passes says today 'From $319.00 USD Adult (Ages 23+)'; and Ikon's own Lifted marketing site says Session options are available 'from only $249 Adult'. The gap is partly explained by a live discount code: Ikon's Lifted page advertises a U.S. Ski and Snowboard partnership giving '$50 off any 26/27 Ikon Session Pass' with code USAGOLD at checkout. All quoted figures are the STARTING (2-day) price - Ikon does not publish the 3-day or 4-day price anywhere I could reach, so an honest 4-day per-day figure cannot be computed. Blackouts are published: Dec 26-30 2026, Jan 16-17 2027, Feb 13-14 2027, and the page states 'Lift Reservations Required'.",
+      "price_usd": "From $319 (ikonpass.com shop, current); $299 at the March 12, 2026 launch; 'from only $249' on Ikon's Lifted site; less $50 with code USAGOLD",
+      "per_day_usd": "not computable - the 3-day and 4-day Session prices are not published; $319 is the 2-day starting price",
+      "restrictions": "Blackout dates Dec 26-30 2026, Jan 16-17 2027, Feb 13-14 2027. Lift reservations required. Days are shared across the whole Session destination list, not per-resort. Price rises through the fall.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.ikonpass.com/en/shop-passes/ikon-session-pass",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://www.ikonpass.com/en/shop-passes/ikon-session-pass",
+        "why": "The cited page's headline number is CONFIRMED: it reads 'From $319 USD (Age 23+)' for 26/27, with Palisades Tahoe CA and Sierra-at-Tahoe CA both in the destination list and blackouts Dec 26-30 2026 / Jan 16-17 2027 / Feb 13-14 2027. ikonpass.com/en/compare-passes independently shows Ikon Session Pass $319.00 USD adult. The $299 launch figure is confirmed verbatim on Alterra's own release (alterramtn.co, dated March 5 2026 not March 12): 'Ikon Session Pass starting at $299 ($399 CAD)'. The '$249' and the USAGOLD code are confirmed as live text on lifted.ikonpass.com. SKEPTIC'S NOTE: that Lifted page is demonstrably carrying superseded launch-era pricing - it still quotes the Squad Pack at $750 with $199 savings when ikonpass.com now shows $800 with $219 savings - so treat its 'from only $249' as stale marketing, not a price you can buy at today. The bookable floor is $319. The 3-day and 4-day Session prices remain unpublished, so a 4-day per-day figure still cannot be computed."
+      }
+    },
+    {
+      "name": "Ikon 'Squad Pack' - a real group discount, new for 26/27, but ages 23-28 only",
+      "category": "group-discount",
+      "claim": "Genuinely non-obvious and aimed squarely at a friend group. Alterra's launch release: riders aged 23-28 can 'lock in an Ikon Base Pass for $750, a $199 savings on each pass' when five passes are purchased together. Ikon's own Squad Pack page adds the mechanics: 'Five Ikon Base Passes must be purchased for the Squad Pack discount', one designated buyer aged 23-28 buys all five and receives four promo codes to share, each squad member needs their own account, and there is 'No Squad Pack available for Ikon Pass or Ikon Session Passes.' Note the Squad Pack page rendered Canadian pricing for me - '$800 CAD (savings of $219 CAD per pass)' - the $750 USD figure comes from Alterra's own newsroom. For a party of six this is awkward: the discount is sized at exactly five passes and everyone must be 23-28. At $750 across a 4-day trip that is $187.50/day, three times the benchmark - it only makes sense if the squad skis all season.",
+      "price_usd": "$800 per Ikon Base Pass (USD), a $219 saving per pass, verified on ikonpass.com/en/squad-pack",
+      "per_day_usd": "$200/day at 4 days; $80/day at 10 days",
+      "restrictions": "Exactly five Ikon Base Passes must be bought in one transaction. Buyer must be 23-28. Not available on the full Ikon Pass or the Session Pass. Ikon Base Pass carries blackout dates at unlimited destinations. Each member needs their own Ikon account.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.ikonpass.com/en/squad-pack",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "REFUTED",
+        "verified_source_url": "https://www.ikonpass.com/en/squad-pack",
+        "why": "PRICE IS WRONG AND THE CURRENCY WAS MISREAD. The live cited page shows the Squad Pack at $800 USD per Ikon Base Pass, a $219 saving - not $750 with $199 savings. The original finding read the page's dual-currency rendering ('$800$1,080 CAD each', '$219$299 CAD') as Canadian dollars; the USD figure is the FIRST of each pair, so it is $800 USD / $1,080 CAD and $219 USD / $299 CAD. Arithmetic corroborates: ikonpass.com/en/compare-passes lists the 26/27 Ikon Base Pass at $1,019.00 USD adult, and $1,019 - $219 = $800 exactly. The $750 figure is Alterra's March 5, 2026 LAUNCH price ('Riders aged 23 - 28 lock in an Ikon Base Pass for $750, a $199 savings on each pass'), taken off a press release and reported as current; Base Pass pricing has risen since. Mechanics otherwise confirmed: ages 23-28, five Ikon Base Passes bought together, not available on Ikon Pass or Session Pass. Corrected per-day for a 4-day trip is $200/day, not $187.50."
+      }
+    },
+    {
+      "name": "Ikon Friends & Family tickets - 15 tickets at 25% off, the pass-holder-hosts-the-group play",
+      "category": "pass-holder-perk",
+      "claim": "If one member of the group already holds an Ikon Pass, the rest ride discounted without buying a pass. Ikon's own Lifted site lists as new for 26/27: 'Up to 15 Friends & Family lift Tickets at up to 25% off.' The compare-passes page splits it by tier - Ikon Pass 15 tickets at 25% off, Ikon Base Pass 10 tickets at 25% off. Palisades Tahoe's Friends & Family redemption page confirms the mechanism is live but not yet usable: '26/27 Friends & Family tickets cannot be redeemed until the start of the 26/27 season.' Its 25/26 terms, which show how the product behaves, were '25% off a regular-price lift ticket', 12 shareable tickets for Ikon Pass holders and 8 for Base Pass holders, tickets 'must be purchased at least 24 hours in advance', and 'Blackout dates do apply for Friends & Family discounts if the pass holder who shared the discount has blackout dates on their pass product.' 25% off a Palisades window rate is weak in absolute terms - Palisades quotes a '1-Day Window Rate: Up to $289 per day' - so this rescues a straggler, it does not beat a multi-pack.",
+      "price_usd": "25% off the window rate (no fixed dollar price published)",
+      "per_day_usd": "not published - 25% off a window rate Palisades states runs 'up to $289 per day'",
+      "restrictions": "Requires one member of the group to already hold a 26/27 Ikon or Ikon Base Pass. 24-hour advance purchase. Blackouts inherit from the host's pass product. Not redeemable until the 26/27 season starts.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://lifted.ikonpass.com/whats-new-ikon-pass-2026-2027/",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://www.ikonpass.com/en/compare-passes",
+        "why": "Confirmed verbatim on the cited Lifted page for 26/27: 'Up to 15 Friends & Family lift Tickets at up to 25% off'. The tier split is independently confirmed on ikonpass.com/en/compare-passes: Ikon Pass ($1,449.00 USD adult) '15 at 25% OFF'; Ikon Base Pass ($1,019.00 USD adult) '10 at 25% OFF'; Ikon Session Pass ($319.00 USD adult) carries NO Friends & Family benefit at all - worth flagging, because a group tempted by the cheap Session Pass gets no host benefit from it. Note the wording is 'up to 25% off', not a flat 25%. No dollar price is published, so nothing here can be quoted as a number."
+      }
+    },
+    {
+      "name": "Epic Friend Tickets - 50% off window lift tickets for a pass holder's friends",
+      "category": "pass-holder-perk",
+      "claim": "Vail's equivalent of the Ikon Friends & Family ticket, and materially more generous at 50% rather than 25%. Vail's own newsroom describes the program as giving pass holders '6-10 Epic Friend Tickets, depending on when they purchased their Pass' worth '50% off lift tickets at the company's 37 North American resorts', with the added kicker that a friend who redeems one 'can apply the full cost of a single redeemed Epic Friend Ticket towards eligible 2026/27 Passes including Epic Pass, Epic Local Pass, and other regional passes for a limited time.' For a group of six travelling with one Epic pass holder that is potentially five friends at half the window rate at Heavenly, Northstar or Kirkwood - the single highest-leverage 'one person buys, everyone saves' structure I found. THE SEASON CAVEAT MATTERS: the Vail releases I could actually fetch describe the 25/26 allocation. The 26/27 allocation (reported elsewhere as 10 tickets for passes bought by Apr 12 2026, 6 for Apr 13-May 25, 5 after, with 50% off for ages 13+ and 25% off child tickets) could not be confirmed on any Vail-controlled page because epicpass.com/benefits/friend-tickets returns a system error. Treat the 26/27 ticket count as unverified.",
+      "price_usd": "50% off the window lift ticket rate (no fixed dollar price published)",
+      "per_day_usd": null,
+      "restrictions": "Requires one member of the group to buy an eligible Epic pass product. Ticket count depends on purchase date and was not verifiable for 26/27. Friends who already hold a pass are not eligible. Redeemed against window rates, so dollar value swings with the date.",
+      "season_confirmed": "2026-27 (50% off confirmed on Vail's May 5, 2026 release; ticket COUNT still unconfirmed)",
+      "source_url": "https://news.vailresorts.com/2025-08-12-Vail-Resorts-Cuts-Lift-Ticket-Prices-in-Half-for-Friends-of-Epic-Pass-Holders-to-Celebrate-the-Social-Side-of-Skiing",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://news.vailresorts.com/2026-05-05-Summer-Now,-Winter-Later-Four-Reasons-to-Get-an-Epic-Pass-by-May-25",
+        "why": "The 50% figure holds for 2026-27, and I found the Vail-controlled 26/27 source the original finding said did not exist. The cited source_url is the Aug 12, 2025 release, a 2025/26 document that should not have been the citation for a 26/27 claim (I refetched it: it is dated August 12, 2025 and describes 6-10 tickets for the 2025/26 season). Vail's May 5, 2026 release states the 26/27 terms directly: 'six Epic Friend Tickets with eligible season-long Epic Passes, offering 50% off lift tickets'. So 50% off IS confirmed for 2026-27 on a Vail page. THE TICKET COUNT IS STILL NOT SAFE: the May 5 release says six; the widely repeated 10 (bought by Apr 12) / 6 (Apr 13-May 25) / 5 (after May 25) schedule could not be confirmed on any Vail-controlled page, and epicpass.com/benefits/friend-tickets.aspx still returns 'The system cannot process your request'. Buying today, past May 25, most likely yields 5 - do not plan the group around a specific count."
+      }
+    },
+    {
+      "name": "Palisades Tahoe Ticket Packs - 'from $92 per day', hard deadline September 8",
+      "category": "multi-pack",
+      "claim": "Palisades runs three 26/27 packs and its own pages state the entry per-day rate twice: 'Ski from $92 per day with Ticket Packs', with 'Limited-time pricing ends September 8' - a purchase deadline twelve days from today. The structure per the lift-ticket-deals page: a 4-Day Midweek Pack ('Ski midweek and save - enjoy fewer crowds and wide-open terrain', four midweek days, plus 4 bonus 25%-off vouchers and 2 transferable Friends & Family tickets); a 4-Day Unrestricted Pack (four days, no blackout dates, same bonus vouchers); and a 2-Day Unrestricted Pack. Palisades does NOT publish the total price of any individual pack on any page I could reach - shop.palisadestahoe.com returns HTTP 403 - so I can only report the '$92 per day' floor, not the 4-day total. Context from the same page: '1-Day Window Rate: Up to $289 per day' and advance purchases 'save up to 35%'. At $92/day a midweek Palisades pack is roughly 1.5x the $60 benchmark but on Tahoe's largest mountain, and the bonus 25%-off vouchers plus two transferable Friends & Family tickets have real value to a party of six. Palisades also sells a new Midweek Pass at $729 (Monday-Friday, '50% off weekend and blackout-day lift tickets').",
+      "price_usd": "'from $92 per day'; pack totals not published. Midweek season pass $729",
+      "per_day_usd": "$92 (starting rate)",
+      "restrictions": "'Limited-time pricing ends September 8' (2026). Midweek pack is Monday-Friday. The $92 figure is a starting rate that rises as the season nears. Pack totals, exact blackout calendars and the price split between the three packs are not published. shop.palisadestahoe.com returned HTTP 403 so I could not verify against a live checkout.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.palisadestahoe.com/plan-your-visit/deals-and-packages/lift-ticket-deals",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://www.palisadestahoe.com/plan-your-visit/deals-and-packages/lift-ticket-deals",
+        "why": "Refetched twice. The live page for 2026-2027 carries the alert bar 'Ski from $92 per day with Ticket Packs', 'Limited-time pricing ends September 8', a '1-Day Window Rate' of '$289 per day', and the new Midweek Pass at '$729'. The negative claim is the important one and it also holds: the page publishes NO total price for the 4-Day Midweek, 4-Day Unrestricted or 2-Day Unrestricted pack - pricing sits behind 'Buy Now'. Confidence correctly left at medium: $92 is an unverifiable floor, not a bookable 4-day total, and the Sept 8 deadline is 12 days out from today."
+      }
+    },
+    {
+      "name": "Indy Pass 2026-27 - SOLD OUT across every alpine tier",
+      "category": "dead-channel",
+      "claim": "The Indy Pass (2 days at each of 300+ independent resorts) is off the table for this season. Every alpine product on indyskipass.com/shop shows 'SOLD OUT' with no price displayed: Indy Base Pass ('2 All-Day or 2 All-Night Tickets at 300+ Resorts', blackout dates apply), Indy+ Pass ('No Blackout Dates'), Indy Base Add-On Pass and Indy+ Add-On Pass (the discounted versions for people who already hold an unrestricted season pass at a partner resort). The only thing still purchasable is the cross-country Indy XC Pass at 'Adults: $99 | Kids: $49' for '2 Trail Pass Days at Indy Cross Country Resorts' with no blackout dates - which is Nordic, not lift-served. If anyone in the group suggests 'just get an Indy Pass', the answer is that it sold out before the season started.",
+      "price_usd": "Alpine tiers sold out, no price shown; Indy XC (Nordic only) $99 adult / $49 kids",
+      "per_day_usd": "$49.50/day for the Nordic XC pass at 2 days; alpine n/a",
+      "restrictions": "All alpine Indy products sold out for 26/27. XC pass is cross-country trail access only - no chairlifts.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.indyskipass.com/shop",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://www.indyskipass.com/shop",
+        "why": "Live shop confirms for 26/27: Indy Base Pass, Indy+ Pass, Indy Base Add-On and Indy+ Add-On all show SOLD OUT with no price displayed; Indy XC Pass is purchasable at Adults $99 / Kids $49 for two Nordic trail days. ONE ADDITION the original missed: the shop also lists a 'Learn to Turn Pass' at $189 adults / $189 kids, marked 'not yet on sale, but will be soon'. It does not change the conclusion - nothing lift-served is buyable - but the claim that the XC pass is the only non-sold-out product is now slightly incomplete."
+      }
+    },
+    {
+      "name": "Mountain Collective 2026-27 - $699, and Sugar Bowl is its only California resort",
+      "category": "multi-pack",
+      "claim": "Mountain Collective's 26/27 adult (19+) price is '$699USD' ($949 CAD / $971 AUD / EUR 600), giving '2 DAYS AT EACH RESORT' plus '50% OFF ADDITIONAL DAYS' with 'no blackout days', caveated '*Some resorts require advance reservations'. The critical fact for a Tahoe trip: the only California resort on the roster is SUGAR BOWL. Palisades, Heavenly, Northstar, Kirkwood, Sierra and Mt Rose are all absent. So a $699 Mountain Collective buys exactly 2 Tahoe days at $349.50 each, plus 50% off further Sugar Bowl days. It is a destination-trip product, not a Tahoe product, and it is nearly 6x the benchmark for this group's use case. Ruling it out is the finding.",
+      "price_usd": "$699 adult (19+)",
+      "per_day_usd": "$349.50/day if only the 2 Sugar Bowl days are used",
+      "restrictions": "2 days at each destination, no blackouts, some resorts require advance reservations. Sugar Bowl is the sole California destination - no other Tahoe resort is included.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://mountaincollective.com/",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://mountaincollective.com/",
+        "why": "Price confirmed: '$699USD Adults ages 19+' for 26/27, 2 days at each destination plus 50% off additional days, no blackouts. I also stress-tested the load-bearing negative claim by pulling the full roster, since 'Sugar Bowl is the only California resort' is what rules this product out. Confirmed - the 27 destinations are Alta, Aspen Snowmass, Big Sky, Grand Targhee, Jackson Hole, Snowbasin, Snowbird, Sugar Bowl, Sugarloaf, Sun Valley, Taos, Whiteface, Banff Sunshine, Bromont, Lake Louise, Le Massif, Marmot Basin, Panorama, Revelstoke, Sun Peaks, Niseko, Chamonix, Megeve, Mt Buller, Coronet Peak + The Remarkables, and Valle Nevado. Palisades Tahoe, Mammoth, Heavenly, Northstar, Kirkwood and Sierra-at-Tahoe appear nowhere on the page. The $349.50/day conclusion stands."
+      }
+    },
+    {
+      "name": "Ski California Gold Pass - $4,250 and SOLD OUT for 26/27",
+      "category": "multi-pack",
+      "claim": "The California Ski Industry Association's Gold Pass is the only fully transferable all-resort product in the state - 'The ultimate and most exclusive pass to skiing, snowboarding, and cross-country skiing in California and Nevada', valid at all 36 member resorts with no blackout dates and no reservation requirements, and shareable with anyone. That transferability is what makes it theoretically interesting for a group, since one pass could be handed around. The 26/27 price is $4,250 and the page states '2026-27 Gold Passes are SOLD OUT!' with a waitlist for 2027-28 via goldpass@skicalifornia.org; renewing holders get first access each year at a discounted price. A dead end for this trip, but worth knowing it exists and worth the waitlist email if the group becomes a recurring thing.",
+      "price_usd": "$4,250 (sold out)",
+      "per_day_usd": "n/a - unavailable",
+      "restrictions": "SOLD OUT for 2026-27. Waitlist only for 2027-28. Renewing holders get first refusal each year.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://skicalifornia.org/gold-pass",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://skicalifornia.org/gold-pass",
+        "why": "Live page confirms both halves exactly: the 2026-27 Gold Pass price is '$4,250' and the page states '2026-27 Gold Passes are SOLD OUT!' with 'To be added to the 2027-28 waitlist, email goldpass@skicalifornia.org.' Nothing to correct."
+      }
+    },
+    {
+      "name": "'Plates for Powder' - a Tahoe license plate buys a free lift ticket, but the 26/27 round is not announced",
+      "category": "novelty-promo",
+      "claim": "The most non-obvious channel in this whole search, and it is real: the Tahoe Fund runs 'Plates for Powder', where buying a new Lake Tahoe specialty license plate in California or Nevada earns a free lift ticket. The Tahoe Fund's own page currently describes the LAST round: 'Those who purchase a new Tahoe plate in either California or Nevada between November 1, 2025 - April 1, 2026 through the Plates for Powder program receive a free lift ticket to one of twelve participating Tahoe downhill or Nordic resorts, or a Tahoe City Sports Park season pass to be used during the 2025-26 winter season, while supplies last.' The 2026-27 round is NOT yet announced - the page has not rolled over. Historically the participating list has spanned Boreal, Diamond Peak, Heavenly, Homewood, Kirkwood, Mt. Rose, Northstar, Palisades Tahoe, Sugar Bowl and several Nordic areas, with December/January/February blackouts and 'while supplies last' rationing. Plate cost (reported as roughly $50 in CA and $61 in NV, with $40/$30 renewals) appears only in secondary coverage - the Tahoe Fund page does not state it. If the program repeats on the same calendar it should open around Nov 1, 2026, inside this trip's planning window. Six people buying six plates would in principle be six free tickets, but only one per new plate.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "26/27 round not announced as of 2026-08-27; the live page still describes the Nov 1 2025 - Apr 1 2026 window for 25/26 skiing. One ticket per NEW plate purchase, 'while supplies last', with December/January/February blackout dates. Requires actually registering a CA or NV vehicle with a new Tahoe plate. Plate cost is not stated on the Tahoe Fund page.",
+      "season_confirmed": "2025-26 (2026-27 round not yet published)",
+      "source_url": "https://www.tahoefund.org/tahoeplates/",
+      "confidence": "medium"
+    },
+    {
+      "name": "Mt. Rose Two'fer Tuesday - 2-for-1 full-day adult tickets, the best standing weekly deal found",
+      "category": "day-deal",
+      "claim": "Mt. Rose's daily-specials page publishes a standing weekly calendar that effectively halves the day rate for a group willing to pair up. Two'fer Tuesday: '2 adult OR 2 child full-day tickets for the price of one' - 'Twice the fun, half the price' - both tickets must be used the same day, purchasable online or at the window, excludes holidays and cannot be combined with other offers. Also standing: Ladies Day Thursday at a '$79 full-day adult lift ticket' for women, with a free clinic for passholders or a $25 add-on; 'Ski' G.I.F. Friday discounted half-day PM tickets after 12:00pm; Sleep-in Saturdays discounted PM halves on select Saturdays; Bonus Monday, a discount on presenting the previous Saturday's or Sunday's lift ticket; Local Sunday for residents within an hour; Active Military $79 full day; Veterans $109; and Same-Day Flyers $79 with a boarding pass and photo ID. CAVEAT: the page carries NO season year anywhere, and Mt. Rose's separate lift-ticket page still shows 2024-25 prices ('Full Day (9am-4pm): Adults $189, Children $95') with no 26/27 pricing loaded, so I cannot certify these specials as confirmed 2026-27 products. Mt. Rose is also a Reno-side drive via Hwy 431, not the I-80 summit cluster.",
+      "price_usd": "Two'fer Tuesday: 2 adult full-day tickets for the price of 1; Ladies Day Thursday $79; active military $79; veterans $109; same-day flyers $79",
+      "per_day_usd": "Effectively half the prevailing adult day rate on Tuesdays",
+      "restrictions": "Two'fer excludes holidays, both tickets same day, no combining with other offers. Ladies Day is women only. Local Sunday requires ID showing residence in Reno, Sparks, Carson Valley, Lake Tahoe, Truckee, Fernley, Dayton or Virginia City - a San Jose group does not qualify. Page is undated and the resort's own ticket page still shows 2024-25 prices, so 26/27 validity is unconfirmed.",
+      "season_confirmed": "unknown - page carries no season year",
+      "source_url": "https://skirose.com/daily-specials/",
+      "confidence": "medium"
+    },
+    {
+      "name": "Diamond Peak - the $60 days were a one-off anniversary promo and the birthday ticket is DISCONTINUED",
+      "category": "dead-channel",
+      "claim": "Two classic Diamond Peak hooks need correcting. First, the free-birthday-ticket product is gone: the resort's own special-offers page lists 'Birthday & UnBirthday' under discontinued offers - 'Not offered this season; replaced with $60 lift tickets on select dates throughout the winter season.' Second, those $60 tickets were a 60TH ANNIVERSARY promotion tied to specific 25/26 dates - 'Jan. 14 & 29, Feb. 9, March 17 & 27, April 19' - covering both a $60 lift ticket and a $60 learn-to-ski/ride package. There is no indication the $60 days repeat for 26/27. What DOES persist structurally: '2-Day & 3-Day Flex Passes' described as 'Save with a 2-day or 3-day flex pass', 'Valid any day during season with no blackouts', but with 'specific pricing not listed'; a 'Reload Lift Tickets' discount of '$5 off the already-discounted online prices' for repeat online buyers; group tickets for 15 or more; a transferable Parent Interchangeable Ticket; free tickets or passes for 6 & under and 80+; and free midweek tickets for active-duty military, 'Non-peak weekdays (Monday - Friday)' only. The no-blackout 2/3-day flex pass is the product to re-check in the fall - it is the right shape for a small group but carries no published price.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "$60 days were 25/26 anniversary dates only. Birthday/UnBirthday free ticket discontinued. Flex pass prices unpublished. Military free tickets are non-peak Mon-Fri, active duty only - 'Civilian, contractors, foreign affiliates, VA, and expired IDs are not accepted.' All discounts 'are calculated from the online price and cannot be combined with any other ticket discounts.'",
+      "season_confirmed": "2025-26 (no 2026-27 offers published)",
+      "source_url": "https://www.diamondpeak.com/tickets-passes-rentals/special-offers/",
+      "confidence": "high"
+    },
+    {
+      "name": "Sam's Club - Tahoe voucher channel exists but has nothing on sale",
+      "category": "warehouse-club",
+      "claim": "Sam's Club runs a real ski-voucher channel through its Travel & Entertainment services hub, including dedicated Palisades Tahoe and Mammoth Mountain pages. As of now the Palisades listing reads 'See You Next Winter 2026/2027!' - i.e. no product currently on sale - and the Mammoth voucher that was live last season was '2 days of lift access out of a consecutive 4-day period, Sunday-Thursday', expiring at the end of the 25/26 winter season, with blackouts on 'ALL Fridays and Saturdays', Dec 20 2025 - Jan 3 2026, Jan 18 2026 and Feb 15 2026, and terms 'non-refundable, non-transferable, hold no cash value, and cannot be resold.' IMPORTANT SOURCING CAVEAT: serviceshub.samsclub.com returns HTTP 403 to direct fetch, so I read these only through search-result summaries, never the page itself. No price of any kind was visible. Do not quote a Sam's Club price; re-check the hub in October when 26/27 vouchers typically load, and note the historical shape (all weekends blacked out, consecutive-day usage windows) is far more restrictive than a Boreal-style 4-pack.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Nothing on sale for 26/27 yet. Historical vouchers blacked out ALL Fridays and Saturdays plus holiday windows and forced a consecutive-day usage window. Sam's Club membership required. Page not directly fetchable (HTTP 403).",
+      "season_confirmed": "2025-26 expired; 2026-27 'See You Next Winter' placeholder",
+      "source_url": "https://serviceshub.samsclub.com/packages.php?sub=packages&action=view&id=687",
+      "confidence": "low"
+    },
+    {
+      "name": "Employer/corporate perk portals and AAA - real channels, zero verifiable pricing",
+      "category": "gated-channel",
+      "claim": "Working Advantage, TicketsatWork and Employee Network all list ski tickets among their corporate-perk inventory, and AAA sells lift tickets through a partner portal - AAA's own product page says only 'AAA Members save on lift tickets to select ski resorts! Click Shop Now below and you will be redirected to our partner site to purchase', with no resorts, prices or seasons named. Every one of these requires an employer code or member login to see inventory, and none publishes a public price list. A claim repeated in secondary sources - AAA members saving 'up to 28%' at Palisades Tahoe - could not be traced to any AAA or Palisades page, and the AAA club that published it is the Auto Club Group, not AAA Northern California, so it may not even apply to a San Jose member. This is an ACTION, not a price: whoever in the group has a large employer should log into their own perks portal and check Palisades, Heavenly and Northstar directly, because that is the only way these numbers are visible. I report no price because there is none I could read.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Login-gated. Inventory varies by employer contract and by AAA club region. No published price list. Secondary claims about discount percentages are untraceable to a primary page.",
+      "season_confirmed": "unknown - no season-dated inventory visible without login",
+      "source_url": "https://shop.cluballiance.aaa.com/products/ski-lift-tickets-nationwide",
+      "confidence": "none"
+    },
+    {
+      "name": "Bank-card partner offers - opportunistic only, nothing published for 26/27",
+      "category": "gated-channel",
+      "claim": "Card-linked ski offers are real but targeted, unpredictable and impossible to plan against. Every concrete example findable has expired: an Amex Offer of $100 back on $500 spend at Vail Resorts through April 30, 2026; an Amex Offer of $75 back on $250 at Alterra Mountain resorts expiring 3/28/2026 and explicitly EXCLUDING the Ikon Pass; and Chase Offers / Sapphire perks at resorts like Big Bear and Snowshoe (25% off up to 4 lift tickets) that include no Tahoe resort. I searched ikonpass.com, alterramtn.co and palisadestahoe.com specifically for a Chase Sapphire partnership and found none. NOTHING is published for the 2026-27 season by any issuer or resort. The correct instruction for the group is behavioural rather than budgetary: everyone should check the Offers tab in their Amex and Chase apps before booking, because these appear with no notice and are per-cardholder - but do not put a number in the trip budget for it.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Targeted per-cardholder, must be manually added to the card, expire on short notice, and historically excluded pass products. No 2026-27 offer published by any issuer or resort.",
+      "season_confirmed": "none - all findable offers expired spring 2026",
+      "source_url": "https://www.ikonpass.com/en/compare-passes",
+      "confidence": "none"
+    },
+    {
+      "name": "Grocery/retail counter tickets (Safeway, Raley's) - no evidence this channel still exists in NorCal",
+      "category": "dead-channel",
+      "claim": "The classic 'buy your Tahoe lift ticket at the grocery store' route could not be substantiated at all. Repeated searches for Safeway or Raley's selling Tahoe lift tickets surfaced nothing current - the only hits were a Colorado forum thread about Safeway selling Breckenridge tickets dating to 2006, plus Tahoe-area store reviews. No Tahoe resort's own site names a grocery chain as a ticket outlet. The retail channel that has replaced it in the Bay Area is Sports Basement's Basementeer card: Sierra-at-Tahoe hosts a dedicated page for Basementeers and none for any supermarket. Report this as dead - if someone on the trip remembers buying Tahoe tickets at a Raley's, that memory is at least a decade stale.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No evidence of any current NorCal grocery lift-ticket program.",
+      "season_confirmed": "none - channel not verifiable in any recent season",
+      "source_url": "https://sierraattahoe.com/basementeer/",
+      "confidence": "none"
+    },
+    {
+      "name": "Bus + lift bundling (Tahoe Ski Trips, formerly Bay Area Ski Bus) - South Bay pickups, lift as an add-on",
+      "category": "transport-bundle",
+      "claim": "bayareaskibus.com now 301-redirects to tahoeskitrips.net. The operator serves nine resorts - 'Sierra-at-Tahoe, Sugar Bowl, Palisades Tahoe, Kirkwood, Northstar, Heavenly, Bear Valley, Dodge Ridge, and Mammoth' - and its FAQ confirms 'buses pick up at specified locations in the South Bay, San Francisco, and the East Bay.' On bundling the FAQ is explicit that the lift ticket is NOT automatic: 'Our package options can be as simple as transport only, or can include lift ticket, rentals, or lessons all at a reduced whole-sale pricing depending on the resort destination.' The only hard price I could read is last season's bus-only 8-pack at '$649.00' for 8 credits usable on single-day trips or hotel 2-day trips (3 credits each), 'good from the day of purchase through end of 2025/26 season' with 'TRIP CREDITS WILL EXPIRE AFTER 5/1/2026.' No 26/27 rates are posted; last season's schedule went up on 11/1. Relevance to a group DRIVING from San Jose is limited, but the wholesale lift-ticket allocation is worth a phone call (925-382-8320) - a tour operator's ticket pricing is a discount channel most people never think to ask about.",
+      "price_usd": "$649 for an 8-trip bus-only pack (2025-26); 26/27 rates not posted",
+      "per_day_usd": "$81.13 per bus trip on the 8-pack, transport only, lift ticket extra",
+      "restrictions": "Bus-only pack excludes lift tickets and rentals. 25/26 credits expired 5/1/2026. 26/27 rates and schedule not published (last season's went live 11/1). Lift-ticket wholesale pricing varies by resort and is quoted per trip, not published.",
+      "season_confirmed": "2025-26 (2026-27 rates not published)",
+      "source_url": "https://www.tahoeskitrips.net/rates-and-schedules/100595",
+      "confidence": "medium"
+    },
+    {
+      "name": "Vail Resorts advance-purchase window discount - 'over 30% off' four weeks out",
+      "category": "advance-purchase",
+      "claim": "Vail's structural answer to the death of Liftopia: buy the day ticket four or more weeks ahead and the resort itself discounts it. Vail's own newsroom announced a 'New discount averaging over 30% off lift tickets at 12 of its top destination resorts for guests who purchase four or more weeks in advance', with savings framed as '$100 or more per ticket' at the largest resorts. Heavenly and Northstar are named among the twelve; Kirkwood is not. This was announced for the 2025/26 season and I could not confirm it carries into 26/27 because every Vail consumer page errors out, though the August 2026 release that priced Epic Day Passes reiterates that day tickets reward advance purchase. PRACTICAL IMPLICATION for a group with flexible dates: locking dates a month out is itself worth roughly 30%, and it stacks against nothing - it is simply the price of planning ahead. It does not get anywhere near $60/day off a Tahoe window rate that Palisades describes as 'up to $289 per day'.",
+      "price_usd": "no fixed price - 'averaging over 30% off'",
+      "per_day_usd": null,
+      "restrictions": "Requires purchase 4+ weeks before the ski date and locks you to a date. Announced for 2025/26 at 12 named resorts including Heavenly and Northstar; Kirkwood not named. 26/27 continuation not confirmable while Vail's consumer site is erroring.",
+      "season_confirmed": "2025-26 (2026-27 continuation unconfirmed)",
+      "source_url": "https://news.vailresorts.com/2025-12-09-Vail-Resorts-Lowers-Lift-Ticket-Prices-for-Skiers-and-Riders-Who-Plan-a-Month-Ahead",
+      "confidence": "medium"
+    },
+    {
+      "name": "Tahoe Value Pass 26/27 - $597 claimed, but sourcing is secondary only",
+      "category": "season-pass",
+      "claim": "Reported here with an explicit sourcing warning. Multiple resellers and guides state the 2026-27 Tahoe Value Pass is $597 adult (19-64), $497 teen (13-17), $294 child (5-12) and $507 senior (65+), giving daily access to Heavenly plus access to Northstar and Kirkwood six days a week excluding Saturdays, with restricted peak dates Nov 27-28 2026, Dec 26-31 2026, Jan 16 2027 and Feb 13-14 2027. I could NOT verify any of this against a Vail-controlled page: kirkwood.com/plan-your-trip/lift-access/passes/tahoe-value-pass.aspx, skiheavenly.com and epicpass.com all returned 'The system cannot process your request.' Treat $597 as unconfirmed. If it is right it works out to $149.25/day over a 4-day trip - worse than the benchmark - but $59.70/day at ten days, which is the break-even a group planning two Tahoe trips should check.",
+      "price_usd": "$597 adult (SECONDARY SOURCES ONLY - not confirmed on any Vail page)",
+      "per_day_usd": "$149.25/day at 4 days; $59.70/day at 10 days",
+      "restrictions": "No Saturdays at Northstar or Kirkwood. Peak-date restrictions reported as Nov 27-28 2026, Dec 26-31 2026, Jan 16 2027, Feb 13-14 2027. Price could not be verified on any Vail-owned page.",
+      "season_confirmed": "2026-27 (claimed by secondary sources)",
+      "source_url": "https://www.kirkwood.com/plan-your-trip/lift-access/passes/tahoe-value-pass.aspx",
+      "confidence": "low"
+    },
+    {
+      "name": "'Kids ski free' products for 2026-27 - what is real and what is last season",
+      "category": "kids-free",
+      "claim": "Three distinct things get conflated under this heading. (1) REAL AND 26/27: Boreal gives a free season pass for kids 12 and under with the purchase of an Adult Unlimited Pass - a season-pass perk, not a day-ticket product. (2) REAL AND STANDING: Palisades Tahoe runs 'Kids 4 & under ski free' every single day of the season with no blackout dates. (3) LAST SEASON ONLY: Alterra's 'Kids Ski Free Week' ran December 6-12, 2025 across 15 North American destinations including Palisades Tahoe - a 25/26 promotion with no 26/27 equivalent announced. Diamond Peak separately gives free lift tickets or season passes to 6 & under and to 80+, and Sierra-at-Tahoe's 26/27 pass sheet makes 4-and-under and 80+ free. There is NO Tahoe kids-ski-free product that helps a group of adult friends, and there is no California equivalent of Colorado's fifth-grade ski passport ($67 for four days at 20 mountains) - that program is Colorado-only and I found no California analogue. Ski California's youth-relevant offering is the $4,250 sold-out Gold Pass, which is not that.",
+      "price_usd": "$0 for qualifying children",
+      "per_day_usd": "$0 for qualifying children",
+      "restrictions": "Boreal's free kid pass requires buying an Adult Unlimited Pass. Palisades free is 4 and under only. Alterra's Kids Ski Free Week was Dec 6-12 2025 with no 26/27 announcement. No California fifth-grade ski passport exists.",
+      "season_confirmed": "2026-27 for Boreal and Palisades 4-and-under; 2025-26 for Alterra Kids Ski Free Week",
+      "source_url": "https://www.palisadestahoe.com/plan-your-visit/deals-and-packages/kids-ski-free-4-and-under",
+      "confidence": "medium"
+    },
+    {
+      "name": "Sierra-at-Tahoe Buddy Tickets - $79-$89 per guest day, the sleeper group discount",
+      "category": "pass-holder-perk",
+      "claim": "Sierra publishes full 26/27 pass pricing, which most Tahoe resorts do not, and buried in its benefits page is the best group mechanism on the South Shore. Buddy Ticket pricing for 26/27 is '$89 (peak) / $79 (non-peak)', and the allocation is by tier: 'Unlimited Pass: unlimited buddy tickets; Play Pass: 12 buddy tickets; Weekday Pass: 10 buddy tickets', newly 'redeemable online or as discounted learn-to-ski lessons'. That means ONE person buying the $659 Unlimited pass can bring the other five friends at $79-$89 each per day, with no cap. For a 4-day trip that is $316-$356 per guest plus one $659 pass - roughly $85/day across the whole party of six, against a Palisades window rate of up to $289. The full 26/27 pass sheet: Unlimited ('Any day, no restrictions') Adult 23-64 $659, Young Adult 13-22 $529, College $529, Senior 65-79 $269, Child 5-12 $269, free for 4-and-under and 80+; Play Pass ('7 days a week, with blackouts') Adult $539, Young Adult/College $489; Weekday Pass ('Valid Monday-Friday, with blackouts') $409. Blackouts on the restricted tiers: Dec 26-30 2026, Jan 16-17 2027, Feb 13-14 2027. Deferral requests must be in by 11/15/2026. Passholders also get free parking reservations, 20% off retail, rentals, food, drinks and the repair shop, and there is 20% off season passes for 'First Responders, active, retired + veteran Military and immediate family (limit 4)'.",
+      "price_usd": "Buddy Tickets $89 peak / $79 non-peak. Unlimited pass $659 adult; Play $539; Weekday $409",
+      "per_day_usd": "$79-$89/day per guest; about $85/day averaged across a party of six with one Unlimited pass over 4 days",
+      "restrictions": "Unlimited buddy tickets only on the Unlimited pass; Play is capped at 12 and Weekday at 10. Play and Weekday passes are blacked out Dec 26-30 2026, Jan 16-17 2027, Feb 13-14 2027. Only the Unlimited pass carries Powder Alliance reciprocals. Sierra has no 26/27 day tickets on sale yet, so the buddy-ticket price is published ahead of the product it discounts. Deferral deadline 11/15/2026.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://sierraattahoe.com/season-pass-benefits/",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic pass",
+        "checked_on": "2026-08-27",
+        "verdict": "CONFIRMED",
+        "verified_source_url": "https://sierraattahoe.com/season-passes/",
+        "why": "INCIDENTAL CHECK, not one of the assigned claims - flagged because it shares a miscited source_url with the Powder Alliance finding. The Buddy Ticket price IS on the cited benefits page and is confirmed: 'Buddy tickets for the 2026/27 season will be $89/$79, peak/non-peak', with Unlimited = unlimited buddy tickets, Play = 12, Weekday = 10. But the season pass prices quoted in this finding are NOT on the cited /season-pass-benefits/ page - that page lists no prices at all and links out to 'Shop Passes'. I verified them on sierraattahoe.com/season-passes/ instead, where they are correct for 2026/27: Unlimited adult 23-64 $659, young adult 13-22 and college $529, senior 65-79 $269, child 5-12 $269, 4-and-under and 80+ free; Play adult $539, young adult/college $489; Weekday $409. Prices upheld; the citation should point at /season-passes/."
+      }
+    }
+  ],
+  "coverage_gaps": [
+    "Vail Resorts' entire consumer web tier (epicpass.com, skiheavenly.com, northstarcalifornia.com, kirkwood.com) returned 'The system cannot process your request' to every fetch across the whole session. Everything I report for Vail comes from news.vailresorts.com press releases. I therefore could NOT verify: the Epic Day Pass price by tier and day-count (only the $47-$99 band), the 26/27 Epic Friend Ticket allocation, the Tahoe Value Pass price, the Tahoe Local pass price, or the Northstar 'Stay & Ski FREE' lodging+lift package that secondary sources price 'from $115 per person, per night' including two lift tickets.",
+    "Costco's live catalogue could not be read - costco.com/ski-lift-vouchers.html and costco.com/california-tickets.html both timed out on every attempt. The Costco finding rests entirely on Sierra-at-Tahoe's own Costco page. No Costco price for any Tahoe product is confirmed for any season.",
+    "Sam's Club's services hub (serviceshub.samsclub.com) returns HTTP 403 to direct fetch. The 'See You Next Winter 2026/2027!' Palisades placeholder and the Mammoth voucher terms were read only through search-result summaries, never the page itself. No Sam's Club price is confirmed for any resort or season.",
+    "Palisades Tahoe does not publish the TOTAL price of any of its three 26/27 Ticket Packs - only the 'from $92 per day' floor. shop.palisadestahoe.com returns HTTP 403, so I could not read a live checkout. The price split between the 4-Day Midweek, 4-Day Unrestricted and 2-Day Unrestricted packs is unknown.",
+    "Ikon does not publish the 3-day or 4-day Session Pass price anywhere I could reach - only the 2-day starting price, which itself appears as three different numbers across Ikon's own properties ($249 on lifted.ikonpass.com, $299 in Alterra's March launch release, $319 on the current shop page). A 4-day Ikon Session per-day cost cannot be computed honestly.",
+    "The 2026-27 'Plates for Powder' round is not announced; the Tahoe Fund page still describes the Nov 1 2025 - Apr 1 2026 window. The plate cost itself (~$50 CA / ~$61 NV) appears only in secondary press coverage, not on the Tahoe Fund page, and the 26/27 participating-resort list and blackout dates are unknown.",
+    "Sports Basement's own pages (lift-ticket-discounts, basementeer-offers, sierra-at-tahoe-promotional-code) are JavaScript-rendered and returned only navigation chrome to every fetch. The $25 membership fee and the '40% off Sun-Fri / 30% Sat / 20% holidays' split come from search summaries; only the resort-side confirmation ('up to 40% off', 'ANY DAY during the 2025/26 Season', 'Limit 4 tickets per unique gift code') is primary. No 26/27 Basementeer pricing exists yet.",
+    "SnowBomb could not be confirmed alive OR formally confirmed dead - sfskifest.com returns HTTP 403 rather than a 404, so the festival domain still resolves. I found no purchasable product and no 2026 dates. Someone should check the festival domain again in October before writing it off permanently.",
+    "Tahoe Ski Trips has not posted 2026-27 rates or schedule (last season's went up 11/1), and its lift-ticket add-on prices are quoted per trip at 'wholesale' rather than published. The Groupon listing for their bus deal ($53 round-trip, $85 value) returned HTTP 403.",
+    "Mt. Rose's daily-specials page carries no season year at all, and its lift-ticket page still shows 2024-25 prices ($189 adult full day). I cannot certify Two'fer Tuesday or the $79 Ladies Day as confirmed 2026-27 products.",
+    "I did not verify any lodging+lift bundle against a live booking engine. The Northstar 'Stay & Ski FREE from $115/person/night with two lift tickets' figure is secondary only. Palisades' Ikon-holder lodging discount (25% off Sunday-Thursday, 10% Friday-Saturday) carried an August 28 deadline that expires tomorrow, and I read it on Ikon's Lifted marketing site rather than a booking page. Palisades also advertises 'Group Deals on Lodging & Tram Tickets' but only for parties of 20+, which this group is not.",
+    "Employer perk portals (Working Advantage, TicketsatWork, Employee Network) and AAA's ticket store are all login-gated. No price, resort list or season is publicly visible for any of them. The 'AAA members save up to 28% at Palisades Tahoe' claim traces only to an Auto Club Group blog, not AAA Northern California and not Palisades.",
+    "Sierra-at-Tahoe has no 26/27 day-ticket or multi-pack product on sale at all, so several Sierra-dependent channels in this file (Basementeer 40% off, a future Costco 2-PAK, Ikon Session access, Buddy Tickets) currently have nothing to attach to. All of these need re-checking once Sierra loads 26/27 ticket products.",
+    "Diamond Peak's 2-Day and 3-Day Flex Passes are described as no-blackout multi-day products but carry no published price in any season. This is the most promising unpriced multi-pack I found and should be re-checked in the fall.",
+    "I did not price Homewood, though I confirmed it IS operating for 26/27 with a new gondola and published passes (Unlimited $1,299 adult, Value $899, Weekly 2-Day $799) - all far above this trip's budget, and it has no multi-pack or discount-channel product."
+  ]
+}

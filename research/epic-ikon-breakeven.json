@@ -1,0 +1,376 @@
+{
+  "dimension": "Epic vs Ikon vs single-resort multi-packs at the big Tahoe mountains (Heavenly, Northstar, Kirkwood, Palisades Tahoe, Sugar Bowl) for 2026-27 — live pricing, every discount lever, and where each one breaks even against the Boreal iRide 4-Pack at $59.75/day",
+  "findings": [
+    {
+      "name": "Epic Day Pass — 4-Day, 32-Resort tier, peak-restricted (THE cheapest Epic route onto a big Tahoe mountain)",
+      "category": "multi-pack",
+      "claim": "This is the single most decision-relevant number in this whole dimension. On epicpass.com's live Build-Your-Own configurator today, an Epic Day Pass configured as 4 days / 32 Resorts / Peak Dates = NO is $359 adult (ages 13+), which the page itself renders as '$90 PER DAY' next to 'ADULT (AGES 13+)'. I pulled the underlying product record from the live pass-results feed to confirm the access list: the product 'AD Epic 4 Day Limited RST (A)' at $359 carries 32 resort access codes that INCLUDE Heavenly (1430), Northstar (1431) and Kirkwood (1432). What the 32-resort tier drops versus the full 39/46-resort tier is exactly: Vail, Beaver Creek, Breckenridge, Park City, Whistler Blackcomb, Telluride, Andermatt-Sedrun-Disentis, Crans-Montana, and the six Resorts of the Canadian Rockies (Fernie, Kicking Horse, Kimberley, Nakiska, Mont-Sainte-Anne, Stoneham). It keeps Keystone, Crested Butte, Stevens Pass, Stowe, Okemo and all three Tahoe mountains. For a San Jose group whose whole trip is Tahoe, the 32-resort tier costs $102 less than All Resorts for 4 days and gives up literally nothing they will use. Full 32-resort peak-restricted adult ladder: 1 day $109, 2 $206, 3 $287, 4 $359, 5 $416, 6 $472, 7 $526. Child (5-12) same tier: 1 $57, 2 $106, 3 $148, 4 $184, 5 $215, 6 $242, 7 $270. Paying the peak surcharge on this tier moves the 4-day to $422 ($105.50/day). Bonus: the Epic Day Pass carries Epic Mountain Rewards — 'save 20% on other trip essentials like lodging, rentals, and dining' — which on a 5-night/4-day trip with rentals is real money the Boreal 4-pack does not have.",
+      "price_usd": "$359 adult 4-day (32 resorts, peak-restricted); $422 adult 4-day with peak dates; $184 child 4-day",
+      "per_day_usd": "$89.75 adult; $46.00 child; $105.50 adult with peak access",
+      "restrictions": "Restricted Peak Dates for 26/27 (pulled from the page's own RestrictedDates object): Nov 27-28 2026, Dec 26-31 2026, Jan 16 2027, Feb 13-14 2027. Peak dates are a caption for a flexible-date group, not a blocker — they are 11 days out of the whole season. 32-resort tier gets NO partner-resort access (Telluride, Canadian Rockies) and no Bonus Days at Afton Alps/Mt Brighton/Wilmot. Days need not be consecutive and need not be assigned to dates or resorts in advance. Non-refundable but includes Epic Coverage. Epic Day Pass does NOT include Epic Friend Tickets. PRICE INCREASES SEPT 7, 2026.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "Northstar ~3h40m via I-80 to Truckee; Heavenly ~3h50m via US-50 to South Lake Tahoe; Kirkwood ~3h45m via US-50 then SR-88",
+      "source_url": "https://www.epicpass.com/passes/epic-day-pass.aspx",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Live browser session on epicpass.com 2026-08-27. Read the page's own product feed (FR.passCategoryResult.EpicPassProducts on the Epic Day Pass page; FR.passResultsData.Passes on /pass-results/passes.aspx) rather than rendered copy. Every product carries ProductAttribute code 158 = '26/27'; the Epic Day Pass category's ResortAccessText reads 'All Epic Day Passes give access for the 2026/27 winter season, starting fall 2026.'",
+        "why": "Every priced assertion reproduced exactly off the live 84-product feed. 'AD Epic 4 Day Limited RST (A)' = $359, 'AD Epic 4 Day Limited (A)' = $422, 'CH Epic 4 Day Limited RST (A)' = $184. The full 32-resort peak-restricted adult ladder came back 109 / 206 / 287 / 359 / 416 / 472 / 526 and the child ladder 57 / 106 / 148 / 184 / 215 / 242 / 270 - all fourteen cells match. The 32-resort access list on the $359 product does contain Heavenly (code 1430), Northstar (1431) and Kirkwood (1432). The claimed delta against All Resorts is also exactly right: the 4-day All-Resorts product carries 46 codes and the seven owned resorts it adds are Vail, Beaver Creek, Breckenridge, Park City and Whistler Blackcomb plus Andermatt-Sedrun-Disentis and Crans Montana, with Telluride and the six Canadian Rockies resorts on top as partners. $461 - $359 = $102, as claimed. RestrictedDates on the category are Nov 27-28 2026, Dec 26-31 2026, Jan 16 2027 and Feb 13-14 2027, exactly as written. The Sept 7 deadline is real: the sitewide alert object carries CountdownEnd 2026-09-07T23:59:00 in America/Denver and the banner renders 'PASS PRICES GO UP SEPT 7 | BUY NOW'.",
+        "corrected_price": null,
+        "source_url": "https://www.epicpass.com/passes/epic-day-pass.aspx",
+        "note": "The cited URL 404s to an error page through plain HTTP fetching - it only resolves in a real browser session. Anyone re-checking this number needs a browser, not curl."
+      }
+    },
+    {
+      "name": "Epic Day Pass — complete 2026-27 price matrix, all three resort tiers, 1-7 days, adult and child, peak and non-peak",
+      "category": "multi-pack",
+      "claim": "Captured directly off the live configurator and the underlying 84-product feed on epicpass.com, so every cell below is a real purchasable price today (2026-08-27), not a derived one. ALL RESORTS (39 owned/operated, plus Telluride and the six Canadian Rockies resorts on 4-day and above, so 46 codes on the 4-7 day products) — adult peak-restricted: 1 day $141, 2 $262, 3 $370, 4 $461, 5 $538, 6 $615, 7 $687; adult with peak access: 1 $167, 2 $312, 3 $438, 4 $545, 5 $636, 6 $726, 7 $812. Child 5-12 All Resorts peak-restricted: 1 $74, 2 $137, 3 $193, 4 $240, 5 $280, 6 $319, 7 $359. 32 RESORTS adult peak-restricted: $109 / $206 / $287 / $359 / $416 / $472 / $526; with peak: $127 / $241 / $337 / $422 / $497 / $561 / $624. 22 RESORTS adult peak-restricted: $68 / $125 / $176 / $218 / $255 / $291 / $323; with peak: $80 / $149 / $208 / $260 / $304 / $345 / $384. The peak surcharge is tier-specific and day-count-specific — on 4 days it is +$84 on All Resorts, +$63 on 32 Resorts, +$42 on 22 Resorts. Per-day cost falls steadily with day count: the 32-resort restricted tier runs $109/day at 1 day down to $75.14/day at 7 days, which is the closest any Vail product gets to the Boreal benchmark while still touching Tahoe. Page copy: 'The best value for 1-7 days of lift access. Lock yours in before the season begins and save up to 65% vs the cost of Lift Tickets.'",
+      "price_usd": "See matrix in claim — $68 (22-resort 1-day) to $812 (All Resorts 7-day with peak)",
+      "per_day_usd": "$75.14 (32-resort, 7 days, restricted) to $167 (All Resorts, 1 day, peak)",
+      "restrictions": "Restricted Peak Dates 26/27: Nov 27-28 2026, Dec 26-31 2026, Jan 16 2027, Feb 13-14 2027. 'If Peak Restricted Day Access is not included, peak restricted dates apply to all resorts including Telluride and the six (6) Resorts of the Canadian Rockies.' Mobile Pass on the My Epic app is NOT accepted at Telluride, the Canadian Rockies or any partner resort — physical card required. Bonus Days at Afton Alps/Mt Brighton/Wilmot only on the All Resorts tier.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.epicpass.com/pass-results/passes.aspx",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Live browser session on epicpass.com 2026-08-27. Read the page's own product feed (FR.passCategoryResult.EpicPassProducts on the Epic Day Pass page; FR.passResultsData.Passes on /pass-results/passes.aspx) rather than rendered copy. Every product carries ProductAttribute code 158 = '26/27'; the Epic Day Pass category's ResortAccessText reads 'All Epic Day Passes give access for the 2026/27 winter season, starting fall 2026.'",
+        "why": "All 42 adult cells verified one by one against the feed and all 42 match. All Resorts adult restricted 141 / 262 / 370 / 461 / 538 / 615 / 687; with peak 167 / 312 / 438 / 545 / 636 / 726 / 812. 32 Resorts restricted 109 / 206 / 287 / 359 / 416 / 472 / 526; with peak 127 / 241 / 337 / 422 / 497 / 561 / 624. 22 Resorts restricted 68 / 125 / 176 / 218 / 255 / 291 / 323; with peak 80 / 149 / 208 / 260 / 304 / 345 / 384. Child All-Resorts restricted 74 / 137 / 193 / 240 / 280 / 319 / 359 also matches. The day-count-specific peak surcharge checks out too: at 4 days it is +$84 All Resorts, +$63 on 32 Resorts, +$42 on 22 Resorts. The 39-code / 46-code split between the 1-3 day and 4-7 day All-Resorts products is real and is exactly what the feed shows.",
+        "corrected_price": null,
+        "source_url": "https://www.epicpass.com/passes/epic-day-pass.aspx",
+        "note": "One incompleteness, not an error: the price_usd range '$68 to $812' is the ADULT floor. The true catalogue floor is $34 ('CH Epic 1 Day Local RST (A)'), and the child 22-resort ladder (34 / 64 / 91 / 113 / 131 / 150 / 165 restricted; 42 / 78 / 108 / 134 / 156 / 177 / 195 with peak) is missing from the matrix entirely. Irrelevant to a Tahoe trip since the 22-resort tier has no California access, but the matrix is not complete as billed."
+      }
+    },
+    {
+      "name": "Epic Day Pass — the 22-Resort tier is a TRAP for this trip (beats the Boreal benchmark on price, has zero California access)",
+      "category": "multi-pack",
+      "claim": "NEGATIVE / WARNING FINDING. The Epic Day Pass 22-Resort tier at 4 days peak-restricted is $218 adult = $54.50/day, which undercuts the Boreal iRide 4-Pack's $59.75/day and would look like the winner on any price-sorted table. It is useless here. I extracted the actual resort-code list from the live product record 'AD Epic 4 Day Local RST (A)' and it contains exactly 22 resorts, none of them in California or the West: Afton Alps MN, Mt Brighton MI, Wilmot WI, Mount Sunapee NH, Alpine Valley OH, Boston Mills OH, Brandywine OH, Mad River Mountain OH, Hidden Valley MO, Snow Creek MO, Paoli Peaks IN, Attitash NH, Wildcat NH, Crotched NH, Liberty PA, Roundtop PA, Whitetail PA, Jack Frost PA, Big Boulder PA, Hidden Valley PA, Laurel Mountain PA, Seven Springs PA. Heavenly, Northstar and Kirkwood are absent. Epic's own note confirms the exclusion: 'Epic Day Passes with 22 or 32 resort access do not receive access to these partner resorts' and 'Bonus days are not included on Epic Day Pass with 22 or 32 resort access.' If this number ends up on the site next to Tahoe options it will send someone to Ohio.",
+      "price_usd": "$218 adult 4-day peak-restricted; $260 with peak access",
+      "per_day_usd": "$54.50 — but at zero Tahoe resorts",
+      "restrictions": "No California, Colorado, Utah, Washington or Canadian access whatsoever. Midwest, Northeast and Mid-Atlantic hills only. Do not surface this tier to a Tahoe audience without the resort list attached.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.epicpass.com/pass-results/passes.aspx",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Live browser session on epicpass.com 2026-08-27. Read the page's own product feed (FR.passCategoryResult.EpicPassProducts on the Epic Day Pass page; FR.passResultsData.Passes on /pass-results/passes.aspx) rather than rendered copy. Every product carries ProductAttribute code 158 = '26/27'; the Epic Day Pass category's ResortAccessText reads 'All Epic Day Passes give access for the 2026/27 winter season, starting fall 2026.'",
+        "why": "$218 and $260 both confirmed ('AD Epic 4 Day Local RST (A)' and 'AD Epic 4 Day Local (A)'). More importantly the warning itself holds: I pulled the Resort Access attribute off the $218 product and it returns exactly the 22 hills listed in the claim - Afton Alps, Mt Brighton, Wilmot, Mount Sunapee, Alpine Valley, Boston Mills, Brandywine, Mad River Mountain, Hidden Valley MO, Snow Creek, Paoli Peaks, Attitash, Wildcat, Crotched, Liberty, Roundtop, Whitetail, Jack Frost, Big Boulder, Hidden Valley PA, Laurel Mountain, Seven Springs. No Heavenly, no Northstar, no Kirkwood, nothing west of Missouri. This is the most valuable finding in the file and it survives verification intact.",
+        "corrected_price": null,
+        "source_url": "https://www.epicpass.com/passes/epic-day-pass.aspx"
+      }
+    },
+    {
+      "name": "Epic — the two hard 2026-27 deadlines: Sept 7 price increase and Dec 6 off-sale",
+      "category": "deadline",
+      "claim": "Two dates, both read off epicpass.com's own machinery rather than marketing copy. (1) PRICE INCREASE: the sitewide alert bar reads 'PASS PRICES GO UP SEPT 7 | BUY NOW' and the underlying alert object carries \"CountdownEnd\":\"2026-09-07T23:59:00\" with \"TimeZone\":\"America/Denver\". The Epic Day Pass landing page repeats it as 'LOWEST PRICE OF THE FALL ENDS SEPTEMBER 7 — Secure your Pass now before prices go up.' That is ELEVEN DAYS from today (2026-08-27) and it is the single most urgent deadline in the whole big-mountain set — earlier than Boreal's Oct 1 iRide deadline. (2) OFF SALE: the global pass settings object carries \"OnSaleDate\":\"2026-03-03T05:00:00\" and \"OffSaleDate\":\"2026-12-06T09:00:00\" — so every Epic product, Epic Day Pass included, stops being sold on December 6, 2026. After that the only way onto Heavenly/Northstar/Kirkwood is a date-specific lift ticket at roughly $128-$154/day. Epic does NOT publish what the post-Sept-7 price will be, so I cannot quantify the increase. Also on the page: buying now gets 'five Epic Friend Tickets to help friends save up to 50% off lift access this season' — but the asterisk reads '*Epic Day Pass excluded', so a group buying Day Passes gets no friend tickets.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Sept 7 2026 23:59 Mountain = last day of fall's lowest pricing. Dec 6 2026 09:00 = all Epic products off sale for the season. Post-increase pricing is not published anywhere on the site.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.epicpass.com/pass-results/passes.aspx",
+      "confidence": "high"
+    },
+    {
+      "name": "Epic — Tahoe Local Pass and Tahoe Value Pass (the Tahoe-only season passes)",
+      "category": "season-pass",
+      "claim": "Both are live for 26/27 on epicpass.com's results page. TAHOE LOCAL PASS: $699 adult (ages 19+), $566 teen (13-18), $349 child (5-12). Card copy: 'The best way to ski Heavenly, Northstar and Kirkwood 7 days/week.' Access list from the product feed is exactly Heavenly, Northstar, Kirkwood, though the card headline says 'ACCESS TO 9 RESORTS IN THE 2026/27 SEASON' (the extra six are the Epic-family bonus destinations). Marked 'EXCLUDES PEAK DATES.' TAHOE VALUE PASS: $597 adult (19-64), $497 teen (13-18), $507 senior (65+), $294 child. Copy: 'Ski 7 days/week at Heavenly and 6 days/week at Northstar & Kirkwood' — the product record has IsSaturdayAccessRestricted = true, so Saturdays are out at Northstar and Kirkwood. For a 4-day trip neither is remotely competitive: $699 over 4 days is $174.75/day and $597 is $149.25/day, both roughly 2-3x the Boreal benchmark and both worse than the $359 Epic Day Pass. The Tahoe Local Pass only beats the 4-day Epic Day Pass route past about 8 ski days, and only beats a 7-day Epic Day Pass (32-resort, $526) past about 10 days.",
+      "price_usd": "Tahoe Local $699 adult / $566 teen / $349 child; Tahoe Value $597 adult / $497 teen / $507 senior / $294 child",
+      "per_day_usd": "$174.75 (Tahoe Local at 4 days); $149.25 (Tahoe Value at 4 days); $69.90 / $59.70 at 10 days",
+      "restrictions": "Both EXCLUDE peak dates: Nov 27-28 2026, Dec 26-31 2026, Jan 16 2027, Feb 13-14 2027. Tahoe Value additionally blocks Saturdays at Northstar and Kirkwood. Prices rise Sept 7 2026.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "Heavenly ~3h50m via US-50; Northstar ~3h40m via I-80; Kirkwood ~3h45m via US-50/SR-88",
+      "source_url": "https://www.epicpass.com/pass-results/passes.aspx",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Live browser session on epicpass.com 2026-08-27. Read the page's own product feed (FR.passCategoryResult.EpicPassProducts on the Epic Day Pass page; FR.passResultsData.Passes on /pass-results/passes.aspx) rather than rendered copy. Every product carries ProductAttribute code 158 = '26/27'; the Epic Day Pass category's ResortAccessText reads 'All Epic Day Passes give access for the 2026/27 winter season, starting fall 2026.'",
+        "why": "All seven prices exact for 26/27. Tahoe Local: 'AD Tahoe Local Pass (A)' $699 ages 19+, 'TN Tahoe Local Pass (A)' $566 ages 13-18, 'CH Tahoe Local Pass (A)' $349. Tahoe Value: 'AD Tahoe Value Pass (A)' $597 ages 19-64, 'TN' $497 ages 13-18, 'SR' $507 ages 65+, 'CH' $294. Both categories carry the four peak-restricted date ranges, and Tahoe Value's IsSaturdayAccessRestricted flag is indeed true while Tahoe Local's is false - so the Saturday caveat on Northstar and Kirkwood is real. Access list on both is Heavenly, Northstar, Kirkwood.",
+        "corrected_price": null,
+        "source_url": "https://www.epicpass.com/pass-results/passes.aspx"
+      }
+    },
+    {
+      "name": "Epic — Kirkwood Pass (single-resort season pass, the only unrestricted Tahoe option)",
+      "category": "season-pass",
+      "claim": "The Kirkwood Pass is $699 adult (ages 19-64), $553 teen (13-18), $566 senior (65+), $349 child (5-12) for 26/27. It is flagged 'INCLUDES PEAK DATES' and its product record has IsHolidayPeakAccessRestricted = false and no RestrictedDates — so it is the ONLY Tahoe-specific Epic product with genuinely zero blackouts. Card copy: 'Perfect for people who only plan to ski or ride at Kirkwood.' Access list is Kirkwood alone. At 4 days that is $174.75/day, so it is irrelevant to this trip on price; it is worth listing only as the answer to 'what if we absolutely must ski Christmas week at a Vail mountain.' Note Kirkwood is the steepest and most snow-reliable of the three Vail Tahoe mountains but has the least beginner terrain and no town at the base.",
+      "price_usd": "$699 adult / $553 teen / $566 senior / $349 child",
+      "per_day_usd": "$174.75 at 4 days; $69.90 at 10 days",
+      "restrictions": "Kirkwood only — no Heavenly or Northstar access. No blackout dates. Prices rise Sept 7 2026.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~3h45m via US-50 to Meyers then SR-88 over Carson Pass (the SR-88 approach can chain-control badly)",
+      "source_url": "https://www.epicpass.com/pass-results/passes.aspx",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Live browser session on epicpass.com 2026-08-27. Read the page's own product feed (FR.passCategoryResult.EpicPassProducts on the Epic Day Pass page; FR.passResultsData.Passes on /pass-results/passes.aspx) rather than rendered copy. Every product carries ProductAttribute code 158 = '26/27'; the Epic Day Pass category's ResortAccessText reads 'All Epic Day Passes give access for the 2026/27 winter season, starting fall 2026.'",
+        "why": "$699 adult (ages 19-64), $553 teen (13-18), $566 senior (65+), $349 child - all four exact for 26/27. The zero-blackout assertion is the part worth confirming and it holds: the Kirkwood Pass category has IsHolidayPeakAccessRestricted = false and an EMPTY RestrictedDates array, while Tahoe Local, Tahoe Value and the Epic Day Pass all carry four restricted ranges. Access list is Kirkwood alone. Note the senior price ($566) sits above the teen price ($553), which reads like a typo but is what the feed actually says.",
+        "corrected_price": null,
+        "source_url": "https://www.epicpass.com/pass-results/passes.aspx"
+      }
+    },
+    {
+      "name": "Epic — there is NO Northstar, Heavenly or Kirkwood multi-day ticket pack for 2026-27 (negative result)",
+      "category": "multi-pack",
+      "claim": "IMPORTANT NEGATIVE. Vail Resorts sells no single-resort Tahoe multi-day pack. I enumerated the complete 26/27 Epic product catalogue off the live results feed — the page reports '27 Result(s)' with no filters applied, and the 27 categories are: Epic Pass, Epic Local Pass, Epic Day Pass, Tahoe Local, Tahoe Value, Keystone Plus, Summit Value, Northeast Value, Northeast Midweek, Kirkwood Pass, Park City Youth, six Military passes, Wilmot, Afton Alps, Mt Brighton, Ohio, Paoli Peaks, Snow Creek, Hidden Valley, Stevens Pass Select, Stevens Pass Premium, and the Keystone Crested Butte 4-Pack. There is no Tahoe 4-pack, no Northstar 3-pack, no Heavenly punch card. The Epic Day Pass IS the multi-pack — that is the whole design. The one true pack Vail does sell is the KEYSTONE CRESTED BUTTE 4-PACK at $334 for ages 5+ (a flat $83.50/day, all ages, peak-restricted), which is a genuinely good number but is Colorado-only and therefore irrelevant to a San Jose drive trip. Worth knowing so nobody goes hunting for a Tahoe equivalent that does not exist.",
+      "price_usd": "No Tahoe pack exists. Keystone Crested Butte 4-Pack $334 (ages 5+) for reference.",
+      "per_day_usd": "$83.50 (Keystone/Crested Butte only)",
+      "restrictions": "Keystone Crested Butte 4-Pack excludes peak dates (Nov 27-28 2026, Dec 26-31 2026, Jan 16 2027, Feb 13-14 2027) and is valid only at Keystone and Crested Butte, Colorado.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.epicpass.com/pass-results/passes.aspx",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Live browser session on epicpass.com 2026-08-27. Read the page's own product feed (FR.passCategoryResult.EpicPassProducts on the Epic Day Pass page; FR.passResultsData.Passes on /pass-results/passes.aspx) rather than rendered copy. Every product carries ProductAttribute code 158 = '26/27'; the Epic Day Pass category's ResortAccessText reads 'All Epic Day Passes give access for the 2026/27 winter season, starting fall 2026.'",
+        "why": "The negative result holds. FR.passResultsData.Passes returns exactly 27 categories and the enumeration in the claim is correct name for name: Epic Pass, Epic Local Pass, Epic Day Pass, Tahoe Local, Tahoe Value, Keystone Plus, Summit Value, Northeast Value, Northeast Midweek, Kirkwood, Park City Youth, the six Military passes, Wilmot, Afton Alps, Mt Brighton, Ohio, Paoli Peaks, Snow Creek, Hidden Valley, Stevens Pass Select, Stevens Pass Premium, Keystone Crested Butte 4-Pack. There is no Tahoe multi-day pack of any kind. The one real pack, 'KYCB 4-Pack (A)', is $334 for ages 5+ ($83.50/day), season 26/27, access limited to Keystone and Crested Butte, and peak-restricted on the same four date ranges.",
+        "corrected_price": null,
+        "source_url": "https://www.epicpass.com/pass-results/passes.aspx"
+      }
+    },
+    {
+      "name": "Northstar & Heavenly — 26/27 date-specific lift ticket ladder (the thing the Epic Day Pass is beating)",
+      "category": "day-ticket",
+      "claim": "Both resort ticket pages are live and priced identically for 26/27. Sampling the CHEAPEST date on the calendar (Friday Nov 20, 2026, opening week) with the 'BUY 4+ WEEKS IN ADVANCE AND SAVE BIG' advance rate: adult 1 day $131 (vs $164 same-day), 2 days $260 ($130/day), 3 days $387 ($129/day), 4 days $512 ($128/day, vs $616 same-day), 5 $635, 6 $756, 7 $875. Child 5-12 4 days $360 ($90/day). Both pages then run a direct comparison box: 'EPIC 1-DAY PASS (RESTRICTED) $109 ADULT (AGES 13+) — Sold for a limited time: Commit early and save up to 62% vs. Peak Window Price ... Flexible: No need to select specific days. Bundle up to 7 days and use them throughout the season across up to 32 resorts' against '1-DAY LIFT TICKET (ADVANCE PURCHASE) $255 ADULT (AGES 19+) — Sold all season: Buy online 7 days in advance and save up to 10% vs. Peak Window Price. No Pass Holder Benefits.' So the resort's own page prices a peak-season advance day ticket at $255. The Epic Day Pass 4-day 32-resort at $89.75/day is beating a $128/day opening-week floor and a $255/day peak advance rate. Note the $512 figure is the FLOOR — it is opening-week dynamic pricing and a January or February date will be materially higher. Lift tickets are refundable ('Request a refund before 5 p.m. on the last day of your ticket'); Epic Day Passes are not.",
+      "price_usd": "$512 adult / $360 child for 4 days starting Nov 20 2026 (cheapest date sampled); $255 adult 1-day advance at peak",
+      "per_day_usd": "$128 adult (opening-week advance) to $255 (peak advance) to $164/day same-day",
+      "restrictions": "Date-specific and dynamically priced — you pick the dates at purchase. 'For the best experience, we've limited lift tickets each day. Popular days will sell out.' Advance discount requires booking at least four weeks ahead, with the first eligible ski day Dec 11 2026. Refundable before 5pm on the ticket's last day. No pass-holder benefits, so no Epic Mountain Rewards 20% off rentals/lodging/food. VERIFIED ADDITION: multi-day lift tickets must be consumed inside a fixed window that scales with day count - the configurator renders 'Ski or ride any 4 days within a 6-day window starting on 11/20/2026' (2 days/3-day window, 3/5, 4/6, 5/8, 6/9, 7/10). Unlike the Epic Day Pass, the days are not usable at will across the season.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "Northstar ~3h40m via I-80; Heavenly ~3h50m via US-50",
+      "source_url": "https://www.northstarcalifornia.com/plan-your-trip/lift-access/tickets.aspx",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Live browser session, clicked every day-count 1 through 7 in the Northstar ticket configurator with the first ski day left at its default Fri Nov 20 2026, then re-loaded the same configurator on skiheavenly.com.",
+        "why": "The whole ladder reproduces. Adult (ages 19-64) advance: 1 day $131 (same-day $164), 2 $260, 3 $387, 4 $512 (same-day $616), 5 $635, 6 $756, 7 $875. Child 5-12: $92 / $182 / $270 / $360 / $445 / $528 / $616 - so the $360 four-day child figure is right. The comparison box renders exactly as quoted: 'EPIC 1-DAY PASS (RESTRICTED) $109 ADULT (AGES 13+)' against '1-DAY LIFT TICKET (ADVANCE PURCHASE) $255 ADULT (AGES 19+)'. Heavenly's page returns the identical $131/$164 adult and $92/$115 child at 1 day and the same comparison box, so 'priced identically' holds.",
+        "corrected_price": null,
+        "source_url": "https://www.northstarcalifornia.com/plan-your-trip/lift-access/tickets.aspx",
+        "note": "MATERIAL OMISSION found, no price error. The configurator states a consumption window the finding never mentions: selecting 4 days renders 'Ski or ride any 4 days within a 6-day window starting on 11/20/2026'. The window scales with day count - 2 days/3-day window, 3 days/5-day, 4 days/6-day, 5 days/8-day, 6 days/9-day, 7 days/10-day. A 4-day multi-day lift ticket is therefore NOT a use-them-whenever product the way the Epic Day Pass is, and that difference should be captioned wherever the two are compared. It happens to be harmless for this trip (4 ski days inside 5 nights), but it is a real constraint. Also confirmed: the $512 figure really is the calendar floor - Nov 20 is the earliest selectable date."
+      }
+    },
+    {
+      "name": "Epic — Military passes at $220 are the cheapest big-mountain access in this entire study",
+      "category": "discount",
+      "claim": "If anyone in the group qualifies, this ends the conversation. The 26/27 Epic Military Pass Active is $220 adult (ages 18+) and Epic Military Pass Retired is also $220. Both are flagged 'INCLUDES PEAK DATES' with no restricted dates in their product records, and both carry the full Epic Pass access list — Vail, Beaver Creek, Breckenridge, Keystone, Heavenly, Northstar, Kirkwood, Park City, Whistler Blackcomb, Crested Butte, Stowe, Stevens Pass and the rest. Dependent versions are also $220 for adults 18+ and $220 for children 5-17. Epic Military Pass Veteran is $633 and Veteran Dependent $633. At $220 for an unrestricted, unlimited, no-blackout pass, a 4-day trip works out to $55/day — which BEATS the $59.75/day Boreal benchmark outright, on Heavenly and Northstar rather than a 380-acre hill, and gets cheaper every additional day. There is no equivalent on the Ikon side at anything like this price (Ikon's military base program is $899 for the full pass). This is the highest-leverage single fact in the dimension for any group with a service member, veteran or dependent in it.",
+      "price_usd": "$220 Active / $220 Retired / $220 Active or Retired Dependent (adult and child) / $633 Veteran / $633 Veteran Dependent adult / $338 Veteran Dependent child (ages 5-17)",
+      "per_day_usd": "$55.00 at 4 days; $22.00 at 10 days (Active/Retired $220 pass)",
+      "restrictions": "No blackout dates — includes peak dates. Requires military status verification during checkout ('NotificationVerificationRequiredText' is set on these products). Active/Retired tiers are ages 18+. Prices rise Sept 7 2026 and all Epic products go off sale Dec 6 2026.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.epicpass.com/pass-results/passes.aspx",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Live browser session on epicpass.com 2026-08-27. Read the page's own product feed (FR.passCategoryResult.EpicPassProducts on the Epic Day Pass page; FR.passResultsData.Passes on /pass-results/passes.aspx) rather than rendered copy. Every product carries ProductAttribute code 158 = '26/27'; the Epic Day Pass category's ResortAccessText reads 'All Epic Day Passes give access for the 2026/27 winter season, starting fall 2026.'",
+        "why": "The headline numbers are right and this is the strongest fact in the file. For 26/27: 'AD Active MLTRY Epic Pass (A)' $220, 'AD Ret MLTRY Epic Pass (A)' $220, Active Dependent $220 adult and $220 child (5-17), Retired Dependent $220 adult and $220 child, 'AD Vet MLTRY Epic Pass (A)' $633, 'AD Vet Dep MLTRY Epic Pass (A)' $633. All six military categories have IsHolidayPeakAccessRestricted = false and an empty RestrictedDates array, so the no-blackout claim is real, and NotificationVerificationRequiredText reads 'Epic Military Passes require verification.'",
+        "corrected_price": "$220 Active / $220 Retired / $220 Active or Retired Dependent (adult and child) / $633 Veteran / $633 Veteran Dependent adult - but Veteran Dependent CHILD (ages 5-17) is $338, not $633",
+        "source_url": "https://www.epicpass.com/pass-results/passes.aspx",
+        "note": "Two corrections, neither fatal. (1) 'CH Vet Dep MLTRY Epic Pass (A)' is $338, so the veteran-dependent line is not a flat $633 the way the active and retired dependent lines are a flat $220. (2) 'both carry the full Epic Pass access list' is overstated: the military passes carry 42 resort codes against the Epic Pass's 59. Every mountain the claim actually names is present - Vail, Beaver Creek, Breckenridge, Keystone, Heavenly, Northstar, Kirkwood, Park City, Whistler Blackcomb, Crested Butte, Stowe and Stevens Pass all verified on the $220 product - and the 17 missing codes are Telluride, the two Japan resorts, the six Canadian Rockies resorts and the eight European partners. Irrelevant to a Tahoe trip, but 'full Epic Pass access' is not accurate."
+      }
+    },
+    {
+      "name": "Epic — no college/student pass exists for 2026-27 (negative result)",
+      "category": "discount",
+      "claim": "NEGATIVE FINDING, and a useful one because Ikon does have a college discount. I checked the IsCollege flag on all 27 Epic pass categories in the live feed: the only product flagged true is the 'Park City Youth Pass' ($440, child ages 5-12, Park City UT only), which is a kids' product misfiled under that flag, not a student pass. There is no Epic College Pass, no student rate on the Epic Pass or Epic Local Pass, and no student rate on the Epic Day Pass. The closest thing to an age-based discount Vail offers for 26/27 is the new 'Ages 13–30 save 20%' banding — the Epic Pass is $1,119 for ages 31+ but $889 for both teens 13-17 and young adults 18-30, and the Epic Local Pass is $829 for 31+ but $659 for 13-30. That 20% band does NOT extend to the Epic Day Pass, which uses a flat 'Adult (Ages 13+)' tier at one price. So a 24-year-old and a 45-year-old pay the same $359 for the 4-day 32-resort day pass. Epic also publishes no group rate or group threshold anywhere in the pass catalogue.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No student verification path, no college product, no published group discount. The ages 13-30 20% discount applies only to the Epic Pass and Epic Local Pass season passes, not to the Epic Day Pass.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.epicpass.com/pass-results/passes.aspx",
+      "confidence": "high"
+    },
+    {
+      "name": "Ikon Session Pass — complete 2026-27 price matrix (2, 3 and 4 day, all ages)",
+      "category": "multi-pack",
+      "claim": "Pulled by driving ikonpass.com's live Personalize Your Pass flow through all three day-count options. ADULT (Age 23+): 2-Day $319.00, 3-Day $429.00, 4-Day $529.00. YOUNG ADULT (Ages 13-22): 2-Day $259.00, 3-Day $369.00, 4-Day $419.00. CHILD (Ages 5-12): $209 / $259 / $309. Ages 0-4: $209 / $259 / $309. The 4-day adult at $529 is $132.25/day — 2.2x the Boreal benchmark and $170 more than the equivalent Epic 4-day 32-resort pass, for a narrower resort list. The under-23 rate is where this gets interesting: $419 for 4 days is $104.75/day, a 21% saving, and it covers a big share of a typical friends group. Access is '2, 3, or 4 days total at select destinations' across 47-48 mountains including Palisades Tahoe, Sierra-at-Tahoe, Mammoth, June Mountain, Big Bear and Snow Valley in California, plus Steamboat, Winter Park, Copper, A-Basin, Big Sky, Brighton, Solitude and Killington. Critically for a Tahoe trip: the Session Pass covers BOTH Palisades Tahoe and Sierra-at-Tahoe, so a group can split days between an I-80 mountain and a US-50 mountain on one product. The FAQ is blunt about what you do not get: 'Ikon Session Pass DOES NOT include Friends & Family vouchers, renewal discount, early spring access, first tracks, or child promotion.'",
+      "price_usd": "Adult 2-Day $319 / 3-Day $429 / 4-Day $529; Young Adult 13-22 $259 / $369 / $419; Child 5-12 $209 / $259 / $309",
+      "per_day_usd": "Adult $159.50 (2-day), $143.00 (3-day), $132.25 (4-day); Young Adult $104.75 (4-day); Child $77.25 (4-day)",
+      "restrictions": "Blackout dates, quoted verbatim from the page's Northern Hemisphere block: 'Dec 26 – 30, 2026 / Jan 16 – 17, 2027 / Feb 13 – 14, 2027.' The page also states 'Lift Reservations Required' — this is a real operational constraint the Epic Day Pass does not have. No Friends & Family vouchers, no first tracks, no spring access, no child promotion. Days are total across all destinations, not per destination.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "Palisades Tahoe ~3h30m via I-80 to Truckee then SR-89; Sierra-at-Tahoe ~3h30m via US-50 (closest big Ikon mountain to San Jose)",
+      "source_url": "https://www.bigbearmountainresort.com/ski-and-snowboard/season-passes/ikon-pass",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Loaded ikonpass.com/en/shop-passes/ikon-session-pass in a browser, then cross-checked the full grid against Big Bear Mountain Resort's own Ikon page - Big Bear is Alterra-owned, so it is an operator page rather than an aggregator.",
+        "why": "Every cell matches: 4-Day $529 adult / $419 young adult 13-22 / $309 child 5-12; 3-Day $429 / $369 / $259; 2-Day $319 / $259 / $209. ikonpass.com itself confirms the 26/27 season and the $319 adult anchor ('26/27 IKON SESSION PASSES ... From $319 USD (Age 23+)'), and prints the blackout dates verbatim as quoted: Dec 26-30 2026, Jan 16-17 2027, Feb 13-14 2027, alongside 'Lift Reservations Required'. The destination list on the live page does include both Palisades Tahoe, CA and Sierra-At-Tahoe, CA, and counts to 48, so the split-mountain argument and the '47-48' figure both hold.",
+        "corrected_price": null,
+        "source_url": "https://www.bigbearmountainresort.com/ski-and-snowboard/season-passes/ikon-pass",
+        "note": "SOURCE CORRECTION. The cited URL does not support the claim as written. ikonpass.com/en/shop-passes/ikon-session-pass publishes ONLY 'From $319 USD (Age 23+)' - there is no price matrix on it, and I could not reach a public 'Personalize Your Pass' flow that exposes the 3-day, 4-day or age-tier cells without signing in. The numbers are right, but they are sourced from Alterra's Big Bear resort page, not from the URL in this finding. Repoint the citation."
+      }
+    },
+    {
+      "name": "Ikon Pass and Ikon Base Pass — 2026-27 prices and where they break even on a Tahoe trip",
+      "category": "season-pass",
+      "claim": "Live from the ikonpass.com shop flow. IKON PASS: $1,449.00 adult (23+), $1,049.00 young adult (13-22), $449.00 child (5-12), $199.00 ages 0-4. Refundable version $1,738.80 adult. Access: unlimited at 18 destinations, up to 7 days each at 56 more, no blackout dates, 15 Friends & Family 25%-off tickets, 15% off food/beverage/retail. IKON BASE PASS: $1,019.00 adult, $729.00 young adult, $349.00 child, $149.00 ages 0-4. Refundable $1,222.80. Access: unlimited at 15 destinations, 5 days each at 54 more, limited blackout dates, 10 F&F tickets, 10% off food/retail. Both are UNLIMITED at Palisades Tahoe for 26/27 — the destination page's Access Details table reads 'Ikon Pass: Unlimited, No Blackouts / Ikon Base Pass: Unlimited / Ikon Session Pass: 2, 3 or 4 Total Days, Blackout Dates.' BREAK-EVEN MATH for a Palisades-focused skier: Ikon Base ($1,019) only beats the 4-Day Session Pass ($529) past about 7.7 days; a Squad-Pack Base ($800) past about 6 days. Neither is defensible for a single 4-day trip — Base at 4 days is $254.75/day and the full Ikon Pass is $362.25/day. They belong on the site as 'if you are going three or more times this winter' options, not as trip pricing. Note the prices have already escalated since launch: Alterra's own March 12, 2026 press release listed the opening rates as 'Ikon Pass: $1,349 ... Ikon Base Pass: $924 ... Ikon Session Pass: $299', so all three are now $95-$100 above their spring floor.",
+      "price_usd": "Ikon Pass $1,449 adult / $1,049 young adult / $449 child; Ikon Base Pass $1,019 / $729 / $349",
+      "per_day_usd": "Ikon Pass $362.25/day at 4 days, $144.90 at 10; Ikon Base $254.75/day at 4 days, $101.90 at 10",
+      "restrictions": "Ikon Pass has no blackout dates. Ikon Base Pass has limited blackout dates at select destinations, but is UNLIMITED at Palisades Tahoe. Both offer a 'cancel for any reason through January 15, 2027' refundable upgrade at roughly +20%. Affirm 0% APR payment plans available.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "Palisades Tahoe ~3h30m via I-80",
+      "source_url": "https://www.ikonpass.com/en/shop-passes",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Fetched and then browsed ikonpass.com/en/shop-passes; age tiers cross-checked on Big Bear's Ikon page.",
+        "why": "Ikon Pass $1,449.00 adult (23+), $1,049.00 young adult (13-22), $449.00 child (5-12), $199.00 ages 0-4 and Ikon Base Pass $1,019.00 adult all render on ikonpass.com for 26/27. Base $729 young adult and $349 child confirmed on Big Bear. The on-page comparison table matches the claim column for column - Total Destinations 48 / 70 / 75, Days at Other Destinations '2, 3 or 4' / 5 / 7, Blackout Dates Yes / Yes / No, Friends & Family tickets 10 / 15. The refundable figure checks out: the page advertises 'New refundable Ikon Pass and Ikon Base Pass products starting from $1,222.80', which is $1,019 x 1.2, and $1,449 x 1.2 = $1,738.80. Only three products exist in the shop flow, so the separate Base Plus negative finding stands too.",
+        "corrected_price": null,
+        "source_url": "https://www.ikonpass.com/en/shop-passes",
+        "note": "Two sub-claims I could NOT verify and would not publish on this finding's authority. (1) 'Both are UNLIMITED at Palisades Tahoe for 26/27' - I did not open the Palisades destination access table. (2) The March 12 2026 launch prices ($1,349 / $924 / $299) used to argue prices have escalated - that is a secondary-source historical figure, not something on the live site. The break-even arithmetic in the claim does not depend on either."
+      }
+    },
+    {
+      "name": "Ikon Base Plus Pass — does not exist for 2026-27 (negative result)",
+      "category": "season-pass",
+      "claim": "NEGATIVE FINDING. The brief asked about Ikon Base Plus. It is not sold for 26/27. The live ikonpass.com shop flow offers exactly three products — Ikon Pass, Ikon Base Pass, Ikon Session Pass — and the on-page comparison table has exactly three columns ('Total Destinations 48 / 70 / 75'). There is no Base Plus tier, no Base Plus price and no Base Plus card anywhere in the purchase path. Alterra discontinued Base Plus starting with the 2025-26 season and has not brought it back for 2026-27. Anyone remembering Base Plus as the mid-tier way onto premium mountains for less needs to know the middle rung is gone: for 26/27 the ladder is Session (2-4 days) → Base ($1,019) → Ikon ($1,449), with a $490 gap between Session-4-day and Base.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Product discontinued. Do not list it as an option.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.ikonpass.com/en/shop-passes",
+      "confidence": "high"
+    },
+    {
+      "name": "Ikon Squad Pack — the only real group discount found, and it needs EXACTLY 5 people",
+      "category": "discount",
+      "claim": "This is the answer to 'how many people trigger a group rate' on the pass side, and the number is five. From ikonpass.com's own Squad Pack page: 'Get your squad together and save $219 each when you buy five Ikon Base Passes for the 26/27 season' and 'Skiers and riders age 23-28 can lock in an Ikon Base Pass for $800, a $219 savings on each pass, when one person buys 5 passes for the group.' The FAQ closes both loopholes: 'Can I buy less than or more than five Ikon Base Passes and still get the Squad Pack discount? No. Five Ikon Base Passes must be purchased for the Squad Pack discount.' And: 'Is there a Squad Pack for Ikon Pass or Ikon Sessions Passes? No.' Mechanics: one person buys, assigns the bundle in MyAccount, then receives four promo codes to share; each squad member needs their own ikonpass.com account. FOR THIS TRIP: a group of six cannot use it cleanly (five qualify, the sixth buys separately), the age band 23-28 will exclude some friends, and at $800 for a 4-day trip it is $200/day — nowhere near competitive. It only makes sense if five friends aged 23-28 are all committing to a full season of Tahoe. Note the discount has already escalated in the group's favour since launch: Alterra's March 2026 release advertised '$750, a $199 savings'; the live page now says $800 / $219, meaning the base price rose faster than the discount.",
+      "price_usd": "$800 per Ikon Base Pass when five are bought together (normally $1,019)",
+      "per_day_usd": "$200.00/day at 4 days; $80.00/day at 10 days",
+      "restrictions": "Exactly five passes, no more and no fewer. Purchaser must be aged 23-28. Ikon Base Pass only — not available on the Ikon Pass or the Ikon Session Pass. Each recipient must create their own Ikon account. Ikon Base blackout dates still apply (though Palisades Tahoe is unlimited on Base).",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.ikonpass.com/en/squad-pack",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Loaded ikonpass.com/en/squad-pack in a browser and read the collapsed FAQ answers out of the DOM.",
+        "why": "Verbatim match on every quoted string. Headline: 'Get your squad together and save $219 each when you buy five Ikon Base Passes for the 26/27 season.' Body: 'Skiers and riders age 23-28 can lock in an Ikon Base Pass for $800, a $219 savings on each pass, when one person buys 5 passes for the group.' $800 + $219 = $1,019, which reconciles against the live Base Pass price. Both FAQ answers are exactly as quoted - 'No. Five Ikon Base Passes must be purchased for the Squad Pack discount.' and, to 'Is there a Squad Pack for Ikon Pass or Ikon Session Passes?', simply 'No.' The account requirement is there too: 'Each person in the Squad will need to create their own account at www.ikonpass.com'. The practical conclusion - useless for a single 4-day trip at $200/day - follows.",
+        "corrected_price": null,
+        "source_url": "https://www.ikonpass.com/en/squad-pack",
+        "note": "Small wording nit: the page bounds the AGE 23-28 on 'skiers and riders' who lock in the $800 rate, not explicitly on the purchaser as the restrictions field says. The CAD figures ($1,080 regular, $299 savings) sit alongside the USD ones; make sure the USD pair is what reaches the site."
+      }
+    },
+    {
+      "name": "Ikon — college, nurse and military discounts DO apply to the Session Pass, but the amounts are not published",
+      "category": "discount",
+      "claim": "Ikon's own discounts page confirms three verified-status discounts for 26/27 and, unusually, all three explicitly include the Session Pass: 'COLLEGE — Eligible recipients: Enrolled college students. Eligible Products: 26/27 Ikon Pass, Ikon Base Pass, Ikon Session Pass, and select local passes.' The identical wording appears for 'NURSE — Active licensed nurses' and 'MILITARY — Active duty and retired military and their adult dependents.' Verification runs through SheerID during checkout: 'Verification will take place during the checkout process ... Click the Add College Discount link below the pass holder name.' US eligibility is limited to 'Title IV, degree granting, universities in the United States.' CRITICAL CAVEAT: the discounted prices are NOT published anywhere on the site — they are only revealed after verification inside checkout, so I cannot report a dollar figure and will not guess one. A warning on the page also matters operationally: 'Proceed with verification only when you are ready to purchase. Multiple verification attempts will result in your account being locked.' Also note what is ABSENT: Ikon runs no first-responder programme, no teacher rate and no nurse-adjacent healthcare rate beyond licensed nurses — the third-party 'Ikon first responder discount' pages that surface in search are affiliate coupon sites, not Ikon.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "SheerID verification required at checkout; discount amount not disclosed pre-purchase. College eligibility limited to Title IV degree-granting US universities (or CICIC-accredited institutions in Canada). No first-responder or teacher discount exists.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.ikonpass.com/en/discounts",
+      "confidence": "high"
+    },
+    {
+      "name": "Ikon Military Sales Program — the only PUBLISHED Ikon discount prices, including a $389 4-Day Session Pass",
+      "category": "discount",
+      "claim": "Separate from the SheerID checkout discount, Ikon runs an on-base sales programme with published prices, and this is the only place Ikon states a discounted number. From ikonpass.com/en/military: 'THE 26/27 MILITARY SALES PROGRAM IS NOW LIVE ... Military Base Pricing: Ikon Pass = $899 USD, Ikon Base Pass = $589 USD, Ikon Session 4-Day Pass = $389 USD.' Eligibility: 'active duty, retired (with 20+ years of service), and reserve personnel can purchase on base with a valid military ID. Spouses and dependents are also eligible when presenting a valid dependent military ID.' The 4-Day Session Pass at $389 is $97.25/day — a $140 saving on the $529 public price and the cheapest verified route onto Palisades Tahoe for four days that I found on the Ikon side. Purchase is in person at a participating installation (partners listed as the MWR Military Ticket Program and GOVX, across 31 states including California), though the page notes 'Locations: Coming soon!' — so the specific California installations are not yet listed. There is also an online path: 'There is also an option to purchase through IkonPass.com and apply a military discount during the checkout process using Sheer ID', but whether that online route yields the same $389 is not stated.",
+      "price_usd": "Ikon Pass $899; Ikon Base Pass $589; Ikon Session 4-Day Pass $389",
+      "per_day_usd": "$97.25/day (Session 4-Day at military base pricing); $147.25/day (Base at 4 days)",
+      "restrictions": "Requires valid military ID and in-person purchase at a participating installation, or SheerID verification online (online discount amount unconfirmed). Active duty, retired with 20+ years, reserve, plus spouses and dependents. Participating California locations are listed as 'Coming soon' as of today. Session Pass blackouts still apply: Dec 26-30 2026, Jan 16-17 2027, Feb 13-14 2027.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.ikonpass.com/en/military",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "method": "Loaded ikonpass.com/en/military in a browser.",
+        "why": "Verbatim: 'THE 26/27 MILITARY SALES PROGRAM IS NOW LIVE' and 'Military Base Pricing: Ikon Pass = $899 USD / Ikon Base Pass = $589 USD / Ikon Session 4-Day Pass = $389 USD'. The eligibility sentence matches word for word, including spouses and dependents on a valid dependent ID. The operational caveats are real: the page does say 'Locations: Coming soon!' under the participating-installations heading, the partners are named as 'MWR Military Ticket Program & GOVX', and the state list counts to 31 with California among them. The SheerID alternative is described exactly as the claim reports, with no figure attached - so the caution that the online route may not yield $389 is correct.",
+        "corrected_price": null,
+        "source_url": "https://www.ikonpass.com/en/military"
+      }
+    },
+    {
+      "name": "Ikon — USAGOLD promo code for $50 off any adult Session Pass (verify before relying on it)",
+      "category": "discount",
+      "claim": "U.S. Ski & Snowboard's own newsroom, dated March 12 2026, states: 'For a limited time, skiers and riders can get a $50 discount on any 2-, 3-, or 4-day Adult Ikon Session Pass at www.ikonpass.com, using the code USAGOLD.' Users of the code also get 'an exclusive six-month digital subscription to Insider, the Official Fan Club of U.S. Ski & Snowboard.' If it still works, that takes the adult 4-Day Session Pass from $529 to $479 ($119.75/day) and the 2-Day from $319 to $269. I am deliberately NOT quoting the '$249 Session Pass' figure that circulates in secondary coverage — that was computed off the March launch price of $299, which has since risen to $319, so any '$249 with code' claim is now stale by $70. TWO CAVEATS: the offer is described only as 'for a limited time' with no stated expiry, and the associated sweepstakes explicitly 'Ends 4/16/2026', which suggests the promotional window may have closed months ago. I could not confirm the code is still live — that would require entering checkout. Treat as 'worth trying at checkout', not as a price.",
+      "price_usd": "$50 off the adult Session Pass if the code is still active — would give $269 / $379 / $479 for 2 / 3 / 4 days",
+      "per_day_usd": "$119.75/day (4-day adult) if the code still works",
+      "restrictions": "Adult Session Passes only (2, 3 or 4 day). 'For a limited time' with no published expiry; the linked sweepstakes ended 4/16/2026, so the code may no longer be valid. Announced March 12 2026. Cannot be confirmed without entering checkout.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.usskiandsnowboard.org/news/ikon-pass-us-ski-snowboard-partner-offer-skiers-riders-ultimate-mountain-access",
+      "confidence": "medium"
+    },
+    {
+      "name": "Palisades Tahoe Ticket Packs — the 4-Day Midweek Pack at $365 is the cheapest route onto Palisades",
+      "category": "multi-pack",
+      "claim": "Bought straight off Palisades Tahoe's live store (shop.palisadestahoe.com), which is fully loaded for 26/27 unlike Sugar Bowl's. ADULT (18-69): 4-Day Lift Pack Midweek $365 ($91.25/day), 4-Day Lift Pack Unrestricted $440 ($110/day), 2-Day Lift Pack Unrestricted $339 ($169.50/day). AGE 13-17: 4-Day Midweek $329, 4-Day Unrestricted $396. AGE 5-12: 4-Day Midweek $256 ($64/day), 4-Day Unrestricted $308. AGE 70-79: 4-Day Midweek $329, 4-Day Unrestricted $396. The Midweek pack at $91.25/day undercuts the Ikon Session 4-Day ($132.25/day) by $164 total for the same four days at the same mountain, which is the key arbitrage in this whole dimension: if the trip is Palisades-only and midweek, buy the resort's own pack, not the Ikon product. Each pack also carries stackable vouchers — '4-Day Midweek Pack: Includes 4 midweek/non-holiday 25% off vouchers for the pack holder, plus 2 midweek/non-holiday 25% off Friends & Family vouchers' and 'Friends & Family vouchers are fully transferable and may be used by a guest of the original pack holder.' Terms confirm the season: 'Ticket Packs are non-refundable, non-transferable, and must be used during the 2026/27 winter season.' HARD DEADLINE: the site alert bar reads 'Love brings us back. Ski from $92 per day with Ticket Packs or get the new Midweek Pass for $729. Limited-time pricing ends September 8.'",
+      "price_usd": "Adult 18-69: 4-Day Midweek $365, 4-Day Unrestricted $440, 2-Day Unrestricted $339. Youth 13-17: $329 / $396. Child 5-12: $256 / $308. Senior 70-79: $329 / $396.",
+      "per_day_usd": "$91.25 (adult 4-day midweek); $110.00 (adult 4-day unrestricted); $64.00 (child 4-day midweek); $169.50 (adult 2-day)",
+      "restrictions": "Blackouts apply ONLY to the Midweek pack, quoted verbatim: 'Blackout Dates: All Saturdays and Sundays, and Dec. 28, 2026 - Jan. 1, 2027; Feb. 15, 2027.' Both Unrestricted packs have no blackout dates at all. Packs are non-refundable and non-transferable; pack days and holder bonus vouchers may only be used by the original purchaser. 'Parking reservations are required on Saturdays, Sundays, and holiday periods from December 5, 2026' — budget for that on a weekend trip. PRICES RISE SEPTEMBER 8, 2026.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~200 miles / ~3h30m via I-80 to Truckee then SR-89 south — the closest big-mountain Ikon destination to the Bay Area",
+      "source_url": "https://shop.palisadestahoe.com/l/winter-lift-tickets/multi-pack-lift-tickets/p/ticketpacks",
+      "confidence": "high"
+    },
+    {
+      "name": "Palisades Tahoe Midweek Pass ($729) and Rental Packs (from $112)",
+      "category": "season-pass",
+      "claim": "New for 26/27 and listed on Ikon's Palisades local-passes page: 'The new Midweek Pass gives you Monday-to-Friday access to Palisades Tahoe throughout the 26/27 winter season, with limited blackout dates ... 50% off weekend and blackout-day lift tickets available.' ADULT STARTING FROM $729, tagged 'LIMITED-TIME PRICE ENDS SEPT. 8'. Break-even against the resort's own 4-Day Midweek Pack ($365) is exactly 8 midweek days — so for a single 4-day trip the pack wins decisively ($729 is $182.25/day over four days), but for anyone planning two midweek Tahoe trips this season the pass is the better buy. Also on that page and directly relevant to a group renting gear: 'RENTAL PACKS — Rental Packs provide multi-day ski or snowboard equipment rentals at a discounted rate. Choose from Standard, High Performance, or Demo equipment levels with 2-Day or 4-Day options. Use your rentals on non-consecutive days,' STARTING FROM $112. And a GROUP LESSON 4-PACK from $717 covering 'four group lessons to use during the 2026–27 winter season ... Available for adults and children ages 3–13.' I did not open the rental configurator, so $112 is the advertised floor (likely the 2-day standard tier), not a confirmed 4-day adult price.",
+      "price_usd": "Midweek Pass $729 adult; Rental Packs from $112; Group Lesson 4-Pack from $717",
+      "per_day_usd": "$182.25/day (Midweek Pass at 4 days); $91.13/day at 8 days — the break-even against the 4-Day Midweek Ticket Pack",
+      "restrictions": "Midweek Pass is Monday-Friday only with limited blackout dates (specific dates not published on this page). Weekend and blackout-day access available at 50% off lift tickets. LIMITED-TIME PRICE ENDS SEPT. 8, 2026. Rental Pack $112 is a 'starting from' floor across Standard/High Performance/Demo and 2-Day/4-Day options — the specific 4-day adult rate is unconfirmed.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~3h30m via I-80",
+      "source_url": "https://www.ikonpass.com/en/local-passes/palisades-tahoe",
+      "confidence": "high"
+    },
+    {
+      "name": "Sugar Bowl — 26/27 multi-day packs are announced but NOT purchasable, and cannot be verified",
+      "category": "multi-pack",
+      "claim": "MIXED / NEGATIVE FINDING. Sugar Bowl announced three 26/27 multi-day packs in its own July 1, 2026 article: an 'Anytime 3-Pack' at '$199/day' with 'zero blackout dates and total flexibility', a 'Select 3-Pack' at '$99/day' with 'Sunday through Friday, non-holiday access', and 'Midweek Magic' at '$89/Day', 'Monday through Thursday', with the advice to 'Buy early to lock in the lowest pre-season rates before prices go up.' I could NOT verify any of these against a live checkout. Sugar Bowl's own ticket page states 'Lift tickets, lessons and rentals for the 2026/27 season will become available for booking this fall. Add your email address below to be notified once products are loaded', and the 'Shop Packs' link resolves to shop.sugarbowl.com which today carries only three categories — Season Passes, Seasonal Programs, Village Locker Room. No packs, no lift tickets. So the $89-$199/day figures are Sugar Bowl's own stated intent, not confirmed transactable prices, and there is no published deadline for them. Sugar Bowl's 26/27 DAY TICKET table IS posted: Adult (23-64) $89 Sun-Fri online starting rate vs $189 window, $114 Sat+Holiday online vs $249 window; Young Adult (13-22) $77/$90 online; Child (6-12) $49/$66; 5 & under free. Page copy: 'Only so many day tickets drop each day so the mountain keeps its magic. Grab yours early and save up to 50%' and 'Walk-up tickets are limited and sold at the daily rate to keep lift lines light.' Reserved Upper Lot parking is $35 on weekends and holidays. Opening day is scheduled for Friday, November 27, 2026.",
+      "price_usd": "Packs (unverified, resort-stated): Anytime 3-Pack $199/day, Select 3-Pack $99/day, Midweek Magic $89/day. Day tickets (posted): $89 adult Sun-Fri online / $189 window; $114 Sat+holiday online / $249 window.",
+      "per_day_usd": "$89 (Midweek Magic, unverified) / $99 (Select 3-Pack, unverified) / $89 (posted Sun-Fri online day-ticket starting rate)",
+      "restrictions": "Packs are not on sale — products load 'this fall'. Midweek Magic is Mon-Thu; Select 3-Pack is Sun-Fri non-holiday; Anytime has no blackouts. Day-ticket online rates are dynamic 'starting rates' that rise with demand, so only the earliest buyers see $89/$114. Reserved parking $35 weekends/holidays. No pack purchase deadline published.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "~205 miles / ~3h30m via I-80, Soda Springs/Norden exit — the closest big mountain to the Bay on I-80, and 3 miles from Boreal",
+      "source_url": "https://www.sugarbowl.com/tickets",
+      "confidence": "medium"
+    },
+    {
+      "name": "Group rates at the big mountains need 20 people — a 6-person trip triggers nothing",
+      "category": "discount",
+      "claim": "Direct answer to 'how many people trigger a group rate', and the answer for this trip is: more than you have. PALISADES TAHOE group tickets require a 'Minimum purchase of 20 lift tickets' with '5-day advance purchase notice required' and 'No returns will be accepted that result in a purchase of fewer than 20 total lift tickets'; the page says groups 'earn the lowest ticket prices' but publishes no rate. SUGAR BOWL is the most accessible of the set: 'For the best group rates, 10 or more participants are required midweek, 20 or more on weekends' — so a group of 10-11 skiing midweek COULD qualify there, though the actual discount is quote-only via groupsales@sugarbowl.com (530.426.6750). VAIL RESORTS publishes no group threshold or group rate anywhere in the 26/27 Epic pass catalogue. IKON's only group mechanic is the Squad Pack, which requires exactly five and is Base-Pass-only. PRACTICAL CONCLUSION for a 2-11 person group: the only group lever actually reachable is Sugar Bowl's 10-person midweek threshold at the very top of the range. At six people, nobody offers a group rate, and the correct play is the per-person products above. Do not build a group-size discount into the configurator for the big mountains.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Palisades Tahoe: 20 lift tickets minimum, 5-day advance notice, no partial returns. Sugar Bowl: 10+ midweek or 20+ weekends, rate by quote only. Vail/Epic: no published group programme. Ikon: Squad Pack only, exactly 5, Ikon Base Pass only, ages 23-28.",
+      "season_confirmed": "2026-27",
+      "source_url": "https://www.palisadestahoe.com/events-and-activities/groups-meetings-weddings/lake-tahoe-group-packages/group-tickets",
+      "confidence": "high"
+    },
+    {
+      "name": "VERDICT — cheapest 4-day route onto each big mountain, and the break-even against Boreal's $59.75/day",
+      "category": "logistics",
+      "claim": "All figures adult, 4 ski days, 2026-27, verified live on 2026-08-27. HEAVENLY / NORTHSTAR / KIRKWOOD: Epic Day Pass 4-Day, 32-Resort tier, peak-restricted — $359 total, $89.75/day. That is 1.50x the Boreal benchmark, a $120 premium for the whole trip, and it buys three mountains totalling ~13,000 acres against Boreal's 380. It also carries Epic Mountain Rewards (20% off rentals, lodging, food), which claws back real money over five nights. PALISADES TAHOE: the resort's own 4-Day Midweek Ticket Pack — $365 total, $91.25/day, 1.53x benchmark, Mon-Fri only. If weekend days are needed, the 4-Day Unrestricted Pack at $440 ($110/day, no blackouts at all) is the answer, and it still beats the Ikon Session 4-Day ($529, $132.25/day) by $89. Buying Ikon Session for a Palisades-only trip is a $164 mistake. SUGAR BOWL: Midweek Magic 3-pack at $89/day is the stated cheapest route but is not yet purchasable; the verified fallback is the posted $89 adult Sun-Fri online day-ticket starting rate. SIERRA-AT-TAHOE: reachable on the Ikon Session Pass, but I did not price its own tickets. THE FOUR THINGS THAT ACTUALLY BEAT OR MATCH THE BENCHMARK: (1) Epic Military Pass Active/Retired at $220 = $55/day at four days, unlimited, no blackouts, all three Vail Tahoe mountains — the outright winner for anyone eligible; (2) Ikon Session 4-Day at military base pricing, $389 = $97.25/day; (3) Ikon Session 4-Day Young Adult 13-22, $419 = $104.75/day, which is the best under-23 rate on the Ikon side; (4) the Epic Day Pass 7-day 32-resort at $526 = $75.14/day, the closest anyone gets to $59.75 on a big mountain, if the group will actually ski seven days this season. THE DEADLINE STACK, in order: Sept 7 2026 Epic prices rise; Sept 8 2026 Palisades Tahoe pack and Midweek Pass pricing rises; Oct 1 2026 Boreal iRide and Soda Springs prices rise; Dec 6 2026 all Epic products go off sale entirely. Ikon publishes no single dated deadline but has already moved twice since its March 12 launch ($1,349→$1,449 Ikon, $924→$1,019 Base, $299→$319 Session), so it escalates continuously rather than on a posted date.",
+      "price_usd": "Epic 4-Day 32-Resort $359 | Palisades 4-Day Midweek Pack $365 | Palisades 4-Day Unrestricted $440 | Epic 4-Day All Resorts $461 | Ikon Session 4-Day $529 | vs Boreal iRide 4-Pack $239",
+      "per_day_usd": "$89.75 (Epic 32-resort) | $91.25 (Palisades midweek) | $110 (Palisades unrestricted) | $115.25 (Epic all resorts) | $132.25 (Ikon Session) | vs $59.75 (Boreal)",
+      "restrictions": "Every big-mountain option above carries either peak-date restrictions (Epic: Nov 27-28, Dec 26-31, Jan 16, Feb 13-14) or blackouts (Ikon Session: Dec 26-30, Jan 16-17, Feb 13-14; Palisades Midweek Pack: all weekends plus Dec 28-Jan 1 and Feb 15). For a group whose dates are flexible and who care about price, every one of these is a caption rather than a disqualifier — the restricted windows total 11-13 days across a five-month season. The one genuine operational constraint is Ikon's 'Lift Reservations Required' on the Session Pass, which Epic and the Palisades packs do not impose.",
+      "season_confirmed": "2026-27",
+      "drive_time_from_san_jose": "Sugar Bowl ~3h30m and Palisades Tahoe ~3h30m via I-80; Northstar ~3h40m via I-80; Sierra-at-Tahoe ~3h30m and Heavenly ~3h50m via US-50; Kirkwood ~3h45m via US-50/SR-88. All are within ~20 minutes of each other in drive time from San Jose, so the choice is price and terrain, not distance.",
+      "source_url": "https://www.epicpass.com/passes/epic-day-pass.aspx",
+      "confidence": "high"
+    }
+  ],
+  "coverage_gaps": [
+    "Epic does not publish what the Epic Day Pass will cost AFTER the September 7, 2026 increase, so I cannot quantify the escalator — only that one exists and lands in 11 days.",
+    "The Ikon college, nurse and military SheerID discount AMOUNTS are not published anywhere. Ikon reveals them only inside checkout after verification, and the site warns that repeated verification attempts lock the account, so I did not attempt it. The only published Ikon discount prices are the on-base military program figures ($899 / $589 / $389).",
+    "Ikon publishes no dated price-increase deadline for the Ikon Pass, Base Pass or Session Pass. I confirmed prices have risen since the March 12, 2026 launch ($1,349→$1,449, $924→$1,019, $299→$319) but could find no posted next-increase date on ikonpass.com. Only the Palisades-specific products carry a dated deadline (Sept 8).",
+    "The USAGOLD $50-off Session Pass code cannot be confirmed as still active. Its announcement is dated March 12, 2026 and says only 'for a limited time'; the associated sweepstakes ended 4/16/2026. It may well be dead. I deliberately did not report the '$249 Session Pass' figure that circulates in secondary coverage because it was computed off the since-superseded $299 launch price.",
+    "Sugar Bowl's 26/27 multi-day pack prices ($199 / $99 / $89 per day) come only from Sugar Bowl's own July 1, 2026 article. The products are not loaded on shop.sugarbowl.com — the store today carries only Season Passes, Seasonal Programs and the Village Locker Room — so I could not verify them against a live checkout, and there is no published pack purchase deadline.",
+    "Sugar Bowl's 26/27 rental package prices are not published, and its FAQ accordions (including 'What's the difference between the types of lift ticket packs?' and 'Does Sugar Bowl offer discounts for kids, seniors, or college students?') would not expand for extraction.",
+    "Palisades Tahoe Rental Pack pricing is only a 'starting from $112' floor across Standard/High Performance/Demo at 2-Day or 4-Day. I did not open the rental configurator, so the specific 4-day adult rate is unconfirmed — worth a follow-up since rentals are a large line item for a 6-person group.",
+    "The Palisades Tahoe Midweek Pass ($729) blackout dates are described as 'limited' but the specific dates are not published on the Ikon local-passes page.",
+    "Northstar and Heavenly date-specific lift ticket prices are dynamic. My $512 four-day adult figure is for a Nov 20, 2026 start — the earliest and cheapest date the calendar offers — so it is a FLOOR, not a representative mid-season price. I did not sample a January or February date.",
+    "I did not price Sierra-at-Tahoe's own lift tickets or multi-packs. It appears on the Ikon Session Pass destination list and is the closest big-ish Ikon mountain to San Jose via US-50, so its standalone products are a real gap.",
+    "I did not price Kirkwood's or Heavenly's own rental shops, nor Epic Mountain Rewards' actual 20%-off rental rates — only that the benefit exists on Epic Day Passes.",
+    "Vail Resorts publishes no group-sales threshold or group rate in the 26/27 Epic catalogue. I could not confirm whether one exists off-catalogue via their group sales desk.",
+    "Epic's 'Restrictions Description' field for the Epic Day Pass category reads '1 to 3 unrestricted days', which does not match the product data (restricted and unrestricted variants exist at every day count from 1 to 7). I could not resolve what that string refers to and have not relied on it.",
+    "Drive times are route-planner estimates, not measured, and none of these resorts publish a San Jose drive time. Winter chain controls on I-80 and US-50 routinely add hours."
+  ]
+}
