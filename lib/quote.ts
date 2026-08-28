@@ -68,11 +68,11 @@ export function quote(
     },
     {
       label: "Car",
-      total: cars * CAR[car].perDay * nights + cars * GAS_PER_CAR,
-      perPerson: (cars * CAR[car].perDay * nights + cars * GAS_PER_CAR) / headcount,
+      total: cars * (CAR[car].perTrip + GAS_PER_CAR),
+      perPerson: (cars * (CAR[car].perTrip + GAS_PER_CAR)) / headcount,
       detail:
         car === "rent"
-          ? `${cars} rented · ${nights} days · plus gas`
+          ? `${cars} rented at $${CAR.rent.perTrip} · plus gas`
           : `${cars} car${cars > 1 ? "s" : ""} · gas only`,
     },
     {

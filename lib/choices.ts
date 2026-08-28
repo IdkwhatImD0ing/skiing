@@ -77,12 +77,16 @@ export const GEAR = {
 
 export type GearKey = keyof typeof GEAR;
 
+/**
+ * Flat per car, per trip — not per day. Turo came in at $450 and Hertz was
+ * close enough that $500 covers either.
+ */
 export const CAR = {
-  own: { label: "We drive ourselves", perDay: 0, note: "Gas only." },
+  own: { label: "We drive ourselves", perTrip: 0, note: "Gas only." },
   rent: {
     label: "Rent a car",
-    perDay: 100,
-    note: "~$500 for five days, split per carload.",
+    perTrip: 500,
+    note: "Turo or Hertz, about the same. Split per carload.",
   },
 } as const;
 

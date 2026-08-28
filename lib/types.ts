@@ -87,7 +87,8 @@ export type Trip = {
 export const BENCHMARK_PER_DAY = 60;
 
 /**
- * Per car, per day. ~$500 for a 5-day trip. Skippable if someone drives their
- * own, but it is a carload-sized cost, so it jumps every time we need one more.
+ * Flat per car, per trip. Turo quoted $450; Hertz is close enough that $500
+ * covers either. It is a carload-sized cost, so it jumps every time we need
+ * one more car.
  */
-export const CAR_RENTAL_PER_DAY = 100;
+export const CAR_RENTAL_PER_TRIP = 500;

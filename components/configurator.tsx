@@ -155,8 +155,8 @@ export function Configurator() {
             >
               <span className="chip-name">{CAR[k].label}</span>
               <span className="chip-rate num">
-                {CAR[k].perDay === 0 ? "gas only" : `${money(CAR[k].perDay)}`}
-                {CAR[k].perDay > 0 && <span className="chip-unit">/car/day</span>}
+                {CAR[k].perTrip === 0 ? "gas only" : `${money(CAR[k].perTrip)}`}
+                {CAR[k].perTrip > 0 && <span className="chip-unit">/car</span>}
               </span>
               <span className="chip-note">{CAR[k].note}</span>
             </button>
