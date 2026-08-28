@@ -102,7 +102,11 @@ export function Configurator() {
   const q = quote(lift, stayId, gear, car, headcount);
 
   return (
-    <div className="flex flex-col gap-[clamp(2.25rem,4.5vw,3.25rem)] pb-[clamp(3rem,6vw,5rem)]">
+    /* Two columns once there's room: the choices scroll, the receipt doesn't.
+       `items-start` matters — a stretched grid item fills the row and then has
+       no room left to move, so the rail would never actually stick. */
+    <div className="grid items-start gap-x-12 gap-y-10 pb-[clamp(3rem,6vw,5rem)] lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="flex flex-col gap-[clamp(2.25rem,4.5vw,3.25rem)]">
       <section aria-labelledby="s-who">
         <h2 className={STEP_H} id="s-who">
           <span className={STEP_N}>1</span> How many of us
@@ -212,15 +216,20 @@ export function Configurator() {
             const t = stayTotalFor(s, headcount);
             const fits = headcount <= (s.sleepsMax ?? s.sleeps);
             return (
+              // The listing link can't live inside the button — an <a> nested
+              // in a <button> is invalid, and the click would be swallowed by
+              // the selection handler. So the card is a wrapper: button fills
+              // it for the whole-card click target, link sits above it.
+              <div key={s.id} className="relative grid">
               <button
-                key={s.id}
                 type="button"
-                className={CHIP}
+                className={`${CHIP} h-full`}
                 aria-pressed={s.id === stayId}
                 data-off={!t || !fits || undefined}
                 onClick={() => setStayId(s.id)}
               >
-                <span className={CHIP_NAME}>{s.name}</span>
+                {/* Room for the link in the top-right corner. */}
+                <span className={`${CHIP_NAME} pr-16`}>{s.name}</span>
                 <span className={CHIP_META}>
                   sleeps {s.sleeps}
                   {s.sleepsMax ? `–${s.sleepsMax}` : ""} · {s.nights} nights
@@ -243,6 +252,29 @@ export function Configurator() {
                   </span>
                 )}
               </button>
+              {/* Every house is its own listing. Bill sends this link to
+                  friends, so the listing has to be one click away — and where
+                  we don't have the URL yet, say so rather than leave a card
+                  that looks linkable and isn't. */}
+              {s.url ? (
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${s.name} on Airbnb in a new tab`}
+                  className="absolute right-[13px] top-[11px] z-10 rounded-[2px] border border-ridge bg-well/80 px-1.5 py-0.5 font-data text-[9.5px] uppercase tracking-[0.1em] text-muted transition-colors hover:border-sodium/60 hover:text-sodium"
+                >
+                  listing&nbsp;↗
+                </a>
+              ) : (
+                <span
+                  className="pointer-events-none absolute right-[13px] top-[11px] z-10 rounded-[2px] border border-dashed border-ridge px-1.5 py-0.5 font-data text-[9.5px] uppercase tracking-[0.1em] text-muted/70"
+                  title="Bill hasn't sent the link for this one yet"
+                >
+                  no link
+                </span>
+              )}
+              </div>
             );
           })}
         </div>
@@ -309,11 +341,18 @@ export function Configurator() {
           ))}
         </div>
       </section>
+      </div>
 
-      {/* The payoff. The reason anyone opened the link. */}
+      {/* The payoff, and the reason anyone opened the link — so it stays on
+          screen while you change your mind about everything else.
+          The receipt runs taller than a laptop viewport, so the rail scrolls
+          inside itself rather than pushing its own bottom off the screen.
+          py-px gives the lit top edge (at -1px) somewhere to live that the
+          scroll container won't clip. */}
+      <aside className="lg:sticky lg:top-20 lg:max-h-[calc(100dvh-100px)] lg:overflow-y-auto lg:py-px">
       {q ? (
         <section
-          className="relative rounded border border-ridge bg-linear-to-b from-dusk to-pane p-[clamp(20px,3vw,30px)] before:absolute before:inset-x-[14%] before:-top-px before:h-px before:bg-linear-to-r before:from-transparent before:via-sodium before:to-transparent before:opacity-75 before:content-['']"
+          className="relative rounded border border-ridge bg-linear-to-b from-dusk to-pane p-[clamp(20px,3vw,26px)] before:absolute before:inset-x-[14%] before:-top-px before:h-px before:bg-linear-to-r before:from-transparent before:via-sodium before:to-transparent before:opacity-75 before:content-['']"
           aria-live="polite"
           aria-labelledby="s-total"
         >
@@ -403,6 +442,22 @@ export function Configurator() {
             or change the headcount.
           </p>
         </section>
+      )}
+      </aside>
+
+      {/* On a phone there is no right-hand side, so the number follows you up
+          from the bottom instead. Duplicates the rail above, so it is hidden
+          from screen readers rather than announced twice. */}
+      {q && (
+        <div
+          aria-hidden
+          className="sticky bottom-0 z-40 -mx-6 flex items-baseline justify-between gap-3 border-t border-ridge bg-night/92 px-6 py-2.5 backdrop-blur lg:hidden"
+        >
+          <span className="font-data tabular-nums text-[1.35rem] font-bold leading-none tracking-[-0.03em] text-glacier">
+            {money(q.perPerson)}
+          </span>
+          <span className="text-[11px] text-muted">per person, all in</span>
+        </div>
       )}
     </div>
   );

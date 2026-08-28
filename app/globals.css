@@ -74,8 +74,10 @@ body {
   overflow-x: hidden;
 }
 
+/* Wide enough for the choices and the sticky receipt rail to sit side by
+   side without squeezing the chip grid down to two columns. */
 .wrap {
-  max-width: 1080px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px;
 }
