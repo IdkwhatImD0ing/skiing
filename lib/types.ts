@@ -86,8 +86,14 @@ export type LiftOption = Provenance & {
    *   "pack"      buys `days` visits; buy another pack to cover a longer trip
    *   "unlimited" buys the season, so one price covers the whole trip
    *   "day"       buys one day; multiply by the trip
+   *   "trip"      `totalUsd` already IS the cost of covering the trip, because
+   *               the cheapest route is an assembly of different tickets that
+   *               no single unit price describes. Donner Ski Ranch's cheapest
+   *               four days is three midweek "Old School" tickets at $69 plus
+   *               one full-price $119 day, because the discount only runs
+   *               Tue-Thu — $326, which is neither 4x$69 nor 4x$119.
    */
-  coverage: "pack" | "unlimited" | "day";
+  coverage: "pack" | "unlimited" | "day" | "trip";
   /**
    * Full days on snow this can actually deliver inside ONE trip. Omit when it
    * can cover the whole trip. 0 means it is not a full-day product at all —

@@ -129,12 +129,19 @@ export function Scenario() {
                       <span className={CHIP_UNIT}>/day</span>
                     </span>
                     {/* Which pass got you that number — the page picked it,
-                        so it has to say what it picked. */}
+                        so it has to say what it picked. A last-season price is
+                        real but stale, and wears its season so it can never be
+                        read as this year's. */}
                     <span className={CHIP_NOTE}>
                       {lift.label}
-                      {lift.tier === null && (
-                        <span className={`${PILL} border-ridge text-muted`}>
-                          adult
+                      {lift.tier && (
+                        <span className={`${PILL} border-glacier/45 text-glacier`}>
+                          {lift.tier}
+                        </span>
+                      )}
+                      {lift.stale && (
+                        <span className={`${PILL} border-sodium/45 bg-sodium/15 text-sodium`}>
+                          {lift.season ?? "last season"} price
                         </span>
                       )}
                     </span>

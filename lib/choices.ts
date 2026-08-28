@@ -49,6 +49,7 @@ export type LiftChoice = {
  */
 function tripCost(option: LiftOption, sticker: number, days: number): number {
   switch (option.coverage) {
+    case "trip":
     case "unlimited":
       return sticker;
     case "day":
