@@ -1,0 +1,225 @@
+import type { SkiLocation } from "@/lib/types";
+
+/**
+ * Prices marked `researching` are being verified by research agents against
+ * primary sources. Nothing here is invented — a number is either confirmed
+ * with a source, or it is null.
+ */
+export const LOCATIONS: SkiLocation[] = [
+  {
+    slug: "donner-summit",
+    name: "Donner Summit",
+    blurb:
+      "The home mountain. Cheapest lift in Tahoe, night skiing until 9, and the shortest drive that still counts as a real trip.",
+    route: "I-80",
+    driveFromSanJose: "~3h45m",
+    resorts: ["Boreal", "Soda Springs", "Donner Ski Ranch", "Sugar Bowl"],
+    stays: [
+      {
+        id: "soda-springs-house",
+        name: "Soda Springs house",
+        kind: "house",
+        sleeps: 7,
+        nights: 5,
+        quotes: [
+          { guests: 4, totalUsd: 1680 },
+          { guests: 7, totalUsd: 3254 },
+        ],
+        url: "https://www.airbnb.com/rooms/1211000497392569018",
+        toLift: "~5 min to Boreal",
+        perks: ["Whole house", "Walk to Soda Springs", "Parking"],
+        status: "verified",
+        asOf: "2026-08-28",
+        note: "Quoted for Dec 29 – Jan 3. Prices per guest: each head past 4 adds ~$525 to the booking.",
+      },
+      {
+        id: "soda-springs-alt",
+        name: "Soda Springs cabin (alt)",
+        kind: "house",
+        sleeps: 6,
+        nights: 5,
+        quotes: [{ guests: 6, totalUsd: 2890 }],
+        url: "https://www.airbnb.com/rooms/41450711",
+        toLift: "~5 min to Boreal",
+        perks: ["Whole cabin", "Sleeps 6"],
+        status: "verified",
+        asOf: "2026-08-28",
+        note: "Quoted for Dec 29 – Jan 3 at 6 guests.",
+      },
+      {
+        id: "truckee-motel",
+        name: "Truckee motel block",
+        kind: "motel",
+        sleeps: 6,
+        nights: 2,
+        quotes: [],
+        toLift: "~20 min to Boreal",
+        perks: ["Split rooms", "No cleaning fee", "Cancellable"],
+        status: "researching",
+      },
+    ],
+    lift: [
+      {
+        id: "boreal-4pack",
+        name: "Boreal 4-pack",
+        resort: "Boreal",
+        days: 4,
+        totalUsd: 240,
+        blackouts: "Holiday blackouts expected — being confirmed",
+        transferable: null,
+        status: "researching",
+        note: "Bill's baseline. Confirming the 2026-27 price and blackout dates.",
+      },
+      {
+        id: "boreal-window-holiday",
+        name: "Boreal window ticket (holiday)",
+        resort: "Boreal",
+        days: 1,
+        totalUsd: null,
+        blackouts: "n/a — this is the no-blackout fallback",
+        transferable: true,
+        status: "researching",
+      },
+    ],
+    rentals: [
+      {
+        id: "boreal-onsite",
+        where: "on-site",
+        shop: "Boreal rental shop",
+        perDayUsd: null,
+        status: "researching",
+      },
+      {
+        id: "sj-sports-basement",
+        where: "san-jose",
+        shop: "Sports Basement",
+        perDayUsd: null,
+        catch: "Pick up Friday night, return Monday. Takes trunk space.",
+        status: "researching",
+      },
+    ],
+  },
+  {
+    slug: "north-shore",
+    name: "Truckee & North Shore",
+    blurb:
+      "Bigger mountains, bigger lift prices. Worth it if the group wants real terrain and someone's already got a pass.",
+    route: "I-80",
+    driveFromSanJose: "~4h",
+    resorts: ["Palisades Tahoe", "Northstar", "Tahoe Donner", "Mt Rose"],
+    stays: [
+      {
+        id: "truckee-house",
+        name: "Truckee group house",
+        kind: "house",
+        sleeps: 8,
+        nights: 3,
+        quotes: [],
+        toLift: "~15 min to Palisades",
+        perks: ["Hot tub", "Downtown Truckee walkable"],
+        status: "researching",
+      },
+      {
+        id: "tahoe-city-condo",
+        name: "Tahoe City condo",
+        kind: "house",
+        sleeps: 6,
+        nights: 3,
+        quotes: [],
+        toLift: "~20 min to Palisades",
+        perks: ["Lake side", "Cheaper midweek"],
+        status: "researching",
+      },
+    ],
+    lift: [
+      {
+        id: "ikon-session",
+        name: "Ikon Session pass",
+        resort: "Palisades / Northstar",
+        days: 4,
+        totalUsd: null,
+        blackouts: "Holiday blackouts on Session tiers — confirming",
+        transferable: false,
+        status: "researching",
+      },
+    ],
+    rentals: [
+      {
+        id: "truckee-shop",
+        where: "town",
+        shop: "Truckee shops",
+        perDayUsd: null,
+        catch: "Cheaper than on-mountain, but a stop before first chair.",
+        status: "researching",
+      },
+    ],
+  },
+  {
+    slug: "south-lake",
+    name: "South Lake Tahoe",
+    blurb:
+      "Longest drive, most to do off the hill. The play if the group wants a town at night, not just a cabin.",
+    route: "US-50",
+    driveFromSanJose: "~4h15m",
+    resorts: ["Heavenly", "Sierra-at-Tahoe", "Kirkwood"],
+    stays: [
+      {
+        id: "slt-house",
+        name: "South Lake group house",
+        kind: "house",
+        sleeps: 8,
+        nights: 3,
+        quotes: [],
+        toLift: "~10 min to Heavenly",
+        perks: ["Walk to town", "Hot tub"],
+        status: "researching",
+      },
+      {
+        id: "slt-hostel",
+        name: "Basecamp-style hostel",
+        kind: "hostel",
+        sleeps: 8,
+        nights: 3,
+        quotes: [],
+        toLift: "~10 min to Heavenly",
+        perks: ["Cheapest option", "No cooking"],
+        status: "researching",
+      },
+    ],
+    lift: [
+      {
+        id: "sierra-pack",
+        name: "Sierra-at-Tahoe multi-pack",
+        resort: "Sierra-at-Tahoe",
+        days: 4,
+        totalUsd: null,
+        blackouts: "Confirming",
+        transferable: null,
+        status: "researching",
+        note: "Historically the most aggressive multi-pack in Tahoe.",
+      },
+      {
+        id: "epic-day",
+        name: "Epic Day Pass",
+        resort: "Heavenly / Kirkwood",
+        days: 4,
+        totalUsd: null,
+        blackouts: "Holiday tier costs more — confirming",
+        transferable: false,
+        status: "researching",
+      },
+    ],
+    rentals: [
+      {
+        id: "slt-town",
+        where: "town",
+        shop: "South Lake town shops",
+        perDayUsd: null,
+        status: "researching",
+      },
+    ],
+  },
+];
+
+export const getLocation = (slug: string) =>
+  LOCATIONS.find((l) => l.slug === slug);
