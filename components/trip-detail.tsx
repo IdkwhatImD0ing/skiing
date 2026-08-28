@@ -65,6 +65,7 @@ export function TripDetail({ trip }: { trip: Trip }) {
               key={o.stay.id}
               className="stay panel"
               data-off={!o.fits || undefined}
+              data-squeeze={(o.fits && o.squeeze) || undefined}
               data-best={o.stay.id === c.best?.stay.id || undefined}
             >
               <div className="stay-top">
@@ -80,6 +81,11 @@ export function TripDetail({ trip }: { trip: Trip }) {
                 <p className="stay-tags">
                   {o.stay.id === c.best?.stay.id && <Tag tone="good">best at {headcount}</Tag>}
                   {!o.fits && <Tag tone="warn">sleeps {o.stay.sleeps}</Tag>}
+                  {o.fits && o.squeeze && (
+                    <Tag tone="soft" title="Over comfortable capacity — beds plus air mattresses.">
+                      {headcount - o.stay.sleeps} on air mattresses
+                    </Tag>
+                  )}
                   {o.estimated && (
                     <Tag tone="soft" title="Interpolated between two real quotes.">
                       estimated

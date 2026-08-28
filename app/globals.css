@@ -466,22 +466,19 @@ a {
 /* The counterintuitive bit. Sodium, because it is the point being made —
    not a warning. */
 .delta {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
   margin: 16px 0 0;
   font-size: 13px;
   line-height: 1.5;
   color: color-mix(in srgb, var(--color-snow) 86%, transparent);
 }
 .delta-arrow {
-  flex: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 19px;
   height: 19px;
-  margin-top: 1px;
+  margin-right: 8px;
+  vertical-align: -4px;
   border-radius: 2px;
   font-family: var(--font-data);
   font-size: 12px;
@@ -583,10 +580,16 @@ a {
   background: transparent;
   border: 1.5px dashed color-mix(in srgb, var(--color-glacier) 80%, transparent);
 }
+.plot-col .plot-dot[data-on]:not([data-est]) {
+  background: var(--color-sodium);
+}
+.plot-col .plot-dot[data-on][data-est] {
+  background: transparent;
+  border: 1.5px dashed var(--color-sodium);
+}
 .plot-col .plot-dot[data-on] {
   width: 13px;
   height: 13px;
-  background: var(--color-sodium);
   border-color: var(--color-sodium);
   box-shadow:
     0 0 0 4px color-mix(in srgb, var(--color-sodium) 22%, transparent),
@@ -594,23 +597,27 @@ a {
 }
 /* The floodlight. Boreal keeps the lights on till nine; the selected
    headcount is the one standing under them. */
-.plot-col .plot-dot[data-on]::before {
+.plot-col:has(.plot-dot[data-on])::before {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -7px;
-  z-index: -1;
-  width: 84px;
-  height: 260px;
+  top: 0;
+  bottom: -12px;
+  z-index: 0;
+  width: max(150%, 58px);
   transform: translateX(-50%);
-  clip-path: polygon(41% 0, 59% 0, 100% 100%, 0 100%);
+  clip-path: polygon(31% 0, 69% 0, 100% 100%, 0 100%);
   background: linear-gradient(
     180deg,
-    rgba(255, 154, 60, 0) 0%,
-    rgba(255, 154, 60, 0.05) 58%,
-    rgba(255, 154, 60, 0.22) 100%
+    rgba(255, 154, 60, 0.24) 0%,
+    rgba(255, 154, 60, 0.08) 52%,
+    rgba(255, 154, 60, 0.02) 100%
   );
+  filter: blur(5px);
   pointer-events: none;
+}
+.plot-col .plot-dot {
+  z-index: 2;
 }
 .plot-col .plot-gap {
   position: absolute;
@@ -665,6 +672,12 @@ a {
   color: var(--color-night);
   font-weight: 700;
 }
+.cell[data-squeeze] .cell-num {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-muted) 55%, transparent);
+}
+.cell[data-on][data-squeeze] .cell-num {
+  box-shadow: none;
+}
 .cell[data-noroom] .cell-num {
   color: color-mix(in srgb, var(--color-muted) 65%, transparent);
   text-decoration: line-through;
@@ -677,6 +690,16 @@ a {
 .cell-input:focus-visible + .cell-num {
   outline: 2px solid var(--color-sodium);
   outline-offset: 2px;
+}
+
+.readout-squeeze {
+  margin: 10px 0 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+.readout-squeeze .num {
+  color: color-mix(in srgb, var(--color-snow) 88%, transparent);
 }
 
 .plot-key {
@@ -891,7 +914,7 @@ a {
   height: 7px;
   transform: translateY(-50%);
   border-radius: 1px;
-  background: color-mix(in srgb, var(--rate-black) 34%, transparent);
+  background: color-mix(in srgb, var(--rate-black) 46%, transparent);
 }
 .bar::after {
   content: "";
@@ -914,24 +937,29 @@ a {
 }
 [data-rating="blue"] .bar::after {
   background: var(--rate-blue);
+  width: 4px;
+  height: 24px;
 }
 /* The pack that actually meets the yardstick. */
 .ladder-table tbody tr[data-rating="blue"] th,
 .ladder-table tbody tr[data-rating="blue"] td {
-  background: color-mix(in srgb, var(--color-sodium) 7%, transparent);
+  background: color-mix(in srgb, var(--color-sodium) 9%, transparent);
+}
+.ladder-table tbody tr[data-rating="blue"] th[scope="row"] {
+  box-shadow: inset 2px 0 0 var(--color-sodium);
 }
 
 .ladder-pending {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 8px;
   margin: 20px 0 0;
   padding: 13px 15px;
   border: 1px dashed var(--color-ridge);
   border-radius: 3px;
   font-size: 12.5px;
   color: color-mix(in srgb, var(--color-snow) 74%, transparent);
+}
+.ladder-pending .marker-unknown {
+  margin-right: 7px;
+  vertical-align: -1px;
 }
 .ladder-pending-where {
   color: var(--color-muted);
@@ -1056,7 +1084,11 @@ a {
 .place {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 18px 0 0;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--color-ridge);
+  border-radius: 0;
 }
 .place-name {
   margin: 0;
@@ -1183,8 +1215,8 @@ a {
   font-size: 14.5px;
   white-space: nowrap;
 }
-.sheet-detail {
-  padding-left: 18px !important;
+.sheet-table .sheet-detail {
+  padding-left: 18px;
   font-size: 11px;
   letter-spacing: 0.02em;
   color: var(--color-muted);
@@ -1217,8 +1249,6 @@ a {
   color: var(--color-glacier);
 }
 .sheet-note {
-  display: flex;
-  gap: 9px;
   margin: 18px 0 0;
   padding-left: 12px;
   border-left: 2px solid var(--color-muted);
@@ -1231,7 +1261,7 @@ a {
 .opt-list {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1248,6 +1278,11 @@ a {
 }
 /* Doesn't sleep the group. Dimmed, not alarmed — the dates move, and so
    can the booking. */
+/* Bookable, but past the beds. Outlined, not dimmed — this is a real
+   option, just a worse rate per head. */
+.stay[data-squeeze] {
+  border-style: dashed;
+}
 .stay[data-off] {
   border-style: dashed;
   background: transparent;
@@ -1405,6 +1440,13 @@ a {
 }
 
 @media (max-width: 560px) {
+  .board {
+    padding: 18px 14px;
+  }
+  .cell-num {
+    padding: 9px 0;
+    font-size: 12.5px;
+  }
   .site-mark-name {
     font-size: 15px;
   }

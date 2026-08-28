@@ -13,6 +13,10 @@ type Point = {
   estimated: boolean;
   stayName: string | null;
   nights: number | null;
+  /** Comfortable capacity of the best stay — beds, not air mattresses. */
+  sleeps: number | null;
+  /** Over comfortable capacity: someone is on an air mattress. */
+  squeeze: boolean;
   /** Nothing at this location sleeps this many. */
   noRoom: boolean;
 };
@@ -30,6 +34,8 @@ function buildCurve(locationSlug: string): Point[] {
       estimated: best?.estimated ?? false,
       stayName: best?.stay.name ?? null,
       nights: best?.stay.nights ?? null,
+      sleeps: best?.stay.sleeps ?? null,
+      squeeze: best?.squeeze ?? false,
       noRoom: !options.some((o) => o.fits),
     };
   });
@@ -77,6 +83,7 @@ export function HeadcountBoard({
           className="cell"
           data-on={p.n === headcount || undefined}
           data-noroom={p.noRoom || undefined}
+          data-squeeze={p.squeeze || undefined}
         >
           <input
             className="cell-input"
@@ -201,6 +208,13 @@ export function HeadcountBoard({
                 </>
               )}
             </p>
+            {here.squeeze && here.sleeps !== null && (
+              <p className="readout-squeeze">
+                Sleeps <span className="num">{here.sleeps}</span> in beds, so{" "}
+                <span className="num">{headcount - here.sleeps}</span> of us are on
+                air mattresses.
+              </p>
+            )}
           </>
         ) : here?.noRoom ? (
           <>
