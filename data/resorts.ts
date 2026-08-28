@@ -30,6 +30,17 @@ export const RESORTS: Resort[] = [
     name: "Soda Springs",
     locationSlug: "donner-summit",
     toLift: "walk from the Soda Springs houses",
+    // Wikimedia has nothing for Soda Springs — no category, no file. This is a
+    // Donner Summit Historical Society archive aerial under the Public Domain
+    // Mark, which is an assertion of no known copyright rather than a licence
+    // grant, so it needs no credit. It is a historical frame, not a current one.
+    image: {
+      src: "/resorts/soda-springs.jpg",
+      alt: "Aerial photograph of a snow-covered Soda Springs ski resort and the surrounding Donner Summit terrain.",
+      author: "Donner Summit Historical Society",
+      license: "Public Domain Mark 1.0",
+      sourceUrl: "https://www.flickr.com/photos/donnersummithistoricalsociety/54653571628",
+    },
   },
   {
     slug: "donner-ski-ranch",

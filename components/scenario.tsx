@@ -178,27 +178,6 @@ export function Scenario() {
               </button>
             ))}
           </div>
-          {/* The credit is the licence term, not decoration, so it is on the
-              page rather than buried in a tooltip. Heavenly is US federal
-              public domain and needs none, but naming the source costs
-              nothing. */}
-          <p className="mt-4 text-[10.5px] leading-relaxed text-muted/80">
-            Mountain photos from Wikimedia Commons:{" "}
-            {RESORTS.filter((r) => r.image).map((r, i, arr) => (
-              <span key={r.slug}>
-                <a
-                  href={r.image!.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-2 hover:text-sodium"
-                >
-                  {r.name}
-                </a>{" "}
-                &copy; {r.image!.author}, {r.image!.license}
-                {i < arr.length - 1 ? " · " : "."}
-              </span>
-            ))}
-          </p>
         </section>
 
         <section aria-labelledby="s-stay">
@@ -295,7 +274,12 @@ export function Scenario() {
                   )}
                 </span>
                 <span className={CHIP_RATE}>
-                  {GEAR[k].perDay === 0 ? "free" : `${money(GEAR[k].perDay)}`}
+                  {GEAR[k].perDay === 0
+                    ? "free"
+                    : /* cents only when there are cents: these are $62.25 and
+                         $21.25, and rounding them to $62 and $21 quietly
+                         misstates a number the page just went and verified. */
+                      money(GEAR[k].perDay, GEAR[k].perDay % 1 !== 0)}
                   {GEAR[k].perDay > 0 && <span className={CHIP_UNIT}>/day</span>}
                 </span>
                 <span className={CHIP_NOTE}>{GEAR[k].note}</span>

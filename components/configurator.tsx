@@ -254,7 +254,12 @@ export function Configurator() {
                 )}
               </span>
               <span className={CHIP_RATE}>
-                {GEAR[k].perDay === 0 ? "free" : `${money(GEAR[k].perDay)}`}
+                {GEAR[k].perDay === 0
+                  ? "free"
+                  : /* cents only when there are cents: these are $62.25 and
+                     $21.25, and rounding them to $62 and $21 quietly
+                     misstates a number the page just went and verified. */
+                  money(GEAR[k].perDay, GEAR[k].perDay % 1 !== 0)}
                 {GEAR[k].perDay > 0 && <span className={CHIP_UNIT}>/day</span>}
               </span>
               <span className={CHIP_NOTE}>{GEAR[k].note}</span>
