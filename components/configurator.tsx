@@ -68,6 +68,14 @@ const CHIP_RATE_OFF = [
 
 const PILL = "ml-2 inline-block rounded-[2px] border px-1.5 py-px align-[0.2em] font-data text-[9.5px] font-medium uppercase tracking-[0.12em]";
 
+const CHIP_NOTE = "text-xs leading-normal text-snow/66";
+
+/* Restrictions are a caption, never a gate: the trip is date-shiftable, so a
+   blackout is information, not a disqualifier, and nothing here is dimmed or
+   de-ranked for having one. The exception is a purchase deadline — that is the
+   one thing on this page you can actually miss, so it gets the amber. */
+const isDeadline = (s: string) => /buy before|buy by/i.test(s);
+
 export function Configurator() {
   const { headcount, setHeadcount } = useHeadcount();
   const choices = useMemo(() => liftChoices(), []);
@@ -144,6 +152,15 @@ export function Configurator() {
               <span className={CHIP_RATE}>
                 {money(c.perDay, true)}
                 <span className={CHIP_UNIT}>/day</span>
+              </span>
+              <span
+                className={
+                  isDeadline(c.blackouts)
+                    ? "text-xs font-medium leading-normal text-sodium"
+                    : CHIP_NOTE
+                }
+              >
+                {c.blackouts}
               </span>
             </button>
           ))}
@@ -224,7 +241,7 @@ export function Configurator() {
                 {GEAR[k].perDay === 0 ? "free" : `${money(GEAR[k].perDay)}`}
                 {GEAR[k].perDay > 0 && <span className={CHIP_UNIT}>/day</span>}
               </span>
-              <span className="text-xs leading-normal text-snow/66">{GEAR[k].note}</span>
+              <span className={CHIP_NOTE}>{GEAR[k].note}</span>
             </button>
           ))}
         </div>
@@ -255,7 +272,7 @@ export function Configurator() {
                 {CAR[k].perTrip === 0 ? "gas only" : `${money(CAR[k].perTrip)}`}
                 {CAR[k].perTrip > 0 && <span className={CHIP_UNIT}>/car</span>}
               </span>
-              <span className="text-xs leading-normal text-snow/66">{CAR[k].note}</span>
+              <span className={CHIP_NOTE}>{CAR[k].note}</span>
             </button>
           ))}
         </div>
