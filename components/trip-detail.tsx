@@ -43,6 +43,17 @@ export function TripDetail({ trip }: { trip: Trip }) {
           </tfoot>
           </table>
         </div>
+        {/* The one line on this page a reader can change today. */}
+        {c.rentalPenalty !== null && c.rentalPenalty > 0 && (
+          <p className="sheet-swing">
+            <span className="num sheet-swing-num">{money(c.rentalPenalty)}</span>
+            <span className="sheet-swing-text">
+              each &mdash; <span className="num">{money(c.rentalPenalty * headcount)}</span>{" "}
+              across {headcount} of us &mdash; is the gap between picking gear up in
+              the South Bay and renting at the window.
+            </span>
+          </p>
+        )}
         {c.totalPerPerson === null && (
           <p className="sheet-note">
             One line isn&rsquo;t priced yet, so there&rsquo;s no total. It stays blank

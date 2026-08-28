@@ -85,3 +85,9 @@ export type Trip = {
 
 /** The yardstick: $60/day on lift, from the Boreal 4-pack at ~$240. */
 export const BENCHMARK_PER_DAY = 60;
+
+/**
+ * Per car, per day. ~$500 for a 5-day trip. Skippable if someone drives their
+ * own, but it is a carload-sized cost, so it jumps every time we need one more.
+ */
+export const CAR_RENTAL_PER_DAY = 100;

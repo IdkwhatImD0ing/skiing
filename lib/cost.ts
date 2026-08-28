@@ -1,4 +1,10 @@
-import { BENCHMARK_PER_DAY, type SkiLocation, type Stay, type Trip } from "@/lib/types";
+import {
+  BENCHMARK_PER_DAY,
+  CAR_RENTAL_PER_DAY,
+  type SkiLocation,
+  type Stay,
+  type Trip,
+} from "@/lib/types";
 import { getLocation } from "@/data/locations";
 
 /**
@@ -94,6 +100,9 @@ export type TripCost = {
   rental: { perDay: number; where: string } | null;
   /** What renting on the mountain instead would add, per person. */
   rentalPenalty: number | null;
+  cars: number;
+  /** Seats left in the cars we are already paying for. */
+  spareSeats: number;
   rating: "green" | "blue" | "black" | "unknown";
   /** No stay at this location sleeps the whole group. */
   noRoom: boolean;
@@ -146,6 +155,11 @@ export function costFor(trip: Trip, headcount: number): TripCost | null {
           : `${trip.dates.skiDays} days × $${Math.round(liftPerDay)}`,
     },
     {
+      label: "Car",
+      perPerson: (cars * CAR_RENTAL_PER_DAY * trip.dates.nights) / headcount,
+      detail: `${cars} × $${CAR_RENTAL_PER_DAY}/day × ${trip.dates.nights} days ÷ ${headcount}`,
+    },
+    {
       label: "Gas",
       perPerson: (cars * trip.gasPerCarUsd) / headcount,
       detail: `${cars} car${cars > 1 ? "s" : ""} × $${trip.gasPerCarUsd} ÷ ${headcount}`,
@@ -187,6 +201,8 @@ export function costFor(trip: Trip, headcount: number): TripCost | null {
     noRoom,
     rental,
     rentalPenalty,
+    cars,
+    spareSeats: cars * trip.seatsPerCar - headcount,
   };
 }
 

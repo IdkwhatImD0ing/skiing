@@ -35,7 +35,9 @@ export function LiftLadder() {
           <tr>
             <th scope="col">Pack</th>
             <th scope="col" className="col-bar">
-              vs $60<span className="col-bar-unit">/day</span>
+              <span className="col-bar-label">
+                vs $60<span className="col-bar-unit">/day</span>
+              </span>
             </th>
             <th scope="col" className="col-num">Per day</th>
             <th scope="col" className="col-num">Total</th>

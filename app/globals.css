@@ -230,6 +230,9 @@ a {
   background: var(--color-glacier);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-glacier) 18%, transparent);
 }
+.prov-dot-est {
+  border: 1.5px solid var(--color-glacier);
+}
 .prov-status {
   font-size: 10px;
   letter-spacing: 0.14em;
@@ -444,15 +447,31 @@ a {
   color: var(--color-glacier);
 }
 .readout-num-off {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.35rem;
   letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--color-muted) 78%, transparent);
+}
+.readout-num-off::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border: 1.5px dashed var(--color-muted);
+  border-radius: 50%;
 }
 .readout-label {
   margin: 10px 0 0;
   max-width: 24ch;
   font-size: 13px;
   color: color-mix(in srgb, var(--color-snow) 78%, transparent);
+}
+/* When there is no number, the sentence is the answer. */
+.readout-num-off + .readout-label {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--color-snow);
 }
 .readout-line {
   margin: 12px 0 0;
@@ -552,7 +571,7 @@ a {
 }
 .plot-dot[data-est] {
   background: transparent;
-  border: 1.5px dashed var(--color-glacier);
+  border: 1.5px solid var(--color-glacier);
 }
 .plot-gap {
   display: inline-block;
@@ -586,14 +605,14 @@ a {
 }
 .plot-col .plot-dot[data-est] {
   background: transparent;
-  border: 1.5px dashed color-mix(in srgb, var(--color-glacier) 80%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--color-glacier) 85%, transparent);
 }
 .plot-col .plot-dot[data-on]:not([data-est]) {
   background: var(--color-sodium);
 }
 .plot-col .plot-dot[data-on][data-est] {
   background: transparent;
-  border: 1.5px dashed var(--color-sodium);
+  border: 2px solid var(--color-sodium);
 }
 .plot-col .plot-dot[data-on] {
   width: 13px;
@@ -605,7 +624,7 @@ a {
 }
 /* The floodlight. Boreal keeps the lights on till nine; the selected
    headcount is the one standing under them. */
-.plot-col:has(.plot-dot[data-on])::before {
+.plot-col:has([data-on])::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -630,16 +649,19 @@ a {
 .plot-col .plot-gap {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-color: color-mix(in srgb, var(--color-muted) 62%, transparent);
+  top: auto;
+  bottom: 7px;
+  transform: translateX(-50%);
+  border-color: color-mix(in srgb, var(--color-muted) 55%, transparent);
 }
 .plot-col .plot-gap[data-noroom] {
-  top: 26%;
-  bottom: 26%;
-  height: auto;
-  transform: translateX(-50%);
-  border-left-color: color-mix(in srgb, var(--color-muted) 55%, transparent);
+  bottom: 6px;
+  height: 12px;
+  border-left-color: color-mix(in srgb, var(--color-muted) 50%, transparent);
+}
+.plot-col .plot-gap[data-on] {
+  z-index: 2;
+  border-color: var(--color-sodium);
 }
 
 /* --- The strip: the plot's x-axis, and the control ------------------- */
@@ -816,7 +838,8 @@ a {
 }
 .ladder-sub {
   margin: 0;
-  max-width: 54ch;
+  max-width: 60ch;
+  text-wrap: pretty;
   color: color-mix(in srgb, var(--color-snow) 76%, transparent);
 }
 .ladder-sub .num {
@@ -906,9 +929,15 @@ a {
   background: color-mix(in srgb, var(--color-sodium) 55%, transparent);
 }
 .ladder-table thead .col-bar {
-  text-align: left;
-  padding-left: calc(var(--bar-anchor) + 8px);
+  position: relative;
   color: var(--color-sodium);
+}
+.col-bar-label {
+  position: absolute;
+  left: var(--bar-anchor);
+  bottom: 9px;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 .col-bar-unit {
   color: color-mix(in srgb, var(--color-sodium) 62%, transparent);
@@ -987,7 +1016,8 @@ a {
 }
 .trips-sub {
   margin: 0 0 26px;
-  max-width: 54ch;
+  max-width: 60ch;
+  text-wrap: pretty;
   color: color-mix(in srgb, var(--color-snow) 76%, transparent);
 }
 .trips-sub .num {
@@ -1261,6 +1291,38 @@ a {
   letter-spacing: -0.04em;
   color: var(--color-glacier);
 }
+.sheet-swing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin: 22px 0 0;
+  padding: 16px 0 0 14px;
+  border-top: 1px solid var(--hair);
+  border-left: 2px solid var(--color-sodium);
+}
+.sheet-swing-num {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-glacier);
+}
+.sheet-swing-text {
+  flex: 1 1 22ch;
+  font-size: 13px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-snow) 82%, transparent);
+}
+.sheet-swing-text .num {
+  color: var(--color-glacier);
+}
+
+.sheet:has(.sheet-note) .sheet-total {
+  font-size: 1.35rem;
+  color: color-mix(in srgb, var(--color-muted) 78%, transparent);
+}
+
 .sheet-note {
   margin: 18px 0 0;
   padding-left: 12px;
@@ -1381,6 +1443,8 @@ a {
   gap: 9px;
 }
 .opt-name {
+  flex: 1 1 auto;
+  min-width: 0;
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
@@ -1450,6 +1514,47 @@ a {
 }
 .opt-note-warn {
   color: var(--color-sodium);
+}
+
+/* On a phone the cost sheet must not need a swipe to reach the amounts —
+   that number is the whole reason someone opened the page. The arithmetic
+   column goes; it is repeated on the cards below. */
+@media (max-width: 620px) {
+  .sheet-table {
+    min-width: 0;
+  }
+  .sheet-table .sheet-detail {
+    padding-left: 10px;
+    font-size: 10px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+  .sheet-table tbody th {
+    white-space: normal;
+  }
+}
+
+/* The ladder is genuinely five columns of data, so it scrolls — but it can
+   scroll less, and it should look like it scrolls. */
+@media (max-width: 700px) {
+  .ladder-table {
+    min-width: 600px;
+  }
+  .ladder-table tbody th,
+  .ladder-table tbody td,
+  .ladder-table thead th {
+    padding-inline: 10px;
+  }
+  .col-bar {
+    min-width: 132px;
+  }
+  .ladder-table .col-note {
+    max-width: 16ch;
+    font-size: 11px;
+  }
+  .ladder .scroller {
+    mask-image: linear-gradient(90deg, #000 calc(100% - 30px), transparent);
+  }
 }
 
 @media (max-width: 560px) {

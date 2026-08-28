@@ -269,7 +269,11 @@ export function HeadcountBoard({
                   style={{ top: `${y(p.perPerson)}%` }}
                 />
               ) : (
-                <span className="plot-gap" data-noroom={p.noRoom || undefined} />
+                <span
+                  className="plot-gap"
+                  data-on={p.n === headcount || undefined}
+                  data-noroom={p.noRoom || undefined}
+                />
               )}
             </li>
           ))}
