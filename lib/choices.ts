@@ -26,6 +26,9 @@ export type LiftChoice = {
   perDay: number | null;
   /** The age band, or null for the product's default (adult) price. */
   tier: string | null;
+  /** Inclusive age bounds on that band. Absent when the tier isn't about age. */
+  minAge?: number;
+  maxAge?: number;
   blackouts: string;
   option: LiftOption;
   rating: "green" | "blue" | "black" | "unknown";
@@ -60,11 +63,13 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
         option.totalUsd === null
           ? []
           : [
-              { suffix: "", tier: null, totalUsd: option.totalUsd },
+              { suffix: "", tier: null, totalUsd: option.totalUsd, minAge: undefined as number | undefined, maxAge: undefined as number | undefined },
               ...(option.tiers ?? []).map((t) => ({
                 suffix: ` · ${t.label}`,
-                tier: t.label,
+                tier: t.label as string | null,
                 totalUsd: t.totalUsd,
+                minAge: t.minAge,
+                maxAge: t.maxAge,
               })),
             ];
       for (const [i, v] of variants.entries()) {
@@ -82,6 +87,8 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
           days: option.days,
           totalUsd: v.totalUsd,
           tier: v.tier,
+          minAge: v.minAge,
+          maxAge: v.maxAge,
           tripTotal,
           covers,
           coversTrip: covers >= SKI_DAYS,
@@ -108,6 +115,45 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
     if (b.perDay === null) return -1;
     return a.perDay - b.perDay;
   });
+}
+
+/**
+ * Can somebody this age buy this price? The default (adult) price is always
+ * available — nobody is too old for it. A band with bounds has to contain the
+ * age, which is what keeps a 21-year-old off the child fare. A tier with no
+ * bounds isn't an age band at all (a peak-date upgrade), and it stays
+ * available because it is a thing you can genuinely buy, just a dearer one.
+ */
+export function eligibleAt(choice: LiftChoice, age: number): boolean {
+  if (choice.minAge !== undefined && age < choice.minAge) return false;
+  if (choice.maxAge !== undefined && age > choice.maxAge) return false;
+  return true;
+}
+
+/**
+ * The cheapest way onto one mountain, for somebody this age, that actually
+ * covers the whole trip. null when we have no price for it yet — never a
+ * guess, and never a product that can't deliver the days.
+ */
+export function cheapestAccess(
+  resortSlug: string,
+  age: number,
+  all: LiftChoice[] = liftChoices()
+): LiftChoice | null {
+  const usable = all.filter(
+    (c) =>
+      c.option.resortSlugs.includes(resortSlug) &&
+      c.coversTrip &&
+      eligibleAt(c, age)
+  );
+  if (!usable.length) return null;
+  // The same product is filed once per location, so ties are real. Break them
+  // on id to stay deterministic between renders.
+  return usable.reduce((best, c) =>
+    c.tripTotal < best.tripTotal || (c.tripTotal === best.tripTotal && c.id < best.id)
+      ? c
+      : best
+  );
 }
 
 export const GEAR = {

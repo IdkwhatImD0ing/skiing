@@ -1,4 +1,3 @@
-import { getLocation } from "@/data/locations";
 import { stayTotalFor } from "@/lib/cost";
 import { CAR, GEAR, type CarKey, type GearKey, type LiftChoice } from "@/lib/choices";
 import { SKI_DAYS, type Stay } from "@/lib/types";
@@ -38,16 +37,22 @@ export const SEATS_PER_CAR = 4;
 const FOOD_PER_DAY = 30;
 const GAS_PER_CAR = 90;
 
+/**
+ * Takes the stay itself rather than an id to look up. It used to resolve the
+ * id against the *lift's* location, which quietly assumed you always sleep
+ * where the pass is filed. That is false: an Epic Day Pass is one product
+ * listed once per location, so the cheapest way onto Northstar is filed under
+ * Donner Summit while the houses near Northstar are north-shore ones. The
+ * caller knows which houses it is offering; it passes the one you picked.
+ */
 export function quote(
   lift: LiftChoice,
-  stayId: string,
+  stay: Stay | undefined,
   gear: GearKey,
   car: CarKey,
   headcount: number
 ): Quote | null {
-  const location = getLocation(lift.locationSlug);
-  const stay = location?.stays.find((s) => s.id === stayId);
-  if (!location || !stay) return null;
+  if (!stay) return null;
 
   const lodging = stayTotalFor(stay, headcount);
   if (!lodging) return null;

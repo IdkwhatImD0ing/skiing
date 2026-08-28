@@ -33,13 +33,31 @@ export type Stay = Provenance & {
   perks: string[];
 };
 
-/** Age-banded pricing. Most pass products have tiers and this group spans 23. */
-export type PriceTier = { label: string; totalUsd: number };
+/**
+ * A price variant. Most are age bands, but not all — "Add peak dates" costs
+ * *more* than the base, so a tier is not automatically a discount. Only tiers
+ * that carry an age range are age bands; the rest are upgrades, and asking
+ * "what does a 21-year-old pay" must not silently hand back a child fare.
+ */
+export type PriceTier = {
+  label: string;
+  totalUsd: number;
+  /** Inclusive age bounds. Omit both when the variant is not about age. */
+  minAge?: number;
+  maxAge?: number;
+};
 
 export type LiftOption = Provenance & {
   id: string;
   name: string;
+  /** Display label. May name several mountains: "Heavenly / Kirkwood / Northstar". */
   resort: string;
+  /**
+   * Which resorts this actually gets you onto. The display string can't be
+   * split reliably — "Palisades Tahoe" and "Palisades" are the same mountain —
+   * so access is explicit.
+   */
+  resortSlugs: string[];
   /** Visits included. Only meaningful when `coverage` is "pack". */
   days: number;
   /**
@@ -113,6 +131,28 @@ export const BENCHMARK_PER_DAY = 60;
  * get. Every lift product is now priced for covering these four days.
  */
 export const SKI_DAYS = 4;
+
+/** A mountain, and the houses near enough to sleep in while skiing it. */
+export type Resort = {
+  slug: string;
+  name: string;
+  /** Whose houses serve this mountain. */
+  locationSlug: string;
+  /** Roughly, from the houses at that location. */
+  toLift: string;
+};
+
+/**
+ * The scenario the home page prices. Bill's actual trip: eight of us, four
+ * full days, five nights, everybody old enough to drink and young enough for
+ * the under-23 fares. The explorer at /explore is where these come loose.
+ */
+export const SCENARIO = {
+  people: 8,
+  skiDays: SKI_DAYS,
+  nights: 5,
+  age: 21,
+} as const;
 
 /**
  * Flat per car, per trip. Turo quoted $450; Hertz is close enough that $500
