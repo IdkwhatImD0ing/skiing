@@ -55,7 +55,7 @@ export const LOCATIONS: SkiLocation[] = [
         perks: ["Whole cabin", "Sleeps 6"],
         status: "verified",
         asOf: "2026-08-28",
-        note: "Quoted for Dec 29 – Jan 3 at 6 guests (5 adults + 1 child). First quoted at $2,890, later at $2,900 — using the later figure; the $10 is immaterial at $1.67 per person.",
+        note: "Quoted for Dec 29 – Jan 3 at 6 adults. First quoted at $2,890, later at $2,900 — using the later figure; the $10 is immaterial at $1.67 per person. Guest composition does not move the price on this listing.",
       },
       {
         id: "truckee-motel",
