@@ -1,7 +1,6 @@
-import { getLocation } from "@/data/locations";
 import { stayTotalFor } from "@/lib/cost";
 import { CAR, GEAR, type CarKey, type GearKey, type LiftChoice } from "@/lib/choices";
-import type { Stay } from "@/lib/types";
+import { SKI_DAYS, type Stay } from "@/lib/types";
 
 export type QuoteLine = {
   label: string;
@@ -15,7 +14,8 @@ export type Quote = {
   lines: QuoteLine[];
   total: number;
   perPerson: number;
-  perPersonPerDay: number;
+  /** Divided by nights, not ski days: the trip's nightly burn rate. */
+  perPersonPerNight: number;
   nights: number;
   skiDays: number;
   cars: number;
@@ -23,28 +23,52 @@ export type Quote = {
   stay: Stay;
   estimated: boolean;
   squeeze: boolean;
+  /** Full days the chosen pass actually delivers. Short of skiDays is a hole. */
+  liftCovers: number;
+  liftShortfall: number;
 };
 
-const SEATS_PER_CAR = 4;
+/**
+ * Cars are the reason cost per head is a sawtooth rather than a curve: the
+ * whole cost of a car lands on the person who makes it necessary. Exported
+ * because the configurator marks the full carloads.
+ */
+export const SEATS_PER_CAR = 4;
 const FOOD_PER_DAY = 30;
-const GAS_PER_CAR = 90;
+/**
+ * San Jose to Donner Summit and back is ~536 miles. At the AAA San Jose price
+ * on 2026-08-27 ($5.58/gal, against $5.45 on the EIA weekly California series)
+ * a full-size AWD SUV — what a group of eight actually rents — burns about
+ * $167 of it. The old $90 assumed a small efficient car nobody on this trip is
+ * driving. This is an August price standing in for a December one, so treat it
+ * as a band rather than a point.
+ */
+const GAS_PER_CAR = 167;
 
+/**
+ * Takes the stay itself rather than an id to look up. It used to resolve the
+ * id against the *lift's* location, which quietly assumed you always sleep
+ * where the pass is filed. That is false: an Epic Day Pass is one product
+ * listed once per location, so the cheapest way onto Northstar is filed under
+ * Donner Summit while the houses near Northstar are north-shore ones. The
+ * caller knows which houses it is offering; it passes the one you picked.
+ */
 export function quote(
   lift: LiftChoice,
-  stayId: string,
+  stay: Stay | undefined,
   gear: GearKey,
   car: CarKey,
   headcount: number
 ): Quote | null {
-  const location = getLocation(lift.locationSlug);
-  const stay = location?.stays.find((s) => s.id === stayId);
-  if (!location || !stay) return null;
+  if (!stay) return null;
 
   const lodging = stayTotalFor(stay, headcount);
   if (!lodging) return null;
 
   const nights = stay.nights;
-  const skiDays = lift.days;
+  // The trip is four full days on snow. The pass has to meet that, not define
+  // it — gear is rented for the days we ski, whatever the ticket happens to be.
+  const skiDays = SKI_DAYS;
   const cars = Math.ceil(headcount / SEATS_PER_CAR);
 
   const lines: QuoteLine[] = [
@@ -56,9 +80,11 @@ export function quote(
     },
     {
       label: "Lift",
-      total: lift.totalUsd * headcount,
-      perPerson: lift.totalUsd,
-      detail: `${lift.label} · ${skiDays} days`,
+      total: lift.tripTotal * headcount,
+      perPerson: lift.tripTotal,
+      detail: lift.coversTrip
+        ? `${lift.label} · covers all ${skiDays} days`
+        : `${lift.label} · covers ${lift.covers} of ${skiDays} days`,
     },
     {
       label: "Gear",
@@ -89,7 +115,7 @@ export function quote(
     lines,
     total,
     perPerson: total / headcount,
-    perPersonPerDay: total / headcount / nights,
+    perPersonPerNight: total / headcount / nights,
     nights,
     skiDays,
     cars,
@@ -97,5 +123,7 @@ export function quote(
     stay,
     estimated: lodging.estimated,
     squeeze: headcount > stay.sleeps,
+    liftCovers: lift.covers,
+    liftShortfall: Math.max(0, skiDays - lift.covers),
   };
 }

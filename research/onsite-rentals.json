@@ -1,0 +1,339 @@
+{
+  "dimension": "On-mountain and nearby-shop ski/snowboard RENTAL pricing for the Donner Summit cluster (Boreal, Soda Springs, Donner Ski Ranch, Sugar Bowl, Tahoe Donner) plus the Soda Springs village and Truckee rental shops - verified 2026-08-27 for the 2026-27 season, framed as the 4-day-per-person total that decides 'rent at the resort vs. rent before you leave'",
+  "findings": [
+    {
+      "name": "Boreal Mountain Resort - on-mountain rentals (THE $59 RE-CHECK: NOT VERIFIABLE)",
+      "category": "on-mountain-rental",
+      "claim": "The $59/day figure the site currently carries for Boreal CANNOT be re-verified today, and there is no primary source for any Boreal rental price for 2026-27. Three independent checks all come back empty. (1) Boreal's own Rentals page at /day-access/rentals/ renders a single heading and nothing else - its <main> innerText is literally the 7 characters 'RENTALS'. (2) The page's underlying CMS payload (the Gatsby page-data JSON for that route) shows the Drupal node titled 'Rentals' containing exactly one 'paragraph__ui_section' whose 'children' array is empty - i.e. the rental content has been unpublished, not merely hidden behind JavaScript. (3) The booking store returns 'CATEGORY NOT FOUND' for book.rideboreal.com/s/rentals; the store is currently in summer mode showing only Woodward Bunker sessions, skatepark access, mountain-bike rentals and the 'WOODWARD SUMMER SESSIONS PASS'. The Internet Archive's most recent capture of the rental store is 2025-04-28 (a 24/25 capture) and, because the store is a Vue single-page app, that capture contains no prices in its HTML either. The only corroboration available is circumstantial: Boreal's sister POWDR resort Soda Springs, which shares the same CMS, the same Aspenware store and the same rental operation, publishes 'SKI PACKAGE $59' / 'SNOWBOARD PACKAGE $59' today - consistent with the $59 on the site, but NOT evidence for Boreal. Treat Boreal's rental price as unknown until the winter store loads (Boreal's estimated 26/27 opening is late November 2026). The earlier $40 figure the site once carried is not supportable either.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Boreal publishes no rental price, no package contents, no helmet policy and no multi-day rate for 26/27 as of 2026-08-27. Store-wide Boreal policy that WILL apply: 'ALL PURCHASES MUST BE MADE ONLINE, PRIOR TO ARRIVAL - There are no on-site purchases', so when rentals do load they will have to be reserved and paid for online in advance, exactly like lift tickets. Boreal has historically stated it rents equipment packages only and does not rent clothing.",
+      "season_confirmed": "none - no 2026-27 price published; no 2025-26 price retrievable from any primary source today",
+      "source_url": "https://www.rideboreal.com/day-access/rentals/",
+      "confidence": "none"
+    },
+    {
+      "name": "Boreal Mountain Resort - booking store is in summer mode, winter rentals not yet loaded",
+      "category": "negative-result",
+      "claim": "book.rideboreal.com/s/rentals returns 'CATEGORY NOT FOUND / RETURN TO STORE'. The store home currently lists only WOODWARD / BUNKER categories - 'BUNKER', 'CLASSES & CLINICS', 'MEMBERSHIPS', 'MOUNTAIN BIKE LESSONS', 'MOUNTAIN BIKE RENTALS', 'PARTIES', 'RACE SERIES' - with products like '2-HOUR BUNKER SESSION (ALL-AGES)' and 'THE WOODWARD 3-PACK'. The banner across the top reads 'ALL PURCHASES MUST BE MADE ONLINE, PRIOR TO ARRIVAL / There are no on-site purchases'. This matters operationally as much as it does for price: for a group of 6, Boreal rentals will be an online-in-advance reservation with a named pick-up, not a walk-up decision made in the parking lot. Re-check this store in October/November 2026, when the 26/27 winter catalogue loads, to capture the real rental price.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No on-site purchases; everything must be bought online before arrival. Winter rental SKUs not yet published.",
+      "season_confirmed": "2026-27 store checked 2026-08-27 - winter products not yet loaded",
+      "source_url": "https://book.rideboreal.com/s/rentals",
+      "confidence": "high"
+    },
+    {
+      "name": "Soda Springs - on-mountain ski and snowboard packages, $59 (helmet INCLUDED)",
+      "category": "on-mountain-rental",
+      "claim": "Soda Springs is the only resort in the Donner Summit cluster publishing a current rental price. Its rentals page carries two content blocks titled, verbatim, 'SKI PACKAGE $59' and 'SNOWBOARD PACKAGE $59' - identical price for skiing and snowboarding. Ski package: 'skis from Voelkl with Marker bindings, ski boots from Dalbello and poles by Head. Additionally, all rental packages will include a Burton snow helmet.' Snowboard package: 'an all Burton set-up of snowboard, snowboard boots, and a helmet' using the Burton LTR beginner board. Operations: 'Located on the first floor of the Soda Springs Lodge, Rental Services offers ski or snowboard packages for all ages... The shop is open at 9AM Mon, Thurs, and Fri, and 8AM on weekends, allowing for four time slots throughout the day to be fitted and pick up your pre-purchased equipment... Rental packages last all day, and equipment is due to be returned to the shop by 4PM.' The page warns 'DURING PEAK PERIODS, LIKE WEEKENDS AND HOLIDAYS, RENTAL WAIT TIMES COULD EXCEED 1-2 HOURS' and 'inventory is limited during each pick-up time slot'. Season caveat: the $59 itself carries no season label, and the booking store has no rental SKU loaded yet (book.skisodasprings.com/s/rentals/p/rental-equipment returns 'CATEGORY NOT FOUND / PRODUCT NOT FOUND'). What raises confidence that this page is being maintained in the 26/27 cycle is that the SAME page's promo tiles carry the verified 26/27 pass prices - 'The Unlimited Pass' at '$279' '(adult price)' and 'The Family Pass' at '$579' '(2 adults, 2 kids)'. 4-day total at $59: $236 per person, helmet included.",
+      "price_usd": "$59 ski package; $59 snowboard package (helmet included)",
+      "per_day_usd": "$59",
+      "restrictions": "'ADVANCE PURCHASE & SELECT A PICK-UP TIME REQUIRED FOR RENTAL EQUIPMENT.' Booked as a 'Rental Add-On' when you buy the daily lift ticket - no bundle discount is advertised, the add-on is priced separately. 'A credit card is required as a deposit on all rental gear.' 'Rental equipment is non-transferable and must be used by the same individual to whom the item was rented.' 'Multiple rental days must be consecutive and are not refundable' - multi-day is supported but NO multi-day discount is published. Gear due back 4PM. Pick up at the contactless kiosks first, then the shop, 'at least 1 hour before your lesson or lift ticket start time'.",
+      "season_confirmed": "unlabeled - $59 is live on the site today but carries no season label; the rentals page's only season string is an active 'We are closed for the 2025/2026 Season!' alert, and the rental SKU is still not purchasable. Not established as a 2026-27 price.",
+      "source_url": "https://www.skisodasprings.com/plan-your-trip/lessons-rentals/rentals/",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "STALE_SEASON",
+        "why": "Digits re-confirmed exactly. I pulled the Gatsby CMS payload direct (/page-data/plan-your-trip/lessons-rentals/rentals/page-data.json) and it contains exactly four dollar figures on the whole page: content_block titles 'Ski Package $59' and 'Snowboard Package $59', plus the $279 / $579 pass tiles. Helmet inclusion re-confirmed verbatim ('all rental packages will include a Burton snow helmet'; 'Rental packages include boots, skis or a snowboard, poles and helmet'). BUT the season is NOT established for 26/27, and the original finding omitted the strongest counter-evidence: the page ships an ACTIVE site alert reading 'We are closed for the 2025/2026 Season!' (isAlertEnabled: true), and the only season string anywhere in the rentals payload is '2025/2026'. The rental SKU is still not purchasable. Mitigating nuance: that alert is a sitewide component, and the sibling tickets-passes payload does carry genuine 26/27 markers ('All lift tickets purchased will expire after the 2026/27 winter season closing date', '26/27 Holiday Dates Coming Soon!'), so the site as a whole is in the 26/27 cycle. Net: $59 is the number Soda Springs is publishing today, but nothing labels it 26/27. Do not present it as a 26/27 price.",
+        "source_url_fetched": "https://www.skisodasprings.com/page-data/plan-your-trip/lessons-rentals/rentals/page-data.json",
+        "corrected_price": null,
+        "confidence_before": "medium",
+        "confidence_after": "medium"
+      }
+    },
+    {
+      "name": "Soda Springs - a la carte helmet is $10; package helmet is free",
+      "category": "on-mountain-rental",
+      "claim": "Soda Springs' rental and lesson policy text states: 'Soda Springs Mountain Resort requires all participants under 18 years of age to wear a snow sport helmet while in a lesson. Helmets are included in ski and snowboard rental packages, or are available to rent for $10.' So a helmet costs $0 if you take the $59 package and $10 if you bring your own skis. The rentals page also advertises a la carte 'HELMETS', 'SKI / SNOWBOARD BOOTS' and 'SKI POLES' but publishes no price for boots or poles - I checked the underlying CMS payload and the only dollar figures on the whole page are $59, $279 and $579. This is the cheapest published helmet in the cluster, and Soda Springs and Sugar Bowl are the only two operators that bundle a helmet at no charge.",
+      "price_usd": "$10 helmet (a la carte); $0 helmet inside the $59 package",
+      "per_day_usd": "$10",
+      "restrictions": "Boots-only and poles-only rentals exist but are unpriced on the site. Under-18s must wear a helmet in lessons.",
+      "season_confirmed": "unlabeled - live today in lesson-policy text, no season marker on the $10 itself",
+      "source_url": "https://www.skisodasprings.com/plan-your-trip/tickets-passes/tickets-passes-soda-springs/",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "STALE_SEASON",
+        "why": "Quote re-confirmed verbatim in the tickets-passes CMS payload: 'Helmets are included in ski and snowboard rental packages, or are available to rent for $10.' Also re-confirmed the original's negative claim - the a la carte 'Helmets', 'Ski / Snowboard Boots' and 'Ski Poles' blocks all have copy:null, i.e. genuinely unpriced. (Caution for anyone re-running this: a summarizing fetch of the same page invented a 'Ski Poles - FREE ON-SITE' line that does not exist in the payload; read the raw JSON.) Downgraded only because the $10 sits in undated lesson-policy prose with no 26/27 label, same caveat as the $59.",
+        "source_url_fetched": "https://www.skisodasprings.com/page-data/plan-your-trip/tickets-passes/tickets-passes-soda-springs/page-data.json",
+        "corrected_price": null,
+        "confidence_before": "medium",
+        "confidence_after": "medium"
+      }
+    },
+    {
+      "name": "Donner Ski Ranch - rentals still priced for 2025-26, helmet NOT included",
+      "category": "on-mountain-rental",
+      "claim": "DSR's price table is still headed, verbatim, 'Pricing 2025-2026' - the resort has NOT published 26/27 rental (or lift) rates as of 2026-08-27, so every number below is last season's. Equipment Rentals, Regular Days / Old School Days: Adult (18-69) $55 / $30; Youth (13-17) $55 / $30; Child (6-12) $45 / $30; 5 & Under $25 / $15; Senior (70+) $55 / $30. Helmet Only $16. Poles Only $12. The rentals page is explicit that the helmet is extra: 'SKI EQUIPMENT INCLUDES: Skis, ski boots, and poles. SNOWBOARD EQUIPMENT INCLUDES: Snowboard and snowboard boots. Neither package includes the helmet; you can still rent this one separately if needed. Helmets are recommended but optional.' Ski and snowboard cost the same. Unusual restriction for skiers: 'We DO NOT rent only skis or only ski boots. If you are renting ski equipment with us, you'll have to rent the whole package and use our boots with our skis' - but 'we rent only boots and only boards for snowboarding.' 4-day math at last season's rates: $55 x 4 = $220, plus helmet $16 x 4 = $64, so $284 all-in; on Old School Days (Tue/Wed/Thu) $30 x 4 = $120 + $64 helmet = $184, which paired with the $69 Old School lift ticket is the cheapest complete lift+gear day anywhere on Donner Summit.",
+      "price_usd": "$55 adult regular day / $30 adult Old School Days (2025-26 rates); helmet $16; poles $12",
+      "per_day_usd": "$55 regular / $30 Old School (2025-26)",
+      "restrictions": "'Purchase tickets and rentals in person only at the ticket window, the day of your visit! WE DO NOT SELL TICKETS OR RENTALS ONLINE - NO RESERVATIONS.' 'Our equipment is available for rent on a first-come, first-served basis; no reservations are required.' '(WE DO NOT DO SEASONAL RENTALS)'. No multi-day rate exists - 'We do not sell multi-day tickets; every ticket is sold only day by day in person, not in advance.' Rental Department opens at 8am; arrive 1 hour before a lesson, 2 hours on weekends/holidays. A 10% group discount on rentals exists but requires a MINIMUM OF 20 PEOPLE - useless for a party of 6. Old School Days ran Tue/Wed/Thu from Jan 6, 2026 excluding Feb 17-19, 2026 (26/27 dates not yet published).",
+      "season_confirmed": "2025-26 - the page's own header reads 'Pricing 2025-2026'; no 2026-27 rental pricing published",
+      "source_url": "https://www.donnerskiranch.com/pricing",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "STALE_SEASON",
+        "why": "Every number re-confirmed against the live page, and the original's season call was honest and correct. Page header still reads 'Pricing 2025 - 2026'. Rentals: Adult (18-69) $55 regular / $30 Old School; Youth (13-17) $55/$30; Child (6-12) $45/$30; 5 & Under $25/$15; Senior (70+) $55/$30; Helmet Only $16; Poles Only $12 - all exact. Lift side also unchanged ($119 adult all-day, $69 Old School). Helmet-exclusion wording re-confirmed verbatim on /rentals: 'Neither package includes the helmet; you can still rent this one separately if needed. Helmets are recommended but optional.' Confidence downgraded high->medium NOT because the transcription is doubted - it is exact - but because these are explicitly last season's rates being used to budget a 26/27 trip, and DSR has published nothing for 26/27.",
+        "source_url_fetched": "https://www.donnerskiranch.com/pricing",
+        "corrected_price": null,
+        "confidence_before": "high",
+        "confidence_after": "medium"
+      }
+    },
+    {
+      "name": "Sugar Bowl - rate card posted but UNCHANGED from 25/26 and not yet bookable",
+      "category": "on-mountain-rental",
+      "claim": "Sugar Bowl's rentals page publishes a full rate card: 'Adult Sport Package (ski or snowboard) ages 13+ $75', 'Child Sport Package (ski or snowboard) ages 12 & under $55', 'Adult Performance Package (ski or snowboard) ages 13+ $90', with the footnote 'Packages include skis, boots & poles or snowboard with bindings and boots. Plus a helmet ($25 value)'. Elsewhere the same page says 'Packages start at $55' for Sport and 'Packages for $90' for Performance, and that Performance is an on-site upgrade at check-in rather than an online option. Ski and snowboard are the same price. IMPORTANT SEASON CAVEAT: the page simultaneously states 'Lift tickets, lessons and rentals for the 2026/27 season will become available for booking this fall. Add your email address below to be notified once products are loaded', and shop.sugarbowl.com/s/rentals currently renders an empty store. I verified against the Internet Archive capture of the same page from 2026-02-13 (mid 25/26 season): it showed the IDENTICAL $75 / $55 / $90 table. So this rate card has not been re-priced for 26/27 - it is last season's card still on display. Treat $75 as an indication, not a 26/27 commitment. 4-day math at $75: $300 per person, helmet included - the most expensive on-mountain option in the cluster and roughly 1.5x what a Truckee shop charges.",
+      "price_usd": "$75 adult sport; $55 child sport; $90 adult performance (helmet included, '$25 value')",
+      "per_day_usd": "$75 adult sport",
+      "restrictions": "No multi-day rate published - the card is per-day only. 26/27 rentals are not yet purchasable; the store is empty. 'To guarantee availability, we recommend reserving your rentals online before you arrive. Day-of rentals will be offered on a first-come, first-served basis and are subject to availability.' A la carte is available: 'you can rent boots, boards, skis, poles, and helmets individually' but 'if you rent boots only, your ski bindings will need to be adjusted to fit the boots and set your DIN, which requires an additional fee.' No clothing or goggle rentals. Shop is on the 2nd level of Main Lodge, opens 8:00am, busiest 9-11am; arrive 30 min before you want to be on snow, 1 hour if taking a lesson. Main Lodge and the rental area are under construction this summer, with a targeted opening day of Friday, November 27, 2026.",
+      "season_confirmed": "2025-26 rate card still displayed on the 26/27 site - identical to the 2026-02-13 archived version; Sugar Bowl says 26/27 rentals load 'this fall'",
+      "source_url": "https://www.sugarbowl.com/rentals",
+      "confidence": "low",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "STALE_SEASON",
+        "why": "Independently PROVEN stale, and the original's characterisation holds up. Live page today: Adult Sport $75, Child Sport $55, Adult Performance $90, 'Plus a helmet ($25 value)'. I pulled the Wayback capture from 2026-02-13 (mid 25/26 season, timestamp 20260213224330) and the only dollar figures in it are $75, $55, $90, $25 and $99 - i.e. the identical card. Live page also still says 'Lift tickets, lessons and rentals for the 2026/27 season will become available for booking this fall.' So this is last season's card on display with no 26/27 product loaded. Downgraded to low: it is not merely unlabeled, it is demonstrably unchanged from 25/26 and explicitly not yet bookable.",
+        "source_url_fetched": "https://www.sugarbowl.com/rentals + http://web.archive.org/web/20260213224330id_/https://www.sugarbowl.com/rentals",
+        "corrected_price": null,
+        "confidence_before": "medium",
+        "confidence_after": "low"
+      }
+    },
+    {
+      "name": "Sugar Bowl First-Timer Package - the only real lift+rental+lesson BUNDLE in the cluster",
+      "category": "bundle",
+      "claim": "This is the answer to 'do rentals bundle with a lift ticket at a discount?' - in the Donner Summit cluster, only Sugar Bowl does, and only for beginners. 'First-Timer: Learn to Ski + Ride Package... Starting at $99* for ages 13+'. The FAQ spells it out: 'The First-Timer Package includes a half-day ski or snowboard lesson, an all-day limited-access lift ticket, and all-day ski or snowboard rentals. Lift access is limited to White Pine and Flume Carpet, which are beginner-friendly areas designed for learning.' Equipment line: 'Quality skis, snowboard, boots, and helmet rental. Keep your gear for the day to continue practicing after your lesson.' Given Sugar Bowl's own $75 rental and its day-ticket pricing, $99 for lesson + lift + rental is a genuine discount - but it is a ONE-TIME product. For a 6-person group with two or three never-evers, this is the correct day-1 purchase for those people; the other three or four days still need a normal rental. Same season caveat as the rate card - 26/27 products load this fall, and the $99 was also the advertised price last season.",
+      "price_usd": "$99 (starting at) - lesson + limited lift ticket + full-day rental with helmet, ages 13+",
+      "per_day_usd": "$99 for the bundled day (vs. $75 for the rental alone)",
+      "restrictions": "'Weekend and holiday rates are higher. Advance reservations are strongly recommended. Limit one time per person.' Ages 13+ only - under-13s must use the children's lesson packages instead. Lift access limited to White Pine and Flume Carpet only. 'Online reservations are available until two days before your lesson date.' Not yet loaded for 26/27.",
+      "season_confirmed": "advertised on the live 26/27 site but not yet bookable; Sugar Bowl says 26/27 lessons/rentals/tickets load in fall 2026",
+      "source_url": "https://www.sugarbowl.com/firsttime",
+      "confidence": "low",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "STALE_SEASON",
+        "why": "Price and contents re-confirmed on the live page: 'Starting at $99* for ages 13+', including small-group instruction, beginner lift access (White Pine & Flume, full day) and all-day rentals with helmet; footnote 'Weekend and holiday rates are higher. Advance reservations are strongly recommended. Limit one time per person.' But the same $99 also appears in the 2026-02-13 archived rentals capture, and the page repeats 'Lift tickets, lessons and rentals for the 2026/27 season will become available for booking this fall.' Unchanged from last season and not purchasable, so it cannot be presented as a 26/27 price.",
+        "source_url_fetched": "https://www.sugarbowl.com/firsttime",
+        "corrected_price": null,
+        "confidence_before": "medium",
+        "confidence_after": "low"
+      }
+    },
+    {
+      "name": "Tahoe Donner Downhill - publishes NO rental price at all, for any season",
+      "category": "negative-result",
+      "claim": "Tahoe Donner's downhill rental page has gear detail but zero pricing: 'We have the newest rental equipment from Voelkl, Burton, Rossignol, Dalbello and Marker.' The page banner reads 'TAHOE DONNER DOWNHILL SKI RESORT IS CLOSED FOR THE SEASON. SEE YOU NEXT WINTER!' next to '2026/27 SKI SEASON PASSES ARE ON SALE NOW AT THE LOWEST PRICES OF THE YEAR!' - so passes are live for 26/27 but rentals are not. Following the 'BUY NOW' link to shop.tahoedonner.com/s/downhill-ski/gear-rental/ produces a category containing only 'SEASON PASSES' and 'SEASON-LONG PROGRAMS + TEAMS' - no rental SKUs. Their store also gates purchase behind membership: 'Tahoe Donner Members, you must log into your member account or create a member account to purchase items from the online store.' Combined with the separately verified fact that Tahoe Donner no longer sells advance guest lift tickets and guest rates require a member host, Tahoe Donner should be treated as effectively unavailable to a 6-person group of non-members and should not be priced on the site at all.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "No rental prices published for 2026-27 or 2025-26. Store shows no rental products. Purchases require a Tahoe Donner member account. The one genuinely useful published policy is the multi-day rule (see next finding).",
+      "season_confirmed": "none - no rental price published for any season",
+      "source_url": "https://www.tahoedonner.com/amenities/amenities/downhill-ski/rentals/",
+      "confidence": "high"
+    },
+    {
+      "name": "Tahoe Donner - multi-day rental policy (the only cluster resort that publishes one)",
+      "category": "policy",
+      "claim": "Tahoe Donner is the only resort in the cluster that publishes an explicit multi-day rental mechanic, even though it publishes no price to attach to it: 'MULTI-DAY RENTALS - If you will be skiing or snowboarding for multiple days: Keep equipment until you are done skiing; any extra days will be charged upon return. If you keep your equipment, and decide not to ski the next day, return it by 9AM and you will not be charged for that day.' That second clause is a real risk-reducer for a 4-day/5-night trip where one day might get stormed out - no other resort or shop in the cluster advertises a same-rate opt-out day. Worth quoting as a policy contrast even though the price is unknown.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Charged on return, not up front. Return by 9AM to drop a day. Rental prices themselves are unpublished, so the policy cannot be costed.",
+      "season_confirmed": "policy text live on the 2026-27 site; no associated price",
+      "source_url": "https://www.tahoedonner.com/amenities/amenities/downhill-ski/rentals/",
+      "confidence": "high"
+    },
+    {
+      "name": "Donner Ski Shop, Soda Springs village - $40/day adult, the cheapest rental on Donner Summit",
+      "category": "shop-rental",
+      "claim": "This is the shop the trip should probably actually use, and it sits a quarter mile off I-80 in Soda Springs village, minutes from Boreal, Soda Springs, Donner Ski Ranch and Sugar Bowl: '21728 Donner Pass Road, Soda Springs, California 95728... Look for us across street from Post Office. About 1/4 mile off I 80, on left hand side.' Established 1961; 'Previously located at Donner Ski RAnch for many years.' Posted rates, verbatim: 'Skis-boots-poles or snowboard and boots 40.00 adult / Cross Country Skis-Boots-Poles any Age 30.00 / 12 and under Kids Skis-boots 30.00 / 12 and under kids snowboard and boots 30.00 / Boots only (ski-board-cross country) 20.00 / Skis or board only 30.00 / Poles 10.00 / Helmet 10.00 / Jacket-Pants-snow play boots 15.00 per item / Demo Skis - with or without boots and poles 65.00 / Snowshoes or Ice skates 20.00'. Ski and snowboard are the same $40. The shop's own pitch is 'Always lower than the ski resorts', and on the published numbers that is true by a wide margin. 4-day math: $40 x 4 = $160 per adult, plus helmet $10 x 4 = $40, so $200 all-in - versus $236 at Soda Springs and $300 at Sugar Bowl. SEASON CAVEAT: the shop is 'Closed for the summer' and the two downloadable forms on the same page are named 'rental form good 2025 2026' and 'season rental 2025 2026', and a note reads 'Season Rentals available until December 19, 2025 then NOT until after Xmas Holidays'. So the posted rate card is the 25/26 card still up during the off-season. Call 530-426-0739 (or text 530-308-6006) to confirm before building it into the budget.",
+      "price_usd": "$40 adult ski or snowboard package; $30 kids 12 & under; $20 boots only; $30 skis/board only; $10 poles; $10 helmet; $65 demo skis",
+      "per_day_usd": "$40 adult ($50 with helmet)",
+      "restrictions": "NO multi-day discount, stated flatly: 'MULTI DAY RENTALS - Are our normal daily rate, multiply by how many days you need your gear. There are no refunds on multi day rentals.' 'Reservations: First come First Serve, no reservations needed. Saturdays are busy, be to shop early whenever possible.' - a real sizing risk for a party of 6 on a Saturday. Helmet is NOT in the package ($10 extra). 'NO REFUNDS ON FORGOTTEN RENTALS'. $5 off for military with DOD/CAC/VA VIC/NGB card. Ski tuning: light tunes $30, hot wax $15. Currently closed for summer; appointments by text.",
+      "season_confirmed": "2025-26 - rate card is live on the site today but the page's own rental forms are labeled '2025 2026' and its season-rental note references December 19, 2025; not yet re-priced for 26/27",
+      "source_url": "https://donnerskishop.com/",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "STALE_SEASON",
+        "why": "Full rate list re-confirmed line by line, no discrepancies: adult ski/snowboard package $40; XC $30; kids 12-and-under skis $30 and snowboard $30; boots only $20; skis or board only $30; poles $10; helmet $10; jacket/pants/snow-play boots $15 per item; demo skis $65; snowshoes or ice skates $20. Multi-day wording re-confirmed ('Are our normal daily rate, multiply by how many days you need your gear. There are no refunds on multi day rentals') as is 'First come First Serve, no reservations needed.' Season call also holds: the downloadable forms are still named 'rental form good 2025 2026' and 'season rental 2025 2026', the season-rental note still references December 19 2025, and there is no 2026-2027 marker anywhere on the page. Downgraded high->medium for the same reason as DSR: exact transcription, but an explicitly 25/26 card.",
+        "source_url_fetched": "https://donnerskishop.com/",
+        "corrected_price": null,
+        "confidence_before": "high",
+        "confidence_after": "medium"
+      }
+    },
+    {
+      "name": "Tahoe Dave's (Truckee) - CONFIRMED re-priced for 2026-27; 4-day basic package $201",
+      "category": "shop-rental",
+      "claim": "Tahoe Dave's is the strongest-evidence price in this whole research pass, because I could prove the rate card is NEW. Today's published table: Ski Packages Basic $54.00 (1 day) / $103 (2) / $152 (3) / $201 (4) / $250 (5) / $299 (6) / $348 (7) / $49 extra day. Performance $65 / $125 / $185 / $245 / $305 / $365 / $425 / $60. Demo $79 / $153 / $227 / $301 / $375 / $449 / $523 / $74. The Snowboard Packages table is IDENTICAL to the ski table (Basic $54 / $103 / $152 / $201...), so ski and snowboard cost exactly the same. Skis Only Basic $44 / $83 / $122 / $161. Beginner boots only $20 / $36 / $52 / $68. Poles Only (Performance) $10 / $20 / $30 / $40. Optional damage waiver $5 / $10 / $15 / $20. PROOF OF SEASON: the Internet Archive capture of this same page from 2026-04-23 (end of the 25/26 season) shows Basic Package '$49 / $93 / $137 / $181 / $225 / $269 / $313 / $44' - the shop has raised the 1-day basic from $49 to $54 and the 4-day from $181 to $201 since April. That is a pre-season re-price, so the numbers on the page now are the 2026-27 rates. Kids get real discounts off the same table: 0-6 40% off ($32.40/day, $120.60 for 4 days), 7-10 30% off, 11-14 20% off, 15-18 10% off. 4-day math for an adult: $201 basic package + $48 helmet = $249 per person.",
+      "price_usd": "$54/day, $201 for 4 days (Basic ski OR snowboard package); Performance $65/day, $245 for 4 days",
+      "per_day_usd": "$50.25 effective across 4 days (Basic)",
+      "restrictions": "HELMET IS NOT INCLUDED - it is a separate Clothing & Accessories line at $12 (1 day) / $24 / $36 / $48 (4 days) / $12 extra day; the rental guide confirms 'We also rent helmets, outerwear, cross-country skis, snowshoes'. Free early pickup: 'Early pick up available! Stop in after 3pm the evening before and rent for no extra cost' - which means a Friday-night San Jose departure can collect gear the same evening and be first on the lift. 'Rent from one Tahoe Dave's location and return or exchange your gear at any other location at no extra charge.' Walk-ins accepted; online reservation gives a price quote and pre-builds customer profiles. Discounts: 10% off daily rentals for students/military/veterans/first responders with ID; 70+ 10%, 75+ 15%, 80+ 25%. Bring a PHYSICAL credit card - 'Digital Wallets such as Apple/Google/Samsung Pay can be accepted for rental payments, but CANNOT be accepted for rental deposits.' Truckee Downtown store: 10200 Donner Pass Road, Truckee, Mon-Thu 11AM-5PM, Fri-Sun 10AM-5PM (Truckee West at 12047 Donner Pass Rd and three other stores currently show 'CLOSED FOR THE SEASON').",
+      "season_confirmed": "2026-27 - confirmed by direct comparison against the archived 2026-04-23 version of the same page, which showed the lower 25/26 rates ($49/day, $181 for 4 days)",
+      "source_url": "https://tahoedaves.com/rates/",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "CONFIRMED",
+        "why": "This one survives the audit and the season proof is real. I parsed the live rate tables out of the raw HTML rather than trusting a summary. Ski Packages: Basic 54/103/152/201/250/299/348, extra 49; Performance 65/125/185/245/305/365/425, extra 60; Demo 79/153/227/301/375/449/523, extra 74; Specialty 85/165/245/325. The Snowboard Packages table is numerically identical through the Demo row. Helmet 12/24/36/48. Skis Only Basic 44/83/122/161. Beginner Boots 20/36/52/68. Damage Waiver 5/10/15/20. Kids 0-6 (40% off) 32.40/day, 120.60 for 4 days. SEASON PROOF independently reproduced: the Wayback capture at 20260423032143 shows Basic Package $49/$93/$137/$181 and Helmet $10/$20/$30/$40, so the shop has genuinely re-priced since April (basic 1-day 49->54, 4-day 181->201, helmet 10->12, Performance 59->65, Demo 69->79). That is a real pre-season re-price, so these are 2026-27 rates. ONE CORRECTION APPLIED: the original claimed 'Poles $10 / $15 / $20 / $25' - the live table actually reads Poles Only (Performance) $10 / $20 / $30 / $40. Also note the tier structure shifted: today's 'Demo' row ($79/$301) sits at last season's 'Specialty' price point, and a new Specialty tier at $85/$325 now sits above it, so tier-name comparisons across seasons are unsafe.",
+        "source_url_fetched": "https://tahoedaves.com/rates/ + http://web.archive.org/web/20260423032143id_/https://tahoedaves.com/rates/",
+        "corrected_price": "Poles corrected: $10 / $20 / $30 / $40 for 1/2/3/4 days (was reported $10 / $15 / $20 / $25). Headline package prices unchanged and confirmed.",
+        "confidence_before": "high",
+        "confidence_after": "high"
+      }
+    },
+    {
+      "name": "Tahoe Sports Hub (Truckee) - $49 + $44/extra day, live bookable, helmet +$9",
+      "category": "shop-rental",
+      "claim": "Independent Truckee shop at 10095 West River Street in downtown Truckee, running a live Ski Rental Systems booking engine. Posted rates: 'Adult Ski Rental Package - Shaped skis that are forgiving and fun for the recreational skier. Includes Ski's, boots and poles. Rates: $49 /per day, $44 /per additional day'. Snowboard is priced identically: 'Snowboard Package - $49 /per day, $44 /per additional day'. Demo, ski or board: $69/day, $64 additional. Adult Ski Only $35/$30; Snowboard w/bindings Only $35/$30; Adult Ski Boot Only $25/$22; Snowboard Boots $25/$22; Ski Poles $10/$9; Junior package $33/$30; Kids package $29/$24; Kids boots $15/$12. The product booking form exposes two add-on toggles: 'Boot Options - I Need Boots / No Boots (-$9.00)' and 'Helmet Options - No Helmet / Yes I Need a Helmet (+$9.00)'. 4-day math: $49 + (3 x $44) = $181 per adult for skis or snowboard, plus at least $9 for a helmet - roughly $190 to $217 depending on whether the helmet charge is per day or per rental (the form does not say). That makes it the cheapest 4-day package with a reservation attached. SEASON CAVEAT: archived captures of this same page from 2026-01-14 and 2026-04-13 both show the identical $49/$44, so unlike Tahoe Dave's this shop has NOT re-priced for 26/27 - the rate may still move before the lifts spin.",
+      "price_usd": "$49 first day + $44 each additional day = $181 for 4 days (adult ski OR snowboard package); helmet +$9",
+      "per_day_usd": "$45.25 effective across 4 days",
+      "restrictions": "Helmet is NOT in the package: '+$9.00' add-on on the booking form, and the form does not state whether that is per day or per rental - verify at booking. Boots can be dropped for -$9.00. Online booking through Ski Rental Systems; the product page currently warns 'This Item IS NOT AVAILABLE at Your Primary (first chosen) Location' because the shop is defaulted to summer inventory. Store hours listed as 9am-6pm on the rental site (the about page says 8am-7pm daily); free parking. Note this shop is NOT the old Porters - it is an unrelated family-owned business in a 130-year-old building downtown.",
+      "season_confirmed": "posted live today, but unchanged from the archived 2026-01-14 and 2026-04-13 captures - so it is the 25/26 rate still standing, not a confirmed 26/27 re-price",
+      "source_url": "https://rentals.tahoesportshub.com/rent/alpine-ski-rentals/adult-ski-rental-package",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "STALE_SEASON",
+        "why": "Rates re-confirmed: Adult Ski Rental Package $49/day, $44 per additional day; Adult Demo $69/$64; Adult Ski Only $35/$30; Adult Ski Boot Only $25/$22; Ski Poles $10/$9; Junior $33/$30; Kids $29/$24; Kids boots $15/$12. Snowboard checked on its own page and is priced identically ($49/$44; demo $69/$64; board w/bindings only $35/$30; snowboard boots $25/$22), so the ski/snowboard parity claim holds here. The helmet +$9 claim is REAL but was mis-sourced: it is not on the alpine-ski-rentals listing page (that page's HTML contains no 'helmet' string at all). It lives on the product booking form, where the select options read 'No Helmet' / 'Yes I Need a Helmet (+$9.00)' and 'I Need Boots' / 'No Boots (-$9.00)'. I have repointed source_url to that product page. The form still does not say whether the $9 is per day or per rental, so the 4-day helmet cost remains a genuine unknown ($9-$36). SEASON: the original's archive claim checks out - Wayback captures 20260114040500 and 20260413234412 both show $49 /per day and $44 /per additional, identical to today, so this is a 25/26 rate still standing, not a 26/27 re-price.",
+        "source_url_fetched": "https://rentals.tahoesportshub.com/rent/alpine-ski-rentals/adult-ski-rental-package",
+        "corrected_price": "No price change. source_url repointed from the listing page to the product booking form, which is where the +$9.00 helmet option actually appears.",
+        "confidence_before": "medium",
+        "confidence_after": "medium"
+      }
+    },
+    {
+      "name": "Granite Chief / BlueZone Sports (Truckee) - $49.99/day, no multi-day discount, helmet $14.99",
+      "category": "shop-rental",
+      "claim": "BlueZone Sports merged with the 40-year-old Truckee institution Granite Chief in November 2025 and the Truckee store now trades as 'Granite Chief Powered by BlueZone Sports'. Published Truckee ski rental table, full day: Junior Basic Daily Ski Package $34.99; Junior Performance Daily Ski Package $49.99; Adult Basic Daily Ski Package $49.99; Adult Performance Daily Ski Package $59.99; Adult Premium Daily Ski Package $79.99. Snowboard: Junior Basic $39.99; Adult Basic $49.99; Adult Performance $55.99 - so adult basic ski and adult basic snowboard are both $49.99, but adult performance snowboard ($55.99) is $4 CHEAPER than adult performance ski ($59.99), the only ski-vs-board price gap found anywhere in this research. Add-ons, all full day: Ski Boots $44.99; Snowboard Boots $29.99; Ski Poles $9.99; Helmet Daily Rental $14.99; Daily Snow Insurance $5.00. Season leases are also sold: Adult Ski Package $259.99, Adult Snowboard Package $259.99, Adult Ski Upgrade $389.99, Junior packages $199.99, plus a $20.00 Season Tune & Insurance and a $6.00 Facility Fee. 4-day math: $49.99 x 4 = $199.96, plus helmet $14.99 x 4 = $59.96, so $259.92 all-in - the most expensive Truckee shop over 4 days because there is no multi-day break at all. Worth noting for a bigger-season group: the $259.99 adult season lease costs barely more than five daily rentals.",
+      "price_usd": "$49.99/day adult basic ski or snowboard; helmet $14.99/day; adult season lease $259.99",
+      "per_day_usd": "$49.99 (flat - no multi-day reduction published)",
+      "restrictions": "The published table is DAILY ONLY - no 2/3/4-day rates, so 4 days costs 4x the daily rate. Helmet not included, $14.99/day. A '$6.00 Facility Fee' applies on season leases ('Facility fee helps support the ongoing maintenance and upgrades of our rental equipment'). The page shows an apparent data error - 'Snowshoes Daily Rental $249.99' - which suggests the table is not carefully maintained; verify anything you rely on. I could find NO archived capture of this rates page, so I could not test whether these are 26/27 or carried-over numbers.",
+      "season_confirmed": "unknown - published live today with no season label and no archived version available to compare against",
+      "source_url": "https://www.bluezonesports.com/rentals/truckee-ski-rentals",
+      "confidence": "medium",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "UNVERIFIABLE",
+        "why": "Every published figure re-confirmed exactly: Junior Basic ski $34.99; Junior Performance ski $49.99; Adult Basic ski $49.99; Adult Performance ski $59.99; Adult Premium ski $79.99; Junior Basic snowboard $39.99; Adult Basic snowboard $49.99; Adult Performance snowboard $55.99; ski boots $44.99; snowboard boots $29.99; ski poles $9.99; helmet $14.99; daily snow insurance $5.00; season leases $199.99-$389.99; season tune & insurance $20.00; facility fee $6.00. The 'Snowshoes Daily Rental $249.99' anomaly the original flagged is also really there, which is fair grounds for distrusting the table's maintenance. Verdict is UNVERIFIABLE rather than CONFIRMED purely on SEASON: I queried the Wayback CDX index for this URL across 2025-01-01 to 2026-08-27 and it returns ZERO captures, so there is no way to test whether these numbers are 26/27 or carried over, and the page carries no season label. The original was honest about this.",
+        "source_url_fetched": "https://www.bluezonesports.com/rentals/truckee-ski-rentals",
+        "corrected_price": null,
+        "confidence_before": "medium",
+        "confidence_after": "medium"
+      }
+    },
+    {
+      "name": "Porters Sports - DISCONTINUED; portersports.com is a parked domain for sale",
+      "category": "negative-result",
+      "claim": "Porters should be removed from any shortlist. Porters Sports of Lake Tahoe closed its final Truckee location (Crossroads Shopping Center, Deerfield Drive) after 54 years; its Tahoe City store shows as CLOSED and its Incline Village store closed earlier. The company's own domain, portersports.com, now resolves to a HugeDomains parking page reading 'PorterSports.com is for sale' at $4,795 - there is no Porters rental operation to price. Tahoe Sports Hub, which several guides now list in Porters' place for Truckee rentals, is a separate family-owned business at 10095 W River Street and is not a Porters rebrand (its own about page describes it as 'a family owned and operated outdoor sporting goods retailer operating in a 130 year old historic building in downtown Truckee California'). Do not carry a Porters price forward from any older list.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Business no longer operating; no rental product exists at any price.",
+      "season_confirmed": "n/a - business closed",
+      "source_url": "https://portersports.com/",
+      "confidence": "high"
+    },
+    {
+      "name": "'Sierra Sport' - no such shop exists on Donner Summit or in Truckee",
+      "category": "negative-result",
+      "claim": "Searched repeatedly for a Truckee / Soda Springs / Donner Summit rental shop named 'Sierra Sport' or 'Sierra Sports' and found none. The name-adjacent businesses that do exist are all in the wrong place for this trip: Sierra-at-Tahoe and its 'Sierra Mountain Sports' rental shop are at the South Shore (a different resort cluster entirely, roughly 1h45m from Donner Summit), and Sierra Ski & Cycle Works is a South Lake Tahoe shop. Neither is reachable as an on-the-way stop for an I-80 Donner Summit trip. The realistic Truckee-area rental field is Tahoe Dave's, Tahoe Sports Hub, Granite Chief/BlueZone, and Tahoe Mountain Sports - and Tahoe Mountain Sports does not serve this trip either, because its own page says 'In Winter, we rent backcountry ski and snowboard gear, snowshoes, cross country skiing and all the winter accessories you need for a safe outdoor adventure', i.e. touring and nordic gear, not resort alpine packages. In Soda Springs village itself there is exactly one shop: Donner Ski Shop.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "n/a - negative result.",
+      "season_confirmed": "n/a",
+      "source_url": "https://tahoemountainsports.com/pages/rent-gear",
+      "confidence": "high"
+    },
+    {
+      "name": "Ski vs. snowboard price difference - essentially zero across the whole cluster",
+      "category": "cross-cutting",
+      "claim": "Every operator on Donner Summit that publishes a price charges the SAME for a ski package and a snowboard package, which simplifies the group budget to a single per-person number regardless of who rides what. Soda Springs: 'SKI PACKAGE $59' and 'SNOWBOARD PACKAGE $59'. Sugar Bowl: 'Adult Sport Package (ski or snowboard) ages 13+ $75'. Donner Ski Ranch: adult $55 whichever you take. Donner Ski Shop: 'Skis-boots-poles or snowboard and boots 40.00 adult'. Tahoe Dave's: the ski and snowboard Basic tables are numerically identical ($54 / $103 / $152 / $201...). Tahoe Sports Hub: Adult Ski Rental Package $49 and Snowboard Package $49. The single exception found anywhere: Granite Chief/BlueZone Truckee prices the Adult Performance Snowboard Package at $55.99 versus $59.99 for the Adult Performance Ski Package - a $4 gap that only affects riders paying up for performance gear. Where packages DO differ is in content: DSR rents ski boots+skis+poles as an inseparable unit but will rent snowboard boots or boards separately, and Tahoe Sports Hub's snowboard packages bundle bindings while the ski package bundles poles.",
+      "price_usd": "no ski/snowboard differential at any Donner Summit operator; $4 differential only on BlueZone's performance tier",
+      "per_day_usd": null,
+      "restrictions": "Package CONTENTS differ even where price does not - check whether poles, bindings and helmet are included before comparing headline numbers.",
+      "season_confirmed": "mixed - see each individual finding for its season",
+      "source_url": "https://www.skisodasprings.com/plan-your-trip/lessons-rentals/rentals/",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "CONFIRMED",
+        "why": "Held up at every operator I could re-check independently. Soda Springs 'Ski Package $59' / 'Snowboard Package $59' (both verbatim in the CMS payload). Sugar Bowl 'Adult Sport Package (ski or snowboard) ages 13+ $75'. Donner Ski Ranch adult $55 either way. Donner Ski Shop 'Skis-boots-poles or snowboard and boots 40.00 adult'. Tahoe Dave's - I parsed both tables and they are numerically identical row for row through Basic/Performance/Demo/Specialty. Tahoe Sports Hub - ski $49/$44 and snowboard $49/$44 on separate pages. BlueZone - adult basic $49.99 both, with the single exception the original already flagged: adult PERFORMANCE snowboard $55.99 vs adult performance ski $59.99, a $4 gap in the snowboarder's favour. No counter-example found anywhere.",
+        "source_url_fetched": "https://www.skisodasprings.com/page-data/plan-your-trip/lessons-rentals/rentals/page-data.json",
+        "corrected_price": null,
+        "confidence_before": "high",
+        "confidence_after": "high"
+      }
+    },
+    {
+      "name": "Helmet policy - the hidden $40-$64 per person on a 4-day trip",
+      "category": "cross-cutting",
+      "claim": "Helmets are the line item most likely to distort the comparison, because the resorts bundle them and the shops do not. INCLUDED FREE: Soda Springs ('all rental packages will include a Burton snow helmet') and Sugar Bowl ('Plus a helmet ($25 value)'). EXTRA: Donner Ski Ranch $16/day ('Neither package includes the helmet') = $64 over 4 days; Granite Chief/BlueZone $14.99/day = $59.96 over 4 days; Tahoe Dave's $12/day with a real multi-day break ($24 / $36 / $48) = $48 over 4 days; Donner Ski Shop $10/day flat = $40 over 4 days; Tahoe Sports Hub '+$9.00' on the booking form, ambiguous whether per day or per rental = $9 to $36. Soda Springs also sells a standalone helmet at $10 for people bringing their own skis. Practical consequence: Sugar Bowl's $300 for 4 days is a true all-in number, while Tahoe Dave's $201 is really $249 once you add the helmet - the gap between the priciest resort and the cheapest confirmed shop narrows from about $100 to about $50 per person once helmets are counted honestly.",
+      "price_usd": "$0 (Soda Springs, Sugar Bowl) to $16/day (Donner Ski Ranch); $40-$64 added over 4 days at the shops",
+      "per_day_usd": "$0-$16",
+      "restrictions": "Soda Springs requires helmets for all lesson participants under 18. Donner Ski Ranch calls helmets 'recommended but optional'.",
+      "season_confirmed": "mixed - Soda Springs and Sugar Bowl figures are current-site; DSR $16 is a 2025-26 rate; shop figures as noted per shop",
+      "source_url": "https://www.donnerskiranch.com/pricing",
+      "confidence": "high",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "CONFIRMED",
+        "why": "Every helmet figure re-confirmed at source: Soda Springs $0 in package / $10 a la carte; Sugar Bowl $0 included, '$25 value'; Donner Ski Ranch $16/day = $64 over 4 days; BlueZone $14.99/day = $59.96; Tahoe Dave's $12/$24/$36/$48 (note: this line ALSO re-priced for 26/27, up from $10/$20/$30/$40 in the April 2026 capture); Donner Ski Shop $10/day flat = $40; Tahoe Sports Hub +$9.00, per-day-or-per-rental still ambiguous. SOURCING FIX APPLIED: the finding cited donnerskiranch.com/rentals, which carries the policy wording ('Neither package includes the helmet...') but NO prices - the $16 is on /pricing. I have repointed source_url accordingly. One nit on the headline: the '$40-$64 added over 4 days at the shops' range excludes Tahoe Sports Hub, whose helmet may be as little as $9 for the whole rental.",
+        "source_url_fetched": "https://www.donnerskiranch.com/pricing + https://www.donnerskiranch.com/rentals",
+        "corrected_price": "No price change. source_url repointed from /rentals (policy text only, no prices) to /pricing (where the $16 helmet actually appears).",
+        "confidence_before": "high",
+        "confidence_after": "high"
+      }
+    },
+    {
+      "name": "Reservation requirements - the real constraint for a party of 6",
+      "category": "cross-cutting",
+      "claim": "For six people who need six sets of gear in matching sizes on the same morning, WHERE you can reserve matters more than a $10 price gap. MUST RESERVE ONLINE IN ADVANCE: Boreal ('ALL PURCHASES MUST BE MADE ONLINE, PRIOR TO ARRIVAL / There are no on-site purchases') and Soda Springs ('ADVANCE PURCHASE & SELECT A PICK-UP TIME REQUIRED FOR RENTAL EQUIPMENT', with 'inventory is limited during each pick-up time slot' and peak wait times that 'could exceed 1-2 hours'). CANNOT RESERVE AT ALL: Donner Ski Ranch ('WE DO NOT SELL TICKETS OR RENTALS ONLINE - NO RESERVATIONS'; 'first-come, first-served') and Donner Ski Shop ('First come First Serve, no reservations needed. Saturdays are busy, be to shop early whenever possible'). RESERVATION RECOMMENDED BUT WALK-INS FINE: Sugar Bowl ('To guarantee availability, we recommend reserving your rentals online before you arrive. Day-of rentals will be offered on a first-come, first-served basis and are subject to availability'), Tahoe Dave's ('We also allow walk-ins anytime'), Tahoe Sports Hub and BlueZone (both take online reservations). The scheduling upside of a Truckee shop is Tahoe Dave's free evening pickup - 'Stop in after 3pm the evening before and rent for no extra cost' - which turns a Friday-night drive from San Jose into gear-in-hand before the first lift on Saturday and removes the 1-2 hour resort rental queue from day one entirely.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "The two cheapest options on Donner Summit (Donner Ski Shop at $40/day, Donner Ski Ranch at $30 on Old School Days) are BOTH walk-up-only with no way to hold six sets of gear. Budget the risk, or arrive at opening.",
+      "season_confirmed": "policies current as of 2026-08-27",
+      "source_url": "https://www.skisodasprings.com/plan-your-trip/lessons-rentals/rentals/",
+      "confidence": "high"
+    },
+    {
+      "name": "THE 4-DAY NUMBER - on-mountain vs. Donner Summit / Truckee shops, per person",
+      "category": "verdict",
+      "claim": "Ranked by 4-day adult all-in cost for one ski OR snowboard package including a helmet, which is the number that decides 'rent at the resort or rent before you get there'. (1) Donner Ski Ranch on Old School Days - $120 gear + $64 helmet = $184, but only Tue/Wed/Thu and only at 25/26 prices. (2) Tahoe Sports Hub, Truckee - $181 gear + $9 to $36 helmet = about $190-$217, the cheapest bookable option, though the rate is unchanged since January so it may rise. (3) Donner Ski Shop, Soda Springs village - $160 gear + $40 helmet = $200, cheapest on the pass itself, but a 25/26 rate card and walk-up only. (4) Soda Springs on-mountain - $236 with helmet included, zero logistics, but requires advance online booking with timed pick-up slots. (5) Tahoe Dave's, Truckee - $201 gear + $48 helmet = $249, and the ONLY price in this entire research pass that is confirmed re-priced for 26/27, plus free evening-before pickup. (6) Granite Chief/BlueZone, Truckee - $199.96 gear + $59.96 helmet = $259.92, no multi-day break. (7) Donner Ski Ranch regular days - $220 + $64 = $284 at 25/26 rates. (8) Sugar Bowl on-mountain - $300, helmet included, the most expensive in the cluster, on a rate card identical to last season's. (9) Boreal - unknown, no published price. (10) Tahoe Donner - unknown, and effectively member-gated anyway. HEADLINE: renting off-mountain saves roughly $35-$100 per person over four days versus the resort shops that publish prices, i.e. $210-$600 for a group of six - real money, but smaller than the lift-ticket spread, and it costs you the convenience of walking from the rental counter to the lift. For a 6-person group that wants a guaranteed reservation AND a confirmed 26/27 price, the strongest pick is Tahoe Dave's Truckee Downtown at $201 + $48 helmet, collected the evening before.",
+      "price_usd": "$184-$300 per adult for 4 days including helmet, depending on where you rent",
+      "per_day_usd": "$46 (Donner Ski Ranch Old School) to $75 (Sugar Bowl) per day all-in",
+      "restrictions": "Only ONE of these ten numbers - Tahoe Dave's - is a confirmed 2026-27 price. Soda Springs' $59 is unlabeled, Sugar Bowl's $75 and Tahoe Sports Hub's $49 are provably unchanged from last season, Donner Ski Ranch's and Donner Ski Shop's rate cards are explicitly labeled 2025-2026, and Boreal and Tahoe Donner publish nothing. Every figure except Tahoe Dave's should be re-checked in October/November 2026 when the resorts load their winter stores.",
+      "season_confirmed": "mixed - one confirmed 2026-27 (Tahoe Dave's), four unlabeled or carried over, two explicitly 2025-26, two absent",
+      "source_url": "https://tahoedaves.com/rates/",
+      "confidence": "low",
+      "verification": {
+        "checked_by": "skeptic re-verification pass, 2026-08-27",
+        "verdict": "STALE_SEASON",
+        "why": "The arithmetic is sound and I could reproduce every leg from the verified inputs, but the RANGE mixes seasons and both of its endpoints are last-season numbers, which the headline '$184-$300' does not convey. The $184 floor is Donner Ski Ranch Old School Days at rates the page itself labels 'Pricing 2025 - 2026'; the $300 ceiling is Sugar Bowl's card that I proved unchanged from the 2026-02-13 capture and which is explicitly not yet bookable for 26/27. Exactly ONE leg is a confirmed 2026-27 all-in number: Tahoe Dave's at $201 + $48 helmet = $249, and I independently reproduced the archive proof behind it. Everything else is unlabeled, provably unchanged, explicitly 25/26, or absent. The finding's own restrictions field already says this, which is to its credit - but the price_usd headline should not be read as a 26/27 range. Recommend the site quote Tahoe Dave's $249 as the only defensible 26/27 per-person 4-day rental figure and caption every other number with its season.",
+        "source_url_fetched": "https://tahoedaves.com/rates/",
+        "corrected_price": null,
+        "confidence_before": "medium",
+        "confidence_after": "low"
+      }
+    },
+    {
+      "name": "CROSS-CHECK (outside this dimension, but material): Boreal's own iRide FAQ says $259, not $239",
+      "category": "cross-check",
+      "claim": "While reading Boreal's CMS payload looking for a rental price, I found an internal contradiction on the iRide page that affects the site's headline benchmark. The price table on that page shows the 4-Pack at $239 adult 'PRICE BEFORE 10/1', but the FAQ block lower on the SAME page reads, verbatim: 'How much does the iRide Pass cost? Adult iRide pass (ages 13+) is $259 - that's only $65 per visit (4-days). Kids iRide Pass (ages 12 & under) is $199 - that's only $50 per visit (4-days). All taxes and fees are included in our pricing upon checkout.' A separate marketing block on the same page says '4 Visits for the Price of 2 - Buy 3 lift tickets, get your 4th FREE. That's just $65 per day.' So Boreal is simultaneously advertising $59.75/day and $65/day for the same product. The most likely reading is that $239 is the pre-10/1 rate and $259 / $65-per-day is the standard or tax-inclusive rate, but Boreal does not say so. Flagging it because the whole site is anchored on the $60/day benchmark and a reader who buys after 10/1 may land on $65/day instead. Whoever owns the lift-ticket dimension should decide how to caption this.",
+      "price_usd": "$239 (table, 'before 10/1') vs $259 (FAQ on the same page); $179 kids in the table vs $199 in the FAQ",
+      "per_day_usd": "$59.75 per the table vs '$65 per day' per the FAQ",
+      "restrictions": "Both numbers are on the same live page and Boreal does not reconcile them. The FAQ adds 'All taxes and fees are included in our pricing upon checkout', which conflicts with the table's note that a 7.25% tax rate is added at checkout.",
+      "season_confirmed": "2026-27 - both figures are on the live 26/27 iRide page",
+      "source_url": "https://www.rideboreal.com/day-access/tickets/iride/",
+      "confidence": "high"
+    }
+  ],
+  "skeptic_review": {
+    "reviewed_on": "2026-08-27",
+    "scope": "Adversarial re-verification of the 12 priced claims in this file. Every cited source_url was re-fetched from the primary site; Gatsby/JS pages were read as raw CMS payloads and rate tables were parsed out of raw HTML rather than via summarisers, after a summariser hallucinated a 'Ski Poles - FREE ON-SITE' line on the Soda Springs page.",
+    "outcome": "3 CONFIRMED, 8 STALE_SEASON, 1 UNVERIFIABLE, 0 REFUTED outright. No fabricated headline price found: every headline number in this file exists on the page it cites. One wrong sub-line corrected (Tahoe Dave's poles) and two source_urls repointed (Tahoe Sports Hub helmet, cluster helmet policy).",
+    "bottom_line": "Tahoe Dave's remains the only operator in this dimension with a provable 2026-27 rental price ($54/day, $201 for 4 days, +$48 helmet = $249 per adult). Treat every other number here as last season's until the resorts load their winter stores in Oct/Nov 2026."
+  }
+}

@@ -1,5 +1,10 @@
 import { LOCATIONS } from "@/data/locations";
-import { BENCHMARK_PER_DAY, type SkiLocation, type LiftOption } from "@/lib/types";
+import {
+  BENCHMARK_PER_DAY,
+  SKI_DAYS,
+  type SkiLocation,
+  type LiftOption,
+} from "@/lib/types";
 
 export type LiftChoice = {
   id: string;
@@ -9,12 +14,50 @@ export type LiftChoice = {
   locationSlug: string;
   locationName: string;
   days: number;
+  /** Sticker price of the product itself. */
   totalUsd: number;
-  perDay: number;
+  /** What it costs to cover this trip's ski days — buy two packs if needed. */
+  tripTotal: number;
+  /** Full days on snow it actually delivers here, capped at SKI_DAYS. */
+  covers: number;
+  /** True when it delivers every day of the trip: the only real candidates. */
+  coversTrip: boolean;
+  /** Per full day delivered. null when it delivers none. */
+  perDay: number | null;
+  /** The age band, or null for the product's default (adult) price. */
+  tier: string | null;
+  /**
+   * True when this price is last season's, because the resort hasn't posted
+   * this one yet. A real number with a stale date — usable, but it must never
+   * render as though it were current.
+   */
+  stale: boolean;
+  /** The season the price is for, when we know it. */
+  season?: string;
+  /** Inclusive age bounds on that band. Absent when the tier isn't about age. */
+  minAge?: number;
+  maxAge?: number;
   blackouts: string;
   option: LiftOption;
-  rating: "green" | "blue" | "black";
+  rating: "green" | "blue" | "black" | "unknown";
 };
+
+/**
+ * What one product costs to put us on snow for the whole trip. A pack that is
+ * shorter than the trip has to be bought twice; a season pass costs the same
+ * whatever we do; a day ticket multiplies.
+ */
+function tripCost(option: LiftOption, sticker: number, days: number): number {
+  switch (option.coverage) {
+    case "trip":
+    case "unlimited":
+      return sticker;
+    case "day":
+      return sticker * days;
+    case "pack":
+      return sticker * Math.ceil(days / option.days);
+  }
+}
 
 /**
  * Every priced lift product, one entry per age/peak tier. Not deduped —
@@ -29,14 +72,21 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
         option.totalUsd === null
           ? []
           : [
-              { suffix: "", totalUsd: option.totalUsd },
+              { suffix: "", tier: null, totalUsd: option.totalUsd, minAge: undefined as number | undefined, maxAge: undefined as number | undefined },
               ...(option.tiers ?? []).map((t) => ({
                 suffix: ` · ${t.label}`,
+                tier: t.label as string | null,
                 totalUsd: t.totalUsd,
+                minAge: t.minAge,
+                maxAge: t.maxAge,
               })),
             ];
       for (const [i, v] of variants.entries()) {
-        const perDay = v.totalUsd / option.days;
+        // A night pass sells evenings; a Friday ticket needs a Friday. Neither
+        // can put us on snow for four full days, however cheap the sticker is.
+        const covers = Math.min(SKI_DAYS, option.fullDaysPerTrip ?? SKI_DAYS);
+        const tripTotal = tripCost(option, v.totalUsd, covers);
+        const perDay = covers > 0 ? tripTotal / covers : null;
         out.push({
           id: `${loc.slug}:${option.id}:${i}`,
           label: option.name + v.suffix,
@@ -45,34 +95,105 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
           locationName: loc.name,
           days: option.days,
           totalUsd: v.totalUsd,
+          tier: v.tier,
+          stale: option.status === "last-season",
+          season: option.season,
+          minAge: v.minAge,
+          maxAge: v.maxAge,
+          tripTotal,
+          covers,
+          coversTrip: covers >= SKI_DAYS,
           perDay,
           blackouts: option.blackouts,
           option,
           rating:
-            perDay < BENCHMARK_PER_DAY - 5
-              ? "green"
-              : perDay <= BENCHMARK_PER_DAY + 5
-                ? "blue"
-                : "black",
+            perDay === null
+              ? "unknown"
+              : perDay < BENCHMARK_PER_DAY - 5
+                ? "green"
+                : perDay <= BENCHMARK_PER_DAY + 5
+                  ? "blue"
+                  : "black",
         });
       }
     }
   }
-  return out.sort((a, b) => a.perDay - b.perDay);
+  // Anything that cannot cover the trip sorts last however cheap it looks —
+  // a rate per day is not comparable when the days aren't there.
+  return out.sort((a, b) => {
+    if (a.coversTrip !== b.coversTrip) return a.coversTrip ? -1 : 1;
+    if (a.perDay === null) return 1;
+    if (b.perDay === null) return -1;
+    return a.perDay - b.perDay;
+  });
+}
+
+/**
+ * Can somebody this age buy this price? The default (adult) price is always
+ * available — nobody is too old for it. A band with bounds has to contain the
+ * age, which is what keeps a 21-year-old off the child fare. A tier with no
+ * bounds isn't an age band at all (a peak-date upgrade), and it stays
+ * available because it is a thing you can genuinely buy, just a dearer one.
+ */
+export function eligibleAt(choice: LiftChoice, age: number): boolean {
+  if (choice.minAge !== undefined && age < choice.minAge) return false;
+  if (choice.maxAge !== undefined && age > choice.maxAge) return false;
+  return true;
+}
+
+/**
+ * The cheapest way onto one mountain, for somebody this age, that actually
+ * covers the whole trip. null when we have no price for it yet — never a
+ * guess, and never a product that can't deliver the days.
+ */
+export function cheapestAccess(
+  resortSlug: string,
+  age: number,
+  all: LiftChoice[] = liftChoices()
+): LiftChoice | null {
+  const usable = all.filter(
+    (c) =>
+      c.option.resortSlugs.includes(resortSlug) &&
+      c.coversTrip &&
+      eligibleAt(c, age)
+  );
+  if (!usable.length) return null;
+  // The same product is filed once per location, so ties are real. Break them
+  // on id to stay deterministic between renders.
+  return usable.reduce((best, c) =>
+    c.tripTotal < best.tripTotal || (c.tripTotal === best.tripTotal && c.id < best.id)
+      ? c
+      : best
+  );
 }
 
 export const GEAR = {
+  /**
+   * The $59 this used to carry was attributed to Boreal and is unsupportable:
+   * Boreal's rentals page renders the single word "RENTALS", its CMS payload
+   * has an empty children array, and its store returns CATEGORY NOT FOUND.
+   * The only rental price in Tahoe provably re-priced for 2026-27 is Tahoe
+   * Dave's in Truckee — $201 for a 4-day package plus $48 for a helmet, which
+   * a 2026-04-23 archive capture shows rising from $181 and $40. $62.25 a day
+   * all-in. This replaces a guess; it does not confirm one.
+   */
   onsite: {
-    label: "Rent at the resort",
-    perDay: 59,
-    note: "Costs more, but nothing rides in the car and you can swap if the snow changes.",
+    label: "Rent up there",
+    perDay: 62.25,
+    note: "Costs more, but nothing rides in the car and you can swap if the snow changes. Helmet included.",
     recommended: true,
     why: "Skis and boards eat the luggage space we don't have with a full carload.",
   },
+  /**
+   * Not really a daily rate — Sports Basement charges $85 flat for anything in
+   * the 2-4 day bracket and doesn't count pickup or return day, so four ski
+   * days land at $21.25 each. The old $20 was Bill's estimate and was probably
+   * The Ski Renter of Mountain View, which is genuinely $80 for the bracket.
+   */
   sj: {
     label: "Rent in San Jose",
-    perDay: 20,
-    note: "Half the price, but it fills the trunk and you're stuck with whatever you picked.",
+    perDay: 21.25,
+    note: "$85 flat for the whole trip at Sports Basement — but it fills the trunk and you're stuck with whatever you picked.",
     recommended: false,
     why: "",
   },

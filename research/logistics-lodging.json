@@ -1,0 +1,459 @@
+{
+  "dimension": "Logistics for a San Jose -> Tahoe ski trip: non-Airbnb lodging on Donner Summit and in Truckee, the real cost of the drive (gas, chains, chain controls), resort parking and reservation fees, lodging taxes, and San Jose car rental including under-25 surcharges - all checked against the site's $90/car gas and $500/car rental assumptions for 2026-27",
+  "findings": [
+    {
+      "name": "Palisades Tahoe parking - 2026-27 paid reservation (THE CLEAREST CONFIRMED PARKING FEE)",
+      "category": "parking-fee",
+      "claim": "Palisades Tahoe's own parking-program page is already updated for the 2026-27 season and states the fee outright: '$30 per car, per day on Saturdays, Sundays, and select holidays periods'. Reservations are required on Saturdays, Sundays and select holiday periods across the whole listed calendar: December 5th-6th, 12th-13th, 19th-31st; January 1st-3rd, 9th-10th, 16th-18th, 23rd-24th, 30th-31st; February 6th-7th, 13th-21st, 27th-28th; March 6th-7th, 13th-14th, 20th-21st, 27th-28th; April 3rd-4th and 10th-11th. Critically, the $30 is the OPTIONAL advance-purchase price: 'Free parking reservations for the coming weekend will be released each week' on Tuesdays at 12:00 p.m. and 7:00 p.m. Pacific, with 50% released at each drop. So $30/car/day is the price of certainty, not the price of parking. The carpool incentive is real money back: 'Carpool 4+ drivers will receive a $20 resort credit voucher.' For a party of 6 this is the sawtooth again - 6 people in ONE vehicle qualifies for the carpool voucher; 6 people split across TWO cars means 3 per car and NEITHER car qualifies. All midweek (Mon-Fri) parking is free with no reservation. Trailers, campers and towed vehicles are banned from the lots entirely.",
+      "price_usd": "$30 per car per day (advance paid reservation); $0 for a free reservation released weekly; $0 midweek",
+      "per_day_usd": "$30/car on Sat/Sun/holidays, $0 Mon-Fri",
+      "restrictions": "Only applies Sat/Sun and the listed holiday periods, Dec 5 2026 - Apr 11 2027. Free reservations are released weekly on Tuesdays and sell out. Carpool of 4+ occupants gets a free reservation plus a $20 resort credit. No trailers/campers.",
+      "season_confirmed": "2026-27 (the page explicitly names the 2026-27 dates)",
+      "source_url": "https://www.palisadestahoe.com/mountain-information/parking-and-road-conditions/parking-program",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch of the cited page)",
+        "source_url": "https://www.palisadestahoe.com/mountain-information/parking-and-road-conditions/parking-program",
+        "season_on_live_page": "2026-27",
+        "why": "Re-fetched the cited page. It states verbatim 'The cost is $30 per car, per day on Saturdays, Sundays, and select holidays periods from December 5th, 2026 - April 11th, 2027.' The $20 carpool credit ('Carpool 4+ drivers will receive a $20 resort credit voucher.'), the weekly free-reservation drop (50% at 12:00 p.m. and 50% at 7:00 p.m. Tuesdays) and the full reservation calendar all match the original finding exactly. This is the one parking number on this page that is genuinely 2026-27.",
+        "corrections": [
+          "OMISSION, now added: the page also says 'On Saturdays, Sundays and select holiday periods, parking after 1pm is free and does not require a reservation as space becomes available.' The original finding did not mention the 1pm cutoff. It strengthens the finding's own point - $30 buys a guaranteed morning spot, not parking.",
+          "IMPRECISION: the original wrote 'All midweek (Mon-Fri) parking is free with no reservation.' The page qualifies this as non-holiday: 'On Monday through Friday (non-holiday period), parking is free at both Palisades and Alpine.' Holiday weekdays (e.g. Dec 19-31, Feb 13-21) DO require a reservation, as the finding's own date list shows."
+        ]
+      }
+    },
+    {
+      "name": "Sierra-at-Tahoe parking - brand-new 2026-27 reservation system, $25/day",
+      "category": "parking-fee",
+      "claim": "Sierra-at-Tahoe is introducing parking reservations for the first time in 2026-27 and its own page names the season and the price. Reservations are required on 'Weekends and holiday periods between December 19, 2026, and April 4, 2027, until 12PM', with holiday periods including Dec 21-25 and Dec 28-Jan 1 plus select January, February and March dates. The cost is '$25/day' for general guests. It is FREE two ways: Sierra passholders get 'up to 4 free parking reservations at a time on days their pass is valid', and carpools are 'FREE for cars with 4 or more people inside'. After noon on reservation days you are 'free to cruise up + shred' with no reservation. Penalty detail matters if dates slip: reservations are 'non-refundable after 8 AM on the day of', and for passholders 'Repeated missed reservations without cancelling by 8 AM may result in the loss of the ability to make free reservations'. Note Sierra-at-Tahoe is on US-50 south of the lake, a materially longer and different drive from San Jose than the I-80/Donner Summit cluster.",
+      "price_usd": "$25 per car per day",
+      "per_day_usd": "$25/car on reservation days before noon; $0 after noon and $0 for carpools of 4+",
+      "restrictions": "Weekends and holiday periods Dec 19 2026 - Apr 4 2027, until 12PM only. Free for 4+ occupant carpools and for Sierra passholders. Non-refundable after 8AM day-of.",
+      "season_confirmed": "2026-27 (page explicitly names the 2026-27 season and dates)",
+      "source_url": "https://sierraattahoe.com/parking/",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch of the cited page)",
+        "source_url": "https://sierraattahoe.com/parking/",
+        "season_on_live_page": "2026-27",
+        "why": "Re-fetched the cited page. '$25/day' confirmed for general guests. Season window confirmed verbatim as 'December 19, 2026, and April 4, 2027, until 12PM'. Free for Sierra passholders ('up to 4 free parking reservations at a time') and free 'for cars with 4 or more people' both confirmed. No reservation needed after 12PM confirmed. The full date list on the live page matches. Nothing to correct.",
+        "corrections": []
+      }
+    },
+    {
+      "name": "Northstar California parking - CANNOT CONFIRM 2026-27 PRICING (resort site is erroring)",
+      "category": "parking-fee-negative",
+      "claim": "NEGATIVE RESULT. Northstar's own parking pages return a server error ('The system cannot process your request' with a support ID) at both /getting-here.aspx and /parking.aspx, its Zendesk help article returns HTTP 403, and the parknorthstar.com reservation portal renders no prices without a JS session. Secondary sources actively DISAGREE on the numbers, which is exactly why I will not report one: one set says Village View is '$20 for vehicles with 3 or fewer occupants' and the Lower Village Preferred lot is '$20 during the week... and $40 on weekends'; another says the Preferred lot is '$25 per day Monday-Friday... and $50 on weekends and holidays'. The Town of Truckee's own 2024 article (season 2023-24) gives $20/$20/$40. The only things multiple sources agree on and that are useful for planning: Village View reservations are FREE for vehicles with 4+ occupants, the Castle Peak lot is free daily first-come-first-served with a free shuttle, and Mon-Fri/non-peak parking is free. Do NOT put a Northstar parking dollar figure on the site until the resort's page is back up.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Reservations required weekends and peak periods in the morning window only (roughly 7am-11:30am); free after that. Carpool of 4+ is free in Village View. Castle Peak lot always free.",
+      "season_confirmed": "NONE - no 2026-27 figure could be confirmed at a primary source; the figures circulating are from 2023-24 through 2025-26 and conflict with each other",
+      "source_url": "https://www.northstarcalifornia.com/explore-the-resort/about-the-resort/getting-here.aspx",
+      "confidence": "none"
+    },
+    {
+      "name": "Sugar Bowl parking - $35 reserved spot, free with 4+ passengers, $799 season Preferred add-on",
+      "category": "parking-fee",
+      "claim": "Sugar Bowl's directions page says the general lots are 'free, first-come, first-served', with a '3-minute drop-off zone' at Main Lodge, and that reserved spots in the Upper Lot at Main Lodge cost '$35 (weekends and holiday periods)' bookable in advance through HonkMobile: 'Paid Parking is limited and can be reserved online in advance.' The single most useful line for a group of 6: vehicles with four or more passengers park FREE in the paid area on weekends and holidays. Caveat on season - the directions page's parking map filename is dated 25/26, so the $35 is the most recently published figure rather than a confirmed 2026-27 one. Separately, the lockers/preferred-parking page IS explicitly labelled 2026/27 and prices the season-long Preferred Parking add-on at $799 (Gondola and Main Lodge complexes, 'Spots are reserved until 11:30 every day based on availability', included free with the Legend Pass) - irrelevant for a 4-day trip but it confirms the resort has published some 2026/27 parking product.",
+      "price_usd": "$35 per reserved day-spot (Upper Lot, weekends/holidays); $0 with 4+ passengers; $799 season-long Preferred Parking add-on",
+      "per_day_usd": "$35/car weekends and holidays, $0 midweek, $0 with a carload of 4+",
+      "restrictions": "The $35 is for a reserved Upper Lot spot only; free lots exist. Free in the paid area for 4+ occupants on weekends/holidays. The $799 is a season pass add-on, not a day rate.",
+      "season_confirmed": "$799 Preferred Parking: 2026/27 confirmed on the page. $35 day rate: NOT season-labelled; page assets reference 25/26, so treat as most-recently-published, not confirmed 26/27",
+      "source_url": "https://www.sugarbowl.com/directions",
+      "confidence": "low",
+      "verification": {
+        "verdict": "STALE_SEASON",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (re-fetch of the cited page plus the separate lockers/preferred-parking page)",
+        "source_url": "https://www.sugarbowl.com/directions",
+        "season_on_live_page": "MIXED - /directions carries no season label on the $35 and still contains 2025-26 residue",
+        "why": "SPLIT VERDICT. The $799 season Preferred Parking add-on is CONFIRMED for 2026-27, but NOT at the cited URL - it is at https://www.sugarbowl.com/lockers, which states verbatim '2026/27 Season Pass', 'Preferred Parking Passes can be used at both our Gondola and Main Lodge parking complexes. Spots are reserved until 11:30 every day based on availability.' The original finding's wording of that is exact. The $35 day rate, however, is NOT confirmed for 2026-27: on /directions it appears three times ('reserve a Paid Parking space in the Upper Lot at Main Lodge for $35', 'a $35 value', 'for $35') with NO season year attached to any of them. The original's tell was the parking-map filename; I found a harder one - the same page still says 'This winter, Sugar Bowl is operating a free, public shuttle that connects Truckee with Donner Summit, running daily through April 20th, 2026,' which is last season's shuttle window sitting alongside a 2026-27 opening day ('Our targeted Opening Day is Friday, November 27, 2026'). The page is half-updated. Do not present $35 as a 2026-27 price.",
+        "corrections": [
+          "The $799 figure's real source is https://www.sugarbowl.com/lockers, not the cited /directions URL. Cite the lockers page for it.",
+          "The $35 must be captioned as most-recently-published and unlabelled, not as 2026-27. Confidence downgraded from medium to low."
+        ]
+      }
+    },
+    {
+      "name": "Heavenly and Kirkwood parking - both pages still show 2025/26, NOT updated for 2026-27",
+      "category": "parking-fee-negative",
+      "claim": "NEGATIVE RESULT, and a good example of the stale-price trap. parkheavenly.com states flatly: 'RESERVE N SKI parking reservations are no longer required for the 2025/26 season' - it names 2025/26, not 2026-27, so Heavenly's 2026-27 policy is unpublished as of 2026-08-27. parkkirkwood.com is likewise labelled 2025/26 and says 'RESERVE N SKI parking reservations for all Kirkwood parking lots will be required until 11:30 am on weekends (Saturday - Sunday) and peak periods', 'Pricing: $20.00 per reservation; free for carpool reservation holders', 'Carpool reservations will be FREE for cars with 4+ occupants at all times', orange zones $20 / blue zones free, and free in all lots on non-peak weekdays and after 11:30am. Report the $20 as a 2025/26 number if you report it at all. Both resorts are also on the wrong side of the lake for an I-80 Donner Summit trip.",
+      "price_usd": "Kirkwood $20.00 per reservation (2025/26 figure); Heavenly $0 / no reservations (2025/26 figure)",
+      "per_day_usd": "$20/car at Kirkwood in orange zones on weekends/peak mornings, per the 2025/26 page",
+      "restrictions": "Kirkwood: free for carpools of 4+ at all times, free after 11:30am and on non-peak weekdays. Heavenly: no reservation system per the 2025/26 page.",
+      "season_confirmed": "2025-26 ONLY. Neither Vail-operated Tahoe resort has published 2026-27 parking terms as of 2026-08-27.",
+      "source_url": "https://www.parkkirkwood.com/parkingreservations",
+      "confidence": "low",
+      "verification": {
+        "verdict": "STALE_SEASON",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch of the cited page)",
+        "source_url": "https://www.parkkirkwood.com/parkingreservations",
+        "season_on_live_page": "2025/26",
+        "why": "The original finding was honest and it holds up. parkkirkwood.com still explicitly heads its content '2025/26 SEASON', with a reservation window running December 26, 2025 to Sunday, April 5, 2026 - i.e. a season that has already ended. '$20.00 per reservation' and 'Carpool reservations will be FREE for cars with 4+ occupants at all times' are both confirmed as 2025/26 text. No 2026-27 Kirkwood or Heavenly parking terms exist as of 2026-08-27. Confidence downgraded to low because a price whose only label is a finished season should not sit at medium on a page people spend money from.",
+        "corrections": [
+          "Confidence downgraded medium -> low. The number is real but it is last season's, and Vail has not published 2026-27."
+        ]
+      }
+    },
+    {
+      "name": "Boreal, Soda Springs and Donner Ski Ranch parking - free, but not confirmable on the resorts' own pages",
+      "category": "parking-fee",
+      "claim": "PARTIAL NEGATIVE. Boreal's own 'Driving Directions & Parking' page and Soda Springs' 'What to Expect' page both fetch without any parking-cost content rendering, so I could not read a fee (or a statement of no fee) at the source. The best supporting evidence is the official Truckee destination-marketing guide, which lists 'Sugar Bowl: Free parking' and 'Boreal: Free parking' and does not mention any Donner Summit resort charging. Donner Ski Ranch is repeatedly described as free, ski-on/ski-off parking but publishes nothing I could fetch. Practical read for the site: the Donner Summit budget cluster - the exact resorts this trip is built around - appears to have NO parking fee, which is one more reason the I-80 cluster beats the Palisades/Northstar corridor on total cost. But mark it as unconfirmed at source, not as a quoted $0.",
+      "price_usd": null,
+      "per_day_usd": "$0",
+      "restrictions": "Sugar Bowl separately sells a $35 reserved Upper Lot spot on weekends/holidays; the free lots remain free. Nothing found for Soda Springs or Donner Ski Ranch either way.",
+      "season_confirmed": "Not season-labelled at any source; the Truckee DMO guide carries no publication date",
+      "source_url": "https://www.visittruckeetahoe.com/blog/visitors-guide-winter-weekend-traffic",
+      "confidence": "none",
+      "verification": {
+        "verdict": "UNVERIFIABLE",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (four independent fetches plus a targeted search)",
+        "source_url": "https://www.rideboreal.com/explore/status-conditions/directions-parking/",
+        "season_on_live_page": "none - only a '(c) 2026 Boreal Mountain Resort' copyright line",
+        "why": "I went further than the original and still could not confirm $0 at any primary source. Boreal's real Driving Directions & Parking page is at /explore/status-conditions/directions-parking/ (the URL pattern the original tried, /plan-your-trip/directions-parking/, 404s); it renders with NO parking-cost language of any kind, neither a fee nor a statement that parking is free. Boreal's Guest Services FAQ likewise contains nothing on parking cost. Donner Ski Ranch's site shows no parking pricing. AND there is an active reason for doubt the original missed: Subaru's own Boreal partnership page says 'To ensure free parking during weekends and holidays, park in our VIP parking for Subaru owners!' - phrasing that only makes sense if free parking on weekends and holidays is not guaranteed for everyone else. That is not proof Boreal charges, but it is enough that a quoted $0 is not defensible.",
+        "corrections": [
+          "price_usd changed from '$0 (no fee found published...)' to null. A $0 printed on a pricing site is a price claim; this one is not sourced.",
+          "Confidence downgraded low -> none.",
+          "Correct Boreal parking URL for future checks: https://www.rideboreal.com/explore/status-conditions/directions-parking/ (the cited visittruckeetahoe.com blog is a DMO marketing page, not a resort source, and carries no date)."
+        ]
+      }
+    },
+    {
+      "name": "California SNO-Park permit - $15/day or $40/season, $94.50 fine, and Donner Summit is one of them",
+      "category": "parking-fee",
+      "claim": "A genuinely hidden per-car cost the site ignores. California State Parks' OHMVR division states the day permit is '$15.00 and valid for a single day' and the season permit is '$40.00 and cover the full SNO-Park season', valid 'from November 1 through May 30 of each year'. Permits are not site-specific: 'Permits are good at any of the 18 SNO-Parks and are not site specific.' The enforcement line is the one that stings: 'Any vehicle parked at a SNO-Park site without a permit properly displayed is subject to an $94.50 minimum fine.' The Donner Summit SNO-Park is on the south side of I-80 at the Castle Peak exit, immediately adjacent to the Boreal/Castle Peak area - i.e. exactly where a Donner Summit group might pull over for sledding, snowshoeing or a backcountry lap on a non-lift day. State Parks confirms 'Permits for the 2026/2027 SNO-Park Permit Season will be available approximately October 2026', so the $15/$40 figures are the currently published rates carried into the 26/27 season, not yet a 26/27 price list.",
+      "price_usd": "$15 per day or $40 per season, per vehicle",
+      "per_day_usd": "$15/car/day; $40 pays for itself on the 3rd day",
+      "restrictions": "Only required at designated SNO-Park lots (Donner Summit is one), not at ski-resort lots. Nov 1 - May 30. $94.50 minimum fine without a displayed permit. 2026/2027 permits not on sale until approximately October 2026.",
+      "season_confirmed": "Currently published rate as of 2026-08-27; page confirms the 2026/2027 permit season exists but permits are not yet on sale",
+      "source_url": "https://ohv.parks.ca.gov/?page_id=30735",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (two fetches of the cited page plus the sibling /snoparks page)",
+        "source_url": "https://ohv.parks.ca.gov/?page_id=30735",
+        "season_on_live_page": "2025-2026 permits are what the cited page currently offers; 2026/2027 permits are announced but not yet on sale",
+        "why": "All three dollar figures confirmed verbatim on the cited page: day permits '$15.00 and valid for a single day', season permits '$40.00 and cover the full SNO-Park season', and the '$94.50 minimum fine'. Season window 'November 1 through May 30 of each year' confirmed. I specifically hunted the sentence about 2026/2027 availability because it is exactly the kind of thing that gets year-bumped by hand, and it is REAL - but it lives on the sibling page https://ohv.parks.ca.gov/snoparks, which states verbatim 'Permits for the 2026/2027 SNO-Park Permit Season will be available approximately October 2026!' The cited page itself still links a 2025-2026 mail-order form. So the finding's framing is right: $15/$40 are the currently published rates carried toward 26/27, not a published 26/27 price list.",
+        "corrections": [
+          "The 2026/2027-availability quote is sourced from https://ohv.parks.ca.gov/snoparks, not from the cited page_id=30735. Cite both."
+        ]
+      }
+    },
+    {
+      "name": "Gas price on the San Jose corridor - AAA, read today (2026-08-27)",
+      "category": "driving-cost",
+      "claim": "AAA's California page, dated 8/27/26 on its face, gives regular unleaded at $5.6379 statewide, $5.5840 in the San Jose metro, $5.7574 in San Francisco and $5.5538 in Sacramento, against a national average of $4.0997. California is running roughly $1.54/gal above the national average right now. This is a fill-up price you can plan against, but it is a late-August number - it is NOT a December/January number, and the site should say so rather than freeze it. Nevada County / Truckee is not in AAA's metro breakdown.",
+      "price_usd": "$5.5840/gal San Jose metro; $5.6379/gal California average",
+      "per_day_usd": null,
+      "restrictions": "Snapshot dated 8/27/26. Winter prices in Dec-Jan will differ; California switches to winter-blend gasoline which historically runs cheaper than the summer blend, so this is more likely a ceiling than a floor.",
+      "season_confirmed": "Current as of 2026-08-27; NOT a winter 2026-27 price",
+      "source_url": "https://gasprices.aaa.com/?state=CA",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch of the cited page)",
+        "source_url": "https://gasprices.aaa.com/?state=CA",
+        "season_on_live_page": "live snapshot dated August 27, 2026",
+        "why": "Every figure matches to the fourth decimal on an independent fetch: page date August 27, 2026; national average '$4.0997'; California statewide regular '$5.6379'; San Jose metro '$5.5840'. The finding's own caveat - that this is a late-August number and not a December/January number - is the right caveat and should survive onto the site.",
+        "corrections": []
+      }
+    },
+    {
+      "name": "Gas price cross-check - US EIA weekly series",
+      "category": "driving-cost",
+      "claim": "The federal EIA weekly retail series for California regular gasoline puts the most recent observation at $5.450/gal for the week of August 24, 2026, with $5.397 on August 17 and $5.428 on August 10. That is about 19 cents below AAA's same-week statewide figure, which is the normal spread between the two methodologies. Using $5.45-$5.64/gal as the planning band is defensible; using a single decimal point is not.",
+      "price_usd": "$5.450/gal (week of 2026-08-24)",
+      "per_day_usd": null,
+      "restrictions": "Statewide weekly average, all California, regular grade. Government source, updated weekly.",
+      "season_confirmed": "Week ending 2026-08-24; NOT a winter 2026-27 price",
+      "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMM_EPMR_PTE_SCA_DPG",
+      "confidence": "high",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch of the cited page)",
+        "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=EMM_EPMR_PTE_SCA_DPG",
+        "season_on_live_page": "week ending 2026-08-24 is the most recent observation",
+        "why": "Confirmed exactly. The EIA weekly California regular series reads 08/24 = 5.450, 08/17 = 5.397, 08/10 = 5.428, with 08/03 = 5.495 and 07/27 = 5.489 behind them. The finding's three quoted values are all correct and the ~19c spread against AAA is real. The recommendation to publish a $5.45-$5.64 band rather than one decimal point is sound.",
+        "corrections": []
+      }
+    },
+    {
+      "name": "The site's $90/car gas assumption is TOO LOW - it only works for a hybrid",
+      "category": "driving-cost",
+      "claim": "DERIVED, not quoted - every input is sourced but the total is arithmetic, so treat it as an estimate. San Jose to Truckee is approximately 218 driving miles each way (secondary sources: travelmath/trippy; I could not fetch a primary mapping source), so ~436 miles round trip. Add the in-area driving a 4-ski-day trip actually generates - Truckee to Donner Summit and back is roughly 15-25 miles each way, so call it 80-120 miles - and the trip is ~520-560 miles. At the confirmed San Jose price of $5.5840/gal: a 30-mpg sedan burns ~18 gal = ~$100; a 22-mpg midsize SUV burns ~24.5 gal = ~$137; an 18-mpg full-size AWD SUV (a Suburban/Tahoe, which is what you rent when six people plus skis need one vehicle) burns ~30 gal = ~$167. A 45-mpg hybrid comes in around $67. The site's flat GAS_PER_CAR = 90 in lib/quote.ts is therefore roughly right ONLY for a small efficient car and understates a realistic SUV by $45-80 per car. Recommend making it mpg-dependent, or at minimum raising the SUV case. Note also that this assumes you refuel at Bay Area prices; Sierra-corridor stations are dearer (see the negative finding on Truckee gas).",
+      "price_usd": "~$100 sedan / ~$137 midsize SUV / ~$167 full-size AWD SUV round trip incl. local driving",
+      "per_day_usd": null,
+      "restrictions": "Arithmetic from a confirmed $5.5840/gal and an approximate 218-mile one-way distance. Distance is from secondary mapping sites, not a primary source. Winter fuel economy runs 10-20% worse than rated in cold weather and with a roof box, so these are optimistic.",
+      "season_confirmed": "Built on a 2026-08-27 gas price, not a winter 2026-27 price",
+      "source_url": "https://gasprices.aaa.com/?state=CA",
+      "confidence": "medium",
+      "verification": {
+        "verdict": "CONFIRMED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (re-derived the arithmetic; verified the code constant in the repo)",
+        "source_url": "https://gasprices.aaa.com/?state=CA",
+        "season_on_live_page": "built on a confirmed 2026-08-27 gas price, not a winter price",
+        "why": "I tried to break this one and could not. The code claim is real: lib/quote.ts line 35 is 'const GAS_PER_CAR = 90;' and it is applied per car at lines 76-77. The gas input is CONFIRMED at $5.5840/gal. I re-ran the arithmetic at 536 miles (436 round trip + ~100 local) and it reproduces the finding's numbers: 30 mpg = 17.9 gal = $99.78; 22 mpg = 24.4 gal = $136.05; 18 mpg = 29.8 gal = $166.28; 45 mpg = 11.9 gal = $66.51. The one soft input is the 218-mile one-way distance, which remains secondary-sourced (distance-cities/travelmath/trippy all return 218 miles via I-80) - but it would take a ~20% distance error to rescue $90 for an SUV, and no source suggests one. The conclusion stands: $90 is a hybrid/small-sedan number.",
+        "corrections": [
+          "Kept at medium confidence deliberately. The verdict CONFIRMED applies to the inputs and the arithmetic; the headline $100/$137/$167 figures appear on no page and must always be presented as a derived estimate, never quoted."
+        ]
+      }
+    },
+    {
+      "name": "Truckee-specific gas prices - COULD NOT CONFIRM",
+      "category": "driving-cost-negative",
+      "claim": "NEGATIVE RESULT. GasBuddy's Truckee page returns HTTP 403 to fetch and AAA does not break out Nevada or Placer county. The only signal I found is GasBuddy's own 'good price' threshold text for Truckee referencing $7.06 for unleaded, which if accurate implies mountain-corridor pricing well above the $5.58 San Jose figure - but I could not read the underlying station prices, so I will not report a Truckee number. Planning implication regardless: fill up in the Bay Area or in the Central Valley before the climb, not on Donner Summit. Do not put a Truckee gas price on the site.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "n/a",
+      "season_confirmed": "NONE - no Truckee price confirmed at any source",
+      "source_url": "https://www.gasbuddy.com/gasprices/california/truckee",
+      "confidence": "none"
+    },
+    {
+      "name": "Caltrans chain controls - R1/R2/R3 in the state's own words, and the AWD trap",
+      "category": "chain-controls",
+      "claim": "Caltrans' official definitions: R-1 is 'Chains are required on all vehicles except passenger vehicles and light-duty trucks under 6,000 pounds gross weight and equipped with snow tires on at least two drive wheels.' R-2 is 'Chains or traction devices are required on all vehicles except four-wheel/all-wheel drive vehicles with snow-tread tires on all four wheels.' R-3 is 'Chains or traction devices are required on all vehicles, no exceptions.' Two lines matter enormously for this trip and the site says nothing about either. First: 'Four-wheel/all-wheel drive vehicles must carry traction devices in chain control areas' - AWD does not exempt you from CARRYING chains, only from fitting them under R-2. Second, R-2 exempts AWD only with snow-tread tires on all four wheels; the all-season tires on a rental Highlander are not snow-tread, so an AWD rental can legally be turned around at an R-2 check. Caltrans also states 'Chain installers are NOT allowed to sell or rent chains', which means if you arrive at a control without chains, the roadside installer cannot sell you a set - you must have bought them below the snow line.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "R-1 and R-2 are the common conditions on I-80; the road is usually closed before R-3 is imposed. Chains must be carried in the control area even by AWD vehicles. Installers cannot sell or rent chains to you.",
+      "season_confirmed": "Standing Caltrans regulation, not season-specific; page live as of 2026-08-27",
+      "source_url": "https://dot.ca.gov/travel/winter-driving-tips/chain-controls",
+      "confidence": "high"
+    },
+    {
+      "name": "Les Schwab's free spring refund on unused chains - effectively makes chains a $0 rental",
+      "category": "chain-cost",
+      "claim": "The single best cost hack I found for this whole dimension, quoted from Les Schwab's own page: 'if your quick-fit chains, tire socks, or other traction devices remain unused at the end of the season, bring them back to any Les Schwab for a full refund in the spring.' Their warranty section heads this 'Full Refund for Unused Passenger or Light Truck Tire Chains' and conditions it on proper storage and no rust. They also say staff 'can show you how to install them with a quick, in-store lesson.' Practical effect: buy chains at a Bay Area Les Schwab before leaving, and if you never fit them - which is the likely outcome on a flexible-dates trip - the chains cost $0. The catch for the site's model is that Les Schwab publishes NO prices online at all; you have to walk in or call. So the refund policy is confirmed, the price is not.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Refund requires the chains to be genuinely unused, properly stored and not rusted, returned in the spring. Applies to passenger/light-truck chains. Les Schwab does not publish chain prices online.",
+      "season_confirmed": "Policy is standing and the page is live as of 2026-08-27; no season named",
+      "source_url": "https://www.lesschwab.com/more/tire-chains",
+      "confidence": "high"
+    },
+    {
+      "name": "What chains actually cost to buy - retail range, NOT verified at the product page",
+      "category": "chain-cost",
+      "claim": "PARTIALLY UNVERIFIED - flagging this honestly because Walmart's product pages return a CAPTCHA wall to fetch. Search results surfaced these Walmart listing prices: Security Chain Company SC1038 radial-traction cable chain at $35.95/pair, SCC Z547 Z-Chain passenger/truck chain at $89.99/pair, Peerless 0175355 tire cables at $71.57, Peerless 0232610 AutoTrac self-tightening chains at $122.00, and Peerless 0322930 truck tire chain at $140.00. That gives a credible $40-$140 per car band - cables at the low end for a sedan, self-tightening link chains at the high end for an SUV. I could NOT open the product pages to confirm any of these, so do not print a single hard number on the site; print a range and cite it as a range, or better, cite the Les Schwab refund policy and treat chains as a refundable deposit rather than a cost.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "One set fits one tire size - chains are size-specific, so you cannot share a set between a sedan and an SUV. Chains are fitted to the drive axle. Prices seen in search results only; product pages blocked.",
+      "season_confirmed": "Current retail listings as of 2026-08-27, but not read at source",
+      "source_url": "https://www.walmart.com/browse/auto-tires/peerless-tire-chains/91083_1077064_5248945_5800065_5896688",
+      "confidence": "none",
+      "verification": {
+        "verdict": "UNVERIFIABLE",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (four retailers attempted)",
+        "source_url": "https://www.walmart.com/browse/auto-tires/peerless-tire-chains/91083_1077064_5248945_5800065_5896688",
+        "season_on_live_page": "n/a",
+        "why": "Not a single one of the five quoted chain prices ($35.95 / $89.99 / $71.57 / $122.00 / $140.00) could be read at a product page, and I could not find any retailer that would serve one. Walmart returns a bot-verification wall (I did not attempt to defeat it). AutoZone returns HTTP 403. O'Reilly returns HTTP 403. TireChain.com renders no product prices at all - only a 'Free Shipping on Most Orders Over $60' banner. Les Schwab, confirmed separately, publishes no chain prices online by policy. Search-result snippet prices are exactly the kind of number this project must not print, so price_usd is nulled. The honest framing the original itself recommended is the one to use: cite the Les Schwab full-refund-on-unused-chains policy and treat chains as a refundable deposit, not a cost.",
+        "corrections": [
+          "price_usd changed from 'roughly $40-$140 per vehicle' to null. A range assembled from unreadable search snippets is still an invented number.",
+          "Confidence downgraded low -> none."
+        ]
+      }
+    },
+    {
+      "name": "Roadside chain installers on I-80 - fee reportedly raised $30 to $40, NOT verified",
+      "category": "chain-cost-negative",
+      "claim": "NEGATIVE / UNVERIFIED. Search results point to an NBC Bay Area report that licensed installers on I-80 and Highway 50 raised their fee 'from $30 to $40', with $30-50 quoted as the working range elsewhere and removal typically costing extra. The NBC article returns HTTP 403 to fetch and the Caltrans District chain-installer page 404s, so I have NO primary confirmation of any installer fee and no evidence Caltrans caps it. What IS confirmed from Caltrans: installers are permitted by the state, and they 'are NOT allowed to sell or rent chains'. Treat any installer fee on the site as an unsourced estimate or omit it - the honest framing is 'installers work the chain-up areas westbound at Truckee Scales (Exit 186) and Nyack (Exit 174) for a cash fee; budget something, we could not confirm what'.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Installers are cash-oriented, cannot sell you chains, and typically charge separately for removal. You can always fit chains yourself for free in the designated chain-up areas.",
+      "season_confirmed": "NONE - no primary source obtained",
+      "source_url": "https://dot.ca.gov/travel/winter-driving-tips/chain-controls",
+      "confidence": "none"
+    },
+    {
+      "name": "Enterprise forbids snow chains on its rental cars - the biggest hidden risk in the $500/car plan",
+      "category": "car-rental",
+      "claim": "This is the finding that should change the site's rental-car page. Enterprise's own FAQ (surfaced in search; the page itself returns HTTP 403 to fetch, so I flag it as unconfirmed-at-source) states that Enterprise does not offer snow chains or traction devices, nor can snow chains/traction devices be placed on rental vehicles unless required by state law, with a named exception for Colorado Code 15/16 advisories. Read that against the confirmed Caltrans rules above: under R-1 a 2WD rental sedan on all-season tires legally REQUIRES chains, and under R-2 it requires them absolutely. If the rental contract forbids fitting chains, a 2WD rental has no lawful way through an active chain control - you turn around. The workaround the industry actually uses is that California chain-control law is 'required by state law', which arguably triggers Enterprise's own exception, but that is a reading, not a quoted policy. ACTION for the site: if the group rents, rent AWD/4WD with genuinely snow-rated tires, or accept that a storm day may cost them the drive entirely. Confirm the chain clause with the specific branch before booking.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Policy as surfaced: no chains provided, none may be fitted unless state law requires it. Enterprise's page could not be fetched directly to confirm the exact current wording.",
+      "season_confirmed": "Standing policy, no season stated; not confirmed at source",
+      "source_url": "https://www.enterprise.com/en/car-rental-faqs/us-products/rental-car-snow-chains.html",
+      "confidence": "low"
+    },
+    {
+      "name": "Under-25 surcharges - the line item the site's flat $500/car completely omits",
+      "category": "car-rental",
+      "claim": "UNVERIFIED AT SOURCE but consistent across every secondary source, and material enough that the site must at least caption it. Turo: young-driver fees of $50/day for ages 18-20 and $30/day for ages 21-24, applied to every listed driver under 25 on the trip, not just the booker. Over a 5-night trip that is $150-$250 PER under-25 driver, on top of the car. Enterprise: minimum age 21 in California, Young Renter Fee around $25/day for ages 21-24 - roughly $125 over the trip - and, crucially, a vehicle-class restriction: 21-24 renters are limited to economy through full-size cars, minivans, pickups and 'Compact SUVs, Small SUVs and Standard SUVs with seating up to 5 passengers'. That last clause is the killer for a group of 6: a 21-24 year old renter may not be able to rent the large SUV the group actually needs. Hertz is worse - reports say full-size SUVs are restricted to 25+, with 21-24 limited to economy/compact/intermediate, at a surcharge around $13.50/day capped near $189. Turo's help pages truncate and Enterprise's returns 403, so none of these numbers are confirmed at source. But the shape of the finding - a per-day surcharge AND a vehicle-class ceiling - is unanimous.",
+      "price_usd": null,
+      "per_day_usd": "$13.50-$50 per day per under-25 driver",
+      "restrictions": "Applies to every driver under 25 listed on the rental, not just one. Vehicle-class caps are the bigger problem: Enterprise caps 21-24 renters at standard SUVs seating 5; Hertz reportedly bars 21-24 from full-size SUVs entirely. A group of 6 needing one large SUV may need a 25+ driver on the contract.",
+      "season_confirmed": "Current policy as reported 2026; not confirmed at any primary page",
+      "source_url": "https://help.turo.com/en_us/age-requirements-for-drivers-HJXlV4l45",
+      "confidence": "none",
+      "verification": {
+        "verdict": "UNVERIFIABLE",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (Turo help page x2, Turo policy page, Enterprise young-renters page)",
+        "source_url": "https://help.turo.com/en_us/age-requirements-for-drivers-HJXlV4l45",
+        "season_on_live_page": "n/a - standing policy",
+        "why": "The QUALITATIVE finding survives; every dollar figure fails. Turo's own Driver eligibility help page truncates before any fee table on two separate fetches, and turo.com/us/en/policies/young-driver-fee returns HTTP 403. What IS confirmable from Turo's own help content is only the shape: guests must be 18+, drivers under 25 pay a young driver fee, and the fee 'can't be removed or refunded at the end of a trip'. No amount. Enterprise's young-renters FAQ returns HTTP 403, so neither the ~$25/day fee nor - more importantly - the vehicle-class ceiling that would stop a 21-24 renter from taking the large SUV a party of six needs could be confirmed. The $50/$30/$25/$13.50 figures trace only to secondary aggregator blogs. Nulled.",
+        "corrections": [
+          "price_usd and per_day_usd nulled. The site may say 'renters under 25 pay a per-day surcharge and may be barred from large SUVs - confirm with the agency', but must print no number.",
+          "Confidence downgraded low -> none.",
+          "The vehicle-class restriction is the more expensive half of this finding for a group of 6 and is equally unconfirmed. Flag it as a question to ask the branch, not as a fact."
+        ]
+      }
+    },
+    {
+      "name": "San Jose SUV rental market rates - the $500/car flat assumption is roughly right, slightly optimistic",
+      "category": "car-rental",
+      "claim": "KAYAK's San Jose SUV rental page (an aggregator, so medium at best, but the figures are its own published market statistics rather than a snippet) states 'on average an SUV rental in San Jose costs $91 per day', with weekly rentals averaging '$638'. It names 'January is typically the cheapest month to rent an SUV in San Jose, with prices around $61 per day' against a July peak of $83 - so a flexible-dates group booking January is buying at the annual low. Class-level floors: standard and compact SUVs from '$40/day', a Chevrolet Suburban at '$126/day', an oversize SUV class at '$132/day'. Sanity check against lib/types.ts CAR_RENTAL_PER_TRIP = 500: a 5-day January SUV at $61/day is $305 base, but SJC airport pickup adds a $10 customer facility charge, San Jose sales tax of 9.38%, an energy recovery surcharge and an airport concession recovery fee I could not pin down - realistically 25-35% on top, landing around $400-$450. So $500 holds for a standard SUV booked in January. It does NOT hold for the Suburban-class vehicle a party of 6 with skis actually wants ($126/day x 5 = $630 base, ~$800+ all-in), and it does not include any under-25 surcharge. Recommend the site split the assumption by vehicle size.",
+      "price_usd": "$73/day San Jose SUV average (CORRECTED from $91); $61/day January average; $638/week ($91/day equivalent); Suburban $126/day; oversize SUV $132/day",
+      "per_day_usd": "$61-$132 per day depending on class and month",
+      "restrictions": "Aggregator market statistics, not a quote for specific dates. Excludes airport fees ($10 CFC + 9.38% San Jose sales tax + energy recovery surcharge + concession recovery fee), young-driver surcharges, and any ski-rack or AWD upcharge. Booking ~70 days out is cited as ~33% cheaper than last-minute.",
+      "season_confirmed": "Current market statistics as of 2026-08-27; January figure is a seasonal average, not a 2027 quote",
+      "source_url": "https://www.kayak.com/San-Jose-SUV-Rentals.11228.csv.ksp",
+      "confidence": "low",
+      "verification": {
+        "verdict": "REFUTED",
+        "checked_on": "2026-08-27",
+        "checked_by": "skeptic pass (independent re-fetch of the cited page)",
+        "source_url": "https://www.kayak.com/San-Jose-SUV-Rentals.11228.csv.ksp",
+        "season_on_live_page": "live market statistics as of 2026-08-27; no season label",
+        "why": "MISQUOTE FOUND. The original attributes to KAYAK the sentence 'on average an SUV rental in San Jose costs $91 per day'. The live page says something different: 'On average, a SUV rental in San Jose costs $73 per day.' The $91 is real but it is a DIFFERENT statistic - it is the per-day equivalent embedded in the weekly figure, 'On average an SUV in San Jose costs $638 per week ($91 per day) to rent.' The original collapsed two stats into one and quoted the wrong one as the headline daily average, overstating it by 25%. The remaining figures all check out verbatim: '$61 per day' January, '$638' per week, '$126/day' Suburban, '$132/day' oversize SUV class. Confidence downgraded because a finding with a misquote in it should not sit at medium, and because these are aggregator market statistics, not a quote for the group's dates.",
+        "corrections": [
+          "$91/day was NOT the SUV daily average. Corrected: the daily average is $73/day; $91/day is the implied rate inside the $638 weekly average.",
+          "Confidence downgraded medium -> low.",
+          "The finding's actual conclusion is unaffected: at the confirmed $61/day January rate a 5-day standard SUV is $305 base and $500 all-in is defensible, while the confirmed $126/day Suburban is not covered by $500. That part stands."
+        ]
+      }
+    },
+    {
+      "name": "Ski racks and AWD from the majors - NO published price found anywhere",
+      "category": "car-rental-negative",
+      "claim": "NEGATIVE RESULT. I could not find a published price for a ski rack or a guaranteed-AWD upgrade from Enterprise, Hertz or Turo at any primary source - Enterprise and Turo both return 403 to fetch and none of the aggregators price these as line items. What I can say from the sources that did load: the majors sell SUVs by CLASS, not by drivetrain, so 'AWD' is generally not a bookable guarantee at Enterprise/Hertz - you get what is on the lot. Turo, by contrast, lists individual vehicles so you can see the actual drivetrain and whether the host includes a rack, but hosts price extras individually with no platform-wide rate. Tahoe Donner's shuttle page notes their vehicles are 'equipped with ski and snowboard racks', which is a free alternative to carrying gear on a car. The site should not print a ski-rack price. If gear transport matters, the honest advice is that skis fit inside any SUV with a seat folded, and a party of 6 with 6 sets of skis needs the large SUV anyway.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "AWD is generally not guaranteeable at the major agencies; it is selectable on Turo. No rack pricing published.",
+      "season_confirmed": "NONE",
+      "source_url": "https://turo.com/us/en/suv-rental/united-states/sjc",
+      "confidence": "none"
+    },
+    {
+      "name": "The Hotel at Sugar Bowl (Village Lodge) - the only real hotel on Donner Summit, rates published",
+      "category": "lodging",
+      "claim": "Sugar Bowl's own lodging page publishes a 'Winter Rates' table for its 27-room slopeside Village Lodge - the only conventional hotel actually on Donner Summit, reached by gondola from the parking area: Northern Twin 'Starting at $239', Mountain View '$269', Northern Loft '$319', Mountain Family and Mountain Deluxe '$339', Northern Family '$449', Family Connector '$489', Deluxe Suite '$719'. For 6 people you would need two rooms - two Mountain Family rooms is $678/night, i.e. $113/person/night before tax, which is expensive against the $60/day lift benchmark this whole trip is built around. Policies confirmed on the page: no lift tickets are included with lodging, no resort fee is mentioned, full advance deposit is required for all reservations, 'Check-in time is at 4:00 pm and check-out times is by 11:00 am', no refunds for late arrival or early departure, and non-refundable cancellation fees scale with timing. SEASON CAVEAT: the table is headed 'Winter Rates' with no year. The same site states 'Our targeted Opening Day is Friday, November 27, 2026', so the page is being maintained for 26/27, but the rates themselves are not year-labelled - and every figure is 'Starting at', meaning holiday-period pricing will be higher.",
+      "price_usd": "$239-$719/night by room type ('Starting at' prices)",
+      "per_day_usd": "~$113/person/night for 6 in two Mountain Family rooms, before tax",
+      "restrictions": "'Starting at' prices - late Dec / early Jan will price above these. Lift tickets NOT included. Full advance deposit; no refund for early departure; tiered cancellation fees. Rooms sleep 2-4, so 6 people need 2 rooms.",
+      "season_confirmed": "NOT year-labelled on the page; the site elsewhere names 2026-27 opening day, so treat as current published winter rates, not confirmed 26/27",
+      "source_url": "https://www.sugarbowl.com/Lodge",
+      "confidence": "medium"
+    },
+    {
+      "name": "Sugar Bowl ski-in/ski-out property rentals - $550/night for a 4BR is the best per-head number on the Summit",
+      "category": "lodging",
+      "claim": "The same Sugar Bowl page lists whole-house rentals in the snowbound village at flat winter nightly rates that do not change between weekday and weekend: townhomes (4-bedroom) at '$550/night' for both Sunday-Wednesday and Thursday-Saturday, Summit Crossing #11 (4BR) at '$1,000/night', West Village #01 (5BR) at '$1,200/night', and East Village #35 (6BR) at '$1,000/night'. The $550 4-bedroom townhome is the standout: for a party of 6 that is $91.67 per person per night, and unlike the lodge rooms the rate is flat across the week. Over 5 nights that is $2,750 for the group, $458/person, ski-in/ski-out on Donner Summit with no parking fee and no drive to the hill. Same season caveat as the lodge rates - the table separates 'Winter' from 'Summer' pricing but names no year, and holiday minimums are not published on the page.",
+      "price_usd": "$550/night (4BR townhome); $1,000/night (4BR and 6BR homes); $1,200/night (5BR)",
+      "per_day_usd": "$91.67 per person per night for 6 in the $550 townhome",
+      "restrictions": "Winter rate quoted flat Sun-Wed and Thu-Sat, but no holiday-period rate or minimum-stay rule is published on the page - late Dec / early Jan almost certainly carries both. Full advance deposit; non-refundable cancellation fees.",
+      "season_confirmed": "'Winter' pricing with no year stated; page live 2026-08-27 and maintained for the 2026-27 season",
+      "source_url": "https://www.sugarbowl.com/Lodge",
+      "confidence": "medium"
+    },
+    {
+      "name": "Clair Tappaan Lodge - the classic Donner Summit budget option, but NO rate is published anywhere I could read",
+      "category": "lodging-negative",
+      "claim": "IMPORTANT NEGATIVE. Clair Tappaan Lodge (19940 Donner Pass Rd, Norden - walking distance to Sugar Bowl, minutes from Donner Ski Ranch and Boreal) is the obvious hostel-style answer for a price-sensitive group of 6, and it publishes NOTHING. Its own site has an accommodations page, a rustic-accommodations page and a sitemap with no rates page at all; the 'Book Now' control is a javascript:void(0) that opens a JS booking widget I cannot read. Secondary sources conflict badly and are clearly of different vintages: older write-ups say '$60 per adult including all meals, half that for kids 4-13'; OTA listings for 2026 dates show a room rate around $122-$142/night with the note that 'Breakfast, lunch and dinner are not included in the room rate, but can be added', with meals quoted around $57 per person. Those describe two completely different products, so I will not report either as the price. What IS confirmed: the Sierra Club still operates it, its cabins and bunk rooms became bookable on Hipcamp for the winter season as of January 2026, and the room inventory is single-gender bunk rooms (5-18 beds), two-person rooms, and private rooms suitable for groups of 5-12. The site should link to it, describe it as hostel-style with optional family-style meals, and state that a quote requires contacting the lodge (530-426-3632) - not print a number.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "Bunk rooms are single-gender with communal bathrooms; blankets historically a small extra charge. Meals are served family-style at fixed times (dinner 6pm, breakfast 8am) and per OTA listings must be added at booking, not on arrival. Sierra Club members get a discount at check-in. Private rooms suit groups of 5-12.",
+      "season_confirmed": "NONE - no 2026-27 rate published on the lodge's own site or readable at any booking source",
+      "source_url": "https://www.clairtappaanlodge.com/accommodations-lake-tahoe/",
+      "confidence": "none"
+    },
+    {
+      "name": "Rainbow Lodge, Soda Springs - reopened, 15 rooms, but publishes no nightly rates",
+      "category": "lodging-negative",
+      "claim": "NEGATIVE RESULT. Rainbow Lodge (50080 Hampshire Rocks Rd, Soda Springs - the 1869 lodge on 114 acres along the South Yuba, just off I-80 below the summit) has reopened and is taking overnight bookings, but neither its site nor its reservations page shows a single nightly rate. The booking link goes to therainbowlodge.client.innroad.com, which is a bare InnRoad JavaScript shell with no server-rendered prices. The only dollar figures anywhere are WEDDING-package numbers from a venue directory (a $3,000 second-night add-on, '$150/night' for additional adult guest rooms, '$500 total' for four kids' rooms) - those are buyout/event pricing, NOT a normal nightly rate, and reporting them as room rates would be actively misleading. Confirmed non-price facts: 15 overnight guest rooms sleeping up to 40 guests including a first-floor suite, updated furnishings, restaurant and full bar on site, breakfast reported as complimentary, overnight capacity of 65 for events. Contact (530) 718-3009 / info@therainbowlodge.com for a quote. It is in unincorporated Nevada County, so the county's 10% TOT applies rather than Truckee's 14%.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "15 rooms total - a group of 6 would likely fit but the property also does full buyouts for events, so weekend availability in ski season may be blocked. No online rate display.",
+      "season_confirmed": "NONE",
+      "source_url": "https://www.therainbowlodge.com/reservations",
+      "confidence": "none"
+    },
+    {
+      "name": "Truckee chain hotels - the flexible-dates arbitrage is enormous",
+      "category": "lodging",
+      "claim": "Aggregator market data (medium confidence - these are the booking sites' own published statistics, not quotes for specific dates). For Truckee Donner Lodge specifically, KAYAK shows a cheapest King room at '$110', Executive room 2 doubles at '$141', standard at '$147', and Executive/Queen 2-queen rooms swinging from '$149' up to '$390' depending on date; its monthly averages are '$121' in May against '$278' in December, with weeknights averaging '$179' and weekend nights '$226'. The property's Family Suite sleeps 6 (2 bedrooms, 2 queens plus a double sofa bed), so one suite can hold the whole group. Market-wide, momondo puts the Truckee average around '$421 per night' and names the extremes explicitly: 'February, with an average cost of $757/night' as the most expensive month, against 'April, with an average cost of $252/night' as the cheapest - a 3x spread. Named properties with prices: Truckee Donner Lodge $145, SpringHill Suites Truckee $146, Tahoe Star Hotel $275, West River House $97 as the market floor. THE HEADLINE FOR A DATE-FLEXIBLE GROUP: moving the trip off February and off the Christmas/New Year window into early December, mid-January or late March/April cuts the lodging line roughly in half. That is a bigger lever than anything on the lift-ticket side.",
+      "price_usd": "$110-$390/night Truckee Donner Lodge by date; Truckee market average ~$421/night; February ~$757/night vs April ~$252/night",
+      "per_day_usd": "~$18-$47 per person per night for 6 in one Family Suite at $110-$278",
+      "restrictions": "Aggregator statistics, not quotes for specific 2026-27 dates. Late Dec / early Jan will price at or above the February peak. A 6-person Family Suite is a single room type with limited inventory - book early or split into two standard rooms.",
+      "season_confirmed": "Current market data as of 2026-08-27; monthly averages are historical seasonality, NOT confirmed 2026-27 rates",
+      "source_url": "https://www.kayak.com/Truckee-Hotels-Truckee-Donner-Lodge.5286.ksp",
+      "confidence": "medium"
+    },
+    {
+      "name": "Truckee lodging tax went UP on 1 July 2026 - 14% on every night, and on cleaning fees too",
+      "category": "hidden-fee",
+      "claim": "A confirmed, current, primary-source hidden fee the site ignores entirely. The Town of Truckee states its transient occupancy tax is 12% and its Tourism Business Improvement District assessment was 1.25% for a combined guest levy of 13.25% - but that 'Rates Effective July 1, 2026' the TTBID rises to 2%, taking the combined total guest levy to 14%. It applies to any 'stay of less than 31 continuous nights' and to hotels and short-term rentals alike, and the taxable base is broad: 'nightly rents, cleaning fees, pet fees, booking fees, and other mandatory charges'. So a $2,000 Truckee lodging subtotal is $2,280 out the door, and the cleaning fee gets taxed too. NOTE THE GEOGRAPHY ARBITRAGE: this is the TOWN of Truckee. Soda Springs, Norden and Donner Summit are unincorporated NEVADA COUNTY, where the county TOT is reported at 10% (I could not fetch the county page - it returns 403 - so treat the 10% as medium confidence). Staying on the Summit rather than in town is worth roughly 4 percentage points on top of being closer to the cheap lifts.",
+      "price_usd": "14% of the lodging subtotal in the Town of Truckee (12% TOT + 2% TTBID), effective 2026-07-01",
+      "per_day_usd": null,
+      "restrictions": "Applies to stays under 31 continuous nights, hotels and short-term rentals both. Taxable base includes cleaning fees, pet fees and booking fees, not just room rate. Unincorporated Nevada County (Soda Springs/Norden/Donner Summit) is reported at 10% instead - medium confidence, county page not fetchable.",
+      "season_confirmed": "Rate confirmed effective 2026-07-01, so it is the rate in force for the entire 2026-27 ski season",
+      "source_url": "https://www.townoftruckee.gov/375/Transient-Occupancy-Tax",
+      "confidence": "high"
+    },
+    {
+      "name": "Free shuttles that zero out the parking fees - but the 2026-27 dates are not out yet",
+      "category": "parking-workaround",
+      "claim": "PARTIAL NEGATIVE with a real planning payoff. Palisades Tahoe's Park and Ride is free and the page confirms the parking locations - '11611 Donner Pass Rd, Truckee, CA 96161' at the TTUSD lot, and '180 W Lake Blvd, Tahoe City' - with shuttles departing 'between 6:30 and 7:45 each morning' and returning 'until 5:45 p.m.'. But the page is explicitly labelled the '2025-26 season' and gives dates of December 27, 2025 through April 12, 2026, weekends only. The 2026-27 dates are NOT published as of 2026-08-27; the parking program page says to stay tuned for 2026-27 releases. Also free per the Truckee DMO: TART Connect on-demand micro-transit across Truckee and North Tahoe (Tahoe Donner's page says it runs 'throughout the winter from 6:30AM to 10PM' in 4WD vehicles with ski racks), the Sugar Bowl/Donner Summit shuttle, and Northstar's Castle Peak free lot with continuous free shuttle. Bottom line for the site: the $30 Palisades and $25 Sierra parking fees are avoidable at $0 by a group willing to park in Truckee and ride, or by putting all 6 people in one vehicle to trigger the carpool exemptions.",
+      "price_usd": "$0",
+      "per_day_usd": "$0",
+      "restrictions": "2026-27 operating dates unpublished as of 2026-08-27; the 2025-26 program was weekends only, Dec 27 - Apr 12, with a fixed morning departure window. Palisades Park and Ride drops at the Village only, not Alpine.",
+      "season_confirmed": "2025-26 ONLY - the 2026-27 shuttle calendar has not been released",
+      "source_url": "https://www.palisadestahoe.com/plan-your-visit/travel-here/park-and-ride",
+      "confidence": "medium"
+    },
+    {
+      "name": "Diamond Peak parking - free general, $30/$35 preferred, but the page is a season stale",
+      "category": "parking-fee",
+      "claim": "Diamond Peak (Incline Village, NV - the far side of the lake from Donner Summit, included only for completeness) states: 'Parking is free, but we do offer paid preferred slope-side parking for $30 weekends and $35 peak periods, while supplies last', with the reservation holding 'a spot for your standard-sized vehicle in our paid parking lot until 12pm'. The page is labelled 2025-26 and currently reads 'Closed for the 2025-26 season. See you in December!', so these are last season's numbers and 2026-27 pricing is unpublished. Reported here mainly as evidence of how widespread the paid-preferred-parking model has become across Tahoe - Palisades $30, Sugar Bowl $35, Diamond Peak $30-35, Sierra-at-Tahoe $25, Kirkwood $20 - and how consistently free parking still exists underneath it.",
+      "price_usd": "$30 weekends / $35 peak periods for preferred parking; $0 general parking",
+      "per_day_usd": "$0 general; $30-$35 for a preferred spot",
+      "restrictions": "Preferred spot held only until 12pm, standard-sized vehicles, 'while supplies last'. General parking free.",
+      "season_confirmed": "2025-26 - the page states it is closed for the 2025-26 season and has not been updated for 2026-27",
+      "source_url": "https://www.diamondpeak.com/visit/getting-here-parking/",
+      "confidence": "medium"
+    },
+    {
+      "name": "Donner Lake area small inns - a few real numbers, but tiny inventory",
+      "category": "lodging",
+      "claim": "Two Donner-Lake-adjacent options that are neither Airbnb nor a chain. Donner Lake Inn B&B: trip.com shows an average price of 'USD214' per night with rooms 'starting at US$206', for Superior and Deluxe Studio Suites with multiple beds, refrigerator and microwave - but those figures are from an early-September date query, not a ski-season one, and the property is only FIVE rooms with a complimentary grab-and-go breakfast, so a group of 6 would need most of the inn. Donner Lake Village (15695 Donner Pass Rd, on the lake, ~4.6 miles from Sugar Bowl) rents studio, 1BR and 2BR condo units and states that winter rates run November 1 through April 30 split into non-Holiday and Holiday nightly rates - but its site requires dates to show any price ('Enter Dates For Pricing') and I could not get a rendered rate, so I have NO Donner Lake Village number to report. Group sales: 1-800-906-2871 / (530) 587-6081.",
+      "price_usd": "Donner Lake Inn ~$206-$214/night (off-season date query, aggregator). Donner Lake Village: no rate obtainable.",
+      "per_day_usd": null,
+      "restrictions": "Donner Lake Inn has only 5 rooms - a party of 6 needs 3 rooms, effectively a partial buyout. Donner Lake Village splits winter rates into Holiday and non-Holiday tiers (Nov 1 - Apr 30) but publishes neither without dates.",
+      "season_confirmed": "NONE for winter 2026-27; the Donner Lake Inn figure is from a September date query",
+      "source_url": "https://donnerlakevillage.com/donner-lake-vacation-rentals/browse-our-rentals-by-bedroom/",
+      "confidence": "low"
+    },
+    {
+      "name": "Norden/Donner Summit has essentially no motel inventory - this constrains the whole trip shape",
+      "category": "lodging-negative",
+      "claim": "STRUCTURAL NEGATIVE worth stating plainly on the site. There is no conventional motel on Donner Summit. The lodging that exists at the top of the pass is: the Hotel at Sugar Bowl and its village property rentals (rates above), Clair Tappaan Lodge (hostel-style, no published rate), Rainbow Lodge down at Soda Springs (no published rate), and private vacation rentals in Serene Lakes/Soda Springs handled by local agencies. The nearest motel-grade inventory is 10-15 miles downhill in Truckee, or further west down I-80 at Cisco Grove / Emigrant Gap / Colfax, where a local directory lists options like Cisco Grove Campground & RV Park with a standard room at $80 and Sierra Woods Lodge in Emigrant Gap - but that directory carries no date and warns its information may be out of date, so those are not reportable prices. Practical consequence: a group optimising for the cheap Donner Summit lifts (Boreal, Soda Springs, Donner Ski Ranch) will almost certainly sleep in Truckee and drive up daily, which is ~15-25 miles each way and is exactly the in-area mileage the fuel estimate above accounts for.",
+      "price_usd": null,
+      "per_day_usd": null,
+      "restrictions": "n/a",
+      "season_confirmed": "NONE - structural observation, not a price",
+      "source_url": "http://www.arounddonnersummit.com/lodging/motels.html",
+      "confidence": "medium"
+    }
+  ]
+}

@@ -9,11 +9,24 @@ export function stayTotalFor(
   stay: Stay,
   guests: number
 ): { totalUsd: number; estimated: boolean } | null {
-  const q = [...stay.quotes].sort((a, b) => a.guests - b.guests);
-  if (!q.length) return null;
+  const all = [...stay.quotes].sort((a, b) => a.guests - b.guests);
+  if (!all.length) return null;
 
-  const exact = q.find((x) => x.guests === guests);
+  // An exact quote is an exact quote whenever it was taken.
+  const exact = all.find((x) => x.guests === guests);
   if (exact) return { totalUsd: exact.totalUsd, estimated: false };
+
+  // Beyond that we need a curve, and a curve may only be drawn through points
+  // measured on the same day — listings reprice constantly, so a line through
+  // quotes taken weeks apart measures the calendar, not the guest count. Use
+  // the largest same-day set we have.
+  const byDay = new Map<string, typeof all>();
+  for (const x of all) {
+    const k = x.asOf ?? "";
+    byDay.set(k, [...(byDay.get(k) ?? []), x]);
+  }
+  const q = [...byDay.values()].reduce((a, b) => (b.length > a.length ? b : a));
+  if (q.length < 2) return null;
 
   // Between two quotes — interpolate.
   for (let i = 0; i < q.length - 1; i++) {
