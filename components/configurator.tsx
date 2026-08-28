@@ -5,17 +5,19 @@ import { getLocation } from "@/data/locations";
 import { liftChoices, GEAR, CAR, type GearKey, type CarKey } from "@/lib/choices";
 import { money, stayTotalFor } from "@/lib/cost";
 import { quote, SEATS_PER_CAR } from "@/lib/quote";
-import { SKI_DAYS } from "@/lib/types";
+import { SKI_DAYS, listingUrl } from "@/lib/types";
 import { useHeadcount, HEAD_RANGE } from "@/components/headcount";
 import { Marker } from "@/components/ui";
 import { Receipt, NoReceipt, MobileTotal } from "@/components/receipt";
 import {
   CHIP,
+  CHIP_PROOF,
   CHIPS,
   CHIP_META,
   CHIP_NAME,
   CHIP_NOTE,
   CHIP_RATE,
+  CHIP_SUB,
   CHIP_RATE_OFF,
   CHIP_UNIT,
   LAYOUT,
@@ -114,45 +116,65 @@ export function Configurator() {
         </h2>
         <div className={CHIPS} role="group" aria-labelledby="s-lift">
           {choices.map((c) => (
-            <button
-              key={c.id}
-              type="button"
-              className={CHIP}
-              aria-pressed={c.id === lift.id}
-              data-off={!c.coversTrip || undefined}
-              onClick={() => setLiftId(c.id)}
-            >
-              <span className="flex items-start gap-2">
-                <Marker rating={c.rating} />
-                <span className="text-[10px] uppercase leading-relaxed tracking-[0.1em] text-muted">
-                  {c.resort}
-                </span>
-              </span>
-              <span className={CHIP_NAME}>{c.label}</span>
-              {/* A rate per day is only comparable when the days are there.
-                  Anything short of the whole trip leads with what it can't do. */}
-              {c.coversTrip && c.perDay !== null ? (
-                <span className={CHIP_RATE}>
-                  {money(c.perDay, true)}
-                  <span className={CHIP_UNIT}>/day</span>
-                </span>
-              ) : (
-                <span className={CHIP_RATE_OFF}>
-                  {c.covers === 0
-                    ? `no full days — ${money(c.totalUsd)} buys evenings`
-                    : `covers ${c.covers} of ${SKI_DAYS} days`}
-                </span>
-              )}
-              <span
-                className={
-                  isDeadline(c.blackouts)
-                    ? "text-xs font-medium leading-normal text-sodium"
-                    : CHIP_NOTE
-                }
+            // Wrapped like the houses below: the proof link is an <a>, which
+            // cannot legally sit inside the chip's <button>.
+            <div key={c.id} className="relative grid">
+              <button
+                type="button"
+                className={`${CHIP} h-full`}
+                aria-pressed={c.id === lift.id}
+                data-off={!c.coversTrip || undefined}
+                onClick={() => setLiftId(c.id)}
               >
-                {c.blackouts}
-              </span>
-            </button>
+                {/* pr-16 keeps the mountain's name clear of the proof link
+                    pinned to the same corner — "Heavenly / Kirkwood / Northstar"
+                    would otherwise run straight under it. */}
+                <span className="flex items-start gap-2 pr-16">
+                  <Marker rating={c.rating} />
+                  <span className="text-[10px] uppercase leading-relaxed tracking-[0.1em] text-muted">
+                    {c.resort}
+                  </span>
+                </span>
+                <span className={CHIP_NAME}>{c.label}</span>
+                {/* A rate per day is only comparable when the days are there.
+                    Anything short of the whole trip leads with what it can't do. */}
+                {c.coversTrip && c.perDay !== null ? (
+                  <span className={CHIP_RATE}>
+                    {money(c.perDay, true)}
+                    <span className={CHIP_UNIT}>/day</span>
+                  </span>
+                ) : (
+                  <span className={CHIP_RATE_OFF}>
+                    {c.covers === 0
+                      ? `no full days — ${money(c.totalUsd)} buys evenings`
+                      : `covers ${c.covers} of ${SKI_DAYS} days`}
+                  </span>
+                )}
+                <span
+                  className={
+                    isDeadline(c.blackouts)
+                      ? "text-xs font-medium leading-normal text-sodium"
+                      : CHIP_NOTE
+                  }
+                >
+                  {c.blackouts}
+                </span>
+              </button>
+              {/* The page that proves the rate. Every priced product has one;
+                  the products that don't are the ones still being researched. */}
+              {c.option.sourceUrl && (
+                <a
+                  href={c.option.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${c.option.source ?? "Source"} — the page this price came from, opens in a new tab`}
+                  title={c.option.source}
+                  className={`${CHIP_PROOF} right-[13px] top-[11px]`}
+                >
+                  price&nbsp;↗
+                </a>
+              )}
+            </div>
           ))}
         </div>
       </section>
@@ -187,15 +209,24 @@ export function Configurator() {
                   {s.sleepsMax ? `–${s.sleepsMax}` : ""} · {s.nights} nights
                 </span>
                 {t ? (
+                  <>
+                  {/* The nightly per-head rate leads: it is the figure that compares
+                      across houses with different night counts, and the one people
+                      actually carry in their head. The trip total per person stays
+                      underneath, because that is what you hand over. */}
                   <span className={CHIP_RATE}>
-                    {money(t.totalUsd / headcount, true)}
-                    <span className={CHIP_UNIT}>/person</span>
+                    {money(t.totalUsd / headcount / s.nights, true)}
+                    <span className={CHIP_UNIT}>/person/night</span>
                     {/* Solid ring = interpolated. Full-strength glacier with
                         no ring = a real quote. */}
                     {t.estimated && (
                       <span className={`${PILL} border-glacier/45 text-glacier`}>est</span>
                     )}
                   </span>
+                  <span className={CHIP_SUB}>
+                    {money(t.totalUsd / headcount, true)} /person for {s.nights} nights
+                  </span>
+                  </>
                 ) : (
                   <span className={CHIP_RATE_OFF}>
                     {s.quotes.length
@@ -210,11 +241,11 @@ export function Configurator() {
                   that looks linkable and isn't. */}
               {s.url ? (
                 <a
-                  href={s.url}
+                  href={listingUrl(s.url)}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Open ${s.name} on Airbnb in a new tab`}
-                  className="absolute right-[13px] top-[11px] z-10 rounded-[2px] border border-ridge bg-well/80 px-1.5 py-0.5 font-data text-[9.5px] uppercase tracking-[0.1em] text-muted transition-colors hover:border-sodium/60 hover:text-sodium"
+                  className={`${CHIP_PROOF} right-[13px] top-[11px]`}
                 >
                   listing&nbsp;↗
                 </a>

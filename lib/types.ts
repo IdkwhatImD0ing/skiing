@@ -11,7 +11,15 @@ export type Provenance = {
    * researching: nobody has confirmed it, price is null.
    */
   status: "verified" | "estimate" | "last-season" | "researching";
+  /** Where it came from, in words: "rideboreal.com — iRide 4-Pack". */
   source?: string;
+  /**
+   * The page that proves it. This is the whole point of `source`: a price you
+   * cannot go and check is a price someone has to take on trust, and the
+   * receipt at the bottom of this site asks people to spend real money. Any
+   * option carrying a number should carry the link that shows the number.
+   */
+  sourceUrl?: string;
   asOf?: string;
   /** Which season the price is for, e.g. "2026-27". */
   season?: string;
@@ -32,10 +40,20 @@ export type Provenance = {
  */
 export type StayQuote = { guests: number; totalUsd: number; asOf?: string };
 
+/**
+ * Budget / normal / expensive. Bill wants one of each per location, so the
+ * tier is a real attribute rather than something inferred from sort order:
+ * "cheapest of three" and "the budget option" stop being the same statement
+ * the moment a fourth house lands, or a holiday reprice reorders them.
+ * Untiered stays stay in the data and off the trip page.
+ */
+export type StayTier = "budget" | "normal" | "expensive";
+
 export type Stay = Provenance & {
   id: string;
   name: string;
   kind: "house" | "motel" | "hotel" | "hostel";
+  tier?: StayTier;
   /** How many people sleep here comfortably — not the listing's optimistic max. */
   sleeps: number;
   /** Absolute ceiling, air mattresses and couches included. Omit if same as sleeps. */
@@ -146,6 +164,17 @@ export type Trip = {
 export const BENCHMARK_PER_DAY = 60;
 
 /**
+ * Where the trail markers fall: green under $80/day, blue under $100, diamond
+ * at or over it. These are deliberately NOT derived from BENCHMARK_PER_DAY.
+ * They used to be ($60 ± $5), which made green mean "beats the bar" — and
+ * since nothing in Tahoe does that over four full days, the board came out
+ * with no green on it at all and ten diamonds. The bar is still the bar; the
+ * markers are just a readable spread over the prices that actually exist.
+ */
+export const RATING_GREEN_UNDER = 80;
+export const RATING_BLUE_UNDER = 100;
+
+/**
  * The trip: four full days on snow. Bill asked for it directly, so it is a
  * property of the trip and not of whichever pass happens to be selected.
  *
@@ -193,7 +222,29 @@ export const SCENARIO = {
   skiDays: SKI_DAYS,
   nights: 5,
   age: 21,
+  /** The nights we are actually pricing. ISO, because Airbnb wants ISO. */
+  checkIn: "2026-12-29",
+  checkOut: "2027-01-03",
 } as const;
+
+/**
+ * A listing link that opens on OUR trip, not on today.
+ *
+ * Airbnb prices per date and per guest count, so a bare /rooms/<id> link shows
+ * a friend whatever the cheapest random midweek night happens to be — a
+ * number that has nothing to do with what we would pay over New Year at eight
+ * people. Every stay link on this site carries the dates and the headcount so
+ * the page you land on is the page the quote came from.
+ */
+export function listingUrl(url: string): string {
+  if (!url.includes("airbnb.com")) return url;
+  const u = new URL(url);
+  u.searchParams.set("check_in", SCENARIO.checkIn);
+  u.searchParams.set("check_out", SCENARIO.checkOut);
+  u.searchParams.set("adults", String(SCENARIO.people));
+  u.searchParams.set("guests", String(SCENARIO.people));
+  return u.toString();
+}
 
 /**
  * Flat per car, per trip. Turo quoted $450; Hertz is close enough that $500

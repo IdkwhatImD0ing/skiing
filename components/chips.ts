@@ -60,6 +60,12 @@ export const CHIP_UNIT =
   "ml-1 text-[11.5px] font-normal tracking-normal text-muted";
 export const CHIP_NOTE = "text-xs leading-normal text-snow/66";
 
+/* The second figure under a headline rate — the trip total that the big
+   nightly number resolves to. Same mono as every other dollar on the site,
+   sized and dimmed so it reads as the supporting number, not a competing one. */
+export const CHIP_SUB =
+  "-mt-0.5 font-data tabular-nums text-[11px] tracking-[0.01em] text-muted";
+
 /* Invert the unpriced state: shrink the mark, promote the sentence. A big
    figure where a price belongs reads as a price. The dashed ring is the same
    "we don't have this" mark used everywhere else on the site. */
@@ -67,6 +73,18 @@ export const CHIP_RATE_OFF = [
   "mt-0.5 inline-flex items-center gap-[7px] text-[12px] font-normal leading-snug text-snow/78",
   "before:size-[11px] before:flex-none before:rounded-full",
   "before:border-[1.5px] before:border-dashed before:border-muted before:content-['']",
+].join(" ");
+
+/* The link out to whatever proves a number on a chip — a house's listing, a
+   resort's own price page. It is positioned by the caller but styled here,
+   because it lives OUTSIDE the chip's <button>: an <a> nested inside a
+   <button> is invalid markup, and the chip's own click handler would swallow
+   it. Quiet until you go looking for it, which is the right volume for a
+   citation. */
+export const CHIP_PROOF = [
+  "absolute z-10 rounded-[2px] border border-ridge bg-well/80 px-1.5 py-0.5",
+  "font-data text-[9.5px] uppercase tracking-[0.1em] text-muted",
+  "transition-colors hover:border-sodium/60 hover:text-sodium",
 ].join(" ");
 
 export const PILL =

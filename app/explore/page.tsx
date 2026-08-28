@@ -3,14 +3,14 @@ import Link from "next/link";
 import { Configurator } from "@/components/configurator";
 
 export const metadata: Metadata = {
-  title: "Explore every option — Night laps at Donner Summit",
+  title: "Explore every option — Night laps",
   description:
-    "Every pass, house, and headcount we have a price for. The home page prices the trip we're actually taking; this is the rest of the board.",
+    "Every pass, house, and headcount we have a price for. The trip page holds eight people and four days still; here nothing is held.",
 };
 
 export default function Explore() {
   return (
-    <main>
+    <>
       <section className="hero">
         <div className="wrap">
           <p className="eyebrow">Explorer · every priced option</p>
@@ -30,6 +30,6 @@ export default function Explore() {
       <div className="wrap">
         <Configurator />
       </div>
-    </main>
+    </>
   );
 }
