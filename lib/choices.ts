@@ -64,7 +64,7 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
 export const GEAR = {
   onsite: {
     label: "Rent at the resort",
-    perDay: 40,
+    perDay: 59,
     note: "Costs more, but nothing rides in the car and you can swap if the snow changes.",
     recommended: true,
     why: "Skis and boards eat the luggage space we don't have with a full carload.",
