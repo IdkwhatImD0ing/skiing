@@ -25,7 +25,12 @@ export type Quote = {
   squeeze: boolean;
 };
 
-const SEATS_PER_CAR = 4;
+/**
+ * Cars are the reason cost per head is a sawtooth rather than a curve: the
+ * whole cost of a car lands on the person who makes it necessary. Exported
+ * because the configurator marks the full carloads.
+ */
+export const SEATS_PER_CAR = 4;
 const FOOD_PER_DAY = 30;
 const GAS_PER_CAR = 90;
 

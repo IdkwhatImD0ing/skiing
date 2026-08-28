@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { getLocation } from "@/data/locations";
 import { liftChoices, GEAR, CAR, type GearKey, type CarKey } from "@/lib/choices";
 import { money, stayTotalFor } from "@/lib/cost";
-import { quote } from "@/lib/quote";
+import { quote, SEATS_PER_CAR } from "@/lib/quote";
 import { useHeadcount, HEAD_RANGE } from "@/components/headcount";
 import { Marker } from "@/components/ui";
 
@@ -127,6 +127,17 @@ export function Configurator() {
             </button>
           ))}
         </div>
+        {/* The sawtooth, stated rather than plotted. A whole car lands on the
+            person who makes it necessary, so cost per head jumps at 5 and 9
+            and 4 and 8 are the sweet spots. This is the largest single lever
+            on the page — bigger than the lift ticket. */}
+        <p className="mt-3 text-xs leading-normal text-muted">
+          Cars seat {SEATS_PER_CAR}.{" "}
+          <span className="font-data tabular-nums text-snow/85">
+            {HEAD_RANGE.filter((n) => n % SEATS_PER_CAR === 0).join(" and ")}
+          </span>{" "}
+          fill them exactly — everyone else is paying for empty seats.
+        </p>
       </section>
 
       <section aria-labelledby="s-lift">
