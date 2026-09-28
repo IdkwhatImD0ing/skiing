@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Scenario } from "@/components/scenario";
-import { TRIPS, getTrip } from "@/data/trips";
+import { TRIPS, getTrip, tripGroup } from "@/data/trips";
 import { getResort } from "@/data/resorts";
 import { tripDatesLabel } from "@/lib/types";
 import { money } from "@/lib/cost";
@@ -53,6 +53,25 @@ export default async function TripPage(props: PageProps<"/trips/[slug]">) {
       <section className="hero">
         <div className="wrap">
           <p className="eyebrow">{trip.title}</p>
+          {/* The versions of this trip — same mountain, same week, different
+              lengths — as a switch. Links, because each is its own page. */}
+          {tripGroup(trip).length > 1 && (
+            <nav aria-label="Trip length" className="mb-5">
+              <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+                {tripGroup(trip).map((v) => (
+                  <li key={v.slug}>
+                    <Link
+                      href={`/trips/${v.slug}`}
+                      aria-current={v.slug === trip.slug ? "page" : undefined}
+                      className="inline-block rounded-[3px] border border-ridge bg-pane px-3 py-1.5 font-data text-[12px] uppercase tracking-[0.08em] text-snow/80 no-underline transition-colors hover:border-sodium/60 hover:text-snow aria-[current=page]:border-sodium/70 aria-[current=page]:text-sodium"
+                    >
+                      {v.variant ?? v.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
           <h1 className="display hero-h">
             {trip.people} people, {trip.skiDays} days
             {resort ? ` at ${resort.name}` : ""}.

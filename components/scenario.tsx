@@ -177,7 +177,7 @@ export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
   )?.stay;
   const stayId = stay?.id ?? "";
 
-  const q = picked.lift ? quote(picked.lift, stay, gear, car, people) : null;
+  const q = picked.lift ? quote(picked.lift, stay, gear, car, people, skiDays) : null;
 
   // One card, used for Boreal on top and for every mountain in the fold.
   function mountainChip({ resort, lift, blocked }: (typeof board)[number]) {
@@ -286,8 +286,8 @@ export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
             <span className={STEP_N}>1</span>{" "}
             {chosen ? "The mountain" : "Which mountain"}
             <span className={STEP_SUB}>
-              {chosen ? "decided · " : "cheapest "}
-              {skiDays}-day pass at {age}
+              {chosen ? "decided · pass" : "cheapest pass"} for {skiDays}{" "}
+              days at {age}
             </span>
           </h2>
           {chosen ? (

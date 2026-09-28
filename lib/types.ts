@@ -260,6 +260,14 @@ export type Plan = {
    * is blacked out on one of them delivers one day fewer.
    */
   skiDates: readonly string[];
+  /**
+   * Plans that are versions of one trip — the same mountain over the same
+   * week, at different lengths — share a group. The header lists each group
+   * once, and a trip page shows its siblings as a switch.
+   */
+  group?: string;
+  /** This version's name in that switch: "4 days · Dec 29 – Jan 3". */
+  variant?: string;
   /** The mountain, once it is decided. Omit to leave the board open. */
   resort?: string;
   /** The house, once it is picked. */

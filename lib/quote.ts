@@ -55,7 +55,9 @@ export function quote(
   stay: Stay | undefined,
   gear: GearKey,
   car: CarKey,
-  headcount: number
+  headcount: number,
+  /** Days on snow. Four on the full trip; a shorter plan passes its own. */
+  skiDays: number = SKI_DAYS
 ): Quote | null {
   if (!stay) return null;
 
@@ -63,9 +65,8 @@ export function quote(
   if (!lodging) return null;
 
   const nights = stay.nights;
-  // The trip is four full days on snow. The pass has to meet that, not define
-  // it — gear is rented for the days we ski, whatever the ticket happens to be.
-  const skiDays = SKI_DAYS;
+  // The pass has to meet the trip's days on snow, not define them — gear is
+  // rented for the days we ski, whatever the ticket happens to be.
   const cars = Math.ceil(headcount / SEATS_PER_CAR);
   // Nights plus one: the drive-up day through the drive-home day. Gear rented
   // in town is held for all of it; see GEAR.

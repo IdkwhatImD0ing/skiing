@@ -3,7 +3,6 @@ import {
   RATING_GREEN_UNDER,
   RATING_BLUE_UNDER,
   SCENARIO,
-  SKI_DAYS,
   type SkiLocation,
   type LiftOption,
 } from "@/lib/types";
@@ -20,7 +19,7 @@ export type LiftChoice = {
   totalUsd: number;
   /** What it costs to cover this trip's ski days — buy two packs if needed. */
   tripTotal: number;
-  /** Full days on snow it actually delivers here, capped at SKI_DAYS. */
+  /** Full days on snow it actually delivers here, capped at the trip's ski days. */
   covers: number;
   /** True when it delivers every day of the trip: the only real candidates. */
   coversTrip: boolean;
@@ -114,9 +113,11 @@ export function liftChoices(
         // can put us on snow for four full days, however cheap the sticker is.
         // And a pass blacked out over New Year can only sell the days it
         // isn't blacked out on.
+        // The trip is as long as its ski dates: four on the full trip, three
+        // on the short one.
         const covers = Math.min(
-          SKI_DAYS,
-          option.fullDaysPerTrip ?? SKI_DAYS,
+          skiDates.length,
+          option.fullDaysPerTrip ?? skiDates.length,
           usableDates(option, v.liftsOffDates, skiDates).length
         );
         const tripTotal = tripCost(option, v.totalUsd, covers);
@@ -136,7 +137,7 @@ export function liftChoices(
           maxAge: v.maxAge,
           tripTotal,
           covers,
-          coversTrip: covers >= SKI_DAYS,
+          coversTrip: covers >= skiDates.length,
           perDay,
           blackouts: option.blackouts,
           option,

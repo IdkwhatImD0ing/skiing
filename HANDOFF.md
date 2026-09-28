@@ -118,6 +118,16 @@ of houses by tier, a hero `blurb` and an amber `deadline`. The home page lists e
 under "Trips we're taking", and the header carries one link per trip (`components/trip-nav.tsx`,
 marked with `aria-current` on its own page). Unknown slugs 404 (`dynamicParams = false`).
 
+**The Boreal trip has a 3-day version**, `/trips/boreal-new-year-3-days`: check in Dec 30,
+ski Dec 31 – Jan 2, home Jan 3. Plans that share a `group` are versions of one trip. The header
+and the home list show the group once (`TRIP_HEADS`), and the trip page shows a length switch
+(`tripGroup`, labelled by each plan's `variant`). Ski days are the plan's own: `liftChoices`
+covers `skiDates.length`, and `quote()` takes `skiDays`. The 4-pack still covers three days
+(one visit spare). Its only house so far is Castle Creek at 4 nights, a separate record
+(`truckee-castle-creek-4n`, $2,184) because a quote belongs to its dates. Boreal's own day
+tickets stay unpriced: Go-Time is dynamic and publishes no rate for any date (see
+`boreal-window-holiday`'s note).
+
 **Gear is priced for the days you hold it.** Bill: *"we have 6 days so we need to rent for
 6 days, 4 ski days + 2 travel days."* Each `GEAR` option has `days: "trip" | "ski"` and a
 `price(n)`, and `gearCost()` picks the count. San Jose gear is held from the drive-up day

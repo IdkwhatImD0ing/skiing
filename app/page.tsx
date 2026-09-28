@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Scenario } from "@/components/scenario";
-import { TRIPS } from "@/data/trips";
+import { TRIP_HEADS } from "@/data/trips";
 import { getResort } from "@/data/resorts";
 import { SCENARIO, tripDatesLabel } from "@/lib/types";
 
@@ -24,13 +24,13 @@ export default function Home() {
           </p>
           {/* The trips this board has already turned into plans. Each has its
               own page, with the mountain and the house decided. */}
-          {TRIPS.length > 0 && (
+          {TRIP_HEADS.length > 0 && (
             <nav aria-label="Trips we are taking" className="mt-8">
               <p className="m-0 mb-2.5 font-data text-[11px] uppercase tracking-[0.12em] text-muted">
                 Trips we&rsquo;re taking
               </p>
               <ul className="m-0 grid list-none gap-2 p-0">
-                {TRIPS.map((t) => (
+                {TRIP_HEADS.map((t) => (
                   <li key={t.slug}>
                     <Link
                       href={`/trips/${t.slug}`}

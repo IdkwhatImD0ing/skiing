@@ -54,6 +54,6 @@ export function planQuote(plan: Plan) {
     (s) => s.id === plan.stay
   );
   if (!lift || !stay) return null;
-  const q = quote(lift, stay, DEFAULT_GEAR, DEFAULT_CAR, plan.people);
+  const q = quote(lift, stay, DEFAULT_GEAR, DEFAULT_CAR, plan.people, plan.skiDays);
   return q && { ...q, lift, resort };
 }
