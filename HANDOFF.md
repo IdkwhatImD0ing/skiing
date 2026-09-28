@@ -115,7 +115,12 @@ the open board, eight of us and any mountain, and each trip he actually takes is
 holds its own headcount, dates and `skiDates`. It can also fix the mountain (`resort`,
 which folds the rest of the board into a `<details>`), the house (`stay`), a `shortlist`
 of houses by tier, a hero `blurb` and an amber `deadline`. The home page lists every trip
-under "Trips we're taking". Unknown slugs 404 (`dynamicParams = false`).
+under "Trips we're taking", and the header carries one link per trip (`components/trip-nav.tsx`,
+marked with `aria-current` on its own page). Unknown slugs 404 (`dynamicParams = false`).
+
+**Defaults are Bill's: gear rented in San Jose, and we drive our own cars.** Both the trip
+pages and /explore open on `sj` and `own`, and "pick this" sits on San Jose. Renting up there
+and renting a car are still one tap away.
 
 The first is **`boreal-new-year`**: Bill, *"We are going to boreal"*, four of us, in the
 **Modern A-Frame**. That's $3,187.80 for 4 adults incl. tax off the Airbnb checkout, free

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BENCHMARK_PER_DAY } from "@/lib/types";
+import { TripNav } from "@/components/trip-nav";
 
 export function SiteHeader() {
   return (
@@ -9,6 +10,8 @@ export function SiteHeader() {
           <span className="site-mark-name">Night laps</span>
           <span className="site-mark-route num">San Jose → Donner Summit</span>
         </Link>
+
+        <TripNav />
 
         <p className="site-bar num">
           <span className="site-bar-label">the bar</span>

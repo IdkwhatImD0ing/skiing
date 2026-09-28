@@ -46,8 +46,8 @@ export function Configurator() {
   const [liftId, setLiftId] = useState(
     (choices.find((c) => c.coversTrip && c.tier === null) ?? choices[0])?.id ?? ""
   );
-  const [gear, setGear] = useState<GearKey>("onsite");
-  const [car, setCar] = useState<CarKey>("rent");
+  const [gear, setGear] = useState<GearKey>("sj");
+  const [car, setCar] = useState<CarKey>("own");
 
   const lift = choices.find((c) => c.id === liftId) ?? choices[0];
   const location = getLocation(lift.locationSlug);
@@ -300,10 +300,10 @@ export function Configurator() {
         </div>
         {/* Bill talking. Amber rule, same voice as a provenance note. */}
         <p className="mt-[18px] max-w-[64ch] border-l-2 border-sodium/60 pl-[13px] text-[13.5px] leading-relaxed text-snow/82">
-          <strong className="font-semibold text-sodium">Rent at the resort.</strong>{" "}
-          {GEAR.onsite.why} San Jose is $
-          {(GEAR.onsite.perDay - GEAR.sj.perDay) * 4} cheaper over four days, and
-          it isn&rsquo;t worth the boot bags in your lap for four hours.
+          <strong className="font-semibold text-sodium">Rent in San Jose.</strong>{" "}
+          {GEAR.sj.why} It is $
+          {(GEAR.onsite.perDay - GEAR.sj.perDay) * SKI_DAYS} cheaper than renting
+          up there over four days — worth the boot bags in the trunk.
         </p>
       </section>
 

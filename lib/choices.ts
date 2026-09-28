@@ -215,8 +215,8 @@ export const GEAR = {
     label: "Rent up there",
     perDay: 62.25,
     note: "Costs more, but nothing rides in the car and you can swap if the snow changes. Helmet included.",
-    recommended: true,
-    why: "Skis and boards eat the luggage space we don't have with a full carload.",
+    recommended: false,
+    why: "",
   },
   /**
    * Not really a daily rate — Sports Basement charges $85 flat for anything in
@@ -228,8 +228,9 @@ export const GEAR = {
     label: "Rent in San Jose",
     perDay: 21.25,
     note: "$85 flat for the whole trip at Sports Basement — but it fills the trunk and you're stuck with whatever you picked.",
-    recommended: false,
-    why: "",
+    // Bill's call: this is the default, over renting at the resort.
+    recommended: true,
+    why: "Pick it up the night before and it rides up with us.",
   },
   own: {
     label: "I have my own",

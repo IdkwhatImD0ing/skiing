@@ -131,8 +131,9 @@ export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
     : undefined;
   const others = chosen ? board.filter((r) => r !== chosen) : board;
 
-  const [gear, setGear] = useState<GearKey>("onsite");
-  const [car, setCar] = useState<CarKey>("rent");
+  // Bill's defaults: gear from San Jose, and we drive our own cars.
+  const [gear, setGear] = useState<GearKey>("sj");
+  const [car, setCar] = useState<CarKey>("own");
 
   const picked = board.find((r) => r.resort.slug === resortSlug) ?? board[0];
   const location = getLocation(picked.resort.locationSlug);
