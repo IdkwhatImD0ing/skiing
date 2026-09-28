@@ -138,15 +138,11 @@ explicit one overrides Vercel's, so every share image pointed nowhere), plus `OG
 pages and /explore open on `sj` and `own`, and "pick this" sits on San Jose. Renting up there
 and renting a car are still one tap away.
 
-Its houses, cheapest first: the $1,680 four-person place, **Castle Creek Chalet** (Truckee
-condo, $2,671 for 4 adults, Bill's "second option"), and the A-Frame. The plan's own `stay`
-is labelled "the plan" on its card, and the middle tier reads "mid-price" rather than "the
-pick" on trip pages.
-
-The first is **`boreal-new-year`**: Bill, *"We are going to boreal"*, four of us, in the
-**Modern A-Frame**. That's $3,187.80 for 4 adults incl. tax off the Airbnb checkout, free
-cancellation before Dec 28, and no link yet. Its shortlist puts the $1,680 four-person
-place as *budget* (link sent 2026-09-28; the total is still Bill's earlier number). `Stay.tier`
+The first is **`boreal-new-year`**: Bill, *"We are going to boreal"*, four of us. It has
+two houses. It opens on **Castle Creek Chalet**, a Truckee condo at $2,671 for 4 adults,
+Dec 29 – Jan 3. The cheaper option is the $1,680 four-person place (link sent 2026-09-28;
+the total is still Bill's earlier number). The plan's own `stay` is labelled "the plan" on
+its card. The Modern A-Frame ($3,187.80) was on this trip and has been removed. `Stay.tier`
 is still the home page's eight-person shortlist. After Oct 1 the trip's deadline and the
 $239 are both wrong, so re-price the pack then.
 
@@ -330,8 +326,8 @@ research — where they disagree, ask him rather than overwriting.
 
 ## Open
 
-1. **The A-Frame has no URL.** It's `soda-springs-a-frame`, the house `boreal-new-year` is priced on.
-   The four-person place's link came in 2026-09-28; its $1,680 hasn't been re-read off a checkout.
+1. **The four-person place's $1,680 hasn't been re-read off a checkout.** Its link came in
+   2026-09-28. Castle Creek's $2,671 is Bill's checkout read; its tax line wasn't captured.
 2. **A second quote on any one house** — see the retraction above. Still the
    highest-value number left to gather.
 

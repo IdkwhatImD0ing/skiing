@@ -42,23 +42,8 @@ export const LOCATIONS: SkiLocation[] = [
     stays: [
       // Tiers are the home page's eight-person shortlist. The four-person
       // Boreal trip picks its own from the houses quoted at four — see
-      // `shortlist` in data/trips.ts.
-      {
-        id: "soda-springs-a-frame",
-        name: "Modern A-Frame",
-        kind: "house",
-        // The listing's own capacity wasn't captured; four is what we are
-        // booking it for and what the checkout priced.
-        sleeps: 4,
-        nights: 5,
-        quotes: [{ guests: 4, totalUsd: 3187.8, asOf: "2026-09-28" }],
-        toLift: "Soda Springs, by Sugar Bowl / Royal Gorge",
-        perks: ["Whole A-frame", "Free cancellation before Dec 28"],
-        status: "verified",
-        source: "Airbnb checkout — 4 adults, Dec 29 – Jan 3",
-        asOf: "2026-09-28",
-        note: "“Modern A-Frame, close to Sugar Bowl/Royal Gorge”, the house Bill is planning on. Read off the Airbnb “Review and continue” screen at 4 adults for Dec 29, 2026 – Jan 3, 2027: $3,187.80 including taxes, pay now. Free cancellation before Dec 28 for a full refund. New listing, no reviews yet. The nightly and tax breakdown wasn't captured, and the link still needs sending.",
-      },
+      // `shortlist` in data/trips.ts. (The Modern A-Frame, $3,187.80 for four,
+      // was dropped from that trip on 2026-09-28.)
       {
         id: "truckee-castle-creek",
         name: "Castle Creek Chalet",
