@@ -51,7 +51,8 @@ Three things worth knowing before you touch it:
 ## Map
 
 ```
-app/page.tsx           hero + <Configurator/>
+app/page.tsx           hero + trip list + <Scenario/> (the open board)
+app/trips/[slug]/      one page per Plan in data/trips.ts
 app/layout.tsx         fonts, metadata, header/footer, HeadcountProvider
 app/globals.css        @theme tokens, page ground, ui.tsx primitives (see above)
 
@@ -70,7 +71,8 @@ lib/
   quote.ts             quote() — prices one selection. The money lives here.
   cost.ts              stayTotalFor() per-guest lookup, stayOptions(), money()
 
-data/locations.ts      the only data file. 3 locations, each with stays/lift/rentals.
+data/trips.ts          the trips Bill is taking, one Plan each
+data/locations.ts      the main data file. 3 locations, each with stays/lift/rentals.
 research/*.json        raw research output, one file per dimension (see below)
 ```
 
@@ -107,19 +109,20 @@ Bill actually asked Airbnb about. That is correct behaviour, not a bug.
 Over `sleeps` sets `squeeze` — style it as a caption, not an alarm. Bill would take that
 trade.
 
-**The group is four now, and the house is the A-Frame.** `SCENARIO.people = 4` and
-`SCENARIO.stay = "soda-springs-a-frame"`, the house Bill is planning on: $3,187.80 for 4
-adults incl. tax off the Airbnb checkout, free cancellation before Dec 28. Its link hasn't
-been sent. The Donner Summit tiers moved to the houses quoted at four: the $1,680
-four-person place is *budget* (link sent 2026-09-28, total still Bill's earlier number),
-the A-Frame is *the pick*. The 8-guest houses are untiered, so they stay in /explore and
-off the trip page. One car at 4 seats, so there is no sawtooth at this headcount.
+**Trips get their own pages.** Bill is going to more than one place, so the home page stays
+the open board, eight of us and any mountain, and each trip he actually takes is a `Plan` in
+`data/trips.ts`, rendered at `/trips/<slug>` by the same `<Scenario plan={…}/>`. A plan
+holds its own headcount, dates and `skiDates`. It can also fix the mountain (`resort`,
+which folds the rest of the board into a `<details>`), the house (`stay`), a `shortlist`
+of houses by tier, a hero `blurb` and an amber `deadline`. The home page lists every trip
+under "Trips we're taking". Unknown slugs 404 (`dynamicParams = false`).
 
-**The mountain is decided: Boreal.** Bill: *"We are going to boreal."* `SCENARIO.resort`
-holds it. The home page opens on Boreal and puts the Oct 1 iRide buy-by in amber under
-it. The other ten mountains sit in a collapsed `<details>` below: still pickable for
-"what would it have cost", but no longer what the page leads with. After Oct 1 that
-callout and the $239 are both wrong, so re-price the pack then.
+The first is **`boreal-new-year`**: Bill, *"We are going to boreal"*, four of us, in the
+**Modern A-Frame**. That's $3,187.80 for 4 adults incl. tax off the Airbnb checkout, free
+cancellation before Dec 28, and no link yet. Its shortlist puts the $1,680 four-person
+place as *budget* (link sent 2026-09-28; the total is still Bill's earlier number). `Stay.tier`
+is still the home page's eight-person shortlist. After Oct 1 the trip's deadline and the
+$239 are both wrong, so re-price the pack then.
 
 **Dates are now fixed: Dec 29 – Jan 3.** Bill: *"my current plan is December 29th to
 Jan 3rd."* This replaces the earlier *"each proposal is time shiftable"*. The four ski days
@@ -301,7 +304,7 @@ research — where they disagree, ask him rather than overwriting.
 
 ## Open
 
-1. **The A-Frame has no URL.** It's `soda-springs-a-frame`, the house the trip is priced on.
+1. **The A-Frame has no URL.** It's `soda-springs-a-frame`, the house `boreal-new-year` is priced on.
    The four-person place's link came in 2026-09-28; its $1,680 hasn't been re-read off a checkout.
 2. **A second quote on any one house** — see the retraction above. Still the
    highest-value number left to gather.

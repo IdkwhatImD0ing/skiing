@@ -88,7 +88,10 @@ function tripCost(option: LiftOption, sticker: number, days: number): number {
  * picking a pass also picks where we sleep, so the same product at two
  * locations is genuinely two different trips.
  */
-export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] {
+export function liftChoices(
+  locations: SkiLocation[] = LOCATIONS,
+  skiDates: readonly string[] = SCENARIO.skiDates
+): LiftChoice[] {
   const out: LiftChoice[] = [];
   for (const loc of locations) {
     for (const option of loc.lift) {
@@ -114,7 +117,7 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
         const covers = Math.min(
           SKI_DAYS,
           option.fullDaysPerTrip ?? SKI_DAYS,
-          usableDates(option, v.liftsOffDates).length
+          usableDates(option, v.liftsOffDates, skiDates).length
         );
         const tripTotal = tripCost(option, v.totalUsd, covers);
         const perDay = covers > 0 ? tripTotal / covers : null;

@@ -40,14 +40,13 @@ export const LOCATIONS: SkiLocation[] = [
     driveFromSanJose: "~3h45m",
     resorts: ["Boreal", "Soda Springs", "Donner Ski Ranch", "Sugar Bowl"],
     stays: [
-      // The trip is four people now, so the tiers moved to the houses quoted
-      // at four. The 8-guest houses below stay in the data (and in /explore)
-      // untiered — at four guests they have no quote to show.
+      // Tiers are the home page's eight-person shortlist. The four-person
+      // Boreal trip picks its own from the houses quoted at four — see
+      // `shortlist` in data/trips.ts.
       {
         id: "soda-springs-a-frame",
         name: "Modern A-Frame",
         kind: "house",
-        tier: "normal",
         // The listing's own capacity wasn't captured; four is what we are
         // booking it for and what the checkout priced.
         sleeps: 4,
@@ -64,6 +63,7 @@ export const LOCATIONS: SkiLocation[] = [
         id: "soda-springs-house",
         name: "Soda Springs house",
         kind: "house",
+        tier: "budget",
         sleeps: 7,
         sleepsMax: 11,
         nights: 5,
@@ -79,7 +79,6 @@ export const LOCATIONS: SkiLocation[] = [
         id: "soda-springs-4p",
         name: "Soda Springs 4-person place",
         kind: "house",
-        tier: "budget",
         sleeps: 4,
         nights: 5,
         quotes: [{ guests: 4, totalUsd: 1680 }],
@@ -108,6 +107,7 @@ export const LOCATIONS: SkiLocation[] = [
         id: "soda-springs-lodge",
         name: "Glacier Gap Chalet",
         kind: "house",
+        tier: "normal",
         sleeps: 8,
         nights: 5,
         quotes: [{ guests: 8, totalUsd: 7459.5, asOf: "2026-08-28" }],
@@ -124,6 +124,7 @@ export const LOCATIONS: SkiLocation[] = [
         id: "soda-springs-hot-tub",
         name: "Soda Springs hot-tub house",
         kind: "house",
+        tier: "expensive",
         sleeps: 8,
         nights: 5,
         quotes: [{ guests: 8, totalUsd: 9737.03, asOf: "2026-08-28" }],

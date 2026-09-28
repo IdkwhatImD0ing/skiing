@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Configurator } from "@/components/configurator";
-import { SCENARIO } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Explore every option — Night laps",
   description:
-    `Every pass, house, and headcount we have a price for. The trip page holds ${SCENARIO.people} people and ${SCENARIO.skiDays} days still; here nothing is held.`,
+    "Every pass, house, and headcount we have a price for. The trip page holds eight people and four days still; here nothing is held.",
 };
 
 export default function Explore() {
@@ -17,8 +16,8 @@ export default function Explore() {
           <p className="eyebrow">Explorer · every priced option</p>
           <h1 className="display hero-h">Change anything.</h1>
           <p className="hero-sub">
-            The home page holds the trip still — {SCENARIO.people} of us at
-            Boreal, {SCENARIO.skiDays} days, {SCENARIO.nights} nights. Here nothing is held: set the headcount, pick any pass at
+            The home page holds the trip still — eight of us, four days, five
+            nights. Here nothing is held: set the headcount, pick any pass at
             any tier, and see what it does to your share.
           </p>
           <p className="mt-6 text-[13px] text-muted">

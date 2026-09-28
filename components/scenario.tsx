@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getLocation } from "@/data/locations";
+import { LOCATIONS, getLocation } from "@/data/locations";
 import { RESORTS } from "@/data/resorts";
 import {
   liftChoices,
@@ -16,7 +16,14 @@ import {
 } from "@/lib/choices";
 import { money, stayTotalFor } from "@/lib/cost";
 import { quote } from "@/lib/quote";
-import { SCENARIO, listingUrl, tripDatesLabel } from "@/lib/types";
+import {
+  SCENARIO,
+  listingUrl,
+  tripDatesLabel,
+  type Plan,
+  type Stay,
+  type StayTier,
+} from "@/lib/types";
 import { Marker } from "@/components/ui";
 import { Receipt, NoReceipt, MobileTotal } from "@/components/receipt";
 import {
@@ -39,8 +46,6 @@ import {
   STEPS,
 } from "@/components/chips";
 
-const { people, skiDays, age } = SCENARIO;
-
 /* Green under the bar, blue at it, diamond over, dashed ring for no price. */
 const RATING_RANK = { green: 0, blue: 1, black: 2, unknown: 3 } as const;
 
@@ -48,18 +53,22 @@ const TIER_ORDER = { budget: 0, normal: 1, expensive: 2 } as const;
 const TIER_LABEL = { budget: "budget", normal: "the pick", expensive: "splurge" } as const;
 
 /**
- * The trip Bill is actually planning, with the variables he has already
- * settled held still: four of us, four full days, five nights over New Year
- * (Dec 29 – Jan 3), and the
- * cheapest pass a 21-year-old can buy at whichever mountain you pick. The
- * explorer at /explore is where those come loose again.
+ * One trip, with the variables already settled held still: headcount, days,
+ * nights, dates, and the cheapest pass a 21-year-old can buy at whichever
+ * mountain you pick. On the home page the mountain is open; on a trip page it
+ * is decided, and the rest of the board folds away under it. The explorer at
+ * /explore is where everything comes loose again.
  *
  * Every resort is listed whether or not we can price it. A mountain missing
  * from the board looks like it doesn't exist; a mountain on the board saying
  * "no price yet" is a job.
  */
-export function Scenario() {
-  const choices = useMemo(() => liftChoices(), []);
+export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
+  const { people, skiDays, age } = plan;
+  const choices = useMemo(
+    () => liftChoices(LOCATIONS, plan.skiDates),
+    [plan.skiDates]
+  );
   // Cheapest four-day access at 21, per mountain, worked out once, then sorted
   // down the trail markers: green under the $60 bar, blue at it, diamond over,
   // and the mountains we can't price yet last. The board used to run
@@ -89,15 +98,38 @@ export function Scenario() {
         if (pa !== null && pb !== null && pa !== pb) return pa - pb;
         return a.resort.name.localeCompare(b.resort.name);
       }),
-    [choices]
+    [choices, age]
   );
 
-  // Boreal is decided. It opens there, and the rest of the board is folded
-  // away below it: still pickable, because "what would Palisades have cost"
-  // is a fair question, but no longer the question the page leads with.
-  const [resortSlug, setResortSlug] = useState<string>(SCENARIO.resort);
-  const chosen = board.find((r) => r.resort.slug === SCENARIO.resort)!;
-  const others = board.filter((r) => r.resort.slug !== SCENARIO.resort);
+  // A decided mountain opens there, with the rest of the board folded away
+  // below it: still pickable, because "what would Palisades have cost" is a
+  // fair question, but no longer the question the page leads with.
+  //
+  // An open one opens on the cheapest mountain that prices all the way
+  // through. Cheapest *lift* can land on a mountain with no house quoted at
+  // our headcount — a friend opening the link would meet a blank total, which
+  // is the one thing this page exists not to do.
+  const [resortSlug, setResortSlug] = useState(() => {
+    if (plan.resort) return plan.resort;
+    const complete = board.filter(
+      (r) =>
+        r.lift &&
+        getLocation(r.resort.locationSlug)?.stays.some((s) =>
+          stayTotalFor(s, people)
+        )
+    );
+    const pool = complete.length ? complete : board.filter((r) => r.lift);
+    return (
+      pool.reduce(
+        (best, r) => (r.lift!.perDay! < best.lift!.perDay! ? r : best),
+        pool[0]
+      )?.resort.slug ?? RESORTS[0].slug
+    );
+  });
+  const chosen = plan.resort
+    ? board.find((r) => r.resort.slug === plan.resort)
+    : undefined;
+  const others = chosen ? board.filter((r) => r !== chosen) : board;
 
   const [gear, setGear] = useState<GearKey>("onsite");
   const [car, setCar] = useState<CarKey>("rent");
@@ -107,22 +139,34 @@ export function Scenario() {
   // Three houses per location, cheapest first: one you'd take to save money,
   // one you'd actually book, one you'd take if the group splurged. Anything
   // untiered stays in the data and off this page — a half-researched motel
-  // with no quote is a job, not a choice.
-  const stays = useMemo(() => {
+  // with no quote is a job, not a choice. A trip with its own shortlist uses
+  // that instead, as long as we are still at the location it was drawn from.
+  const stays = useMemo((): { stay: Stay; tier?: StayTier }[] => {
     const all = location?.stays ?? [];
+    const short = Object.entries(plan.shortlist ?? {})
+      .map(([tier, id]) => ({
+        stay: all.find((s) => s.id === id),
+        tier: tier as StayTier,
+      }))
+      .filter((x): x is { stay: Stay; tier: StayTier } => !!x.stay);
+    if (short.length)
+      return short.sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier]);
     const tiered = all.filter((s) => s.tier);
     return tiered.length
-      ? tiered.sort((a, b) => TIER_ORDER[a.tier!] - TIER_ORDER[b.tier!])
-      : all;
-  }, [location]);
+      ? tiered
+          .sort((a, b) => TIER_ORDER[a.tier!] - TIER_ORDER[b.tier!])
+          .map((s) => ({ stay: s, tier: s.tier }))
+      : all.map((s) => ({ stay: s }));
+  }, [location, plan.shortlist]);
 
   // Reset the house whenever the mountain moves us somewhere else.
   const [stayIdRaw, setStayId] = useState<string>("");
-  const stay =
-    stays.find((s) => s.id === stayIdRaw) ??
-    stays.find((s) => s.id === SCENARIO.stay) ??
-    stays.find((s) => stayTotalFor(s, people)) ??
-    stays[0];
+  const stay = (
+    stays.find(({ stay: s }) => s.id === stayIdRaw) ??
+    stays.find(({ stay: s }) => s.id === plan.stay) ??
+    stays.find(({ stay: s }) => stayTotalFor(s, people)) ??
+    stays[0]
+  )?.stay;
   const stayId = stay?.id ?? "";
 
   const q = picked.lift ? quote(picked.lift, stay, gear, car, people) : null;
@@ -231,32 +275,43 @@ export function Scenario() {
       <div className={STEPS}>
         <section aria-labelledby="s-resort">
           <h2 className={STEP_H} id="s-resort">
-            <span className={STEP_N}>1</span> The mountain
-            <span className={STEP_SUB}>decided · {skiDays}-day pass at {age}</span>
+            <span className={STEP_N}>1</span>{" "}
+            {chosen ? "The mountain" : "Which mountain"}
+            <span className={STEP_SUB}>
+              {chosen ? "decided · " : "cheapest "}
+              {skiDays}-day pass at {age}
+            </span>
           </h2>
-          <div className={CHIPS} role="group" aria-labelledby="s-resort">
-            {mountainChip(chosen)}
-          </div>
-          {/* The one date on this page that can cost money by being missed.
-              Amber, because it is Bill talking to you, not a measurement. */}
-          {chosen.lift && (
-            <p className="mt-3 border-l-2 border-sodium/60 pl-[13px] text-[13.5px] leading-relaxed text-snow/82">
-              <strong className="font-semibold text-sodium">
-                Buy your {chosen.lift.option.name} online before Oct 1.
-              </strong>{" "}
-              It is {money(chosen.lift.totalUsd)} until then and goes up after;
-              Boreal&rsquo;s own FAQ already quotes $259. It is not sold at the
-              window, so everyone buys their own.
-            </p>
-          )}
-          <details className="group mt-5">
-            <summary className="cursor-pointer font-data text-[11px] uppercase tracking-[0.1em] text-muted hover:text-snow">
-              The other {others.length} mountains we priced
-            </summary>
-            <div className={`${CHIPS} mt-3`} role="group" aria-label="Other mountains">
+          {chosen ? (
+            <>
+              <div className={CHIPS} role="group" aria-labelledby="s-resort">
+                {mountainChip(chosen)}
+              </div>
+              {/* The one date on this trip that can cost money by being
+                  missed. Amber, because it is Bill talking to you, not a
+                  measurement. */}
+              {plan.deadline && (
+                <p className="mt-3 border-l-2 border-sodium/60 pl-[13px] text-[13.5px] leading-relaxed text-snow/82">
+                  <strong className="font-semibold text-sodium">
+                    {plan.deadline.lead}
+                  </strong>{" "}
+                  {plan.deadline.detail}
+                </p>
+              )}
+              <details className="group mt-5">
+                <summary className="cursor-pointer font-data text-[11px] uppercase tracking-[0.1em] text-muted hover:text-snow">
+                  The other {others.length} mountains we priced
+                </summary>
+                <div className={`${CHIPS} mt-3`} role="group" aria-label="Other mountains">
+                  {others.map(mountainChip)}
+                </div>
+              </details>
+            </>
+          ) : (
+            <div className={CHIPS} role="group" aria-labelledby="s-resort">
               {others.map(mountainChip)}
             </div>
-          </details>
+          )}
         </section>
 
         <section aria-labelledby="s-stay">
@@ -267,7 +322,7 @@ export function Scenario() {
             </span>
           </h2>
           <div className={CHIPS} role="group" aria-labelledby="s-stay">
-            {stays.map((s) => {
+            {stays.map(({ stay: s, tier }) => {
               const t = stayTotalFor(s, people);
               const fits = people <= (s.sleepsMax ?? s.sleeps);
               return (
@@ -284,8 +339,8 @@ export function Scenario() {
                   >
                     <span className={`${CHIP_NAME} pr-16`}>{s.name}</span>
                     <span className={CHIP_META}>
-                      {s.tier && (
-                        <span className="text-sodium">{TIER_LABEL[s.tier]} · </span>
+                      {tier && (
+                        <span className="text-sodium">{TIER_LABEL[tier]} · </span>
                       )}
                       sleeps {s.sleeps}
                       {s.sleepsMax ? `–${s.sleepsMax}` : ""} · {s.nights} nights
@@ -321,7 +376,7 @@ export function Scenario() {
                   </button>
                   {s.url ? (
                     <a
-                      href={listingUrl(s.url)}
+                      href={listingUrl(s.url, plan)}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Open ${s.name} on Airbnb in a new tab`}
@@ -414,7 +469,7 @@ export function Scenario() {
               <>
                 Every pass we have priced for{" "}
                 <strong className="font-semibold">{picked.resort.name}</strong>{" "}
-                is blacked out on some of our days ({tripDatesLabel()}), so
+                is blacked out on some of our days ({tripDatesLabel(plan)}), so
                 none of them buys the four days this trip is. Pick another
                 mountain, or see the{" "}
                 <Link href="/explore" className="underline underline-offset-2">
@@ -437,13 +492,13 @@ export function Scenario() {
               <>
                 No house at {location?.name} is quoted for{" "}
                 <strong className="font-semibold">{people} guests</strong>.
-                {stays.some((s) => s.quotes.length) && (
+                {stays.some(({ stay: s }) => s.quotes.length) && (
                   <>
                     {" "}
                     The quotes we have are for{" "}
                     {[
                       ...new Set(
-                        stays.flatMap((s) => s.quotes.map((x) => x.guests))
+                        stays.flatMap(({ stay: s }) => s.quotes.map((x) => x.guests))
                       ),
                     ]
                       .sort((a, b) => a - b)

@@ -231,41 +231,77 @@ export type Resort = {
 };
 
 /**
- * The scenario the home page prices. Bill's actual trip: four of us (down
- * from eight), four full days, five nights, everybody old enough to drink and
- * young enough for the under-23 fares. The explorer at /explore is where these come loose.
- *
- * The dates are settled: Dec 29 – Jan 3. Bill: "my current plan is December
- * 29th to Jan 3rd." That turns every blackout that lands on those days from a
- * caption into a hole in the trip, so lift coverage is counted against the
- * four days we actually ski — drive up the 29th, ski the 30th through the
- * 2nd, drive home the 3rd.
+ * One trip, held still. The home page prices an open one — pick any mountain —
+ * and each page under /trips prices one Bill is actually taking, with the
+ * mountain and the house already decided. Plain data, because the trip pages
+ * are server components handing it to the client-side scenario.
  */
-export const SCENARIO = {
-  people: 4,
+export type Plan = {
+  /** Its page is /trips/<slug>. The home page's plan has none. */
+  slug?: string;
+  /** What the trip is called, on its page and in the trip list. */
+  title: string;
+  people: number;
+  skiDays: number;
+  nights: number;
+  /** Everybody is priced at this age, which decides the age-band fares. */
+  age: number;
+  /** The nights we are actually pricing. ISO, because Airbnb wants ISO. */
+  checkIn: string;
+  checkOut: string;
+  /**
+   * The days on snow. Lift coverage is counted against these, so a pass that
+   * is blacked out on one of them delivers one day fewer.
+   */
+  skiDates: readonly string[];
+  /** The mountain, once it is decided. Omit to leave the board open. */
+  resort?: string;
+  /** The house, once it is picked. */
+  stay?: string;
+  /**
+   * This trip's own houses, by tier. `Stay.tier` is the shortlist for the
+   * home page's headcount; a trip of a different size needs houses quoted at
+   * its size, and says which here.
+   */
+  shortlist?: Partial<Record<StayTier, string>>;
+  /** A sentence for the top of the trip's page: why this mountain, these dates. */
+  blurb?: string;
+  /** The one date this trip can lose money by missing, said in amber. */
+  deadline?: { lead: string; detail: string };
+};
+
+/**
+ * The open trip the home page prices: eight of us, four full days, five
+ * nights, everybody old enough to drink and young enough for the under-23
+ * fares, and any mountain. The explorer at /explore is where these come loose.
+ *
+ * The dates are Dec 29 – Jan 3, the dates every house is quoted for. Bill:
+ * "my current plan is December 29th to Jan 3rd." That turns every blackout
+ * that lands on those days from a caption into a hole in the trip, so lift
+ * coverage is counted against the four days we actually ski — drive up the
+ * 29th, ski the 30th through the 2nd, drive home the 3rd.
+ */
+export const SCENARIO: Plan = {
+  title: "Tahoe over New Year",
+  people: 8,
   skiDays: SKI_DAYS,
-  /** Decided: Bill, "We are going to boreal." Its houses are Donner Summit's. */
-  resort: "boreal",
-  /** The house Bill is planning on: the A-Frame, $3,187.80 for four. */
-  stay: "soda-springs-a-frame",
   nights: 5,
   age: 21,
-  /** The nights we are actually pricing. ISO, because Airbnb wants ISO. */
   checkIn: "2026-12-29",
   checkOut: "2027-01-03",
-  /** The four days on snow: Wed Dec 30, Thu Dec 31, Fri Jan 1, Sat Jan 2. */
+  /** Wed Dec 30, Thu Dec 31, Fri Jan 1, Sat Jan 2. */
   skiDates: ["2026-12-30", "2026-12-31", "2027-01-01", "2027-01-02"],
-} as const;
+};
 
-/** "Dec 29 – Jan 3", for captions. Built from SCENARIO so it can't drift. */
-export function tripDatesLabel(): string {
+/** "Dec 29 – Jan 3", for captions. Built from the plan so it can't drift. */
+export function tripDatesLabel(plan: Plan = SCENARIO): string {
   const fmt = (iso: string) =>
     new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
       timeZone: "UTC",
     });
-  return `${fmt(SCENARIO.checkIn)} – ${fmt(SCENARIO.checkOut)}`;
+  return `${fmt(plan.checkIn)} – ${fmt(plan.checkOut)}`;
 }
 
 /**
@@ -277,13 +313,13 @@ export function tripDatesLabel(): string {
  * headcount. Every stay link on this site carries the dates and the headcount so
  * the page you land on is the page the quote came from.
  */
-export function listingUrl(url: string): string {
+export function listingUrl(url: string, plan: Plan = SCENARIO): string {
   if (!url.includes("airbnb.com")) return url;
   const u = new URL(url);
-  u.searchParams.set("check_in", SCENARIO.checkIn);
-  u.searchParams.set("check_out", SCENARIO.checkOut);
-  u.searchParams.set("adults", String(SCENARIO.people));
-  u.searchParams.set("guests", String(SCENARIO.people));
+  u.searchParams.set("check_in", plan.checkIn);
+  u.searchParams.set("check_out", plan.checkOut);
+  u.searchParams.set("adults", String(plan.people));
+  u.searchParams.set("guests", String(plan.people));
   return u.toString();
 }
 

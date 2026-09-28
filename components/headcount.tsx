@@ -8,12 +8,10 @@ import {
   useLayoutEffect,
   useState,
 } from "react";
-import { SCENARIO } from "@/lib/types";
 
 export const MIN_HEADS = 2;
 export const MAX_HEADS = 11;
-/** The explorer opens on the trip's own headcount, then lets it move. */
-export const DEFAULT_HEADS: number = SCENARIO.people;
+export const DEFAULT_HEADS = 6;
 
 const STORE_KEY = "donner-headcount";
 
