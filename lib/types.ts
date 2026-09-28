@@ -58,6 +58,12 @@ export type Stay = Provenance & {
   sleeps: number;
   /** Absolute ceiling, air mattresses and couches included. Omit if same as sleeps. */
   sleepsMax?: number;
+  /**
+   * How the beds actually work, when "sleeps 4" hides something worth knowing
+   * before you book — a sofa bed, a shared room. Shown on the house's card as
+   * a caption, not a warning.
+   */
+  sleepNote?: string;
   nights: number;
   /**
    * Quoted totals by guest count. Many listings price per guest, so a single
@@ -259,11 +265,13 @@ export type Plan = {
   /** The house, once it is picked. */
   stay?: string;
   /**
-   * This trip's own houses, by tier. `Stay.tier` is the shortlist for the
-   * home page's headcount; a trip of a different size needs houses quoted at
-   * its size, and says which here.
+   * This trip's own houses, by id. `Stay.tier` is the shortlist for the home
+   * page's headcount; a trip of a different size needs houses quoted at its
+   * size, and says which here. Shown cheapest first, with the cheapest and
+   * the plan's own `stay` marked — a list rather than budget/pick/splurge
+   * slots, because two houses $11 apart are not a budget and a pick.
    */
-  shortlist?: Partial<Record<StayTier, string>>;
+  shortlist?: readonly string[];
   /** A sentence for the top of the trip's page: why this mountain, these dates. */
   blurb?: string;
   /** The one date this trip can lose money by missing, said in amber. */

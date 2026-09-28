@@ -142,24 +142,30 @@ export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
   // one you'd actually book, one you'd take if the group splurged. Anything
   // untiered stays in the data and off this page — a half-researched motel
   // with no quote is a job, not a choice. A trip with its own shortlist uses
-  // that instead, as long as we are still at the location it was drawn from.
-  const stays = useMemo((): { stay: Stay; tier?: StayTier }[] => {
+  // that instead, as long as we are still at the location it was drawn from,
+  // sorted by what each house costs us and with only the cheapest marked.
+  const stays = useMemo((): { stay: Stay; tier?: StayTier | "cheapest" }[] => {
     const all = location?.stays ?? [];
-    const short = Object.entries(plan.shortlist ?? {})
-      .map(([tier, id]) => ({
-        stay: all.find((s) => s.id === id),
-        tier: tier as StayTier,
-      }))
-      .filter((x): x is { stay: Stay; tier: StayTier } => !!x.stay);
+    const short = (plan.shortlist ?? [])
+      .map((id) => all.find((s) => s.id === id))
+      .filter((s): s is Stay => !!s)
+      .sort(
+        (a, b) =>
+          (stayTotalFor(a, people)?.totalUsd ?? Infinity) -
+          (stayTotalFor(b, people)?.totalUsd ?? Infinity)
+      );
     if (short.length)
-      return short.sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier]);
+      return short.map((s, i) => ({
+        stay: s,
+        tier: i === 0 && short.length > 1 ? ("cheapest" as const) : undefined,
+      }));
     const tiered = all.filter((s) => s.tier);
     return tiered.length
       ? tiered
           .sort((a, b) => TIER_ORDER[a.tier!] - TIER_ORDER[b.tier!])
           .map((s) => ({ stay: s, tier: s.tier }))
       : all.map((s) => ({ stay: s }));
-  }, [location, plan.shortlist]);
+  }, [location, plan.shortlist, people]);
 
   // Reset the house whenever the mountain moves us somewhere else.
   const [stayIdRaw, setStayId] = useState<string>("");
@@ -349,16 +355,18 @@ export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
                       ) : (
                         tier && (
                           <span className="text-sodium">
-                            {plan.stay && tier === "normal"
-                              ? "mid-price"
-                              : TIER_LABEL[tier]}{" "}
-                            ·{" "}
+                            {tier === "cheapest" ? "cheapest" : TIER_LABEL[tier]} ·{" "}
                           </span>
                         )
                       )}
                       sleeps {s.sleeps}
                       {s.sleepsMax ? `–${s.sleepsMax}` : ""} · {s.nights} nights
                     </span>
+                    {s.sleepNote && (
+                      <span className="text-[12.5px] leading-snug text-snow/75">
+                        {s.sleepNote}
+                      </span>
+                    )}
                     {t ? (
                       <>
                       {/* The nightly per-head rate leads: it is the figure that compares

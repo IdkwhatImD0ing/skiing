@@ -45,6 +45,22 @@ export const LOCATIONS: SkiLocation[] = [
       // `shortlist` in data/trips.ts. (The Modern A-Frame, $3,187.80 for four,
       // was dropped from that trip on 2026-09-28.)
       {
+        id: "truckee-donner-lake-studio",
+        name: "Donner Lake Village studio",
+        kind: "house",
+        sleeps: 4,
+        sleepNote: "A studio — one of its two beds is a sofa bed.",
+        nights: 5,
+        quotes: [{ guests: 4, totalUsd: 1669, asOf: "2026-09-28" }],
+        url: "https://www.airbnb.com/rooms/1447439808467108667",
+        toLift: "Donner Lake, Truckee — ~15 min to Boreal",
+        perks: ["Whole condo, kitchen", "5.0 (3 reviews)", "Sofa bed"],
+        status: "estimate",
+        source: "Bill — Airbnb, 4 adults, Dec 29 – Jan 3",
+        asOf: "2026-09-28",
+        note: "“Cozy Studio W/Kitchen #134 at Donner Lake Village”, an entire condo in Truckee: listed as 1 bedroom, 2 beds, 1 bath, 4 guests max, and Bill notes one of the beds is a sofa bed. $1,669 for 4 adults, Dec 29 – Jan 3, as Bill read it; whether that includes tax wasn't captured. Hosted by Crown Vacation Rentals.",
+      },
+      {
         id: "truckee-castle-creek",
         name: "Castle Creek Chalet",
         kind: "house",

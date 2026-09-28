@@ -138,11 +138,14 @@ explicit one overrides Vercel's, so every share image pointed nowhere), plus `OG
 pages and /explore open on `sj` and `own`, and "pick this" sits on San Jose. Renting up there
 and renting a car are still one tap away.
 
-The first is **`boreal-new-year`**: Bill, *"We are going to boreal"*, four of us. It has
-two houses. It opens on **Castle Creek Chalet**, a Truckee condo at $2,671 for 4 adults,
-Dec 29 – Jan 3. The cheaper option is the $1,680 four-person place (link sent 2026-09-28;
-the total is still Bill's earlier number). The plan's own `stay` is labelled "the plan" on
-its card. The Modern A-Frame ($3,187.80) was on this trip and has been removed. `Stay.tier`
+The first is **`boreal-new-year`**: Bill, *"We are going to boreal"*, four of us. It opens on
+**Castle Creek Chalet**, a Truckee condo at $2,671 for 4 adults, Dec 29 – Jan 3. The
+cheaper options are the **Donner Lake Village studio** at $1,669 (a studio where one of the
+two beds is a sofa bed, in its `sleepNote`) and the $1,680 four-person place (link sent
+2026-09-28; the total is still Bill's earlier number). A plan's `shortlist` is a list of
+stay ids, shown cheapest first with "cheapest" and "the plan" marked. It isn't tier slots,
+because two houses $11 apart are not a budget and a pick. The Modern A-Frame ($3,187.80) was
+on this trip and has been removed. `Stay.tier`
 is still the home page's eight-person shortlist. After Oct 1 the trip's deadline and the
 $239 are both wrong, so re-price the pack then.
 
