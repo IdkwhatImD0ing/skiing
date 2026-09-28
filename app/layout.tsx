@@ -35,14 +35,14 @@ const chivoMono = Chivo_Mono({
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://tahoe-night-laps.local"),
-  title: `Night laps — ${SCENARIO.people} people, ${SCENARIO.skiDays} ski days in Tahoe`,
+  title: `Night laps — ${SCENARIO.people} people, ${SCENARIO.skiDays} days at Boreal`,
   description:
-    `San Jose to Tahoe over New Year. Eleven mountains priced for ${SCENARIO.skiDays} full days at ` +
-    `${SCENARIO.age}, three houses at each, and one number at the end: what you pay, not what the group pays.`,
+    `San Jose to Boreal over New Year, ${SCENARIO.checkIn} to ${SCENARIO.checkOut}. ` +
+    `${SCENARIO.people} of us, ${SCENARIO.skiDays} full days, and one number at the end: what you pay, not what the group pays.`,
   openGraph: {
-    title: `Night laps — ${SCENARIO.people} people, ${SCENARIO.skiDays} ski days in Tahoe`,
+    title: `Night laps — ${SCENARIO.people} people, ${SCENARIO.skiDays} days at Boreal`,
     description:
-      "Eleven mountains, three houses each, one number: your share. Every price links to the page it came from.",
+      "Boreal over New Year, one number: your share. Every price links to the page it came from.",
     type: "website",
   },
   // summary, not summary_large_image: there is no OG image to show, and the

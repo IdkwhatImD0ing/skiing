@@ -231,9 +231,9 @@ export type Resort = {
 };
 
 /**
- * The scenario the home page prices. Bill's actual trip: eight of us, four
- * full days, five nights, everybody old enough to drink and young enough for
- * the under-23 fares. The explorer at /explore is where these come loose.
+ * The scenario the home page prices. Bill's actual trip: four of us (down
+ * from eight), four full days, five nights, everybody old enough to drink and
+ * young enough for the under-23 fares. The explorer at /explore is where these come loose.
  *
  * The dates are settled: Dec 29 – Jan 3. Bill: "my current plan is December
  * 29th to Jan 3rd." That turns every blackout that lands on those days from a
@@ -242,10 +242,12 @@ export type Resort = {
  * 2nd, drive home the 3rd.
  */
 export const SCENARIO = {
-  people: 8,
+  people: 4,
   skiDays: SKI_DAYS,
   /** Decided: Bill, "We are going to boreal." Its houses are Donner Summit's. */
   resort: "boreal",
+  /** The house Bill is planning on: the A-Frame, $3,187.80 for four. */
+  stay: "soda-springs-a-frame",
   nights: 5,
   age: 21,
   /** The nights we are actually pricing. ISO, because Airbnb wants ISO. */
@@ -271,8 +273,8 @@ export function tripDatesLabel(): string {
  *
  * Airbnb prices per date and per guest count, so a bare /rooms/<id> link shows
  * a friend whatever the cheapest random midweek night happens to be — a
- * number that has nothing to do with what we would pay over New Year at eight
- * people. Every stay link on this site carries the dates and the headcount so
+ * number that has nothing to do with what we would pay over New Year at our
+ * headcount. Every stay link on this site carries the dates and the headcount so
  * the page you land on is the page the quote came from.
  */
 export function listingUrl(url: string): string {

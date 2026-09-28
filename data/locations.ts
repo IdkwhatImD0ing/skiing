@@ -40,11 +40,30 @@ export const LOCATIONS: SkiLocation[] = [
     driveFromSanJose: "~3h45m",
     resorts: ["Boreal", "Soda Springs", "Donner Ski Ranch", "Sugar Bowl"],
     stays: [
+      // The trip is four people now, so the tiers moved to the houses quoted
+      // at four. The 8-guest houses below stay in the data (and in /explore)
+      // untiered — at four guests they have no quote to show.
+      {
+        id: "soda-springs-a-frame",
+        name: "Modern A-Frame",
+        kind: "house",
+        tier: "normal",
+        // The listing's own capacity wasn't captured; four is what we are
+        // booking it for and what the checkout priced.
+        sleeps: 4,
+        nights: 5,
+        quotes: [{ guests: 4, totalUsd: 3187.8, asOf: "2026-09-28" }],
+        toLift: "Soda Springs, by Sugar Bowl / Royal Gorge",
+        perks: ["Whole A-frame", "Free cancellation before Dec 28"],
+        status: "verified",
+        source: "Airbnb checkout — 4 adults, Dec 29 – Jan 3",
+        asOf: "2026-09-28",
+        note: "“Modern A-Frame, close to Sugar Bowl/Royal Gorge”, the house Bill is planning on. Read off the Airbnb “Review and continue” screen at 4 adults for Dec 29, 2026 – Jan 3, 2027: $3,187.80 including taxes, pay now. Free cancellation before Dec 28 for a full refund. New listing, no reviews yet. The nightly and tax breakdown wasn't captured, and the link still needs sending.",
+      },
       {
         id: "soda-springs-house",
         name: "Soda Springs house",
         kind: "house",
-        tier: "budget",
         sleeps: 7,
         sleepsMax: 11,
         nights: 5,
@@ -60,14 +79,16 @@ export const LOCATIONS: SkiLocation[] = [
         id: "soda-springs-4p",
         name: "Soda Springs 4-person place",
         kind: "house",
+        tier: "budget",
         sleeps: 4,
         nights: 5,
         quotes: [{ guests: 4, totalUsd: 1680 }],
+        url: "https://www.airbnb.com/rooms/877728571087501036",
         toLift: "near Boreal",
         perks: ["Cheapest per person quoted"],
-        status: "researching",
+        status: "estimate",
         asOf: "2026-08-28",
-        note: "Quoted by Bill at $1,680 for 4 guests, Dec 29 – Jan 3. A separate listing from the 7-person house — link still needed.",
+        note: "Quoted by Bill at $1,680 for 4 guests, Dec 29 – Jan 3. Link sent 2026-09-28 as a checkout for 4 adults on these dates; the total wasn't re-read off that checkout, so re-check it before booking.",
       },
       {
         id: "soda-springs-alt",
@@ -87,7 +108,6 @@ export const LOCATIONS: SkiLocation[] = [
         id: "soda-springs-lodge",
         name: "Glacier Gap Chalet",
         kind: "house",
-        tier: "normal",
         sleeps: 8,
         nights: 5,
         quotes: [{ guests: 8, totalUsd: 7459.5, asOf: "2026-08-28" }],
@@ -104,7 +124,6 @@ export const LOCATIONS: SkiLocation[] = [
         id: "soda-springs-hot-tub",
         name: "Soda Springs hot-tub house",
         kind: "house",
-        tier: "expensive",
         sleeps: 8,
         nights: 5,
         quotes: [{ guests: 8, totalUsd: 9737.03, asOf: "2026-08-28" }],

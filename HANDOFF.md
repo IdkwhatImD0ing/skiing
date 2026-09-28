@@ -107,6 +107,14 @@ Bill actually asked Airbnb about. That is correct behaviour, not a bug.
 Over `sleeps` sets `squeeze` — style it as a caption, not an alarm. Bill would take that
 trade.
 
+**The group is four now, and the house is the A-Frame.** `SCENARIO.people = 4` and
+`SCENARIO.stay = "soda-springs-a-frame"`, the house Bill is planning on: $3,187.80 for 4
+adults incl. tax off the Airbnb checkout, free cancellation before Dec 28. Its link hasn't
+been sent. The Donner Summit tiers moved to the houses quoted at four: the $1,680
+four-person place is *budget* (link sent 2026-09-28, total still Bill's earlier number),
+the A-Frame is *the pick*. The 8-guest houses are untiered, so they stay in /explore and
+off the trip page. One car at 4 seats, so there is no sawtooth at this headcount.
+
 **The mountain is decided: Boreal.** Bill: *"We are going to boreal."* `SCENARIO.resort`
 holds it. The home page opens on Boreal and puts the Oct 1 iRide buy-by in amber under
 it. The other ten mountains sit in a collapsed `<details>` below: still pickable for
@@ -293,8 +301,8 @@ research — where they disagree, ask him rather than overwriting.
 
 ## Open
 
-1. **The 4-person listing has no URL.** It's in `data/locations.ts` as `soda-springs-4p`,
-   third-cheapest per night, unlinkable in a proposal until Bill sends the link.
+1. **The A-Frame has no URL.** It's `soda-springs-a-frame`, the house the trip is priced on.
+   The four-person place's link came in 2026-09-28; its $1,680 hasn't been re-read off a checkout.
 2. **A second quote on any one house** — see the retraction above. Still the
    highest-value number left to gather.
 

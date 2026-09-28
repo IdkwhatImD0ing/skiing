@@ -49,7 +49,7 @@ const TIER_LABEL = { budget: "budget", normal: "the pick", expensive: "splurge" 
 
 /**
  * The trip Bill is actually planning, with the variables he has already
- * settled held still: eight of us, four full days, five nights over New Year
+ * settled held still: four of us, four full days, five nights over New Year
  * (Dec 29 – Jan 3), and the
  * cheapest pass a 21-year-old can buy at whichever mountain you pick. The
  * explorer at /explore is where those come loose again.
@@ -120,6 +120,7 @@ export function Scenario() {
   const [stayIdRaw, setStayId] = useState<string>("");
   const stay =
     stays.find((s) => s.id === stayIdRaw) ??
+    stays.find((s) => s.id === SCENARIO.stay) ??
     stays.find((s) => stayTotalFor(s, people)) ??
     stays[0];
   const stayId = stay?.id ?? "";
