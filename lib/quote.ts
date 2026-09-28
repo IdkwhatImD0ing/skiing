@@ -34,16 +34,13 @@ export type Quote = {
  * because the configurator marks the full carloads.
  */
 export const SEATS_PER_CAR = 4;
-const FOOD_PER_DAY = 30;
 /**
- * San Jose to Donner Summit and back is ~536 miles. At the AAA San Jose price
- * on 2026-08-27 ($5.58/gal, against $5.45 on the EIA weekly California series)
- * a full-size AWD SUV — what a group of eight actually rents — burns about
- * $167 of it. The old $90 assumed a small efficient car nobody on this trip is
- * driving. This is an August price standing in for a December one, so treat it
- * as a band rather than a point.
+ * Food and gas are left out of every total, Bill's call: everyone pays for
+ * their own food, and gas gets split at the pump. The receipt says so under
+ * the number. For reference, the last estimates were $30/person/day for food
+ * and ~$167 of gas per car for the ~536-mile round trip (AAA San Jose,
+ * 2026-08-27).
  */
-const GAS_PER_CAR = 167;
 
 /**
  * Takes the stay itself rather than an id to look up. It used to resolve the
@@ -97,21 +94,18 @@ export function quote(
         ? `${GEAR[gear].label} · ${kit.days} days`
         : GEAR[gear].label,
     },
-    {
-      label: "Car",
-      total: cars * (CAR[car].perTrip + GAS_PER_CAR),
-      perPerson: (cars * (CAR[car].perTrip + GAS_PER_CAR)) / headcount,
-      detail:
-        car === "rent"
-          ? `${cars} rented at $${CAR.rent.perTrip} · plus gas`
-          : `${cars} car${cars > 1 ? "s" : ""} · gas only`,
-    },
-    {
-      label: "Food",
-      total: FOOD_PER_DAY * nights * headcount,
-      perPerson: FOOD_PER_DAY * nights,
-      detail: `${nights} nights · $${FOOD_PER_DAY}/day`,
-    },
+    // Only a rented car costs anything the total counts; driving our own is
+    // gas, which is left out.
+    ...(CAR[car].perTrip > 0
+      ? [
+          {
+            label: "Car",
+            total: cars * CAR[car].perTrip,
+            perPerson: (cars * CAR[car].perTrip) / headcount,
+            detail: `${cars} rented at $${CAR[car].perTrip}`,
+          },
+        ]
+      : []),
   ];
 
   const total = lines.reduce((s, l) => s + l.total, 0);

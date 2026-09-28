@@ -27,7 +27,7 @@ export async function generateMetadata(
   const description =
     `${trip.people} of us at ${where}, ${tripDatesLabel(trip)}, ${trip.skiDays} full days. ` +
     (q
-      ? `${money(q.perPerson)} each: ${q.lift.option.name}, ${q.stay.name}, gear and gas.`
+      ? `${money(q.perPerson)} each: ${q.lift.option.name}, ${q.stay.name} and gear.`
       : "Pick the house and see what you pay.");
   const url = `/trips/${trip.slug}`;
   return {

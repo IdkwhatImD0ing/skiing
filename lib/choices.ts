@@ -298,7 +298,11 @@ export const DEFAULT_GEAR: GearKey = "sj";
  * close enough that $500 covers either.
  */
 export const CAR = {
-  own: { label: "We drive ourselves", perTrip: 0, note: "Gas only." },
+  own: {
+    label: "We drive ourselves",
+    perTrip: 0,
+    note: "Nothing in the total — gas gets split at the pump.",
+  },
   rent: {
     label: "Rent a car",
     perTrip: 500,

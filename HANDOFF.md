@@ -219,7 +219,10 @@ Lodging, all quoted for Dec 29 – Jan 3, one guest count each:
 | *(unlinked 4-person place)* | 4 | $1,680 | $84.00 |
 
 Still soft: San Jose rental at **$20/day** is Bill's estimate, never verified.
-Food at $30/day and gas at $90/car are assumptions baked into `lib/quote.ts`.
+**Food and gas are out of every total** (Bill's call, 2026-09-28): everyone covers their own
+food and gas gets split at the pump. The receipt says so under the breakdown, and driving our
+own cars adds nothing to the total. A rented car still counts. The last estimates ($30/day
+food, ~$167/car gas) are kept in a comment in `lib/quote.ts`.
 
 ---
 

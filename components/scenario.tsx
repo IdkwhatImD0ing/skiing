@@ -449,7 +449,7 @@ export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
               >
                 <span className={CHIP_NAME}>{CAR[k].label}</span>
                 <span className={CHIP_RATE}>
-                  {CAR[k].perTrip === 0 ? "gas only" : `${money(CAR[k].perTrip)}`}
+                  {CAR[k].perTrip === 0 ? "$0" : `${money(CAR[k].perTrip)}`}
                   {CAR[k].perTrip > 0 && <span className={CHIP_UNIT}>/car</span>}
                 </span>
                 <span className={CHIP_NOTE}>{CAR[k].note}</span>

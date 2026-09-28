@@ -43,6 +43,9 @@ export function Receipt({
           ))}
         </tbody>
       </table>
+      <p className="mt-2 text-[11.5px] text-muted">
+        Food and gas aren&rsquo;t included — everyone covers their own.
+      </p>
 
       <div className="mt-[22px] flex flex-wrap items-end gap-x-10 gap-y-[18px] border-t border-ridge pt-[22px]">
         {/* Your share, not the group's. It gets the size. */}
@@ -126,7 +129,7 @@ export function MobileTotal({ q }: { q: Quote }) {
       <span className="font-data tabular-nums text-[1.35rem] font-bold leading-none tracking-[-0.03em] text-glacier">
         {money(q.perPerson)}
       </span>
-      <span className="text-[11px] text-muted">per person, all in</span>
+      <span className="text-[11px] text-muted">per person, before food and gas</span>
     </div>
   );
 }
