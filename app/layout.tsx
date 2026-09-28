@@ -4,7 +4,8 @@ import "./globals.css";
 import { HeadcountProvider } from "@/components/headcount";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { SCENARIO } from "@/lib/types";
+import { SCENARIO, tripDatesLabel } from "@/lib/types";
+import { OG_BASE, SITE_NAME, SITE_URL } from "@/lib/site";
 
 /* Archivo carries a width axis — set wide for the signage voice. */
 const archivo = Archivo({
@@ -26,28 +27,32 @@ const chivoMono = Chivo_Mono({
 });
 
 /**
- * Written against what the page actually does now. The old copy described a
- * different site: it sold "night laps to Boreal, lights until 9" when the trip
- * is four full days across eleven mountains, invited you to "set the
- * headcount" when the headcount is fixed at eight, and quoted a $60/day
- * yardstick that the trail markers no longer use. Numbers come from SCENARIO
- * so the description cannot drift from the page again.
+ * Written against what the page actually does now, with numbers from SCENARIO
+ * so the description cannot drift from the page. This is the home page's
+ * card; the explorer and each trip page set their own, and the title template
+ * keeps the site name on all of them. The share image is
+ * app/opengraph-image.tsx.
  */
+const HOME_TITLE = `${SITE_NAME} — ${SCENARIO.people} people, ${SCENARIO.skiDays} ski days in Tahoe`;
+const HOME_DESCRIPTION =
+  `San Jose to Tahoe over New Year, ${tripDatesLabel()}. Every mountain priced for ` +
+  `${SCENARIO.skiDays} full days at ${SCENARIO.age}, the houses near each, and one number at ` +
+  `the end: what you pay, not what the group pays.`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tahoe-night-laps.local"),
-  title: `Night laps — ${SCENARIO.people} people, ${SCENARIO.skiDays} ski days in Tahoe`,
-  description:
-    `San Jose to Tahoe over New Year. Eleven mountains priced for ${SCENARIO.skiDays} full days at ` +
-    `${SCENARIO.age}, three houses at each, and one number at the end: what you pay, not what the group pays.`,
+  metadataBase: SITE_URL,
+  applicationName: SITE_NAME,
+  title: { default: HOME_TITLE, template: `%s · ${SITE_NAME}` },
+  description: HOME_DESCRIPTION,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: `Night laps — ${SCENARIO.people} people, ${SCENARIO.skiDays} ski days in Tahoe`,
+    ...OG_BASE,
+    title: HOME_TITLE,
     description:
-      "Eleven mountains, three houses each, one number: your share. Every price links to the page it came from.",
-    type: "website",
+      "Every Tahoe mountain priced for New Year, one number at the end: your share. Every price links to the page it came from.",
+    url: "/",
   },
-  // summary, not summary_large_image: there is no OG image to show, and the
-  // large card just renders blank space where one should be.
-  twitter: { card: "summary" },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {

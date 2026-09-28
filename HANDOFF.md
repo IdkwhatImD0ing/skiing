@@ -118,9 +118,30 @@ of houses by tier, a hero `blurb` and an amber `deadline`. The home page lists e
 under "Trips we're taking", and the header carries one link per trip (`components/trip-nav.tsx`,
 marked with `aria-current` on its own page). Unknown slugs 404 (`dynamicParams = false`).
 
+**Gear is priced for the days you hold it.** Bill: *"we have 6 days so we need to rent for
+6 days, 4 ski days + 2 travel days."* Each `GEAR` option has `days: "trip" | "ski"` and a
+`price(n)`, and `gearCost()` picks the count: San Jose gear is held drive-up day to
+drive-home day (`nights + 1` = 6), which is Sports Basement's 5–9 day bracket, $145. Up
+there is only the 4 ski days at Tahoe Dave's, $249. Their guide says pickup and return days
+are free, which would make it $85, but that isn't assumed. Every gear card links its rate
+card. The shared markup is `components/gear-chips.tsx`.
+
+**Metadata.** `lib/site.ts` holds `SITE_URL`, taken from Vercel's
+`VERCEL_PROJECT_PRODUCTION_URL` (the old `metadataBase` was a made-up `.local` host, and an
+explicit one overrides Vercel's, so every share image pointed nowhere), plus `OG_BASE` and
+`planQuote()`. A page-level `openGraph` *replaces* the parent's, so every page spreads
+`OG_BASE` and needs its own `opengraph-image.tsx`. Home, /explore and each trip have one
+(`components/og-card.tsx`); a trip's card and description lead with the per-person total.
+`app/icon.tsx` replaces create-next-app's favicon.
+
 **Defaults are Bill's: gear rented in San Jose, and we drive our own cars.** Both the trip
 pages and /explore open on `sj` and `own`, and "pick this" sits on San Jose. Renting up there
 and renting a car are still one tap away.
+
+Its houses, cheapest first: the $1,680 four-person place, **Castle Creek Chalet** (Truckee
+condo, $2,671 for 4 adults, Bill's "second option"), and the A-Frame. The plan's own `stay`
+is labelled "the plan" on its card, and the middle tier reads "mid-price" rather than "the
+pick" on trip pages.
 
 The first is **`boreal-new-year`**: Bill, *"We are going to boreal"*, four of us, in the
 **Modern A-Frame**. That's $3,187.80 for 4 adults incl. tax off the Airbnb checkout, free

@@ -2,12 +2,22 @@
 
 import { useMemo, useState } from "react";
 import { getLocation } from "@/data/locations";
-import { liftChoices, GEAR, CAR, type GearKey, type CarKey } from "@/lib/choices";
+import {
+  liftChoices,
+  GEAR,
+  CAR,
+  DEFAULT_CAR,
+  DEFAULT_GEAR,
+  gearCost,
+  type GearKey,
+  type CarKey,
+} from "@/lib/choices";
 import { money, stayTotalFor } from "@/lib/cost";
 import { quote, SEATS_PER_CAR } from "@/lib/quote";
-import { SKI_DAYS, listingUrl } from "@/lib/types";
+import { SCENARIO, SKI_DAYS, listingUrl } from "@/lib/types";
 import { useHeadcount, HEAD_RANGE } from "@/components/headcount";
 import { Marker } from "@/components/ui";
+import { GearChips } from "@/components/gear-chips";
 import { Receipt, NoReceipt, MobileTotal } from "@/components/receipt";
 import {
   CHIP,
@@ -46,8 +56,8 @@ export function Configurator() {
   const [liftId, setLiftId] = useState(
     (choices.find((c) => c.coversTrip && c.tier === null) ?? choices[0])?.id ?? ""
   );
-  const [gear, setGear] = useState<GearKey>("sj");
-  const [car, setCar] = useState<CarKey>("own");
+  const [gear, setGear] = useState<GearKey>(DEFAULT_GEAR);
+  const [car, setCar] = useState<CarKey>(DEFAULT_CAR);
 
   const lift = choices.find((c) => c.id === liftId) ?? choices[0];
   const location = getLocation(lift.locationSlug);
@@ -62,6 +72,8 @@ export function Configurator() {
   const stayId = stay?.id ?? "";
 
   const q = quote(lift, stay, gear, car, headcount);
+  // Drive-up day through drive-home day: what gear from San Jose is held for.
+  const tripDays = (stay?.nights ?? SCENARIO.nights) + 1;
 
   return (
     <div className={LAYOUT}>
@@ -268,42 +280,24 @@ export function Configurator() {
         <h2 className={STEP_H} id="s-gear">
           <span className={STEP_N}>4</span> Gear
         </h2>
-        <div className={CHIPS} role="group" aria-labelledby="s-gear">
-          {(Object.keys(GEAR) as GearKey[]).map((k) => (
-            <button
-              key={k}
-              type="button"
-              className={CHIP}
-              aria-pressed={k === gear}
-              onClick={() => setGear(k)}
-            >
-              <span className={CHIP_NAME}>
-                {GEAR[k].label}
-                {GEAR[k].recommended && (
-                  <span className={`${PILL} border-sodium/45 bg-sodium/15 text-sodium`}>
-                    pick this
-                  </span>
-                )}
-              </span>
-              <span className={CHIP_RATE}>
-                {GEAR[k].perDay === 0
-                  ? "free"
-                  : /* cents only when there are cents: these are $62.25 and
-                     $21.25, and rounding them to $62 and $21 quietly
-                     misstates a number the page just went and verified. */
-                  money(GEAR[k].perDay, GEAR[k].perDay % 1 !== 0)}
-                {GEAR[k].perDay > 0 && <span className={CHIP_UNIT}>/day</span>}
-              </span>
-              <span className={CHIP_NOTE}>{GEAR[k].note}</span>
-            </button>
-          ))}
-        </div>
+        <GearChips
+          gear={gear}
+          onPick={setGear}
+          skiDays={SKI_DAYS}
+          tripDays={tripDays}
+          labelledBy="s-gear"
+        />
         {/* Bill talking. Amber rule, same voice as a provenance note. */}
         <p className="mt-[18px] max-w-[64ch] border-l-2 border-sodium/60 pl-[13px] text-[13.5px] leading-relaxed text-snow/82">
           <strong className="font-semibold text-sodium">Rent in San Jose.</strong>{" "}
-          {GEAR.sj.why} It is $
-          {(GEAR.onsite.perDay - GEAR.sj.perDay) * SKI_DAYS} cheaper than renting
-          up there over four days — worth the boot bags in the trunk.
+          {GEAR.sj.why} Even paying for all{" "}
+          {gearCost("sj", SKI_DAYS, tripDays).days} days, it is{" "}
+          {money(
+            gearCost("onsite", SKI_DAYS, tripDays).perPerson -
+              gearCost("sj", SKI_DAYS, tripDays).perPerson
+          )}{" "}
+          less than renting up there for the {SKI_DAYS} ski days — worth the
+          boot bags in the trunk.
         </p>
       </section>
 

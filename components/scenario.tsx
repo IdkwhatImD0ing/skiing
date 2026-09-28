@@ -9,8 +9,9 @@ import {
   liftChoices,
   cheapestAccess,
   eligibleAt,
-  GEAR,
   CAR,
+  DEFAULT_CAR,
+  DEFAULT_GEAR,
   type GearKey,
   type CarKey,
 } from "@/lib/choices";
@@ -25,6 +26,7 @@ import {
   type StayTier,
 } from "@/lib/types";
 import { Marker } from "@/components/ui";
+import { GearChips } from "@/components/gear-chips";
 import { Receipt, NoReceipt, MobileTotal } from "@/components/receipt";
 import {
   CHIP,
@@ -131,9 +133,8 @@ export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
     : undefined;
   const others = chosen ? board.filter((r) => r !== chosen) : board;
 
-  // Bill's defaults: gear from San Jose, and we drive our own cars.
-  const [gear, setGear] = useState<GearKey>("sj");
-  const [car, setCar] = useState<CarKey>("own");
+  const [gear, setGear] = useState<GearKey>(DEFAULT_GEAR);
+  const [car, setCar] = useState<CarKey>(DEFAULT_CAR);
 
   const picked = board.find((r) => r.resort.slug === resortSlug) ?? board[0];
   const location = getLocation(picked.resort.locationSlug);
@@ -340,8 +341,20 @@ export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
                   >
                     <span className={`${CHIP_NAME} pr-16`}>{s.name}</span>
                     <span className={CHIP_META}>
-                      {tier && (
-                        <span className="text-sodium">{TIER_LABEL[tier]} · </span>
+                      {/* On a trip page the house Bill is planning on says so;
+                          "the pick" would otherwise land on whichever house
+                          happens to be priced in the middle. */}
+                      {s.id === plan.stay ? (
+                        <span className="text-sodium">the plan · </span>
+                      ) : (
+                        tier && (
+                          <span className="text-sodium">
+                            {plan.stay && tier === "normal"
+                              ? "mid-price"
+                              : TIER_LABEL[tier]}{" "}
+                            ·{" "}
+                          </span>
+                        )
                       )}
                       sleeps {s.sleeps}
                       {s.sleepsMax ? `–${s.sleepsMax}` : ""} · {s.nights} nights
@@ -403,36 +416,13 @@ export function Scenario({ plan = SCENARIO }: { plan?: Plan }) {
           <h2 className={STEP_H} id="s-gear">
             <span className={STEP_N}>3</span> Gear
           </h2>
-          <div className={CHIPS} role="group" aria-labelledby="s-gear">
-            {(Object.keys(GEAR) as GearKey[]).map((k) => (
-              <button
-                key={k}
-                type="button"
-                className={CHIP}
-                aria-pressed={k === gear}
-                onClick={() => setGear(k)}
-              >
-                <span className={CHIP_NAME}>
-                  {GEAR[k].label}
-                  {GEAR[k].recommended && (
-                    <span className={`${PILL} border-sodium/45 bg-sodium/15 text-sodium`}>
-                      pick this
-                    </span>
-                  )}
-                </span>
-                <span className={CHIP_RATE}>
-                  {GEAR[k].perDay === 0
-                    ? "free"
-                    : /* cents only when there are cents: these are $62.25 and
-                         $21.25, and rounding them to $62 and $21 quietly
-                         misstates a number the page just went and verified. */
-                      money(GEAR[k].perDay, GEAR[k].perDay % 1 !== 0)}
-                  {GEAR[k].perDay > 0 && <span className={CHIP_UNIT}>/day</span>}
-                </span>
-                <span className={CHIP_NOTE}>{GEAR[k].note}</span>
-              </button>
-            ))}
-          </div>
+          <GearChips
+            gear={gear}
+            onPick={setGear}
+            skiDays={skiDays}
+            tripDays={plan.nights + 1}
+            labelledBy="s-gear"
+          />
         </section>
 
         <section aria-labelledby="s-car">

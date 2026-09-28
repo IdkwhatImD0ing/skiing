@@ -1,5 +1,5 @@
 import { stayTotalFor } from "@/lib/cost";
-import { CAR, GEAR, type CarKey, type GearKey, type LiftChoice } from "@/lib/choices";
+import { CAR, GEAR, gearCost, type CarKey, type GearKey, type LiftChoice } from "@/lib/choices";
 import { SKI_DAYS, type Stay } from "@/lib/types";
 
 export type QuoteLine = {
@@ -70,6 +70,9 @@ export function quote(
   // it — gear is rented for the days we ski, whatever the ticket happens to be.
   const skiDays = SKI_DAYS;
   const cars = Math.ceil(headcount / SEATS_PER_CAR);
+  // Nights plus one: the drive-up day through the drive-home day. Gear rented
+  // in town is held for all of it; see GEAR.
+  const kit = gearCost(gear, skiDays, nights + 1);
 
   const lines: QuoteLine[] = [
     {
@@ -88,9 +91,11 @@ export function quote(
     },
     {
       label: "Gear",
-      total: GEAR[gear].perDay * skiDays * headcount,
-      perPerson: GEAR[gear].perDay * skiDays,
-      detail: GEAR[gear].label,
+      total: kit.perPerson * headcount,
+      perPerson: kit.perPerson,
+      detail: kit.perPerson
+        ? `${GEAR[gear].label} · ${kit.days} days`
+        : GEAR[gear].label,
     },
     {
       label: "Car",

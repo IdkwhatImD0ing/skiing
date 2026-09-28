@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Configurator } from "@/components/configurator";
+import { OG_BASE, SITE_NAME } from "@/lib/site";
+
+const DESCRIPTION =
+  "Every pass, house, and headcount we have a price for. The home page holds eight people and four days still; here nothing is held.";
 
 export const metadata: Metadata = {
-  title: "Explore every option — Night laps",
-  description:
-    "Every pass, house, and headcount we have a price for. The trip page holds eight people and four days still; here nothing is held.",
+  title: "Explore every option",
+  description: DESCRIPTION,
+  alternates: { canonical: "/explore" },
+  openGraph: {
+    ...OG_BASE,
+    title: `Explore every option · ${SITE_NAME}`,
+    description: DESCRIPTION,
+    url: "/explore",
+  },
 };
 
 export default function Explore() {

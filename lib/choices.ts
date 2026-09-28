@@ -201,7 +201,48 @@ export function cheapestAccess(
   );
 }
 
+/**
+ * Gear is priced for the days you actually hold it, which is not the same for
+ * every option. Rent in San Jose and the skis ride up with us and come home
+ * with us: Dec 29 to Jan 3 is six days, four on snow and two in the car, and
+ * Bill wants those six paid for. Rent up there and you only hold them on the
+ * four ski days. `days` says which count applies; `price` turns it into what
+ * one person pays.
+ */
+export type GearOption = {
+  label: string;
+  /** "trip" bills every day of the trip, travel days included; "ski" only days on snow. */
+  days: "trip" | "ski";
+  /** What one person pays to hold this gear for `n` days. */
+  price: (n: number) => number;
+  note: string;
+  recommended: boolean;
+  why: string;
+  /** Where to book it, and the rate card the price came from. */
+  source?: string;
+  url?: string;
+};
+
 export const GEAR = {
+  /**
+   * Sports Basement (Sunnyvale and Campbell) prices the Adult Basic package
+   * on duration brackets, verbatim from the rate table: 1 day $50, "weekend
+   * (2-4 days)" $85, "week (5-9 days)" $145, season $290. Six days is the week
+   * bracket. Their season guide also says pickup and return days are free,
+   * which would bill six days as four at $85 — worth asking at the counter,
+   * but not assumed here. research/south-bay-rentals.json.
+   */
+  sj: {
+    label: "Rent in San Jose",
+    days: "trip",
+    price: (n) => (n <= 0 ? 0 : n === 1 ? 50 : n <= 4 ? 85 : n <= 9 ? 145 : 290),
+    note: "Sports Basement, flat by the bracket: six days is the 5–9 day rate. Fills the trunk, and you're stuck with whatever you picked.",
+    // Bill's call: this is the default, over renting at the resort.
+    recommended: true,
+    why: "Pick it up before we leave and it rides up with us.",
+    source: "sportsbasement.com — snow rental rates",
+    url: "https://www.sportsbasement.com/pages/snow-rental-rates",
+  },
   /**
    * The $59 this used to carry was attributed to Boreal and is unsupportable:
    * Boreal's rentals page renders the single word "RENTALS", its CMS payload
@@ -213,35 +254,38 @@ export const GEAR = {
    */
   onsite: {
     label: "Rent up there",
-    perDay: 62.25,
-    note: "Costs more, but nothing rides in the car and you can swap if the snow changes. Helmet included.",
+    days: "ski",
+    price: (n) => 62.25 * n,
+    note: "Tahoe Dave's in Truckee, only for the days on snow. Nothing rides in the car and you can swap if the snow changes. Helmet included.",
     recommended: false,
     why: "",
-  },
-  /**
-   * Not really a daily rate — Sports Basement charges $85 flat for anything in
-   * the 2-4 day bracket and doesn't count pickup or return day, so four ski
-   * days land at $21.25 each. The old $20 was Bill's estimate and was probably
-   * The Ski Renter of Mountain View, which is genuinely $80 for the bracket.
-   */
-  sj: {
-    label: "Rent in San Jose",
-    perDay: 21.25,
-    note: "$85 flat for the whole trip at Sports Basement — but it fills the trunk and you're stuck with whatever you picked.",
-    // Bill's call: this is the default, over renting at the resort.
-    recommended: true,
-    why: "Pick it up the night before and it rides up with us.",
+    source: "tahoedaves.com — rates",
+    url: "https://tahoedaves.com/rates/",
   },
   own: {
     label: "I have my own",
-    perDay: 0,
+    days: "ski",
+    price: () => 0,
     note: "Nothing to rent — still takes the same space in the car.",
     recommended: false,
     why: "",
   },
-} as const;
+} satisfies Record<string, GearOption>;
+
+/**
+ * What one person pays for gear on a trip of `tripDays` with `skiDays` on
+ * snow, and how many days that pays for.
+ */
+export function gearCost(key: GearKey, skiDays: number, tripDays: number) {
+  const g: GearOption = GEAR[key];
+  const days = g.days === "trip" ? tripDays : skiDays;
+  return { days, perPerson: g.price(days) };
+}
 
 export type GearKey = keyof typeof GEAR;
+
+/** Bill's default: gear from San Jose. */
+export const DEFAULT_GEAR: GearKey = "sj";
 
 /**
  * Flat per car, per trip — not per day. Turo came in at $450 and Hertz was
@@ -257,3 +301,6 @@ export const CAR = {
 } as const;
 
 export type CarKey = keyof typeof CAR;
+
+/** Bill's default: we drive our own cars. */
+export const DEFAULT_CAR: CarKey = "own";

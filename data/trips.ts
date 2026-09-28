@@ -20,10 +20,16 @@ export const TRIPS: Plan[] = [
     resort: "boreal",
     blurb:
       "That is New Year week, when most passes in Tahoe are blacked out; Boreal’s 4-pack has no blackout dates at all.",
-    // The A-Frame is the house Bill is planning on; the four-person place is
-    // the cheaper one he sent alongside it.
+    // The A-Frame is the house Bill is planning on. The four-person place is
+    // the cheap one, and Castle Creek Chalet in Truckee sits between them —
+    // Bill: "this should be the second option". Tiers order the cards, so
+    // the A-Frame is the dearest of the three while still opening selected.
     stay: "soda-springs-a-frame",
-    shortlist: { budget: "soda-springs-4p", normal: "soda-springs-a-frame" },
+    shortlist: {
+      budget: "soda-springs-4p",
+      normal: "truckee-castle-creek",
+      expensive: "soda-springs-a-frame",
+    },
     deadline: {
       lead: "Buy your Boreal iRide 4-Pack online before Oct 1.",
       detail:

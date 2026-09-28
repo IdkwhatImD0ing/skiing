@@ -5,6 +5,8 @@ import { Scenario } from "@/components/scenario";
 import { TRIPS, getTrip } from "@/data/trips";
 import { getResort } from "@/data/resorts";
 import { tripDatesLabel } from "@/lib/types";
+import { money } from "@/lib/cost";
+import { OG_BASE, SITE_NAME, planQuote } from "@/lib/site";
 
 /** Every trip is known at build time; anything else is a 404, not a guess. */
 export const dynamicParams = false;
@@ -19,9 +21,25 @@ export async function generateMetadata(
   const trip = getTrip((await props.params).slug);
   if (!trip) return {};
   const where = getResort(trip.resort ?? "")?.name ?? "Tahoe";
+  const q = planQuote(trip);
+  // Leads with the number, because that is what a friend opening the link
+  // wants to know. Without a full price it says so rather than guessing.
+  const description =
+    `${trip.people} of us at ${where}, ${tripDatesLabel(trip)}, ${trip.skiDays} full days. ` +
+    (q
+      ? `${money(q.perPerson)} each: ${q.lift.option.name}, ${q.stay.name}, gear and gas.`
+      : "Pick the house and see what you pay.");
+  const url = `/trips/${trip.slug}`;
   return {
-    title: `${trip.title} — Night laps`,
-    description: `${trip.people} of us at ${where}, ${tripDatesLabel(trip)}. ${trip.skiDays} full days, and one number: what you pay.`,
+    title: trip.title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      ...OG_BASE,
+      title: `${trip.title} · ${SITE_NAME}`,
+      description,
+      url,
+    },
   };
 }
 
