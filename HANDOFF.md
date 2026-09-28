@@ -120,11 +120,11 @@ marked with `aria-current` on its own page). Unknown slugs 404 (`dynamicParams =
 
 **Gear is priced for the days you hold it.** Bill: *"we have 6 days so we need to rent for
 6 days, 4 ski days + 2 travel days."* Each `GEAR` option has `days: "trip" | "ski"` and a
-`price(n)`, and `gearCost()` picks the count: San Jose gear is held drive-up day to
-drive-home day (`nights + 1` = 6), which is Sports Basement's 5–9 day bracket, $145. Up
-there is only the 4 ski days at Tahoe Dave's, $249. Their guide says pickup and return days
-are free, which would make it $85, but that isn't assumed. Every gear card links its rate
-card. The shared markup is `components/gear-chips.tsx`.
+`price(n)`, and `gearCost()` picks the count. San Jose gear is held from the drive-up day
+to the drive-home day (`nights + 1` = 6). Sports Basement doesn't bill pickup and return
+days (their words, which Bill sent), so six days held is four billed: the 2–4 day bracket,
+**$85**. Up there is only the 4 ski days at Tahoe Dave's, $249. Every gear card links its
+rate card. The shared markup is `components/gear-chips.tsx`.
 
 **Metadata.** `lib/site.ts` holds `SITE_URL`, taken from Vercel's
 `VERCEL_PROJECT_PRODUCTION_URL` (the old `metadataBase` was a made-up `.local` host, and an

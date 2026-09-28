@@ -290,8 +290,8 @@ export function Configurator() {
         {/* Bill talking. Amber rule, same voice as a provenance note. */}
         <p className="mt-[18px] max-w-[64ch] border-l-2 border-sodium/60 pl-[13px] text-[13.5px] leading-relaxed text-snow/82">
           <strong className="font-semibold text-sodium">Rent in San Jose.</strong>{" "}
-          {GEAR.sj.why} Even paying for all{" "}
-          {gearCost("sj", SKI_DAYS, tripDays).days} days, it is{" "}
+          {GEAR.sj.why} Held all {gearCost("sj", SKI_DAYS, tripDays).days}{" "}
+          days, with pickup and return free, it is{" "}
           {money(
             gearCost("onsite", SKI_DAYS, tripDays).perPerson -
               gearCost("sj", SKI_DAYS, tripDays).perPerson

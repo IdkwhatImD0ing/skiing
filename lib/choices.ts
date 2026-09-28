@@ -227,16 +227,22 @@ export const GEAR = {
   /**
    * Sports Basement (Sunnyvale and Campbell) prices the Adult Basic package
    * on duration brackets, verbatim from the rate table: 1 day $50, "weekend
-   * (2-4 days)" $85, "week (5-9 days)" $145, season $290. Six days is the week
-   * bracket. Their season guide also says pickup and return days are free,
-   * which would bill six days as four at $85 — worth asking at the counter,
-   * but not assumed here. research/south-bay-rentals.json.
+   * (2-4 days)" $85, "week (5-9 days)" $145, season $290. And the pickup and
+   * return days are free — their words, which Bill sent: "your pickup and
+   * return days are free! F-R-E-E... you can book a 4-day 'weekend' rental
+   * picking up on a Friday and not have to return your gear until Wednesday."
+   * So we hold it six days, Dec 29 to Jan 3, and pay for the four between:
+   * the $85 bracket. research/south-bay-rentals.json.
    */
   sj: {
     label: "Rent in San Jose",
     days: "trip",
-    price: (n) => (n <= 0 ? 0 : n === 1 ? 50 : n <= 4 ? 85 : n <= 9 ? 145 : 290),
-    note: "Sports Basement, flat by the bracket: six days is the 5–9 day rate. Fills the trunk, and you're stuck with whatever you picked.",
+    price: (n) => {
+      // Pickup and return days are free, so they come off before the bracket.
+      const billed = Math.max(1, n - 2);
+      return n <= 0 ? 0 : billed === 1 ? 50 : billed <= 4 ? 85 : billed <= 9 ? 145 : 290;
+    },
+    note: "Sports Basement: pickup and return days are free, so six days bills as the 2–4 day “weekend” rate. Fills the trunk, and you're stuck with whatever you picked.",
     // Bill's call: this is the default, over renting at the resort.
     recommended: true,
     why: "Pick it up before we leave and it rides up with us.",
