@@ -1,10 +1,35 @@
-import type { SkiLocation } from "@/lib/types";
+import type { DateRange, SkiLocation } from "@/lib/types";
 
 /**
  * Prices marked `researching` are being verified by research agents against
  * primary sources. Nothing here is invented — a number is either confirmed
  * with a source, or it is null.
  */
+/**
+ * Epic's restricted peak dates for 26/27, off the product record's own
+ * RestrictedDates object (research/epic-ikon-breakeven.json). Dec 26–31 takes
+ * two of our four days, so the restricted pass can't cover this trip — the
+ * "With peak dates" tier lifts it and is what the page ends up pricing.
+ */
+const EPIC_PEAK: DateRange[] = [
+  { from: "2026-11-27", to: "2026-11-28" },
+  { from: "2026-12-26", to: "2026-12-31" },
+  { from: "2027-01-16", to: "2027-01-16" },
+  { from: "2027-02-13", to: "2027-02-14" },
+];
+const EPIC_CAPTION =
+  "Restricted Dec 26–31, which takes our Dec 30 and 31 — this trip needs the peak version, +$63. Every Epic product goes off sale Dec 6.";
+
+/**
+ * Ikon Session and Ikon Base share one 26/27 blackout calendar, as published
+ * on Sun Peaks' and Mammoth's Ikon pages.
+ */
+const IKON_BLACKOUT: DateRange[] = [
+  { from: "2026-12-26", to: "2026-12-30" },
+  { from: "2027-01-16", to: "2027-01-17" },
+  { from: "2027-02-13", to: "2027-02-14" },
+];
+
 export const LOCATIONS: SkiLocation[] = [
   {
     slug: "donner-summit",
@@ -114,7 +139,7 @@ export const LOCATIONS: SkiLocation[] = [
         coverage: "pack",
         totalUsd: 239,
         tiers: [{ label: "Child 12 & under", totalUsd: 179, maxAge: 12 }],
-        blackouts: "Buy before Oct 1 — that is the listed price break, not the ski dates.",
+        blackouts: "No blackout dates, so New Year is fine. Buy before Oct 1 — that is the listed price break, not the ski dates.",
         transferable: null,
         source: "rideboreal.com — iRide 4-Pack",
         sourceUrl: "https://www.rideboreal.com/day-access/tickets/iride/",
@@ -165,7 +190,8 @@ export const LOCATIONS: SkiLocation[] = [
         coverage: "unlimited",
         totalUsd: 279,
         tiers: [{ label: "Young adult 18–23", totalUsd: 264, minAge: 18, maxAge: 23 }],
-        blackouts: "Buy before Oct 1 for this price.",
+        blackouts:
+          "Buy before Oct 1 for this price. No blackouts, but Soda runs Mon, Thu, Fri and weekends — our Dec 30 is a Wednesday, so check the holiday schedule or ski Jan 3 instead.",
         transferable: false,
         source: "skisodasprings.com — Unlimited Pass",
         sourceUrl: "https://www.skisodasprings.com/plan-your-trip/tickets-passes/unlimited-pass",
@@ -181,8 +207,9 @@ export const LOCATIONS: SkiLocation[] = [
         days: 4,
         coverage: "pack",
         totalUsd: 359,
-        tiers: [{ label: "Add peak dates", totalUsd: 422 }],
-        blackouts: "Peak dates cost +$63 total.",
+        offDates: EPIC_PEAK,
+        tiers: [{ label: "With peak dates", totalUsd: 422, liftsOffDates: true }],
+        blackouts: EPIC_CAPTION,
         transferable: false,
         source: "epicpass.com — Epic Day Pass",
         sourceUrl: "https://www.epicpass.com/passes/epic-day-pass.aspx",
@@ -204,40 +231,40 @@ export const LOCATIONS: SkiLocation[] = [
       },
       {
         id: "sugar-bowl-day",
-        name: "Sugar Bowl day ticket",
+        name: "Sugar Bowl day ticket (Saturday / holiday rate)",
         resort: "Sugar Bowl",
         resortSlugs: ["sugar-bowl"],
         days: 1,
         coverage: "day",
-        totalUsd: 89,
-        tiers: [{ label: "Young adult 13–22", totalUsd: 77, minAge: 13, maxAge: 22 }],
+        totalUsd: 114,
+        tiers: [{ label: "Young adult 13–22", totalUsd: 90, minAge: 13, maxAge: 22 }],
         blackouts:
-          "Sun–Fri online rate. Saturdays and holidays cost more, and the window rate is nearly double.",
+          "Online Saturday/holiday rate, priced on all four days: Jan 1 is a holiday and Jan 2 a Saturday, and Sugar Bowl has not posted whether Dec 30–31 count as holiday. The window rate is more than double.",
         transferable: true,
         status: "verified",
         source: "sugarbowl.com/tickets",
         sourceUrl: "https://www.sugarbowl.com/tickets",
         asOf: "2026-08-27",
         season: "2026-27",
-        note: "At 21 the Young Adult 13–22 band applies: $77/day against $89 adult, so four days is $308. That beats all three of Sugar Bowl's own announced multi-packs, which are flat-rate with no age band — Midweek Magic works out at $344 for four days, the Select 3-Pack at $374. The $77 is a dynamic starting rate that climbs with demand, and 26/27 tickets are not on sale yet: the page says booking opens in the fall.",
+        note: "Priced at the holiday rate because our dates are New Year: $90/day at 21 against $114 adult, so four days is $360. If Sugar Bowl prices Dec 30–31 as ordinary Sun–Fri days ($77 young adult) it drops to $334. Off the holidays the same four days would be $308. Sugar Bowl's own multi-packs don't rescue it: Midweek Magic runs Mon–Thu and the Select 3-Pack is non-holiday, and the Anytime 3-Pack that does work over New Year is $199/day. These are dynamic starting rates that climb with demand — holiday week will climb furthest — and 26/27 tickets are not on sale yet: the page says booking opens in the fall.",
       },
       {
         id: "donner-ski-ranch-4day",
-        name: "Donner Ski Ranch · 3 Old School days + 1 regular",
+        name: "Donner Ski Ranch · 4 regular days",
         resort: "Donner Ski Ranch",
         resortSlugs: ["donner-ski-ranch"],
         days: 4,
         coverage: "trip",
-        totalUsd: 326,
+        totalUsd: 476,
         blackouts:
-          "Old School rate runs Tue–Thu only, so the fourth day is a full-price ticket. Window sales on the day — no online, no reservations.",
+          "The $69 Old School rate runs Tue–Thu, and last season it only started Jan 6 — so none of our New Year days get it. Window sales on the day — no online, no reservations.",
         transferable: true,
         status: "last-season",
         source: "donnerskiranch.com/pricing",
         sourceUrl: "https://www.donnerskiranch.com/pricing",
         asOf: "2026-08-27",
         season: "2025-26",
-        note: "Last season's prices: the page is still headed “Pricing 2025 - 2026” and no 26/27 day rate is published anywhere. Three midweek Old School days at $69 plus one regular $119 day = $326; four Old School days cannot fit in one trip. No age band — adult is 18–69, so 21 pays full. The real risk here is logistics, not price: window-only, day-of, first-come rentals, which for eight people means arriving early with no guarantee of gear.",
+        note: "Last season's prices: the page is still headed “Pricing 2025 - 2026” and no 26/27 day rate is published anywhere. Four regular days at $119 = $476. Off the holidays, three midweek Old School days at $69 plus one regular day would be $326, but last season Old School Days ran from Jan 6, after New Year. No age band — adult is 18–69, so 21 pays full. The real risk here is logistics, not price: window-only, day-of, first-come rentals, which for eight people over New Year means arriving early with no guarantee of gear.",
       },
     ],
     rentals: [
@@ -336,8 +363,9 @@ export const LOCATIONS: SkiLocation[] = [
         days: 4,
         coverage: "pack",
         totalUsd: 359,
-        tiers: [{ label: "Add peak dates", totalUsd: 422 }],
-        blackouts: "Peak dates cost +$63 total.",
+        offDates: EPIC_PEAK,
+        tiers: [{ label: "With peak dates", totalUsd: 422, liftsOffDates: true }],
+        blackouts: EPIC_CAPTION,
         transferable: false,
         source: "epicpass.com — Epic Day Pass",
         sourceUrl: "https://www.epicpass.com/passes/epic-day-pass.aspx",
@@ -357,13 +385,13 @@ export const LOCATIONS: SkiLocation[] = [
           { label: "Youth 13–17", totalUsd: 396, minAge: 13, maxAge: 17 },
           { label: "Child 5–12", totalUsd: 308, minAge: 5, maxAge: 12 },
         ],
-        blackouts: "None — unrestricted, works any day including holidays.",
+        blackouts: "None — unrestricted, so it works over New Year.",
         transferable: null,
         source: "shop.palisadestahoe.com — multi-pack lift tickets",
         sourceUrl: "https://shop.palisadestahoe.com/l/winter-lift-tickets/multi-pack-lift-tickets/p/ticketpacks",
         status: "verified",
         asOf: "2026-08-28",
-        note: "Found by Bill. $110/day. Beats the Ikon Session Pass on the same mountain for anyone 23+: $89 cheaper AND unrestricted, where Session has no peak dates at any price.",
+        note: "Found by Bill. $110/day, and the only way onto Palisades that covers all four of our days: the midweek pack loses New Year's Day and the Saturday, and Ikon Session is blacked out on Dec 30.",
       },
       {
         id: "palisades-4pack-midweek",
@@ -377,8 +405,13 @@ export const LOCATIONS: SkiLocation[] = [
           { label: "Youth 13–17", totalUsd: 329, minAge: 13, maxAge: 17 },
           { label: "Child 5–12", totalUsd: 256, minAge: 5, maxAge: 12 },
         ],
+        // Weekends and New Year's Day are certain. Palisades hasn't published
+        // which December days count as holiday, so Dec 30–31 stay counted as
+        // usable here — the pack falls short of our trip either way.
+        offWeekdays: [0, 6],
+        offDates: [{ from: "2027-01-01", to: "2027-01-01" }],
         blackouts:
-          "Midweek and non-holiday only — shift the trip off the weekend and it is the cheapest way onto Palisades.",
+          "Midweek and non-holiday only — no New Year's Day, no Saturday, and very likely not Dec 30–31 either.",
         transferable: true,
         status: "verified",
         source: "shop.palisadestahoe.com — multi-pack lift tickets",
@@ -396,13 +429,15 @@ export const LOCATIONS: SkiLocation[] = [
         coverage: "pack",
         totalUsd: 529,
         tiers: [{ label: "Under 23", totalUsd: 419, maxAge: 22 }],
-        blackouts: "No peak dates at any price — shift the trip off holidays to use it.",
+        offDates: IKON_BLACKOUT,
+        blackouts:
+          "Blacked out Dec 26–30, which takes our Dec 30. Ski Jan 3 instead of Dec 30 and it covers all four.",
         transferable: false,
         source: "ikonpass.com — Ikon Session Pass",
         sourceUrl: "https://www.ikonpass.com/en/shop-passes/ikon-session-pass",
         status: "verified",
         asOf: "2026-08-28",
-        note: "Found by Bill. $132.25/day at 23+, $104.75/day under 23. The only way onto Palisades terrain.",
+        note: "Found by Bill. $132.25/day at 23+, $104.75/day under 23 — on a trip it can cover. No peak-date upgrade exists at any price. Blackout dates: sunpeaksresort.com/ski-ride/tickets-passes/ikon-pass, matching Mammoth's Ikon page.",
       },
       {
         id: "tahoe-donner-pass",
@@ -429,8 +464,11 @@ export const LOCATIONS: SkiLocation[] = [
         days: 0,
         coverage: "unlimited",
         totalUsd: 675,
+        // The Jan–Feb weekend voids aren't encoded; Dec 18 – Jan 2 already
+        // takes every one of our days.
+        offDates: [{ from: "2026-12-18", to: "2027-01-02" }],
         blackouts:
-          "Void Dec 18 – Jan 2 and every Saturday and Sunday in January and February — a midweek trip outside the holidays.",
+          "Void Dec 18 – Jan 2 and every Saturday and Sunday in January and February. That is all four of our days.",
         transferable: false,
         status: "verified",
         source: "skirose.com/season-passes",
@@ -533,8 +571,14 @@ export const LOCATIONS: SkiLocation[] = [
         days: 0,
         coverage: "unlimited",
         totalUsd: 409,
+        offWeekdays: [0, 6],
+        offDates: [
+          { from: "2026-12-26", to: "2026-12-30" },
+          { from: "2027-01-16", to: "2027-01-17" },
+          { from: "2027-02-13", to: "2027-02-14" },
+        ],
         blackouts:
-          "Mon–Fri only, and blacked out Dec 26–30 2026, Jan 16–17 and Feb 13–14. Shift the trip midweek and off the holidays.",
+          "Mon–Fri only, and blacked out Dec 26–30 2026, Jan 16–17 and Feb 13–14. That leaves Dec 31 and Jan 1 of our four days.",
         transferable: false,
         status: "verified",
         source: "sierraattahoe.com/season-passes",
@@ -551,14 +595,15 @@ export const LOCATIONS: SkiLocation[] = [
         days: 4,
         coverage: "pack",
         totalUsd: 359,
-        tiers: [{ label: "Add peak dates", totalUsd: 422 }],
-        blackouts: "Peak dates cost +$63 total. Shift the trip a week and you don't pay it.",
+        offDates: EPIC_PEAK,
+        tiers: [{ label: "With peak dates", totalUsd: 422, liftsOffDates: true }],
+        blackouts: EPIC_CAPTION,
         transferable: false,
         source: "epicpass.com — Epic Day Pass",
         sourceUrl: "https://www.epicpass.com/passes/epic-day-pass.aspx",
         status: "verified",
         asOf: "2026-08-28",
-        note: "Found by Bill. $89.75/day date-flexible, $105.50/day if you need peak.",
+        note: "Found by Bill. $89.75/day off-peak; $105.50/day with peak dates, which Dec 29 – Jan 3 needs.",
       },
     ],
     rentals: [

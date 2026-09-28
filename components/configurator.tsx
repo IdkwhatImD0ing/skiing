@@ -29,10 +29,11 @@ import {
   STEPS,
 } from "@/components/chips";
 
-/* Restrictions are a caption, never a gate: the trip is date-shiftable, so a
-   blackout is information, not a disqualifier. The exception is a purchase
-   deadline — that is the one thing on this page you can actually miss, so it
-   gets the amber. */
+/* The trip is Dec 29 – Jan 3, so a blackout that lands on our days is already
+   counted in `covers` — the pass says how many of the four it reaches, and
+   sorts last when that is short. The caption says why. A purchase deadline is
+   the one other thing on this page you can actually miss, so it gets the
+   amber. */
 
 const isDeadline = (s: string) => /buy before|buy by/i.test(s);
 

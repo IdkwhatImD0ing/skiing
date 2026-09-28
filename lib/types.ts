@@ -81,7 +81,16 @@ export type PriceTier = {
   /** Inclusive age bounds. Omit both when the variant is not about age. */
   minAge?: number;
   maxAge?: number;
+  /**
+   * This variant buys back the product's `offDates` — Epic's "Add peak dates"
+   * is the same four days with the holiday restriction lifted. Weekday limits
+   * still apply.
+   */
+  liftsOffDates?: boolean;
 };
+
+/** An inclusive ISO date range: { from: "2026-12-26", to: "2026-12-30" }. */
+export type DateRange = { from: string; to: string };
 
 export type LiftOption = Provenance & {
   id: string;
@@ -118,6 +127,15 @@ export type LiftOption = Provenance & {
    * a night pass sells evenings, and no number of them is a full day.
    */
   fullDaysPerTrip?: number;
+  /**
+   * Dates the product will not scan: blackouts, void dates, holiday periods.
+   * The caption in `blackouts` is what people read; this is what the page
+   * counts against `SCENARIO.skiDates`. Omit when there are none — or when
+   * nobody has published them, in which case say so in the caption.
+   */
+  offDates?: DateRange[];
+  /** Days of the week it will not scan, 0 = Sunday. A weekday pass is [0, 6]. */
+  offWeekdays?: number[];
   /** Adult / default price for the whole product. null while researching. */
   totalUsd: number | null;
   /** Cheaper age bands, if the product has them. */
@@ -216,6 +234,12 @@ export type Resort = {
  * The scenario the home page prices. Bill's actual trip: eight of us, four
  * full days, five nights, everybody old enough to drink and young enough for
  * the under-23 fares. The explorer at /explore is where these come loose.
+ *
+ * The dates are settled: Dec 29 – Jan 3. Bill: "my current plan is December
+ * 29th to Jan 3rd." That turns every blackout that lands on those days from a
+ * caption into a hole in the trip, so lift coverage is counted against the
+ * four days we actually ski — drive up the 29th, ski the 30th through the
+ * 2nd, drive home the 3rd.
  */
 export const SCENARIO = {
   people: 8,
@@ -225,7 +249,20 @@ export const SCENARIO = {
   /** The nights we are actually pricing. ISO, because Airbnb wants ISO. */
   checkIn: "2026-12-29",
   checkOut: "2027-01-03",
+  /** The four days on snow: Wed Dec 30, Thu Dec 31, Fri Jan 1, Sat Jan 2. */
+  skiDates: ["2026-12-30", "2026-12-31", "2027-01-01", "2027-01-02"],
 } as const;
+
+/** "Dec 29 – Jan 3", for captions. Built from SCENARIO so it can't drift. */
+export function tripDatesLabel(): string {
+  const fmt = (iso: string) =>
+    new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+  return `${fmt(SCENARIO.checkIn)} – ${fmt(SCENARIO.checkOut)}`;
+}
 
 /**
  * A listing link that opens on OUR trip, not on today.

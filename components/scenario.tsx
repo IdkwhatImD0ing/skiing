@@ -8,6 +8,7 @@ import { RESORTS } from "@/data/resorts";
 import {
   liftChoices,
   cheapestAccess,
+  eligibleAt,
   GEAR,
   CAR,
   type GearKey,
@@ -15,7 +16,7 @@ import {
 } from "@/lib/choices";
 import { money, stayTotalFor } from "@/lib/cost";
 import { quote } from "@/lib/quote";
-import { SCENARIO, listingUrl } from "@/lib/types";
+import { SCENARIO, listingUrl, tripDatesLabel } from "@/lib/types";
 import { Marker } from "@/components/ui";
 import { Receipt, NoReceipt, MobileTotal } from "@/components/receipt";
 import {
@@ -48,7 +49,8 @@ const TIER_LABEL = { budget: "budget", normal: "the pick", expensive: "splurge" 
 
 /**
  * The trip Bill is actually planning, with the variables he has already
- * settled held still: eight of us, four full days, five nights, and the
+ * settled held still: eight of us, four full days, five nights over New Year
+ * (Dec 29 – Jan 3), and the
  * cheapest pass a 21-year-old can buy at whichever mountain you pick. The
  * explorer at /explore is where those come loose again.
  *
@@ -69,6 +71,13 @@ export function Scenario() {
       RESORTS.map((resort) => ({
         resort,
         lift: cheapestAccess(resort.slug, age, choices),
+        // Priced, but nothing we've priced reaches all four of our days. That
+        // is a different sentence from "no price yet": Mt Rose's pass is void
+        // over New Year, and saying we haven't found a price would send
+        // someone looking for a number that exists.
+        blocked: choices.some(
+          (c) => c.option.resortSlugs.includes(resort.slug) && eligibleAt(c, age)
+        ),
       })).sort((a, b) => {
         const ra = RATING_RANK[a.lift?.rating ?? "unknown"];
         const rb = RATING_RANK[b.lift?.rating ?? "unknown"];
@@ -140,7 +149,7 @@ export function Scenario() {
             <span className={STEP_SUB}>cheapest {skiDays}-day pass at {age}</span>
           </h2>
           <div className={CHIPS} role="group" aria-labelledby="s-resort">
-            {board.map(({ resort, lift }) => (
+            {board.map(({ resort, lift, blocked }) => (
               // Wrapped for the same reason the houses below are: the proof
               // link is an <a>, and an <a> inside a <button> is invalid markup
               // whose click the chip would swallow.
@@ -210,7 +219,11 @@ export function Scenario() {
                       </span>
                     </>
                   ) : (
-                    <span className={CHIP_RATE_OFF}>no 2026-27 price yet</span>
+                    <span className={CHIP_RATE_OFF}>
+                      {blocked
+                        ? "blacked out on our dates"
+                        : "no 2026-27 price yet"}
+                    </span>
                   )}
                 </button>
                 {/* Proof of the rate above it. Sits low on the photo, where the
@@ -385,7 +398,19 @@ export function Scenario() {
           <Receipt q={q} headcount={people} />
         ) : (
           <NoReceipt>
-            {!picked.lift ? (
+            {!picked.lift && picked.blocked ? (
+              <>
+                Every pass we have priced for{" "}
+                <strong className="font-semibold">{picked.resort.name}</strong>{" "}
+                is blacked out on some of our days ({tripDatesLabel()}), so
+                none of them buys the four days this trip is. Pick another
+                mountain, or see the{" "}
+                <Link href="/explore" className="underline underline-offset-2">
+                  explorer
+                </Link>{" "}
+                for how many days each one does cover.
+              </>
+            ) : !picked.lift ? (
               <>
                 No confirmed 2026-27 lift price for{" "}
                 <strong className="font-semibold">{picked.resort.name}</strong>{" "}

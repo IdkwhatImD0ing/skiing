@@ -107,9 +107,22 @@ Bill actually asked Airbnb about. That is correct behaviour, not a bug.
 Over `sleeps` sets `squeeze` — style it as a caption, not an alarm. Bill would take that
 trade.
 
-**Dates are not a constraint.** Bill: *"each proposal is time shiftable, we just care about
-price."* Blackout text is a caption. Never gate, grey out, or de-rank an option for having
-restrictions.
+**Dates are now fixed: Dec 29 – Jan 3.** Bill: *"my current plan is December 29th to
+Jan 3rd."* This replaces the earlier *"each proposal is time shiftable"*. The four ski days
+are `SCENARIO.skiDates`, Wed Dec 30 through Sat Jan 2, with the 29th and the 3rd as
+drive days. That is New Year week, the most restricted stretch of the season, so a
+blackout on one of those days is no longer a caption: it is a day the pass cannot deliver.
+
+`LiftOption` carries `offDates` (inclusive ISO ranges) and `offWeekdays` (0 = Sunday), and
+`usableDates()` in `lib/choices.ts` counts the ski dates each product will scan on. That
+count feeds the same `covers` the coverage rule below already uses, so a blacked-out pass
+behaves exactly like a night pass: visible, pickable, sorted last, and the hole stated
+beside the total. A `PriceTier` with `liftsOffDates` buys the blackout back: Epic's
+"With peak dates" at $422 is what the page prices for Northstar, Heavenly and Kirkwood.
+
+Only encode dates that are published. Where a resort hasn't said whether Dec 30–31 count
+as holiday (Palisades midweek, Sugar Bowl), encode what is certain and say the rest in the
+caption.
 
 **But the trip's shape is.** Bill: *"we want 4 full day ski sessions."* `SKI_DAYS = 4` in
 `lib/types.ts` is a property of the trip, and the pass has to meet it. This is *not* the
@@ -134,23 +147,24 @@ that cover the trip*.
 
 ## What's true right now
 
-Verified against resort pages, 2026-27. Per-day is **against Bill's four full days**,
-which is why some of these differ from what an earlier handoff claimed:
+Verified against resort pages, 2026-27, for **Dec 30 – Jan 2 at age 21**:
 
-| Product | Cost for the trip | Per full day | Note |
+| Mountain | Cheapest pass that covers all four days | Trip | Per day |
 |---|---|---|---|
-| **Boreal iRide 4-Pack** | **$239** | **$59.75** | The benchmark, and the cheapest adult pass that covers the trip. **Price rises after Oct 1** |
-| Soda Springs Unlimited | $279 ($264 at 18–23) | $69.75 | *Not* $55.80 — that assumed five visits. Above the benchmark at four |
-| Epic Day Pass 4-day | $359 (+$63 peak) | $89.75 | |
-| Ikon Session · under 23 | $419 | $104.75 | |
-| Palisades 4-pack | $440 | $110.00 | Unrestricted. Beats Ikon Session on the same mountain |
-| Ikon Session 4-day | $529 | $132.25 | No peak dates at any price |
-| Play Forever Friday | $35 | — | $35 all day, but one trip holds one Friday: **covers 1 of 4** |
-| Boreal Night Pass | $219 | — | Unlimited, no blackouts, but 3–8pm: **covers 0 of 4** |
-| Boreal rental | $59/day | | Not the $40 originally assumed |
+| **Boreal** | iRide 4-Pack, no blackouts. **Price rises after Oct 1** | **$239** | **$59.75** |
+| Soda Springs | Unlimited, young adult. Runs Mon/Thu/Fri/weekends, so check Dec 30 | $264 | $66.00 |
+| Sugar Bowl | Day tickets at the Sat/holiday young-adult rate | $360 | $90.00 |
+| Northstar / Heavenly / Kirkwood | Epic Day Pass 4-day **with peak dates** (restricted Dec 26–31) | $422 | $105.50 |
+| Palisades | Unrestricted 4-pack | $440 | $110.00 |
+| Donner Ski Ranch | Four regular days (Old School rate started Jan 6 last season), 2025-26 price | $476 | $119.00 |
+| Tahoe Donner | Season pass | $676 | $169.00 |
+| Mt Rose | Off-Peak pass void Dec 18 – Jan 2 | — | covers 0 of 4 |
+| Sierra-at-Tahoe | Weekday pass: weekends and Dec 26–30 out | — | covers 2 of 4 |
 
-The last two used to head the board at $35 and $43.80/day. They were the cheapest things
-here and they cannot deliver a full-day trip — see the coverage rule above.
+Knocked out by the dates: Ikon Session (blacked out Dec 26–30, covers 3 of 4; ski Jan 3
+instead of Dec 30 and it would work at $419), the Palisades midweek pack (no Jan 1, no
+Saturday), and the restricted $359 Epic. Night Pass and Play Forever Friday are still out
+for the coverage reason below.
 
 Lodging, all quoted for Dec 29 – Jan 3, one guest count each:
 

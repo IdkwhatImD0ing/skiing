@@ -2,6 +2,7 @@ import { LOCATIONS } from "@/data/locations";
 import {
   RATING_GREEN_UNDER,
   RATING_BLUE_UNDER,
+  SCENARIO,
   SKI_DAYS,
   type SkiLocation,
   type LiftOption,
@@ -44,6 +45,28 @@ export type LiftChoice = {
 };
 
 /**
+ * Which of our ski dates this product will actually scan on. Blackouts used to
+ * be captions only, because the trip was date-shiftable. It isn't any more:
+ * the trip is Dec 29 – Jan 3, the most restricted week of the season, and a
+ * pass that is void on two of our four days delivers two days, whatever the
+ * sticker says.
+ */
+export function usableDates(
+  option: LiftOption,
+  liftsOffDates = false,
+  dates: readonly string[] = SCENARIO.skiDates
+): string[] {
+  return dates.filter((d) => {
+    // Noon UTC so the weekday can't slide across midnight in any timezone.
+    const weekday = new Date(`${d}T12:00:00Z`).getUTCDay();
+    if (option.offWeekdays?.includes(weekday)) return false;
+    if (liftsOffDates) return true;
+    // ISO dates compare correctly as strings.
+    return !option.offDates?.some((r) => d >= r.from && d <= r.to);
+  });
+}
+
+/**
  * What one product costs to put us on snow for the whole trip. A pack that is
  * shorter than the trip has to be bought twice; a season pass costs the same
  * whatever we do; a day ticket multiplies.
@@ -73,19 +96,26 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
         option.totalUsd === null
           ? []
           : [
-              { suffix: "", tier: null, totalUsd: option.totalUsd, minAge: undefined as number | undefined, maxAge: undefined as number | undefined },
+              { suffix: "", tier: null, totalUsd: option.totalUsd, minAge: undefined as number | undefined, maxAge: undefined as number | undefined, liftsOffDates: false },
               ...(option.tiers ?? []).map((t) => ({
                 suffix: ` · ${t.label}`,
                 tier: t.label as string | null,
                 totalUsd: t.totalUsd,
                 minAge: t.minAge,
                 maxAge: t.maxAge,
+                liftsOffDates: t.liftsOffDates ?? false,
               })),
             ];
       for (const [i, v] of variants.entries()) {
         // A night pass sells evenings; a Friday ticket needs a Friday. Neither
         // can put us on snow for four full days, however cheap the sticker is.
-        const covers = Math.min(SKI_DAYS, option.fullDaysPerTrip ?? SKI_DAYS);
+        // And a pass blacked out over New Year can only sell the days it
+        // isn't blacked out on.
+        const covers = Math.min(
+          SKI_DAYS,
+          option.fullDaysPerTrip ?? SKI_DAYS,
+          usableDates(option, v.liftsOffDates).length
+        );
         const tripTotal = tripCost(option, v.totalUsd, covers);
         const perDay = covers > 0 ? tripTotal / covers : null;
         out.push({
