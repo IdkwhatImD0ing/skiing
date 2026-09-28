@@ -92,26 +92,12 @@ export function Scenario() {
     [choices]
   );
 
-  // Open on the cheapest mountain that prices all the way through. Cheapest
-  // *lift* would land on Boreal, which has no house quoted at eight — a friend
-  // opening the link would meet a blank total, which is the one thing this
-  // page exists not to do.
-  const [resortSlug, setResortSlug] = useState(() => {
-    const complete = board.filter(
-      (r) =>
-        r.lift &&
-        getLocation(r.resort.locationSlug)?.stays.some((s) =>
-          stayTotalFor(s, people)
-        )
-    );
-    const pool = complete.length ? complete : board.filter((r) => r.lift);
-    return (
-      pool.reduce(
-        (best, r) => (r.lift!.perDay! < best.lift!.perDay! ? r : best),
-        pool[0]
-      )?.resort.slug ?? RESORTS[0].slug
-    );
-  });
+  // Boreal is decided. It opens there, and the rest of the board is folded
+  // away below it: still pickable, because "what would Palisades have cost"
+  // is a fair question, but no longer the question the page leads with.
+  const [resortSlug, setResortSlug] = useState<string>(SCENARIO.resort);
+  const chosen = board.find((r) => r.resort.slug === SCENARIO.resort)!;
+  const others = board.filter((r) => r.resort.slug !== SCENARIO.resort);
 
   const [gear, setGear] = useState<GearKey>("onsite");
   const [car, setCar] = useState<CarKey>("rent");
@@ -140,111 +126,136 @@ export function Scenario() {
 
   const q = picked.lift ? quote(picked.lift, stay, gear, car, people) : null;
 
+  // One card, used for Boreal on top and for every mountain in the fold.
+  function mountainChip({ resort, lift, blocked }: (typeof board)[number]) {
+    return (
+      // Wrapped for the same reason the houses below are: the proof
+      // link is an <a>, and an <a> inside a <button> is invalid markup
+      // whose click the chip would swallow.
+      <div key={resort.slug} className="relative grid">
+        <button
+          type="button"
+          className={`${CHIP} h-full`}
+          aria-pressed={resort.slug === resortSlug}
+          data-off={!lift || undefined}
+          onClick={() => setResortSlug(resort.slug)}
+        >
+          {/* Bleeds to the chip's edges. object-cover because the source
+              photos run 16:9 to 3.2:1 and the slot is fixed. Unpriced
+              mountains keep the photo but lose the saturation, so the
+              board still reads at a glance. */}
+          {/* Every chip gets the band whether or not we have a photo,
+              so one missing image doesn't knock a whole row out of
+              alignment. An empty band is quiet on purpose: a missing
+              photo, unlike a missing price, changes no decision. */}
+          <span className="relative -mx-[14px] -mt-[13px] mb-1 block h-[104px] overflow-hidden rounded-t-[3px] bg-well">
+            {resort.image && (
+              <>
+                <Image
+                  src={resort.image.src}
+                  alt={resort.image.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 300px"
+                  className={`object-cover ${lift ? "" : "grayscale"}`}
+                />
+                <span
+                  aria-hidden
+                  className="absolute inset-0 bg-linear-to-t from-night/85 via-night/10 to-transparent"
+                />
+              </>
+            )}
+          </span>
+          {/* The marker used to head its own row above a drive time.
+              The drive time is on the location, one step down, and
+              saying it twice cost a line per chip — so the marker moved
+              onto the name and the row went away. */}
+          <span className="flex items-center gap-2">
+            <Marker rating={lift?.rating ?? "unknown"} />
+            <span className={CHIP_NAME}>{resort.name}</span>
+          </span>
+          {lift && lift.perDay !== null ? (
+            <>
+              <span className={CHIP_RATE}>
+                {money(lift.perDay, true)}
+                <span className={CHIP_UNIT}>/day</span>
+              </span>
+              {/* Which pass got you that number — the page picked it,
+                  so it has to say what it picked. A last-season price is
+                  real but stale, and wears its season so it can never be
+                  read as this year's. */}
+              <span className={CHIP_NOTE}>
+                {lift.label}
+                {lift.tier && (
+                  <span className={`${PILL} border-glacier/45 text-glacier`}>
+                    {lift.tier}
+                  </span>
+                )}
+                {lift.stale && (
+                  <span className={`${PILL} border-sodium/45 bg-sodium/15 text-sodium`}>
+                    {lift.season ?? "last season"} price
+                  </span>
+                )}
+              </span>
+            </>
+          ) : (
+            <span className={CHIP_RATE_OFF}>
+              {blocked
+                ? "blacked out on our dates"
+                : "no 2026-27 price yet"}
+            </span>
+          )}
+        </button>
+        {/* Proof of the rate above it. Sits low on the photo, where the
+            gradient is dark enough to read against, and only appears
+            when there is a priced product to point at — a mountain with
+            no price has nothing to show you. */}
+        {lift?.option.sourceUrl && (
+          <a
+            href={lift.option.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${lift.option.source ?? "Source"} — the page this price came from, opens in a new tab`}
+            title={lift.option.source}
+            className={`${CHIP_PROOF} right-[13px] top-[74px]`}
+          >
+            price&nbsp;↗
+          </a>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className={LAYOUT}>
       <div className={STEPS}>
         <section aria-labelledby="s-resort">
           <h2 className={STEP_H} id="s-resort">
-            <span className={STEP_N}>1</span> Which mountain
-            <span className={STEP_SUB}>cheapest {skiDays}-day pass at {age}</span>
+            <span className={STEP_N}>1</span> The mountain
+            <span className={STEP_SUB}>decided · {skiDays}-day pass at {age}</span>
           </h2>
           <div className={CHIPS} role="group" aria-labelledby="s-resort">
-            {board.map(({ resort, lift, blocked }) => (
-              // Wrapped for the same reason the houses below are: the proof
-              // link is an <a>, and an <a> inside a <button> is invalid markup
-              // whose click the chip would swallow.
-              <div key={resort.slug} className="relative grid">
-                <button
-                  type="button"
-                  className={`${CHIP} h-full`}
-                  aria-pressed={resort.slug === resortSlug}
-                  data-off={!lift || undefined}
-                  onClick={() => setResortSlug(resort.slug)}
-                >
-                  {/* Bleeds to the chip's edges. object-cover because the source
-                      photos run 16:9 to 3.2:1 and the slot is fixed. Unpriced
-                      mountains keep the photo but lose the saturation, so the
-                      board still reads at a glance. */}
-                  {/* Every chip gets the band whether or not we have a photo,
-                      so one missing image doesn't knock a whole row out of
-                      alignment. An empty band is quiet on purpose: a missing
-                      photo, unlike a missing price, changes no decision. */}
-                  <span className="relative -mx-[14px] -mt-[13px] mb-1 block h-[104px] overflow-hidden rounded-t-[3px] bg-well">
-                    {resort.image && (
-                      <>
-                        <Image
-                          src={resort.image.src}
-                          alt={resort.image.alt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, 300px"
-                          className={`object-cover ${lift ? "" : "grayscale"}`}
-                        />
-                        <span
-                          aria-hidden
-                          className="absolute inset-0 bg-linear-to-t from-night/85 via-night/10 to-transparent"
-                        />
-                      </>
-                    )}
-                  </span>
-                  {/* The marker used to head its own row above a drive time.
-                      The drive time is on the location, one step down, and
-                      saying it twice cost a line per chip — so the marker moved
-                      onto the name and the row went away. */}
-                  <span className="flex items-center gap-2">
-                    <Marker rating={lift?.rating ?? "unknown"} />
-                    <span className={CHIP_NAME}>{resort.name}</span>
-                  </span>
-                  {lift && lift.perDay !== null ? (
-                    <>
-                      <span className={CHIP_RATE}>
-                        {money(lift.perDay, true)}
-                        <span className={CHIP_UNIT}>/day</span>
-                      </span>
-                      {/* Which pass got you that number — the page picked it,
-                          so it has to say what it picked. A last-season price is
-                          real but stale, and wears its season so it can never be
-                          read as this year's. */}
-                      <span className={CHIP_NOTE}>
-                        {lift.label}
-                        {lift.tier && (
-                          <span className={`${PILL} border-glacier/45 text-glacier`}>
-                            {lift.tier}
-                          </span>
-                        )}
-                        {lift.stale && (
-                          <span className={`${PILL} border-sodium/45 bg-sodium/15 text-sodium`}>
-                            {lift.season ?? "last season"} price
-                          </span>
-                        )}
-                      </span>
-                    </>
-                  ) : (
-                    <span className={CHIP_RATE_OFF}>
-                      {blocked
-                        ? "blacked out on our dates"
-                        : "no 2026-27 price yet"}
-                    </span>
-                  )}
-                </button>
-                {/* Proof of the rate above it. Sits low on the photo, where the
-                    gradient is dark enough to read against, and only appears
-                    when there is a priced product to point at — a mountain with
-                    no price has nothing to show you. */}
-                {lift?.option.sourceUrl && (
-                  <a
-                    href={lift.option.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${lift.option.source ?? "Source"} — the page this price came from, opens in a new tab`}
-                    title={lift.option.source}
-                    className={`${CHIP_PROOF} right-[13px] top-[74px]`}
-                  >
-                    price&nbsp;↗
-                  </a>
-                )}
-              </div>
-            ))}
+            {mountainChip(chosen)}
           </div>
+          {/* The one date on this page that can cost money by being missed.
+              Amber, because it is Bill talking to you, not a measurement. */}
+          {chosen.lift && (
+            <p className="mt-3 border-l-2 border-sodium/60 pl-[13px] text-[13.5px] leading-relaxed text-snow/82">
+              <strong className="font-semibold text-sodium">
+                Buy your {chosen.lift.option.name} online before Oct 1.
+              </strong>{" "}
+              It is {money(chosen.lift.totalUsd)} until then and goes up after;
+              Boreal&rsquo;s own FAQ already quotes $259. It is not sold at the
+              window, so everyone buys their own.
+            </p>
+          )}
+          <details className="group mt-5">
+            <summary className="cursor-pointer font-data text-[11px] uppercase tracking-[0.1em] text-muted hover:text-snow">
+              The other {others.length} mountains we priced
+            </summary>
+            <div className={`${CHIPS} mt-3`} role="group" aria-label="Other mountains">
+              {others.map(mountainChip)}
+            </div>
+          </details>
         </section>
 
         <section aria-labelledby="s-stay">

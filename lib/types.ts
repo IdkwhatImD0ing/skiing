@@ -244,6 +244,8 @@ export type Resort = {
 export const SCENARIO = {
   people: 8,
   skiDays: SKI_DAYS,
+  /** Decided: Bill, "We are going to boreal." Its houses are Donner Summit's. */
+  resort: "boreal",
   nights: 5,
   age: 21,
   /** The nights we are actually pricing. ISO, because Airbnb wants ISO. */

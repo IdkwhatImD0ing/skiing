@@ -107,6 +107,12 @@ Bill actually asked Airbnb about. That is correct behaviour, not a bug.
 Over `sleeps` sets `squeeze` — style it as a caption, not an alarm. Bill would take that
 trade.
 
+**The mountain is decided: Boreal.** Bill: *"We are going to boreal."* `SCENARIO.resort`
+holds it. The home page opens on Boreal and puts the Oct 1 iRide buy-by in amber under
+it. The other ten mountains sit in a collapsed `<details>` below: still pickable for
+"what would it have cost", but no longer what the page leads with. After Oct 1 that
+callout and the $239 are both wrong, so re-price the pack then.
+
 **Dates are now fixed: Dec 29 – Jan 3.** Bill: *"my current plan is December 29th to
 Jan 3rd."* This replaces the earlier *"each proposal is time shiftable"*. The four ski days
 are `SCENARIO.skiDates`, Wed Dec 30 through Sat Jan 2, with the 29th and the 3rd as
