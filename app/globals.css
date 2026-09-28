@@ -331,6 +331,18 @@ body {
   padding-bottom: 5px;
   border-bottom: 1px solid var(--color-sodium);
 }
+/* At phone width the wordmark, the trip links and the bar share one row, so
+   the wordmark drops its route line and the bar its label, and the bar keeps
+   its number and unit on one line. */
+@media (max-width: 480px) {
+  .site-mark-route,
+  .site-bar-label {
+    display: none;
+  }
+  .site-bar {
+    white-space: nowrap;
+  }
+}
 .site-bar-label {
   font-size: 9.5px;
   letter-spacing: 0.16em;

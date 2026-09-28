@@ -81,7 +81,16 @@ export type PriceTier = {
   /** Inclusive age bounds. Omit both when the variant is not about age. */
   minAge?: number;
   maxAge?: number;
+  /**
+   * This variant buys back the product's `offDates` — Epic's "Add peak dates"
+   * is the same four days with the holiday restriction lifted. Weekday limits
+   * still apply.
+   */
+  liftsOffDates?: boolean;
 };
+
+/** An inclusive ISO date range: { from: "2026-12-26", to: "2026-12-30" }. */
+export type DateRange = { from: string; to: string };
 
 export type LiftOption = Provenance & {
   id: string;
@@ -118,6 +127,15 @@ export type LiftOption = Provenance & {
    * a night pass sells evenings, and no number of them is a full day.
    */
   fullDaysPerTrip?: number;
+  /**
+   * Dates the product will not scan: blackouts, void dates, holiday periods.
+   * The caption in `blackouts` is what people read; this is what the page
+   * counts against `SCENARIO.skiDates`. Omit when there are none — or when
+   * nobody has published them, in which case say so in the caption.
+   */
+  offDates?: DateRange[];
+  /** Days of the week it will not scan, 0 = Sunday. A weekday pass is [0, 6]. */
+  offWeekdays?: number[];
   /** Adult / default price for the whole product. null while researching. */
   totalUsd: number | null;
   /** Cheaper age bands, if the product has them. */
@@ -213,36 +231,95 @@ export type Resort = {
 };
 
 /**
- * The scenario the home page prices. Bill's actual trip: eight of us, four
- * full days, five nights, everybody old enough to drink and young enough for
- * the under-23 fares. The explorer at /explore is where these come loose.
+ * One trip, held still. The home page prices an open one — pick any mountain —
+ * and each page under /trips prices one Bill is actually taking, with the
+ * mountain and the house already decided. Plain data, because the trip pages
+ * are server components handing it to the client-side scenario.
  */
-export const SCENARIO = {
+export type Plan = {
+  /** Its page is /trips/<slug>. The home page's plan has none. */
+  slug?: string;
+  /** What the trip is called, on its page and in the trip list. */
+  title: string;
+  people: number;
+  skiDays: number;
+  nights: number;
+  /** Everybody is priced at this age, which decides the age-band fares. */
+  age: number;
+  /** The nights we are actually pricing. ISO, because Airbnb wants ISO. */
+  checkIn: string;
+  checkOut: string;
+  /**
+   * The days on snow. Lift coverage is counted against these, so a pass that
+   * is blacked out on one of them delivers one day fewer.
+   */
+  skiDates: readonly string[];
+  /** The mountain, once it is decided. Omit to leave the board open. */
+  resort?: string;
+  /** The house, once it is picked. */
+  stay?: string;
+  /**
+   * This trip's own houses, by tier. `Stay.tier` is the shortlist for the
+   * home page's headcount; a trip of a different size needs houses quoted at
+   * its size, and says which here.
+   */
+  shortlist?: Partial<Record<StayTier, string>>;
+  /** A sentence for the top of the trip's page: why this mountain, these dates. */
+  blurb?: string;
+  /** The one date this trip can lose money by missing, said in amber. */
+  deadline?: { lead: string; detail: string };
+};
+
+/**
+ * The open trip the home page prices: eight of us, four full days, five
+ * nights, everybody old enough to drink and young enough for the under-23
+ * fares, and any mountain. The explorer at /explore is where these come loose.
+ *
+ * The dates are Dec 29 – Jan 3, the dates every house is quoted for. Bill:
+ * "my current plan is December 29th to Jan 3rd." That turns every blackout
+ * that lands on those days from a caption into a hole in the trip, so lift
+ * coverage is counted against the four days we actually ski — drive up the
+ * 29th, ski the 30th through the 2nd, drive home the 3rd.
+ */
+export const SCENARIO: Plan = {
+  title: "Tahoe over New Year",
   people: 8,
   skiDays: SKI_DAYS,
   nights: 5,
   age: 21,
-  /** The nights we are actually pricing. ISO, because Airbnb wants ISO. */
   checkIn: "2026-12-29",
   checkOut: "2027-01-03",
-} as const;
+  /** Wed Dec 30, Thu Dec 31, Fri Jan 1, Sat Jan 2. */
+  skiDates: ["2026-12-30", "2026-12-31", "2027-01-01", "2027-01-02"],
+};
+
+/** "Dec 29 – Jan 3", for captions. Built from the plan so it can't drift. */
+export function tripDatesLabel(plan: Plan = SCENARIO): string {
+  const fmt = (iso: string) =>
+    new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+  return `${fmt(plan.checkIn)} – ${fmt(plan.checkOut)}`;
+}
 
 /**
  * A listing link that opens on OUR trip, not on today.
  *
  * Airbnb prices per date and per guest count, so a bare /rooms/<id> link shows
  * a friend whatever the cheapest random midweek night happens to be — a
- * number that has nothing to do with what we would pay over New Year at eight
- * people. Every stay link on this site carries the dates and the headcount so
+ * number that has nothing to do with what we would pay over New Year at our
+ * headcount. Every stay link on this site carries the dates and the headcount so
  * the page you land on is the page the quote came from.
  */
-export function listingUrl(url: string): string {
+export function listingUrl(url: string, plan: Plan = SCENARIO): string {
   if (!url.includes("airbnb.com")) return url;
   const u = new URL(url);
-  u.searchParams.set("check_in", SCENARIO.checkIn);
-  u.searchParams.set("check_out", SCENARIO.checkOut);
-  u.searchParams.set("adults", String(SCENARIO.people));
-  u.searchParams.set("guests", String(SCENARIO.people));
+  u.searchParams.set("check_in", plan.checkIn);
+  u.searchParams.set("check_out", plan.checkOut);
+  u.searchParams.set("adults", String(plan.people));
+  u.searchParams.set("guests", String(plan.people));
   return u.toString();
 }
 

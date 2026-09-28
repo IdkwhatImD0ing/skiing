@@ -2,6 +2,7 @@ import { LOCATIONS } from "@/data/locations";
 import {
   RATING_GREEN_UNDER,
   RATING_BLUE_UNDER,
+  SCENARIO,
   SKI_DAYS,
   type SkiLocation,
   type LiftOption,
@@ -44,6 +45,28 @@ export type LiftChoice = {
 };
 
 /**
+ * Which of our ski dates this product will actually scan on. Blackouts used to
+ * be captions only, because the trip was date-shiftable. It isn't any more:
+ * the trip is Dec 29 – Jan 3, the most restricted week of the season, and a
+ * pass that is void on two of our four days delivers two days, whatever the
+ * sticker says.
+ */
+export function usableDates(
+  option: LiftOption,
+  liftsOffDates = false,
+  dates: readonly string[] = SCENARIO.skiDates
+): string[] {
+  return dates.filter((d) => {
+    // Noon UTC so the weekday can't slide across midnight in any timezone.
+    const weekday = new Date(`${d}T12:00:00Z`).getUTCDay();
+    if (option.offWeekdays?.includes(weekday)) return false;
+    if (liftsOffDates) return true;
+    // ISO dates compare correctly as strings.
+    return !option.offDates?.some((r) => d >= r.from && d <= r.to);
+  });
+}
+
+/**
  * What one product costs to put us on snow for the whole trip. A pack that is
  * shorter than the trip has to be bought twice; a season pass costs the same
  * whatever we do; a day ticket multiplies.
@@ -65,7 +88,10 @@ function tripCost(option: LiftOption, sticker: number, days: number): number {
  * picking a pass also picks where we sleep, so the same product at two
  * locations is genuinely two different trips.
  */
-export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] {
+export function liftChoices(
+  locations: SkiLocation[] = LOCATIONS,
+  skiDates: readonly string[] = SCENARIO.skiDates
+): LiftChoice[] {
   const out: LiftChoice[] = [];
   for (const loc of locations) {
     for (const option of loc.lift) {
@@ -73,19 +99,26 @@ export function liftChoices(locations: SkiLocation[] = LOCATIONS): LiftChoice[] 
         option.totalUsd === null
           ? []
           : [
-              { suffix: "", tier: null, totalUsd: option.totalUsd, minAge: undefined as number | undefined, maxAge: undefined as number | undefined },
+              { suffix: "", tier: null, totalUsd: option.totalUsd, minAge: undefined as number | undefined, maxAge: undefined as number | undefined, liftsOffDates: false },
               ...(option.tiers ?? []).map((t) => ({
                 suffix: ` · ${t.label}`,
                 tier: t.label as string | null,
                 totalUsd: t.totalUsd,
                 minAge: t.minAge,
                 maxAge: t.maxAge,
+                liftsOffDates: t.liftsOffDates ?? false,
               })),
             ];
       for (const [i, v] of variants.entries()) {
         // A night pass sells evenings; a Friday ticket needs a Friday. Neither
         // can put us on snow for four full days, however cheap the sticker is.
-        const covers = Math.min(SKI_DAYS, option.fullDaysPerTrip ?? SKI_DAYS);
+        // And a pass blacked out over New Year can only sell the days it
+        // isn't blacked out on.
+        const covers = Math.min(
+          SKI_DAYS,
+          option.fullDaysPerTrip ?? SKI_DAYS,
+          usableDates(option, v.liftsOffDates, skiDates).length
+        );
         const tripTotal = tripCost(option, v.totalUsd, covers);
         const perDay = covers > 0 ? tripTotal / covers : null;
         out.push({
@@ -182,8 +215,8 @@ export const GEAR = {
     label: "Rent up there",
     perDay: 62.25,
     note: "Costs more, but nothing rides in the car and you can swap if the snow changes. Helmet included.",
-    recommended: true,
-    why: "Skis and boards eat the luggage space we don't have with a full carload.",
+    recommended: false,
+    why: "",
   },
   /**
    * Not really a daily rate — Sports Basement charges $85 flat for anything in
@@ -195,8 +228,9 @@ export const GEAR = {
     label: "Rent in San Jose",
     perDay: 21.25,
     note: "$85 flat for the whole trip at Sports Basement — but it fills the trunk and you're stuck with whatever you picked.",
-    recommended: false,
-    why: "",
+    // Bill's call: this is the default, over renting at the resort.
+    recommended: true,
+    why: "Pick it up the night before and it rides up with us.",
   },
   own: {
     label: "I have my own",
