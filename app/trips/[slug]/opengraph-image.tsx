@@ -33,7 +33,13 @@ export default async function Image({
             : "Pick the house and see what you pay."
         }
         figure={q ? money(q.perPerson) : undefined}
-        figureLabel={q ? "per person" : "No full price yet."}
+        figureLabel={
+          q
+            ? q.fromCheapest
+              ? "per person, cheapest house"
+              : "per person"
+            : "No full price yet."
+        }
       />
     ) : (
       <OgCard eyebrow="Night laps" headline="Trip not found." sub="" />

@@ -8,6 +8,7 @@ import {
   DEFAULT_GEAR,
 } from "@/lib/choices";
 import { quote } from "@/lib/quote";
+import { stayTotalFor } from "@/lib/cost";
 import type { Plan } from "@/lib/types";
 
 export const SITE_NAME = "Night laps";
@@ -50,10 +51,19 @@ export function planQuote(plan: Plan) {
     plan.age,
     liftChoices(LOCATIONS, plan.skiDates)
   );
-  const stay = getLocation(resort.locationSlug)?.stays.find(
-    (s) => s.id === plan.stay
-  );
+  const stays = getLocation(resort.locationSlug)?.stays ?? [];
+  // The plan's own house when it names one; otherwise the cheapest house on
+  // its shortlist that is quoted at our headcount — and the card says "from".
+  const named = stays.find((s) => s.id === plan.stay);
+  const cheapest = (plan.shortlist ?? [])
+    .map((id) => stays.find((s) => s.id === id))
+    .filter((s): s is NonNullable<typeof s> => !!s && !!stayTotalFor(s, plan.people))
+    .sort(
+      (a, b) =>
+        stayTotalFor(a, plan.people)!.totalUsd - stayTotalFor(b, plan.people)!.totalUsd
+    )[0];
+  const stay = named ?? cheapest;
   if (!lift || !stay) return null;
   const q = quote(lift, stay, DEFAULT_GEAR, DEFAULT_CAR, plan.people, plan.skiDays);
-  return q && { ...q, lift, resort };
+  return q && { ...q, lift, resort, fromCheapest: !named };
 }

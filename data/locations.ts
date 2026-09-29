@@ -44,6 +44,41 @@ export const LOCATIONS: SkiLocation[] = [
       // Boreal trip picks its own from the houses quoted at four — see
       // `shortlist` in data/trips.ts. (The Modern A-Frame, $3,187.80 for four,
       // was dropped from that trip on 2026-09-28.)
+      // Quoted at five, for the Boreal trip once it grew to five people.
+      // Airbnb can't be fetched from here, so the names are Bill's
+      // descriptions until someone reads the listing titles.
+      {
+        id: "boreal-hostel-5",
+        name: "Hostel (shared bathroom)",
+        kind: "hostel",
+        sleeps: 5,
+        sleepNote: "The bathroom is shared.",
+        nights: 5,
+        quotes: [{ guests: 5, totalUsd: 1786, asOf: "2026-09-29" }],
+        url: "https://www.airbnb.com/rooms/1317130416914855663",
+        toLift: "not checked yet",
+        perks: ["Cheapest for five", "Shared bathroom"],
+        status: "estimate",
+        source: "Bill — Airbnb checkout, 5 adults, Dec 29 – Jan 3",
+        asOf: "2026-09-29",
+        note: "Bill's pick for five people on a budget: a hostel listing with a shared bathroom, $1,786 total for 5 adults, Dec 29 – Jan 3. Whether that includes tax wasn't captured.",
+      },
+      {
+        id: "boreal-hotel-5",
+        name: "Hotel (sofa bed)",
+        kind: "hotel",
+        sleeps: 5,
+        sleepNote: "One of us is on a sofa bed.",
+        nights: 5,
+        quotes: [{ guests: 5, totalUsd: 2707, asOf: "2026-09-29" }],
+        url: "https://www.airbnb.com/rooms/1597211501977273983",
+        toLift: "not checked yet",
+        perks: ["Private bathroom", "Sofa bed"],
+        status: "estimate",
+        source: "Bill — Airbnb, 5 adults, Dec 29 – Jan 3",
+        asOf: "2026-09-29",
+        note: "A hotel listing that takes five with one on a sofa bed, $2,707 total for 5 adults, Dec 29 – Jan 3, as Bill read it. Whether that includes tax wasn't captured.",
+      },
       {
         id: "truckee-donner-lake-studio",
         name: "Donner Lake Village studio",

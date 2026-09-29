@@ -118,6 +118,15 @@ of houses by tier, a hero `blurb` and an amber `deadline`. The home page lists e
 under "Trips we're taking", and the header carries one link per trip (`components/trip-nav.tsx`,
 marked with `aria-current` on its own page). Unknown slugs 404 (`dynamicParams = false`).
 
+**The Boreal trip is five people now** (2026-09-29). Its houses are the two quoted at five:
+the hostel with a shared bathroom ($1,786) and the hotel with a sofa bed ($2,707). Names are
+Bill's descriptions, because Airbnb is blocked from the build environment, so read the real
+titles off the links when you can. Neither is marked as the plan, so the page opens on the
+cheapest, and `planQuote()` falls back to the cheapest shortlisted house and says "from".
+The four-person houses (Castle Creek, the Donner Lake studio, the Soda Springs place) sleep
+four at most and are off the trip. **The 3-day version has no total at five:** its only
+house is Castle Creek at four, and nothing is quoted for five from Dec 30.
+
 **The Boreal trip has a 3-day version**, `/trips/boreal-new-year-3-days`: check in Dec 30,
 ski Dec 31 – Jan 2, home Jan 3. Plans that share a `group` are versions of one trip. The header
 and the home list show the group once (`TRIP_HEADS`), and the trip page shows a length switch
