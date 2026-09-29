@@ -49,11 +49,10 @@ export const TRIPS: Plan[] = [
     resort: "boreal",
     blurb:
       "One day shorter. Boreal’s 4-pack still covers it, with a visit left over: its day tickets are dynamically priced, holiday peak over New Year, and published for no date, so three of them are unlikely to come in under $239.",
-    // Only Castle Creek is quoted for these four nights, and only at four
-    // guests — so at five this version has no total until a house is quoted
-    // for five from Dec 30. The page says exactly that.
-    stay: "truckee-castle-creek-4n",
-    shortlist: ["truckee-castle-creek-4n"],
+    // The same hostel and hotel as the 4-day trip, re-quoted at five for the
+    // Dec 30 check-in. No house is marked as the plan, so the page opens on
+    // the cheapest. Castle Creek sleeps four at most and dropped off.
+    shortlist: ["boreal-hostel-5-4n", "boreal-hotel-5-4n"],
     deadline: {
       lead: "Buy your Boreal iRide 4-Pack online before Oct 1.",
       detail:

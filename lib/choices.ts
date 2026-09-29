@@ -233,7 +233,9 @@ export const GEAR = {
    * return days are free! F-R-E-E... you can book a 4-day 'weekend' rental
    * picking up on a Friday and not have to return your gear until Wednesday."
    * So we hold it six days, Dec 29 to Jan 3, and pay for the four between:
-   * the $85 bracket. research/south-bay-rentals.json.
+   * the $85 bracket. research/south-bay-rentals.json. Rate table re-read
+   * 2026-09-28 and unchanged; the free-days wording is from their 2025/26
+   * season prep post and isn't restated anywhere for 2026-27 yet.
    */
   sj: {
     label: "Rent in San Jose",

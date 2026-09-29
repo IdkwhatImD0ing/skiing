@@ -1,0 +1,94 @@
+{
+  "dimension": "Boreal New Year trip at five people: Airbnb checkout reads for the hostel and hotel (Dec 29 and Dec 30 check-ins), the iRide 4-Pack before its Oct 1 price step, Go-Time holiday tickets, Sports Basement rental rates, and the Alta house. Read in a real browser on 2026-09-28.",
+  "findings": [
+    {
+      "name": "West River House (boreal-hostel-5): 5 adults, Dec 29 – Jan 3",
+      "category": "lodging",
+      "claim": "Listing title '1 queen, 4 xl twins, Shared Bath, WRH Hotel'. Room in boutique hotel in Truckee, California: 6 guests, 1 bedroom, 3 beds, 3 shared baths. 4.96 from 23 reviews; host is a Superhost, 11 years hosting. 'Private room w/ a queen-sized bed and 4 xl twin bunks. There are shared bathrooms down the hall.' No on-site parking (nearby public lot), no full kitchen; shared microwave, refrigerator, freezer. Checkout ('Confirm and pay'): 5 nights x $313.40 = $1,567.00; Taxes $219.38; Total USD $1,786.38. '$1,786.38 charged on Nov 22.' Cancellation: 'Free cancellation before November 29. Cancel before December 22 for a partial refund.'",
+      "price_usd": 1786.38,
+      "guests": 5,
+      "dates": "2026-12-29 to 2027-01-03",
+      "source_url": "https://www.airbnb.com/rooms/1317130416914855663",
+      "date": "2026-09-28",
+      "confidence": "high"
+    },
+    {
+      "name": "West River House (boreal-hostel-5-4n): 5 adults, Dec 30 – Jan 3",
+      "category": "lodging",
+      "claim": "Same room. Checkout: 4 nights x $320.00 = $1,280.00; Taxes $179.20; Total USD $1,459.20. 'Cancel before November 30 for a full refund.' Listing page: 'Cancel before December 23 for a partial refund.'",
+      "price_usd": 1459.2,
+      "guests": 5,
+      "dates": "2026-12-30 to 2027-01-03",
+      "source_url": "https://www.airbnb.com/rooms/1317130416914855663",
+      "date": "2026-09-28",
+      "confidence": "high"
+    },
+    {
+      "name": "Discover Serenity at Suite Near Lake Tahoe (boreal-hotel-5): 5 adults, Dec 29 – Jan 3",
+      "category": "lodging",
+      "claim": "Room in hotel in Truckee, California: 6 guests, 1 bedroom, 3 beds, 1 private bath. Where you'll sleep: 'Bedroom: 2 queen beds, 1 trundle bed'. 416 sq ft suite, complimentary hot breakfast, cleaning included in the nightly price, paid parking $15 per day for 1 space, minimum check-in age 21 with valid ID. Hosted by RoomPicks (2,091 reviews, 4.39 average). Listing rating 4.0 from 4 reviews (one 1-star about the host not moving dates during a storm road closure). Checkout: 5 nights x $477.40 = $2,387.00; Taxes $320.93; Total USD $2,707.93. 'Cancel before December 24 for a full refund.' Listing page: 'Cancel before check-in on December 29 for a partial refund.'",
+      "price_usd": 2707.93,
+      "guests": 5,
+      "dates": "2026-12-29 to 2027-01-03",
+      "source_url": "https://www.airbnb.com/rooms/1597211501977273983",
+      "date": "2026-09-28",
+      "confidence": "high"
+    },
+    {
+      "name": "Discover Serenity at Suite Near Lake Tahoe (boreal-hotel-5-4n): 5 adults, Dec 30 – Jan 3",
+      "category": "lodging",
+      "claim": "Same suite. Checkout: 4 nights x $480.00 = $1,920.00; Taxes $258.14; Total USD $2,178.14. 'Cancel before December 25 for a full refund.'",
+      "price_usd": 2178.14,
+      "guests": 5,
+      "dates": "2026-12-30 to 2027-01-03",
+      "source_url": "https://www.airbnb.com/rooms/1597211501977273983",
+      "date": "2026-09-28",
+      "confidence": "high"
+    },
+    {
+      "name": "The Alta House/Sierra Woods (soda-springs-4p): 4 adults, Dec 29 – Jan 3",
+      "category": "lodging",
+      "claim": "Entire home in Alta, California: 5 guests, 2 bedrooms, 4 beds, 2 baths; 4.78 from 58 reviews. 'Quiet, very private home at 4,000' alt in the Sierra Nevada Foothills... The historic railroad town Colfax, is 15 minutes drive.' Checkout page titled 'Request to book': 5 nights x $230.00 = $1,150.00; Total USD $1,150.00 (no tax or fee line shown). 'Cancel before December 28 for a full refund.'",
+      "price_usd": 1150,
+      "guests": 4,
+      "dates": "2026-12-29 to 2027-01-03",
+      "source_url": "https://www.airbnb.com/rooms/877728571087501036",
+      "date": "2026-09-28",
+      "confidence": "high"
+    },
+    {
+      "name": "Boreal iRide 4-Pack: price before 10/1",
+      "category": "multi-pack",
+      "claim": "Page reads '26/27 IRIDE 4-PACK PRICES INCREASE 10/1' with a countdown at 02 days 02 hours. Table 'IRIDE PASS TYPE / PRICE BEFORE 10/1': CHILD (AGES 12 & Under) $179; ADULT (AGES 13+) $239. 'All 26/27 iRide must be purchased online.' 'NO BLACKOUT DATES.' The price after 10/1 is not published on the page.",
+      "price_usd": "$239 adult; $179 child",
+      "source_url": "https://www.rideboreal.com/day-access/tickets/iride/",
+      "date": "2026-09-28",
+      "confidence": "high"
+    },
+    {
+      "name": "Boreal Go-Time lift tickets",
+      "category": "day-ticket",
+      "claim": "Go-Time page shows 'COMING SOON' and no prices for any date. 'Go Time tickets must be purchased before arriving and will not be sold on-site this year.'",
+      "price_usd": null,
+      "source_url": "https://www.rideboreal.com/day-access/tickets/go-time-lift-tickets/",
+      "date": "2026-09-28",
+      "confidence": "high"
+    },
+    {
+      "name": "Sports Basement snow rental rates",
+      "category": "rentals",
+      "claim": "Rate table (rendered in browser): Adult Basic Ski/Board Package: day (1 day) $50, weekend (2-4 days) $85, week (5-9 days) $145, season (through June 5th) $290. Unchanged from what the site uses. The page doesn't say which season it is for. The free pickup/return days wording appears in the post 'Snow Season Prep Guide: 2025/26 Edition': 'when you rent from Sports Basement, your pickup and return days are free!' No 2026-27 restatement was found on the rates page, the pickup page or the FAQ.",
+      "price_usd": "$85 (2-4 days); $145 (5-9 days)",
+      "source_url": "https://www.sportsbasement.com/pages/snow-rental-rates",
+      "secondary_source_url": "https://www.sportsbasement.com/blogs/news/ski-snowboard-season-prep-2025-26-edition",
+      "date": "2026-09-28",
+      "confidence": "medium"
+    }
+  ],
+  "coverage_gaps": [
+    "Boreal iRide 4-Pack price after Oct 1 is not published yet; re-read on or after Oct 1.",
+    "Boreal Go-Time prices for Dec 31, Jan 1 and Jan 2 are not on sale yet.",
+    "Sports Basement free pickup/return days are not restated for 2026-27.",
+    "Drive times to Boreal for the two Truckee listings are estimates, not measured routes."
+  ]
+}
