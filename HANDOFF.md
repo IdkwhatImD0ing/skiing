@@ -127,6 +127,13 @@ The four-person houses (Castle Creek, the Donner Lake studio, the Soda Springs p
 four at most and are off the trip. **The 3-day version has no total at five:** its only
 house is Castle Creek at four, and nothing is quoted for five from Dec 30.
 
+**There's a 4-person version too**, `/trips/boreal-new-year-4-people` (2026-09-30): the same
+Dec 29 – Jan 3 dates for four, in **Castle Creek Chalet**, repriced to **$1,893** for 4 adults
+(5 × $378.60, discounted from a struck-through $2,765.27). Its other option is the Donner Lake
+studio. The Alta House ($1,150, `soda-springs-4p`) is cheaper but sits in the foothills, not
+near Boreal, so it's left off. The switch labels are now "5 people · 4 days", "5 people · 3
+days", "4 people · 4 days".
+
 **The Boreal trip has a 3-day version**, `/trips/boreal-new-year-3-days`: check in Dec 30,
 ski Dec 31 – Jan 2, home Jan 3. Plans that share a `group` are versions of one trip. The header
 and the home list show the group once (`TRIP_HEADS`), and the trip page shows a length switch

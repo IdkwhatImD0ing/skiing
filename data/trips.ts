@@ -10,7 +10,7 @@ export const TRIPS: Plan[] = [
     slug: "boreal-new-year",
     title: "Boreal over New Year",
     group: "boreal-new-year",
-    variant: "4 days · Dec 29 – Jan 3",
+    variant: "5 people · 4 days",
     // Bill: "We are going to boreal", and the group for this one is four.
     people: 5,
     skiDays: SCENARIO.skiDays,
@@ -38,7 +38,7 @@ export const TRIPS: Plan[] = [
     slug: "boreal-new-year-3-days",
     title: "Boreal over New Year, 3 days",
     group: "boreal-new-year",
-    variant: "3 days · Dec 30 – Jan 3",
+    variant: "5 people · 3 days",
     people: 5,
     skiDays: 3,
     nights: 4,
@@ -53,6 +53,35 @@ export const TRIPS: Plan[] = [
     // Dec 30 check-in. No house is marked as the plan, so the page opens on
     // the cheapest. Castle Creek sleeps four at most and dropped off.
     shortlist: ["boreal-hostel-5-4n", "boreal-hotel-5-4n"],
+    deadline: {
+      lead: "Buy your Boreal iRide 4-Pack online before Oct 1.",
+      detail:
+        "It is $239 until then and goes up after; Boreal’s own FAQ already quotes $259. It is not sold at the window, so everyone buys their own.",
+    },
+  },
+  {
+    // The four-person version: the original trip before the group grew, back
+    // because Castle Creek repriced to $1,893. Same dates as the 5-person
+    // 4-day trip.
+    slug: "boreal-new-year-4-people",
+    title: "Boreal over New Year, 4 people",
+    group: "boreal-new-year",
+    variant: "4 people · 4 days",
+    people: 4,
+    skiDays: SCENARIO.skiDays,
+    nights: 5,
+    age: SCENARIO.age,
+    checkIn: "2026-12-29",
+    checkOut: "2027-01-03",
+    skiDates: ["2026-12-30", "2026-12-31", "2027-01-01", "2027-01-02"],
+    resort: "boreal",
+    blurb:
+      "The same week for four of us. That is New Year week, when most passes in Tahoe are blacked out; Boreal’s 4-pack has no blackout dates at all.",
+    // Castle Creek is the plan. The Donner Lake studio is the cheaper option
+    // near Boreal. The Alta House ($1,150) is cheaper still but sits in the
+    // foothills well down I-80, so it stays off.
+    stay: "truckee-castle-creek",
+    shortlist: ["truckee-donner-lake-studio", "truckee-castle-creek"],
     deadline: {
       lead: "Buy your Boreal iRide 4-Pack online before Oct 1.",
       detail:
